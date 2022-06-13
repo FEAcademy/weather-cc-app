@@ -16,6 +16,7 @@ const LogoTxt = styled.p`
   color: #707070;
   font-size: 18px;
   font-weight: 300;
+  text-transform: uppercase;
   > span {
     font-weight: 800;
   }
