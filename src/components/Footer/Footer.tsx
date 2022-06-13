@@ -4,7 +4,7 @@ import { StyledFooter } from './StyledFooter'
 const Footer = () => {
 
   return (
-    <StyledFooter><span>WEATHER</span>ly - <span>{yearUpdate()}</span></StyledFooter>
+    <StyledFooter><span>Weather</span>ly <span> - {yearUpdate()}</span></StyledFooter>
   )
 }
 
