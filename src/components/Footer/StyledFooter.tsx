@@ -10,6 +10,8 @@ const StyledFooter = styled.footer`
   justify-content: center;
   align-items: center;
   font-weight: 300;
+  position: absolute;
+  bottom: 0;
   > span {
     font-weight: 900;
   }
