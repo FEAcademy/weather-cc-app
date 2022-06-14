@@ -1,14 +1,14 @@
-// import { Container } from './Footer'
-import { Container, BoldText, SpanText } from './Footer'
+import { Container, FooterText } from './Footer'
 
 const Footer = () => {
   const now = new Date()
   const currYear = now.getFullYear()
   return (
     <Container>
-      <BoldText>WEATHER</BoldText>
-      <SpanText weight={400}>LY</SpanText>
-      <SpanText weight={900}>&nbsp;-&nbsp;{currYear}</SpanText>
+      <FooterText>
+        WEATHER<span>LY</span>
+        <span>&nbsp;-&nbsp;{currYear}</span>
+      </FooterText>
     </Container>
   )
 }

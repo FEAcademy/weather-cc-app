@@ -11,19 +11,19 @@ const Container = styled.footer`
   align-items: center;
 `
 
-const BoldText = styled.p`
+const FooterText = styled.span`
   font-weight: 900;
   font-size: 12px;
   line-height: 14px;
-
   color: #707070;
+
+  span:first-child {
+    font-weight: 300;
+  }
+
+  span:nth-child(2) {
+    font-weight: 600;
+  }
 `
 
-const SpanText = styled.span<{ weight?: number }>`
-  font-weight: ${(p) => (p.weight ? p.weight : 500)};
-  font-size: 12px;
-  line-height: 14px;
-  color: #707070;
-`
-
-export { Container, BoldText, SpanText }
+export { Container, FooterText }
