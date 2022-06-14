@@ -15,7 +15,7 @@ const LogoText = styled.p`
   font-size: 18px;
   font-weight: 800;
   text-transform: uppercase;
-  margin-left: 100px; //just for now because AC requires logo only.
+  margin-left: 120px;
   > span {
     font-weight: 300;
   }
