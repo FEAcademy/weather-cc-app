@@ -1,5 +1,5 @@
 import { getCurrentYear } from 'components/Footer/utils/getCurrentYear'
-import { StyledFooter } from './StyledFooter'
+import { StyledFooter } from './Footer.styled'
 
 const Footer = () => {
   return (
