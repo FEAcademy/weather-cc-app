@@ -1,7 +1,7 @@
 import React from 'react'
-import { Logo, LogoText, LogoTextLight } from './Navbar'
+import { Logo, LogoText, LogoTextLight } from './Navbar.styled'
 
-const index = () => {
+const Navbar = () => {
   return (
     <Logo>
       <LogoText>
@@ -11,4 +11,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Navbar
