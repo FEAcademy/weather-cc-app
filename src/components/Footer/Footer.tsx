@@ -1,23 +1,17 @@
-import styled from 'styled-components'
+import React from 'react'
+import { Container, LightText, MediumText, Text } from './Footer.styled'
 
-const Footer = styled.footer`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 31px 0;
-`
+const Footer = () => {
+  const currYear = new Date().getFullYear()
 
-const Text = styled.p`
-  font-weight: 900;
-  color: #707070;
-`
+  return (
+    <Container>
+      <Text>
+        WEATHER<LightText>LY</LightText>
+        <MediumText>&nbsp;-&nbsp;{currYear}</MediumText>
+      </Text>
+    </Container>
+  )
+}
 
-const LightText = styled.span`
-  font-weight: 300;
-`
-
-export { Footer, Text, LightText }
+export default Footer
