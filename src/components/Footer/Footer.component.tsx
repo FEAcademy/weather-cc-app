@@ -1,6 +1,6 @@
 import React from 'react'
+import { Wrapper } from './Footer.styled'
 import { FooterTestIds } from './FooterTestIds'
-import { Wrapper } from './Wrapper'
 
 export function Footer() {
   return (

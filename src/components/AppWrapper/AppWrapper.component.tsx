@@ -2,8 +2,8 @@ import { Footer } from 'components/Footer'
 import { HomePage } from 'pages/Home'
 import React from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { InnerWrapper } from './InnerWrapper'
-import { OuterWrapper } from './OuterWrapper'
+import { InnerWrapper } from './AppWrapper.styled'
+import { OuterWrapper } from './AppWrapper.styled'
 
 export function AppWrapper() {
   const location = useLocation()
