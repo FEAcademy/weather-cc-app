@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { FooterTestIds } from './FooterTestIds'
 import { Wrapper } from './Wrapper'
 
 export function Footer() {
@@ -7,7 +7,7 @@ export function Footer() {
     <Wrapper>
       <>
         <span>WEATHER</span>
-        <span>LY</span>&nbsp;-&nbsp;<span>{new Date().getFullYear()}</span>
+        <span>LY</span>&nbsp;-&nbsp;<span data-testid={FooterTestIds.Year}>{new Date().getFullYear()}</span>
       </>
     </Wrapper>
   )
