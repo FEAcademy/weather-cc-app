@@ -7,7 +7,9 @@ export const Wrapper = styled.footer`
   left: 0;
   padding: 31px 0;
   width: 100%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #707070;
 
   span {
