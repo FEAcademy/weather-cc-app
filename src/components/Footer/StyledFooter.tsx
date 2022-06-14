@@ -9,11 +9,11 @@ const StyledFooter = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 300;
+  font-weight: 900;
   position: absolute;
   bottom: 0;
   > span {
-    font-weight: 900;
+    font-weight: 300;
   }
 `
 

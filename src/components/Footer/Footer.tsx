@@ -1,10 +1,10 @@
-import { yearUpdate } from 'features/YearUpdater/yearUpdate'
+import { getCurrentYear } from 'utils/getCurrentYear'
 import { StyledFooter } from './StyledFooter'
 
 const Footer = () => {
-
   return (
-    <StyledFooter><span>Weather</span>ly <span> - {yearUpdate()}</span></StyledFooter>
+    <StyledFooter>
+      Weather<span>ly</span>&nbsp; - &nbsp;{getCurrentYear()}</StyledFooter>
   )
 }
 

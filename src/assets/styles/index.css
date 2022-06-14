@@ -3,10 +3,9 @@
 
 html,
 body {
-  min-height: 100%;
   font-family: "Lato", sans-serif;
-  position: relative;
 }
 body {
-  padding-bottom: 76px;
+  padding-bottom: 80px;
+  position: relative;
 }
