@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Props } from './Navbar'
+import { Props } from './Navbar.component'
 
 export const Wrapper = styled.nav<Props>`
   position: fixed;
