@@ -8,18 +8,17 @@ const NavContainer = styled.nav`
     top: 0;
     display: flex;
     align-items: center;
-    //justify-content: space-evenly;
-    padding-left: 100px; //just for now because AC requires logo only.
     box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.1);
 `
-const LogoTxt = styled.p`
+const LogoText = styled.p`
   color: #707070;
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 800;
   text-transform: uppercase;
+  margin-left: 100px; //just for now because AC requires logo only.
   > span {
-    font-weight: 800;
+    font-weight: 300;
   }
 `
 
-export { NavContainer, LogoTxt }
+export { NavContainer, LogoText }
