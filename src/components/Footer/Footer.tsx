@@ -1,11 +1,11 @@
 import React from 'react'
 import { Container, LightText, MediumText, Text } from './Footer.styled'
 
-const Footer = () => {
+export const Footer = () => {
   const currYear = new Date().getFullYear()
 
   return (
-    <Container>
+    <Container data-testid="Footer">
       <Text>
         WEATHER<LightText>LY</LightText>
         <MediumText>&nbsp;-&nbsp;{currYear}</MediumText>
@@ -13,5 +13,3 @@ const Footer = () => {
     </Container>
   )
 }
-
-export default Footer
