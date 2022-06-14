@@ -7,7 +7,7 @@ const Logo = styled.nav`
   align-items: center;
   padding: 19px 120px;
   width: 100%;
-  line-height: 21.6px;
+  font-size: 18px;
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.1);
 `
