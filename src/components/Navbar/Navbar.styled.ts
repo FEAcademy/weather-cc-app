@@ -1,15 +1,20 @@
 import styled from 'styled-components'
 
-const Wrapper = styled.nav`
+const Container = styled.div`
   position: relative;
   top: 0;
-  left: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  padding: 19px 120px;
+  height: 60px;
+  padding: 0 18px;
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.1);
+`
+
+const Wrapper = styled.nav`
+  width: 100%;
+  max-width: 1200px;
 `
 
 const Logo = styled.div`
@@ -29,4 +34,4 @@ const SpanText = styled.span`
   line-height: 21.6px;
   color: #707070;
 `
-export { Wrapper, BoldText, SpanText, Logo }
+export { Container, Wrapper, BoldText, SpanText, Logo }

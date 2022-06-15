@@ -7,8 +7,8 @@ import 'assets/styles/index.css'
 const App = () => {
   return (
     <>
-      <Navbar />
       <Router>
+        <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
         </Routes>
