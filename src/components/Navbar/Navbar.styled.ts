@@ -3,9 +3,8 @@ import styled from 'styled-components'
 const Container = styled.nav`
   width: 100%;
   height: 60px;
-  position: fixed;
+  position: sticky;
   display: flex;
-  align-items: center;
   justify-content: center;
   background: rgba(255, 255, 255, 0.9);
   padding: 0 18px;
