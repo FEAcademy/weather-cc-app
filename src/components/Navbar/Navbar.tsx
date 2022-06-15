@@ -1,7 +1,7 @@
-import React from 'react'
-import { Container, Wrapper, Logo } from './Navbar.styled'
+import React from 'react';
+import { Container, Wrapper, Logo } from './Navbar.styled';
 
-export function Navbar() {
+export const Navbar = () => {
   return (
     <Container>
       <Wrapper>
@@ -10,5 +10,5 @@ export function Navbar() {
         </Logo>
       </Wrapper>
     </Container>
-  )
-}
+  );
+};
