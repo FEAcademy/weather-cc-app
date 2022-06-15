@@ -8,6 +8,7 @@ export const StyledFooter = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #fff;
   div {
     text-transform: uppercase;
     font-weight: 900;
