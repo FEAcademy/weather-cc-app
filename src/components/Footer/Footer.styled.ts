@@ -15,7 +15,7 @@ const StyledFooter = styled.footer`
   > span {
     font-weight: 300;
   }
-  > span.footer_currentYear {
+  > span[title='currentYear'] {
     font-weight: 600;
   }
 `

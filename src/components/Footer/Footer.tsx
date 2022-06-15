@@ -5,7 +5,10 @@ const Footer = () => {
   return (
     <StyledFooter>
       Weather
-      <span>ly</span>&nbsp; - &nbsp;<span className='footer_currentYear'>{getCurrentYear()}</span>
+      <span>ly</span>
+      <span title='currentYear'>
+        &nbsp; - &nbsp;{getCurrentYear()}
+      </span>
     </StyledFooter>
   )
 }
