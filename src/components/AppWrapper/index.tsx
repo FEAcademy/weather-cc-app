@@ -1,1 +1,1 @@
-export { AppWrapper } from './AppWrapper.component'
+export { AppWrapper } from './AppWrapper.component';

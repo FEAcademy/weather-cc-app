@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Wrapper = styled.footer`
   position: absolute;
@@ -27,4 +27,4 @@ export const Wrapper = styled.footer`
   span:nth-child(3) {
     font-weight: 700;
   }
-`
+`;

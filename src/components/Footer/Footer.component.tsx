@@ -1,8 +1,8 @@
-import React from 'react'
-import { Wrapper } from './Footer.styled'
-import { FooterTestIds } from './FooterTestIds'
+import React from 'react';
+import { Wrapper } from './Footer.styled';
+import { FooterTestIds } from './FooterTestIds';
 
-export function Footer() {
+export const Footer = () => {
   return (
     <Wrapper>
       <>
@@ -10,5 +10,5 @@ export function Footer() {
         <span>LY</span>&nbsp;-&nbsp;<span data-testid={FooterTestIds.Year}>{new Date().getFullYear()}</span>
       </>
     </Wrapper>
-  )
-}
+  );
+};
