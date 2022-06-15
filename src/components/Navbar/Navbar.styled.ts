@@ -5,7 +5,6 @@ export const Container = styled.nav`
   padding: 0 18px;
   display: flex;
   justify-content: center;
-  //align-items: center;
   position: sticky;
   top: 0;
   background: rgba(255, 255, 255, 0.9);
@@ -17,6 +16,7 @@ export const Wrapper = styled.div`
   max-width: 1200px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `
 
 export const Logo = styled.h1`
