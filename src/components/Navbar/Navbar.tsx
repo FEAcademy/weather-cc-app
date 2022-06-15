@@ -1,4 +1,4 @@
-import { LogoText, NavContainer, Wrapper } from './Navbar.styled'
+import { LogoText, NavContainer, Wrapper } from './Navbar.styled';
 
 const Navbar = () => {
     return (
@@ -7,7 +7,7 @@ const Navbar = () => {
                 <LogoText>Weather<span>ly</span></LogoText>
             </Wrapper>
         </NavContainer>
-    )
-}
+    );
+};
 
-export { Navbar }
+export { Navbar };
