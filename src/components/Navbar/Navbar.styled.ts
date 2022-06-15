@@ -2,18 +2,19 @@ import styled from 'styled-components'
 
 const NavContainer = styled.nav`
     width: 100%;
-    min-height: 60px;
-    padding: 0 18px;
+    height: 60px;
+    padding: 19px 18px;
     background: rgba(255, 255, 255, 0.9);
     position: sticky;
     top: 0;
     display: flex;
-    align-items: center;
+    justify-content: center;
 `
 const Wrapper = styled.div`
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
 `
 const LogoText = styled.h1`
   color: #707070;
