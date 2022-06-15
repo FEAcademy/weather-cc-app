@@ -15,6 +15,8 @@ export const Container = styled.nav`
 export const Wrapper = styled.div`
   width: 100%;
   max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
 `
 
 export const Logo = styled.h1`
