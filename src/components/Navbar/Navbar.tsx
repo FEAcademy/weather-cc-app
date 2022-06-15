@@ -1,9 +1,11 @@
-import { LogoText, NavContainer } from './Navbar.styled'
+import { LogoText, NavContainer, Wrapper } from './Navbar.styled'
 
 const Navbar = () => {
     return (
         <NavContainer>
-            <LogoText>Weather<span>ly</span></LogoText>
+            <Wrapper>
+                <LogoText>Weather<span>ly</span></LogoText>
+            </Wrapper>
         </NavContainer>
     )
 }
