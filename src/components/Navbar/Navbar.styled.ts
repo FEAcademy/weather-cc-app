@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const NavContainer = styled.nav`
     width: 100%;
-    height: 60px;
+    min-height: 60px;
     padding: 0 18px;
     background: rgba(255, 255, 255, 0.9);
     position: sticky;
@@ -19,6 +19,7 @@ const Wrapper = styled.div`
 const LogoText = styled.h1`
   color: #707070;
   font-size: 18px;
+  line-height: 21.6px;
   font-weight: 800;
   text-transform: uppercase;
   > span {
