@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Container = styled.div`
+const Container = styled.nav`
   position: relative;
   top: 0;
   display: flex;
@@ -12,26 +12,20 @@ const Container = styled.div`
   background: rgba(255, 255, 255, 0.9);
 `
 
-const Wrapper = styled.nav`
+const Wrapper = styled.div`
   width: 100%;
   max-width: 1200px;
 `
 
-const Logo = styled.div`
-  display: flex;
-`
-
-const BoldText = styled.p`
+const Logo = styled.h1`
   font-weight: 900;
   font-size: 18px;
   line-height: 21.6px;
   color: #707070;
+
+  span {
+    font-weight: 300;
+  }
 `
 
-const SpanText = styled.span`
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 21.6px;
-  color: #707070;
-`
-export { Container, Wrapper, BoldText, SpanText, Logo }
+export { Container, Wrapper, Logo }
