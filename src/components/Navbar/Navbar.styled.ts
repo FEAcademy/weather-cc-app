@@ -9,7 +9,6 @@ export const Container = styled.nav`
   position: sticky;
   top: 0;
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.1);
   height: 60px;
 `
 
