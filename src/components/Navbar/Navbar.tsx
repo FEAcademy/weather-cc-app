@@ -1,4 +1,4 @@
-import { Container, Wrapper, Logo } from './Navbar.styled'
+import { Container, Wrapper, Logo } from './Navbar.styled';
 
 export const Navbar = () => {
   return (
@@ -10,5 +10,5 @@ export const Navbar = () => {
         </Logo>
       </Wrapper>
     </Container>
-  )
-}
+  );
+};

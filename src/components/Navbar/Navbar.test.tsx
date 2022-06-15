@@ -1,25 +1,25 @@
-import { render, screen } from '@testing-library/react'
-import { Navbar } from './Navbar'
+import { render, screen } from '@testing-library/react';
+import { Navbar } from './Navbar';
 
 describe('Navbar', () => {
   test('navbar is not empty', () => {
-    render(<Navbar />)
+    render(<Navbar />);
 
-    const navbar = screen.getByRole('navigation')
-    expect(navbar).not.toBeEmptyDOMElement()
-  })
+    const navbar = screen.getByRole('navigation');
+    expect(navbar).not.toBeEmptyDOMElement();
+  });
 
   test('renders footer', () => {
-    render(<Navbar />)
+    render(<Navbar />);
 
-    const navbar = screen.getByRole('navigation')
-    expect(navbar).toBeVisible()
-  })
+    const navbar = screen.getByRole('navigation');
+    expect(navbar).toBeVisible();
+  });
 
   test('navbar has logo', () => {
-    render(<Navbar />)
+    render(<Navbar />);
 
-    const navbar = screen.getByRole('navigation')
-    expect(navbar).toHaveTextContent(/weatherly/i)
-  })
-})
+    const navbar = screen.getByRole('navigation');
+    expect(navbar).toHaveTextContent(/weatherly/i);
+  });
+});

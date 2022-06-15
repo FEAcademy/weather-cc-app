@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Container = styled.nav`
   position: relative;
@@ -10,12 +10,12 @@ const Container = styled.nav`
   height: 60px;
   padding: 0 18px;
   background: rgba(255, 255, 255, 0.9);
-`
+`;
 
 const Wrapper = styled.div`
   width: 100%;
   max-width: 1200px;
-`
+`;
 
 const Logo = styled.h1`
   font-weight: 900;
@@ -26,6 +26,6 @@ const Logo = styled.h1`
   span {
     font-weight: 300;
   }
-`
+`;
 
-export { Container, Wrapper, Logo }
+export { Container, Wrapper, Logo };
