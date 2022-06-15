@@ -9,7 +9,6 @@ const NavContainer = styled.nav`
     top: 0;
     display: flex;
     align-items: center;
-    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.1);
 `
 const Wrapper = styled.div`
     width: 100%;
