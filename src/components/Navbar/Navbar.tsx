@@ -1,9 +1,13 @@
-import { Logo, StyledNavbar } from './Navbar.styled'
+import { Logo, Wrapper, Container } from './Navbar.styled'
 
 export function Navbar() {
   return (
-    <StyledNavbar>
-        <Logo>Weather<span>Ly</span></Logo>
-    </StyledNavbar>
+    <Container>
+      <Wrapper>
+        <Logo>
+          Weather<span>Ly</span>
+        </Logo>
+      </Wrapper>
+    </Container>
   )
 }
