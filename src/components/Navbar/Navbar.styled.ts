@@ -1,15 +1,16 @@
 import styled from 'styled-components'
 
 export const Container = styled.nav`
-  position: fixed;
+  position: sticky;
   top: 0;
   height: 60px;
   width: 100%;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 0 18px;
+  display: flex;
+  justify-content: center;
 `
 export const Wrapper = styled.div`
-  height: 100%;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;

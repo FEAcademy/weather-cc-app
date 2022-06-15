@@ -3,10 +3,6 @@
 
 html,
 body {
-  min-height: 100vh;
+  height: 100%;
   font-family: 'Lato', sans-serif;
-}
-
-body {
-  padding-top: 60px;
 }
