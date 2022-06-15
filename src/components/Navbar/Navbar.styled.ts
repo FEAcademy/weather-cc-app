@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const NavContainer = styled.nav`
     width: 100%;
-    height: 68px;
+    height: 60px;
     background: rgba(255, 255, 255, 0.9);
     position: sticky;
     top: 0;
