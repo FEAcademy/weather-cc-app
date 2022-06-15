@@ -1,17 +1,14 @@
 import React from 'react'
-import { Wrapper } from './Navbar.styled'
+import { Container, Wrapper, Logo } from './Navbar.styled'
 
-export interface Props {
-  isPageScrollable: boolean
-}
-
-export function Navbar({ isPageScrollable }: Props) {
+export function Navbar() {
   return (
-    <Wrapper isPageScrollable={isPageScrollable}>
-      <h1>
-        <span>WEATHER</span>
-        <span>LY</span>
-      </h1>
-    </Wrapper>
+    <Container>
+      <Wrapper>
+        <Logo>
+          Weather<span>ly</span>
+        </Logo>
+      </Wrapper>
+    </Container>
   )
 }
