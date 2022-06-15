@@ -1,12 +1,14 @@
 import React from 'react'
-import { Logo, LogoText, LogoTextLight } from './Navbar.styled'
+import { Logo, Container, Wrapper } from './Navbar.styled'
 
 export const Navbar = () => {
   return (
-    <Logo>
-      <LogoText>
-        WEATHER<LogoTextLight>LY</LogoTextLight>
-      </LogoText>
-    </Logo>
+    <Container>
+      <Wrapper>
+        <Logo>
+          WEATHER<span>LY</span>
+        </Logo>
+      </Wrapper>
+    </Container>
   )
 }
