@@ -2,15 +2,18 @@ import styled from 'styled-components'
 
 const Container = styled.nav`
   width: 100%;
+  height: 60px;
   position: fixed;
-  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.9);
-  padding: 19px 18px;
+  padding: 0 18px;
 `
 
 const Wrapper = styled.div`
   max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
