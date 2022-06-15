@@ -6,6 +6,7 @@ describe('Footer tests', () => {
     render(<Footer />)
 
     const footer = screen.getByTestId('Footer')
+
     expect(footer).toBeInTheDocument()
   })
 
@@ -20,9 +21,12 @@ describe('Footer tests', () => {
   test('Footer displays date corectly', () => {
     render(<Footer />)
 
-    const currentYear = new Date().getFullYear()
+    jest.useFakeTimers().setSystemTime(new Date().getFullYear())
+
+    const currentYear = new Date(jest.getRealSystemTime()).getFullYear()
+
     const footer = screen.getByTestId('Footer')
 
-    expect(footer).toHaveTextContent('WEATHERLY - ' + currentYear)
+    expect(footer).toHaveTextContent(`WEATHERLY - ${currentYear}`)
   })
 })

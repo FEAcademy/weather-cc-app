@@ -14,14 +14,14 @@ const Container = styled.footer`
 const Text = styled.p`
   font-weight: 900;
   color: #707070;
+
+  & > span {
+    font-weight: 300;
+  }
+
+  & > span:nth-child(2) {
+    font-weight: 600;
+  }
 `
 
-const MediumText = styled.span`
-  font-weight: 600;
-`
-
-const LightText = styled.span`
-  font-weight: 300;
-`
-
-export { Container, Text, LightText, MediumText }
+export { Container, Text }
