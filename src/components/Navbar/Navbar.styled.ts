@@ -5,7 +5,7 @@ export const Container = styled.nav`
   padding: 0 18px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  //align-items: center;
   position: sticky;
   top: 0;
   background: rgba(255, 255, 255, 0.9);
@@ -25,7 +25,7 @@ export const Logo = styled.h1`
   text-transform: uppercase;
   font-weight: 900;
 
-  span:first-child {
+  span {
     font-weight: 300;
   }
 `
