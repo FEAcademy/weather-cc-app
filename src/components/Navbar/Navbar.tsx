@@ -1,4 +1,4 @@
-import { Logo, Wrapper, Container } from './Navbar.styled'
+import { Logo, Wrapper, Container } from './Navbar.styled';
 
 export function Navbar() {
   return (
@@ -9,5 +9,5 @@ export function Navbar() {
         </Logo>
       </Wrapper>
     </Container>
-  )
+  );
 }
