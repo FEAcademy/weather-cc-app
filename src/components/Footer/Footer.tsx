@@ -1,7 +1,7 @@
-import { StyledFooter, LightSpan, MediumSpan } from './Footer.styled'
+import { StyledFooter, LightSpan, MediumSpan } from './Footer.styled';
 
 export function Footer() {
-  const currentYear: number = new Date().getFullYear()
+  const currentYear: number = new Date().getFullYear();
   return (
     <StyledFooter>
       <div>
@@ -9,5 +9,5 @@ export function Footer() {
         <MediumSpan>&nbsp;-&nbsp;{currentYear}</MediumSpan>
       </div>
     </StyledFooter>
-  )
+  );
 }

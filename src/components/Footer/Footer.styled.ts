@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const StyledFooter = styled.footer`
   height: 76px;
@@ -15,12 +15,12 @@ export const StyledFooter = styled.footer`
     color: #707070;
     font-size: 12px;
   }
-`
+`;
 
 export const LightSpan = styled.span`
   font-weight: 300;
-`
+`;
 
 export const MediumSpan = styled.span`
   font-weight: 600;
-`
+`;
