@@ -1,11 +1,31 @@
 import { render, screen } from '@testing-library/react';
-import { Footer } from './Footer.component';
+import { Footer } from './Footer';
 import { FooterTestIds } from './FooterTestIds';
 
 describe('Footer', () => {
-  test('renders footer with current year', () => {
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
+  it('should render 2022 year', () => {
+    jest.useFakeTimers();
+    jest.setSystemTime(new Date('2022-01-27'));
+
     render(<Footer />);
 
-    expect(screen.getByTestId(FooterTestIds.Year)).toHaveTextContent(new Date().getFullYear().toString());
+    const year = screen.getByTestId(FooterTestIds.Year);
+
+    expect(year).toHaveTextContent('2022');
+  });
+
+  it('should render 2100 year', () => {
+    jest.useFakeTimers();
+    jest.setSystemTime(new Date('2100-01-27'));
+
+    render(<Footer />);
+
+    const year = screen.getByTestId(FooterTestIds.Year);
+
+    expect(year).toHaveTextContent('2100');
   });
 });
