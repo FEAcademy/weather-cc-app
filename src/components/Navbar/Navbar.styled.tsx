@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.nav`
-  position: fixed;
+  position: sticky;
   top: 0;
   background: rgba(255, 255, 255, 0.9);
   height: 60px;
