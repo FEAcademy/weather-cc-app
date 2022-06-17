@@ -8,7 +8,7 @@ import { OuterWrapper } from './AppWrapper.styled';
 export const AppWrapper = () => {
   const location = useLocation();
 
-  const isMapPage: boolean = location.pathname === '/map' ? true : false;
+  const isMapPage: boolean = location.pathname === '/map';
 
   return (
     <OuterWrapper>

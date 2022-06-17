@@ -3,10 +3,6 @@ import { Footer } from './Footer';
 import { FooterTestIds } from './FooterTestIds';
 
 describe('Footer', () => {
-  afterEach(() => {
-    jest.useRealTimers();
-  });
-
   it('should render 2022 year', () => {
     jest.useFakeTimers();
     jest.setSystemTime(new Date('2022-01-27'));
