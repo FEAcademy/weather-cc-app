@@ -1,14 +1,15 @@
 import React from 'react'
 import { Container, Text } from './Footer.styled'
+import { FooterTestIds } from './Footer.TestIds'
 
 export const Footer = () => {
-  const currYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear()
 
   return (
     <Container>
-      <Text data-testid="Footer">
+      <Text data-testid={FooterTestIds.Container}>
         WEATHER<span>LY</span>
-        <span>&nbsp;-&nbsp;{currYear}</span>
+        <span>&nbsp;-&nbsp;{currentYear}</span>
       </Text>
     </Container>
   )

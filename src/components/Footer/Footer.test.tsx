@@ -1,32 +1,30 @@
 import { render, screen } from '@testing-library/react'
 import { Footer } from './Footer'
 
-describe('Footer tests', () => {
-  test('Footer renders', () => {
+describe('Footer', () => {
+  it('should renders', () => {
     render(<Footer />)
 
-    const footer = screen.getByTestId('Footer')
+    const footer = screen.getByTestId('footer-container')
 
     expect(footer).toBeInTheDocument()
   })
 
-  test('Footer not empty', () => {
+  it('should not be empty', () => {
     render(<Footer />)
 
-    const footer = screen.getByTestId('Footer')
+    const footer = screen.getByTestId('footer-container')
 
     expect(footer).not.toBeEmptyDOMElement()
   })
 
-  test('Footer displays date corectly', () => {
+  it('should display date corectly', () => {
     render(<Footer />)
 
-    jest.useFakeTimers().setSystemTime(new Date().getFullYear())
+    jest.useFakeTimers().setSystemTime(new Date('2022-01-01'))
 
-    const currentYear = new Date(jest.getRealSystemTime()).getFullYear()
+    const footer = screen.getByTestId('footer-container')
 
-    const footer = screen.getByTestId('Footer')
-
-    expect(footer).toHaveTextContent(`WEATHERLY - ${currentYear}`)
+    expect(footer).toHaveTextContent('WEATHERLY - 2022')
   })
 })
