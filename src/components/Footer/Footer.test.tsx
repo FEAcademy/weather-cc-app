@@ -4,21 +4,22 @@ import { Footer } from './Footer'
 describe('Footer', () => {
   test('renders footer', () => {
     render(<Footer />)
-    const footerText = screen.getByTestId('footer-text')
-    expect(footerText).toBeVisible()
+    const footer = screen.getByRole('contentinfo')
+    expect(footer).toBeVisible()
   })
 
   test('renders footer text', () => {
     render(<Footer />)
-    const footerText = screen.getByTestId('footer-text')
-    expect(footerText).toHaveTextContent(/weatherly/i)
+    const footer = screen.getByRole('contentinfo')
+    expect(footer).toHaveTextContent(/weatherly/i)
   })
 
   test('renders logo and current year', () => {
+    jest.useFakeTimers()
+    jest.setSystemTime(new Date('2023-01-01'))
+
     render(<Footer />)
-    const now = jest.getRealSystemTime()
-    const currYear = new Date(now).getFullYear()
-    const footerText = screen.getByTestId('footer-text')
-    expect(footerText).toHaveTextContent(`WEATHERLY - ${currYear}`)
+    const footer = screen.getByRole('contentinfo')
+    expect(footer).toHaveTextContent('WEATHERLY - 2023')
   })
 })
