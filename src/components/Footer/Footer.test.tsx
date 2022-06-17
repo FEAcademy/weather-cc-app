@@ -14,8 +14,6 @@ describe('Footer Component', () => {
     it('should check if the year is current', () => {
         render(<Footer />)
         const footerTitleElement = screen.getByTitle('currentYear')
-        //const currentYear = new Date().getFullYear().toString()
-        //expect(footerTitleElement).toHaveTextContent(currentYear)
         expect(footerTitleElement).toHaveTextContent('- 2022')
     })
 })
