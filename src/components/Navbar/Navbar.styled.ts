@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.nav`
   position: sticky;
@@ -9,14 +9,14 @@ export const Container = styled.nav`
   padding: 0 18px;
   display: flex;
   justify-content: center;
-`
+`;
 export const Wrapper = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-`
+`;
 
 export const Logo = styled.h1`
   font-size: 18px;
@@ -26,4 +26,4 @@ export const Logo = styled.h1`
   span {
     font-weight: 300;
   }
-`
+`;
