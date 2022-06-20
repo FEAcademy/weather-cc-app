@@ -6,7 +6,7 @@ export const Navbar = () => {
   return (
     <Container data-testid={NavbarTestIds.Container}>
       <Wrapper>
-        <Logo>
+        <Logo data-testid={NavbarTestIds.Logo}>
           WEATHER<span>LY</span>
         </Logo>
       </Wrapper>

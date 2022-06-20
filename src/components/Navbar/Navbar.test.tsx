@@ -11,11 +11,13 @@ describe('Navbar', () => {
     expect(navbar).toBeInTheDocument();
   });
 
-  it('should not be empty', () => {
+  it('should contain logo', () => {
     render(<Navbar />);
 
     const navbar = screen.getByTestId(NavbarTestIds.Container);
 
-    expect(navbar).not.toBeEmptyDOMElement();
+    const logo = screen.getByTestId(NavbarTestIds.Logo);
+
+    expect(navbar).toContainElement(logo);
   });
 });
