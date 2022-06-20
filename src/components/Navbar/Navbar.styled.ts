@@ -22,6 +22,7 @@ const Logo = styled.h1`
   font-size: 18px;
   font-weight: 800;
   color: #707070;
+  text-transform: uppercase;
 
   & span {
     font-weight: 300;

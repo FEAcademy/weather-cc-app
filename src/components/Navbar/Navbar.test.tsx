@@ -12,11 +12,8 @@ describe('Navbar', () => {
 
   it('should contain logo', () => {
     render(<Navbar />);
+    const logo = screen.getByRole('heading', { name: /weather/i });
 
-    const navbar = screen.getByRole('navigation');
-
-    const logo = screen.getByRole('heading');
-
-    expect(navbar).toContainElement(logo);
+    expect(logo).toBeInTheDocument();
   });
 });
