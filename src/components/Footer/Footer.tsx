@@ -1,9 +1,9 @@
-import React from 'react'
-import { Container, Text } from './Footer.styled'
-import { FooterTestIds } from './Footer.TestIds'
+import React from 'react';
+import { Container, Text } from './Footer.styled';
+import { FooterTestIds } from './Footer.TestIds';
 
 export const Footer = () => {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <Container>
@@ -12,5 +12,5 @@ export const Footer = () => {
         <span>&nbsp;-&nbsp;{currentYear}</span>
       </Text>
     </Container>
-  )
-}
+  );
+};

@@ -1,30 +1,23 @@
-import { render, screen } from '@testing-library/react'
-import { Footer } from './Footer'
+import { render, screen } from '@testing-library/react';
+import { Footer } from './Footer';
+import { FooterTestIds } from './Footer.TestIds';
 
 describe('Footer', () => {
   it('should renders', () => {
-    render(<Footer />)
+    render(<Footer />);
 
-    const footer = screen.getByTestId('footer-container')
+    const footer = screen.getByTestId(FooterTestIds.Container);
 
-    expect(footer).toBeInTheDocument()
-  })
-
-  it('should not be empty', () => {
-    render(<Footer />)
-
-    const footer = screen.getByTestId('footer-container')
-
-    expect(footer).not.toBeEmptyDOMElement()
-  })
+    expect(footer).toBeInTheDocument();
+  });
 
   it('should display date corectly', () => {
-    render(<Footer />)
+    render(<Footer />);
 
-    jest.useFakeTimers().setSystemTime(new Date('2022-01-01'))
+    jest.useFakeTimers().setSystemTime(new Date('2022-01-01'));
 
-    const footer = screen.getByTestId('footer-container')
+    const footer = screen.getByTestId(FooterTestIds.Container);
 
-    expect(footer).toHaveTextContent('WEATHERLY - 2022')
-  })
-})
+    expect(footer).toHaveTextContent('WEATHERLY - 2022');
+  });
+});
