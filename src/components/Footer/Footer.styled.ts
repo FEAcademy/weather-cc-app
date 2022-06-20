@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Container = styled.footer`
   position: absolute;
@@ -8,7 +8,7 @@ const Container = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 const FooterText = styled.span`
   font-weight: 900;
@@ -23,6 +23,6 @@ const FooterText = styled.span`
   span:nth-child(2) {
     font-weight: 600;
   }
-`
+`;
 
-export { Container, FooterText }
+export { Container, FooterText };

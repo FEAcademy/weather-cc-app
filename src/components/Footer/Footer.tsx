@@ -1,8 +1,8 @@
-import { Container, FooterText } from './Footer.styled'
+import { Container, FooterText } from './Footer.styled';
 
 export const Footer = () => {
-  const now = new Date()
-  const currYear = now.getFullYear()
+  const now = new Date();
+  const currYear = now.getFullYear();
   return (
     <Container role={'contentinfo'}>
       <FooterText>
@@ -10,5 +10,5 @@ export const Footer = () => {
         <span>&nbsp;-&nbsp;{currYear}</span>
       </FooterText>
     </Container>
-  )
-}
+  );
+};
