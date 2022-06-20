@@ -1,9 +1,9 @@
-import { Footer } from 'components/Footer'
-import { HomePage } from 'pages/Home'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Container } from './Container.styled'
+import { Footer } from 'components/Footer';
+import { HomePage } from 'pages/Home';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Container } from './Container.styled';
 
-import 'assets/styles/index.css'
+import 'assets/styles/index.css';
 
 const App = () => {
   return (
@@ -15,7 +15,7 @@ const App = () => {
       </Router>
       <Footer />
     </Container>
-  )
-}
+  );
+};
 
-export default App
+export default App;

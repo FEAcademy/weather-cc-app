@@ -33,7 +33,7 @@ module.exports = {
     'quotes': [2, 'single'],
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['error'],
-    semi: ['error', 'never'],
+    semi: ['error', 'always'],
     'import/order': [
       'warn',
       {
@@ -43,8 +43,8 @@ module.exports = {
         },
         pathGroupsExcludedImportTypes: ['builtin'],
         groups: [
-          'builtin',
           'external',
+          'builtin',
           'internal', 
           'parent',
           'index'
@@ -57,4 +57,4 @@ module.exports = {
       version: 'detect' // Detect react version
     }
   }
-}
+};

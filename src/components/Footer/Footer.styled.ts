@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
   width: 100%;
@@ -18,6 +18,6 @@ const StyledFooter = styled.footer`
   > span[title='currentYear'] {
     font-weight: 600;
   }
-`
+`;
 
-export { StyledFooter }
+export { StyledFooter };
