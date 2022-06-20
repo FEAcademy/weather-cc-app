@@ -1,19 +1,18 @@
 import { render, screen } from '@testing-library/react';
 import { Navbar } from 'components/Navbar';
-import { NavbarTestIds } from 'components/Navbar/NavbarTestIds';
 
 describe('Navbar', () => {
   it('should contain Navbar', () => {
     render(<Navbar />);
 
-    const navbar = screen.getByTestId(NavbarTestIds.Navbar);
+    const navbar = screen.getByRole('navigation');
 
     expect(navbar).toBeInTheDocument();
   });
   it('should render Navbar', () => {
     render(<Navbar />);
 
-    const navbar = screen.getByTestId(NavbarTestIds.Navbar);
+    const navbar = screen.getByRole('navigation');
 
     expect(navbar).toBeVisible();
   });
@@ -21,8 +20,8 @@ describe('Navbar', () => {
   it('should contain logo', () => {
     render(<Navbar />);
 
-    const navbar = screen.getByTestId(NavbarTestIds.Logo);
+    const logo = screen.getByRole('heading', { name: /Weather/ });
 
-    expect(navbar).toHaveTextContent('Weatherly');
+    expect(logo).toBeInTheDocument();
   });
 });

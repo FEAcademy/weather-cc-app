@@ -1,12 +1,11 @@
 import React from 'react';
 import { Container, Wrapper, Logo } from './Navbar.styled';
-import { NavbarTestIds } from './NavbarTestIds';
 
 export const Navbar = () => {
   return (
-    <Container data-testid={NavbarTestIds.Navbar}>
+    <Container>
       <Wrapper>
-        <Logo data-testid={NavbarTestIds.Logo}>
+        <Logo>
           Weather<span>ly</span>
         </Logo>
       </Wrapper>
