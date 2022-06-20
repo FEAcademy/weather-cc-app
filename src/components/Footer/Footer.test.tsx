@@ -1,12 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import { Footer } from './Footer';
-import { FooterTestIds } from './FooterTestIds';
 
 describe('Footer', () => {
   it('should contain footer', () => {
     render(<Footer />);
 
-    const footer = screen.getByTestId(FooterTestIds.Footer);
+    const footer = screen.getByRole('contentinfo');
 
     expect(footer).toBeInTheDocument();
   });
@@ -14,7 +13,7 @@ describe('Footer', () => {
   it('should render footer', () => {
     render(<Footer />);
 
-    const footer = screen.getByTestId(FooterTestIds.Footer);
+    const footer = screen.getByRole('contentinfo');
 
     expect(footer).toBeVisible();
   });
@@ -25,8 +24,8 @@ describe('Footer', () => {
 
     render(<Footer />);
 
-    const year = screen.getByTestId(FooterTestIds.Year);
+    const year = screen.getByText('2022');
 
-    expect(year).toHaveTextContent('2022');
+    expect(year).toBeInTheDocument();
   });
 });
