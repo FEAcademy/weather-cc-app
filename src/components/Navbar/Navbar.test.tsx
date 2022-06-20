@@ -1,12 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import { Navbar } from 'components/Navbar';
-import { NavbarTestIds } from 'components/Navbar/NavbarTestIds';
 
 describe('Navbar', () => {
   it('should render', () => {
     render(<Navbar />);
 
-    const navbar = screen.getByTestId(NavbarTestIds.Container);
+    const navbar = screen.getByRole('navigation');
 
     expect(navbar).toBeInTheDocument();
   });
@@ -14,9 +13,9 @@ describe('Navbar', () => {
   it('should contain logo', () => {
     render(<Navbar />);
 
-    const navbar = screen.getByTestId(NavbarTestIds.Container);
+    const navbar = screen.getByRole('navigation');
 
-    const logo = screen.getByTestId(NavbarTestIds.Logo);
+    const logo = screen.getByRole('heading');
 
     expect(navbar).toContainElement(logo);
   });
