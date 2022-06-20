@@ -3,8 +3,11 @@
 
 html,
 body {
-  min-height: calc(100vh - 45px);
+  min-height: 100vh;
   font-family: 'Lato', sans-serif;
   position: relative;
-  padding-bottom: 45px;
+}
+
+body {
+  padding-bottom: 76px;
 }
