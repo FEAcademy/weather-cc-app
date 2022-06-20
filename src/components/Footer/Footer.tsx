@@ -1,11 +1,12 @@
 import React from 'react';
 import { Container, Text } from './Footer.styled';
+import { FooterTestIds } from './FooterTestIds';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Container>
+    <Container data-testid={FooterTestIds.Container}>
       <Text>
         WEATHER<span>LY</span>
         <span>&nbsp;-&nbsp;{currentYear}</span>
