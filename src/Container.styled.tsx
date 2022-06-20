@@ -1,9 +1,9 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Container = styled.div`
     position: relative;
     padding-bottom: 80px;
     min-height: 100vh;
-`
+`;
 
-export { Container }
+export { Container };
