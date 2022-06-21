@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import App from './App';
 
 describe('App', () => {
-  it('should render navbar', () => {
+  it('should render footer', () => {
     render(<App />);
 
     const footer = screen.getByRole('contentinfo');
