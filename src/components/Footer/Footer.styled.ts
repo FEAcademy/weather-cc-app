@@ -1,22 +1,28 @@
 import styled from 'styled-components';
 
-export const StyledFooter = styled.footer`
+const StyledFooter = styled.footer`
     width: 100%;
     position: absolute;
     bottom: 0;
     padding: 31px 0;
     height: 76px;
-    text-align: center;
-    text-transform: uppercase;
-    color: #707070;
+    display: flex;
+    justify-content: center;
+`;
+
+const FooterText = styled.p`
     font-weight: 900;
     font-size: 12px;
-
-    span:nth-child(1) {
-        font-weight: 300;
-    }
-
-    span:nth-child(2) {
-        font-weight: 600;
-    }
+    color: #707070;
+    text-transform: uppercase;
 `;
+
+const RegularText = styled.span`
+    font-weight: 600;
+`;
+
+const LightText = styled.span`
+    font-weight: 300;
+`;
+
+export{StyledFooter, FooterText, RegularText, LightText};
