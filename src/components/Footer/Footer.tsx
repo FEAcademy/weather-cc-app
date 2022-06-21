@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Text } from './Footer.styled';
 import { FooterTestIds } from './FooterTestIds';
 
-export const Footer = () => {
+const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -14,3 +14,5 @@ export const Footer = () => {
     </Container>
   );
 };
+
+export { Footer };

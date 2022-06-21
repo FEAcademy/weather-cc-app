@@ -12,13 +12,14 @@ const Container = styled.footer`
 
 const Text = styled.p`
   font-weight: 900;
+  font-size: 12px;
   color: #707070;
 
-  & > span {
+  & span:first-child {
     font-weight: 300;
   }
 
-  & > span:nth-child(2) {
+  & span:nth-child(2) {
     font-weight: 600;
   }
 `;
