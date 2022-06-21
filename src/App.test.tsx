@@ -5,8 +5,8 @@ describe('App', () => {
   it('should render navbar', () => {
     render(<App />);
 
-    const navbar = screen.getByRole('contentinfo');
+    const footer = screen.getByRole('contentinfo');
 
-    expect(navbar).toBeInTheDocument();
+    expect(footer).toBeInTheDocument();
   });
 });
