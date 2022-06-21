@@ -12,13 +12,6 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
       </Routes>
-      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium autem provident officiis. Consequuntur, dolorem amet saepe at ratione id ipsam, mollitia tempore optio praesentium aspernatur aperiam quod dolore modi deserunt.</div>
-      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium autem provident officiis. Consequuntur, dolorem amet saepe at ratione id ipsam, mollitia tempore optio praesentium aspernatur aperiam quod dolore modi deserunt.</div>
-      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium autem provident officiis. Consequuntur, dolorem amet saepe at ratione id ipsam, mollitia tempore optio praesentium aspernatur aperiam quod dolore modi deserunt.</div>
-      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium autem provident officiis. Consequuntur, dolorem amet saepe at ratione id ipsam, mollitia tempore optio praesentium aspernatur aperiam quod dolore modi deserunt.</div>
-      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium autem provident officiis. Consequuntur, dolorem amet saepe at ratione id ipsam, mollitia tempore optio praesentium aspernatur aperiam quod dolore modi deserunt.</div>
-      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium autem provident officiis. Consequuntur, dolorem amet saepe at ratione id ipsam, mollitia tempore optio praesentium aspernatur aperiam quod dolore modi deserunt.</div>
-      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium autem provident officiis. Consequuntur, dolorem amet saepe at ratione id ipsam, mollitia tempore optio praesentium aspernatur aperiam quod dolore modi deserunt.</div>
       <Footer />
     </Router>
   );
