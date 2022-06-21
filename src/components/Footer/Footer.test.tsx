@@ -6,14 +6,14 @@ describe('Footer Component', () => {
         jest.useFakeTimers();
         jest.setSystemTime(new Date('2022-01-01'));
     });
-    it('should render footer sign', () => {
+    it('should render footer', () => {
         render(<Footer />);
-        const footerTitleElement = screen.getByTitle('currentYear');
-        expect(footerTitleElement).toBeInTheDocument();
+        const footerElement = screen.getByRole('contentinfo');
+        expect(footerElement).toBeInTheDocument();
     });
-    it('should check if the year is current', () => {
+    it('should check if footer contains logo text with current year: "WEATHERLY - 2022"', () => {
         render(<Footer />);
-        const footerTitleElement = screen.getByTitle('currentYear');
-        expect(footerTitleElement).toHaveTextContent('- 2022');
+        const footerElement = screen.getByRole('contentinfo');
+        expect(footerElement).toHaveTextContent(/WEATHERLY - 2022/i);
     });
 });

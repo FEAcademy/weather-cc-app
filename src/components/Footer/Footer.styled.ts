@@ -3,21 +3,24 @@ import styled from 'styled-components';
 const StyledFooter = styled.footer`
   width: 100%;
   height: 76px;
-  color: #707070;
-  font-size: 12px;
-  text-transform: uppercase;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 900;
   position: absolute;
   bottom: 0;
+`;
+
+const FooterText = styled.p`
+  font-weight: 900;
+  color: #707070;
+  font-size: 12px;
+  text-transform: uppercase;
   > span {
     font-weight: 300;
   }
-  > span[title='currentYear'] {
+  > span:nth-child(2) {
     font-weight: 600;
   }
 `;
 
-export { StyledFooter };
+export { StyledFooter, FooterText };
