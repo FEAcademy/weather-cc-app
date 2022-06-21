@@ -1,22 +1,26 @@
 import { Footer } from 'components/Footer';
 import { HomePage } from 'pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Container } from './components/AppContainer/Container.styled';
 import { Navbar } from './components/Navbar';
 
 import 'assets/styles/index.css';
 
 const App = () => {
   return (
-    <Container>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-        </Routes>
-      </Router>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium autem provident officiis. Consequuntur, dolorem amet saepe at ratione id ipsam, mollitia tempore optio praesentium aspernatur aperiam quod dolore modi deserunt.</div>
+      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium autem provident officiis. Consequuntur, dolorem amet saepe at ratione id ipsam, mollitia tempore optio praesentium aspernatur aperiam quod dolore modi deserunt.</div>
+      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium autem provident officiis. Consequuntur, dolorem amet saepe at ratione id ipsam, mollitia tempore optio praesentium aspernatur aperiam quod dolore modi deserunt.</div>
+      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium autem provident officiis. Consequuntur, dolorem amet saepe at ratione id ipsam, mollitia tempore optio praesentium aspernatur aperiam quod dolore modi deserunt.</div>
+      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium autem provident officiis. Consequuntur, dolorem amet saepe at ratione id ipsam, mollitia tempore optio praesentium aspernatur aperiam quod dolore modi deserunt.</div>
+      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium autem provident officiis. Consequuntur, dolorem amet saepe at ratione id ipsam, mollitia tempore optio praesentium aspernatur aperiam quod dolore modi deserunt.</div>
+      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium autem provident officiis. Consequuntur, dolorem amet saepe at ratione id ipsam, mollitia tempore optio praesentium aspernatur aperiam quod dolore modi deserunt.</div>
       <Footer />
-    </Container>
+    </Router>
   );
 };
 
