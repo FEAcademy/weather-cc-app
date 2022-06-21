@@ -1,26 +1,32 @@
 import styled from 'styled-components';
 
-export const StyledFooter = styled.footer`
+export const Container = styled.footer`
   height: 76px;
   width: 100%;
   position: absolute;
   bottom: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
   background-color: #fff;
-  div {
-    text-transform: uppercase;
-    font-weight: 900;
-    color: #707070;
-    font-size: 12px;
+`;
+
+export const Wrapper = styled.div`
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Logo = styled.h1`
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
+  color: #707070;
+  span:nth-child(1) {
+    font-weight: 300;
   }
-`;
-
-export const LightSpan = styled.span`
-  font-weight: 300;
-`;
-
-export const MediumSpan = styled.span`
-  font-weight: 600;
+  span:nth-child(2) {
+    font-weight: 600;
+  }
 `;

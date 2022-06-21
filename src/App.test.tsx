@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import { AppTestIds } from './AppTestIds';
+import { FooterTestIds } from './components/Footer/FooterTestIds';
 import { NavbarTestIds } from './components/Navbar/NavbarTestIds';
 
 describe('App', () => {
@@ -11,9 +11,9 @@ describe('App', () => {
 
     expect(navbar).toBeInTheDocument();
   });
-  it('should contains Navbar', () => {
+  it('should contains Footer', () => {
     render(<App />);
-    const footer = screen.getByTestId(AppTestIds.Footer);
+    const footer = screen.getByTestId(FooterTestIds.Footer);
     expect(footer).toBeInTheDocument();
   });
 });
