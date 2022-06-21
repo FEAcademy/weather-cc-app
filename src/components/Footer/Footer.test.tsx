@@ -3,24 +3,18 @@ import { Footer } from './Footer';
 import { FooterTestIds } from './FooterTestIds';
 
 describe('Footer', () => {
-  test('renders footer', () => {
+  it('should render footer', () => {
     render(<Footer />);
     const footer = screen.getByRole('contentinfo');
     expect(footer).toBeInTheDocument();
   });
 
-  test('renders footer text', () => {
-    render(<Footer />);
-    const footer = screen.getByTestId(FooterTestIds.Footer);
-    expect(footer).toHaveTextContent(/weatherly/i);
-  });
-
-  test('renders current year', () => {
+  it('should render correct footer text', () => {
     jest.useFakeTimers();
     jest.setSystemTime(new Date('2023-01-01'));
 
     render(<Footer />);
     const footer = screen.getByTestId(FooterTestIds.Footer);
-    expect(footer).toHaveTextContent(/2023/);
+    expect(footer).toHaveTextContent(/weatherly - 2023/i);
   });
 });

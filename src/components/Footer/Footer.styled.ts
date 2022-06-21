@@ -6,6 +6,7 @@ const Container = styled.footer`
   left: 0;
   right: 0;
   height: 76px;
+  padding: 0 18px;
   display: flex;
   justify-content: center;
   align-items: center;
