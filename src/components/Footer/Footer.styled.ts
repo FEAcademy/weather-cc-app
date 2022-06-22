@@ -4,7 +4,7 @@ const StyledFooter = styled.footer`
     width: 100%;
     position: absolute;
     bottom: 0;
-    padding: 31px 0;
+    padding: 31px 18px;
     height: 76px;
     display: flex;
     justify-content: center;
