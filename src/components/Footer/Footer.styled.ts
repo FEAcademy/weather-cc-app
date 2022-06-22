@@ -12,7 +12,7 @@ export const Container = styled.footer`
   padding: 0 18px;
 `;
 
-export const Logo = styled.h1`
+export const Logo = styled.p`
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 900;

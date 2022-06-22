@@ -9,9 +9,9 @@ describe('Footer', () => {
   });
   it('should render logo with current year', () => {
     jest.useFakeTimers();
-    jest.setSystemTime(new Date('2022-01-01'));
+    jest.setSystemTime(new Date('2016-01-01'));
     render(<Footer />);
-    const year = screen.getByRole('heading');
-    expect(year).toHaveTextContent('Weatherly - 2022');
+    const footer = screen.getByRole('contentinfo');
+    expect(footer).toHaveTextContent('Weatherly - 2016');
   });
 });
