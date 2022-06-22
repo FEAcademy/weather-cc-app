@@ -7,12 +7,7 @@ describe('Footer', () => {
     const footer = screen.getByRole('contentinfo');
     expect(footer).toBeInTheDocument();
   });
-  it('should render footer text', () => {
-    render(<Footer />);
-    const footerText = screen.getByRole('heading');
-    expect(footerText).toHaveTextContent(/weatherly - /i);
-  });
-  it('should render current year', () => {
+  it('should render logo with current year', () => {
     jest.useFakeTimers();
     jest.setSystemTime(new Date('2022-01-01'));
     render(<Footer />);

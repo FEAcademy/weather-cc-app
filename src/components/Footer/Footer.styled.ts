@@ -7,15 +7,9 @@ export const Container = styled.footer`
   bottom: 0;
   display: flex;
   justify-content: center;
-  background-color: #fff;
-`;
-
-export const Wrapper = styled.div`
-  max-width: 1200px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  background-color: #fff;
+  padding: 0 18px;
 `;
 
 export const Logo = styled.h1`
