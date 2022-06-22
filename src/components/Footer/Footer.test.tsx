@@ -2,6 +2,9 @@ import { render, screen } from '@testing-library/react';
 import { Footer } from './Footer';
 
 describe('Footer', () => {
+  jest.useFakeTimers();
+  jest.setSystemTime(new Date('2030-01-01'));
+
   it('should renders', () => {
     render(<Footer />);
 
@@ -12,8 +15,6 @@ describe('Footer', () => {
 
   it('should display date corectly', () => {
     render(<Footer />);
-
-    jest.useFakeTimers().setSystemTime(new Date('2030-01-01'));
 
     const footer = screen.getByRole('contentinfo');
 
