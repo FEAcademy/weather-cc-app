@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
 const Container = styled.footer`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   height: 76px;
   padding: 0 18px;
   display: flex;
