@@ -3,11 +3,11 @@
 
 html,
 body {
-  position: relative;
   min-height: 100vh;
   font-family: 'Lato', sans-serif;
 }
 
 body {
   padding-bottom: 76px;
+  position: relative;
 }
