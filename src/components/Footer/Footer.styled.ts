@@ -7,10 +7,11 @@ const Container = styled.footer`
   right: 0;
   display: flex;
   justify-content: center;
-  padding: 31px 0;
+  align-items: center;
+  height: 76px;
 `;
 
-const Text = styled.p`
+const Text = styled.h4`
   font-weight: 900;
   font-size: 12px;
   color: #707070;

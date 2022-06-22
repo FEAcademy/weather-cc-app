@@ -13,10 +13,10 @@ describe('Footer', () => {
   it('should display date corectly', () => {
     render(<Footer />);
 
-    jest.useFakeTimers().setSystemTime(new Date('2022-01-01'));
+    jest.useFakeTimers().setSystemTime(new Date('2030-01-01'));
 
     const footer = screen.getByRole('contentinfo');
 
-    expect(footer).toHaveTextContent('WEATHERLY - 2022');
+    expect(footer).toHaveTextContent('WEATHERLY - 2030');
   });
 });
