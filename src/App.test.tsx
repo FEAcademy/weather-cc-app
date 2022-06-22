@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import App from 'App';
-import { FooterTestIds } from 'components/Footer/FooterTestIds';
+import { FooterTestIds } from './components/Footer/FooterTestIds';
 import { NavbarTestIds } from './components/Navbar/NavbarTestIds';
 
 describe('App', () => {

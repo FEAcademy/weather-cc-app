@@ -11,10 +11,10 @@ describe('Footer', () => {
 
   it('should render correct footer text', () => {
     jest.useFakeTimers();
-    jest.setSystemTime(new Date('2023-01-01'));
+    jest.setSystemTime(new Date('2016-01-01'));
 
     render(<Footer />);
     const footer = screen.getByTestId(FooterTestIds.Footer);
-    expect(footer).toHaveTextContent(/weatherly - 2023/i);
+    expect(footer).toHaveTextContent(/weatherly - 2016/i);
   });
 });

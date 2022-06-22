@@ -1,7 +1,7 @@
 import { Container, FooterText } from './Footer.styled';
 import { FooterTestIds } from './FooterTestIds';
 
-export const Footer = () => {
+const Footer = () => {
   const now = new Date();
   const currYear = now.getFullYear();
   return (
@@ -13,3 +13,5 @@ export const Footer = () => {
     </Container>
   );
 };
+
+export { Footer };
