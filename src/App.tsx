@@ -1,21 +1,21 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Container } from './components/AppContainer';
 import { Footer } from './components/Footer';
 import { Navbar } from './components/Navbar';
+import { PageContainer } from './components/PageContainer';
 import { HomePage } from './pages/Home';
 import 'assets/styles/index.css';
 
 const App = () => {
   return (
-    <Container>
-      <Router>
-        <Navbar />
+    <Router>
+      <Navbar />
+      <PageContainer>
         <Routes>
           <Route path="/" element={<HomePage />} />
         </Routes>
-        <Footer />
-      </Router>
-    </Container>
+      </PageContainer>
+      <Footer />
+    </Router>
   );
 };
 
