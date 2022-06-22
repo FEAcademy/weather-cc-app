@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.footer`
   position: absolute;
-  right: 0;
   bottom: 0;
   left: 0;
-  padding: 31px 0;
+  padding: 0 18px;
+  height: 76px;
   width: 100%;
   display: flex;
   justify-content: center;
