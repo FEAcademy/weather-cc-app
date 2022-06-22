@@ -2,13 +2,13 @@ import styled from 'styled-components';
 
 const Container = styled.footer`
   position: absolute;
-  left: 0;
   bottom: 0;
-  right: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 76px;
+  padding: 0 18px;
 `;
 
 const Text = styled.h4`
