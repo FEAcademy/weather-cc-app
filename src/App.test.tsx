@@ -11,11 +11,11 @@ describe('App', () => {
     expect(navbar).toBeInTheDocument();
   });
 
-  // it('should render footer', () => {
-  //   render(<App />);
+  it('should render footer', () => {
+    render(<App />);
 
-  //   const footer = screen.getByRole('contentinfo');
+    const footer = screen.getByRole('contentinfo');
 
-  //   expect(footer).toBeInTheDocument();
-  // });
+    expect(footer).toBeInTheDocument();
+  });
 });
