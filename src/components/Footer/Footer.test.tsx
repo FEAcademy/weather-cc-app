@@ -1,23 +1,21 @@
-import { render, screen } from '@testing-library/react';
+import { styledRender, screen } from 'theme/test-utils';
 import { Footer } from './Footer';
 import { FooterTestIds } from './FooterTestIds';
 
 describe('Footer', () => {
-  it('should renders', () => {
-    render(<Footer />);
-
-    const footer = screen.getByTestId(FooterTestIds.Container);
-
+  it('should render footer', () => {
+    styledRender(<Footer />);
+    const footer = screen.getByRole('contentinfo');
     expect(footer).toBeInTheDocument();
   });
 
-  it('should display text and date corectly', () => {
+  it('should render correct footer text', () => {
     jest.useFakeTimers();
-    jest.setSystemTime(new Date('2020-01-01'));
-    render(<Footer />);
+    jest.setSystemTime(new Date('2016-01-01'));
 
-    const footer = screen.getByTestId(FooterTestIds.Container);
+    styledRender(<Footer />);
 
-    expect(footer).toHaveTextContent(/WEATHERLY - 2020/i);
+    const footer = screen.getByTestId(FooterTestIds.Footer);
+    expect(footer).toHaveTextContent(/weatherly - 2016/i);
   });
 });

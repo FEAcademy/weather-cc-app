@@ -1,5 +1,5 @@
 enum FooterTestIds {
-  Container = 'footer-container',
+  Footer = 'footer-container',
 }
 
 export { FooterTestIds };

@@ -1,28 +1,27 @@
 import styled from 'styled-components';
 
 const Container = styled.footer`
-  position: absolute;
-  bottom: 0;
   width: 100%;
+  height: 76px;
+  padding: ${({ theme }) => theme.size.basePadding};
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 76px;
-  padding: 0 18px;
 `;
 
-const Text = styled.h4`
-  font-weight: 900;
-  font-size: 12px;
-  color: #707070;
+const FooterText = styled.span`
+  font-weight: ${({ theme }) => theme.font.weight.black};
+  font-size: ${({ theme }) => theme.font.size.xs};
+  line-height: 14px;
+  color: ${({ theme }) => theme.color.text};
 
-  & span:first-child {
-    font-weight: 300;
+  span:first-child {
+    font-weight: ${({ theme }) => theme.font.weight.light};
   }
 
-  & span:nth-child(2) {
+  span:nth-child(2) {
     font-weight: 600;
   }
 `;
 
-export { Container, Text };
+export { Container, FooterText };

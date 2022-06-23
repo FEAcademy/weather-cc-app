@@ -1,9 +1,9 @@
-import { render, screen } from '@testing-library/react';
 import { Navbar } from 'components/Navbar';
+import { styledRender, screen } from 'theme/test-utils';
 
 describe('Navbar', () => {
   it('should render', () => {
-    render(<Navbar />);
+    styledRender(<Navbar />);
 
     const navbar = screen.getByRole('navigation');
 
@@ -11,7 +11,7 @@ describe('Navbar', () => {
   });
 
   it('should contain logo', () => {
-    render(<Navbar />);
+    styledRender(<Navbar />);
 
     const logo = screen.getByRole('heading', { name: /weather/i });
 
