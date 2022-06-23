@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 
-import { render } from 'test-utils';
+import { render } from '../../theme/theme-test-utils';
 import { HomePage } from './HomePage';
 import { HomePageTestIds } from './HomePageTestIds';
 
