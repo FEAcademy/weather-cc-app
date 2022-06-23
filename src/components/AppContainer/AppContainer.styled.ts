@@ -8,7 +8,7 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   width: 100%;
-  max-width: ${(props) => props.theme.appMaxWidth}px;
+  max-width: ${(props) => props.theme.appMaxWidth};
 `;
 
 export { Container, Wrapper };

@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
 const theme = {
-  appMaxWidth: 1200,
+  appMaxWidth: '1200px',
   colors: {
     lightGray: '#707070',
   },
