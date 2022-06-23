@@ -35,7 +35,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['error'],
     semi: ['error', 'always'],
     'import/order': [
-      'warn',
+      'error',
       {
         alphabetize: {
           caseInsensitive: true,
@@ -43,12 +43,20 @@ module.exports = {
         },
         pathGroupsExcludedImportTypes: ['builtin'],
         groups: [
-          'external',
           'builtin',
-          'internal', 
+          'external',
+          'internal',
           'parent',
+          'sibling',
           'index'
+        ],
+        pathGroups: [
+          {pattern: 'components/**',group: 'internal'},
+          {pattern: 'pages/**',group: 'internal'},
+          {pattern: 'assets/**',group: 'internal'},
+          {pattern: 'features/**',group: 'internal'},
         ]
+
       }
     ]
   },
