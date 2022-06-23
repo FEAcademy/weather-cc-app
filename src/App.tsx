@@ -8,13 +8,13 @@ import 'assets/styles/index.css';
 const App = () => {
   return (
     <Router>
+      <Navbar />
       <Container>
-        <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
         </Routes>
-        <Footer />
       </Container>
+      <Footer />
     </Router>
   );
 };

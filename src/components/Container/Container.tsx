@@ -1,11 +1,15 @@
 import React from 'react';
 
-import { ContainerWrapper } from './Container.styled';
+import { Wrapper, InnerContainer } from './Container.styled';
 
 interface Props {
   children: React.ReactNode;
 }
 
 export function Container({ children }: Props) {
-  return <ContainerWrapper>{children}</ContainerWrapper>;
+  return (
+    <Wrapper>
+      <InnerContainer>{children}</InnerContainer>
+    </Wrapper>
+  );
 }
