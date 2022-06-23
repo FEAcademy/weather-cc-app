@@ -11,7 +11,7 @@ const Container = styled.nav`
 `;
 
 const Wrapper = styled.div`
-  max-width: 1200px;
+  max-width: ${(props) => props.theme.appMaxWidth}px;
   width: 100%;
   display: flex;
   justify-content: space-between;

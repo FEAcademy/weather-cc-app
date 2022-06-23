@@ -3,6 +3,7 @@ import { DefaultTheme } from 'styled-components';
 import { ThemeProvider } from 'styled-components';
 
 const theme: DefaultTheme = {
+  appMaxWidth: 1200,
   colors: {
     lightGray: '#707070',
   },

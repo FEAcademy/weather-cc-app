@@ -2,7 +2,7 @@ import { render, RenderOptions } from '@testing-library/react';
 import React, { FC, ReactElement } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { theme } from '../assets/Theme/Theme';
+import { theme } from '../components/Theme/Theme';
 
 const AllTheProviders: FC<{ children: React.ReactNode }> = ({ children }) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
