@@ -1,7 +1,10 @@
-import styled from 'styled-components';
+import React from 'react';
+import { Container, Wrapper } from './AppContainer.styled';
 
-const AppContainer = styled.div`
-  flex: 1;
-`;
+const AppContainer = ({ children }: { children: React.ReactNode }) => (
+  <Container>
+    <Wrapper>{children}</Wrapper>
+  </Container>
+);
 
 export { AppContainer };
