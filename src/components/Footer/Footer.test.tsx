@@ -1,10 +1,16 @@
 import { render, screen } from '@testing-library/react';
+import { ThemeProvider } from 'styled-components';
+import { theme } from 'theme/theme';
 import { Footer } from './Footer';
 import { FooterTestIds } from './FooterTestIds';
 
 describe('Footer', () => {
   it('should render footer', () => {
-    render(<Footer />);
+    render(
+      <ThemeProvider theme={theme}>
+        <Footer />
+      </ThemeProvider>
+    );
     const footer = screen.getByRole('contentinfo');
     expect(footer).toBeInTheDocument();
   });
@@ -13,7 +19,11 @@ describe('Footer', () => {
     jest.useFakeTimers();
     jest.setSystemTime(new Date('2016-01-01'));
 
-    render(<Footer />);
+    render(
+      <ThemeProvider theme={theme}>
+        <Footer />
+      </ThemeProvider>
+    );
     const footer = screen.getByTestId(FooterTestIds.Footer);
     expect(footer).toHaveTextContent(/weatherly - 2016/i);
   });

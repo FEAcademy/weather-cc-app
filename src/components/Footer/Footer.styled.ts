@@ -12,7 +12,7 @@ const FooterText = styled.span`
   font-weight: 900;
   font-size: 12px;
   line-height: 14px;
-  color: #707070;
+  color: ${({ theme }) => theme.main.color};
 
   span:first-child {
     font-weight: 300;
