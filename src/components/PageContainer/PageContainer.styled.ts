@@ -5,10 +5,11 @@ const Container = styled.main`
     display: flex;
     justify-content: center;
     color: ${({ theme }) => theme.main.color};
+    padding: ${({ theme }) => theme.main.paddingLayout};
     `;
 const Wrapper = styled.div`
     width: 100%;
-    max-width: ${({ theme }) => theme.main.maxWidthLayout}
+    max-width: ${({ theme }) => theme.main.maxWidthLayout};
 `;
 
 export { Container, Wrapper };
