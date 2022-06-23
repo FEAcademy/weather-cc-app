@@ -9,13 +9,13 @@ const Container = styled.footer`
 `;
 
 const FooterText = styled.span`
-  font-weight: 900;
+  font-weight: ${(props) => props.theme.fontWeights.bold};
   font-size: 12px;
   line-height: 14px;
   color: ${(props) => props.theme.colors.lightGray};
 
   span:first-child {
-    font-weight: 300;
+    font-weight: ${(props) => props.theme.fontWeights.light};
   }
 
   span:nth-child(2) {

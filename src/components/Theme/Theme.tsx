@@ -7,6 +7,10 @@ const theme: DefaultTheme = {
   colors: {
     lightGray: '#707070',
   },
+  fontWeights: {
+    light: 300,
+    bold: 900,
+  },
 };
 
 const Theme = ({ children }: { children: React.ReactNode }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;

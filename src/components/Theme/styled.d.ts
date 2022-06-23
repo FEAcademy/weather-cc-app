@@ -6,5 +6,9 @@ declare module 'styled-components' {
     colors: {
       lightGray: string;
     };
+    fontWeights: {
+      light: number;
+      bold: number;
+    };
   }
 }
