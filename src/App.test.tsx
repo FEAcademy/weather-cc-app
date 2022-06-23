@@ -1,11 +1,11 @@
-import { render, screen } from '@testing-library/react';
 import App from 'App';
+import { styledRender, screen } from 'theme/test-utils';
 import { FooterTestIds } from './components/Footer/FooterTestIds';
 import { NavbarTestIds } from './components/Navbar/NavbarTestIds';
 
 describe('App', () => {
   it('should render navbar', () => {
-    render(<App />);
+    styledRender(<App />);
 
     const navbar = screen.getByTestId(NavbarTestIds.Container);
 
@@ -13,7 +13,7 @@ describe('App', () => {
   });
 
   it('should render footer', () => {
-    render(<App />);
+    styledRender(<App />);
 
     const footer = screen.getByTestId(FooterTestIds.Footer);
 

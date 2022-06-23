@@ -6,12 +6,12 @@ const Container = styled.nav`
   position: sticky;
   display: flex;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 0 18px;
+  background: ${({ theme }) => theme.color.backgroundWithOpacity};
+  padding: ${({ theme }) => theme.size.basePadding};
 `;
 
 const Wrapper = styled.div`
-  max-width: 1200px;
+  max-width: ${({ theme }) => theme.size.baseWidth};
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -21,11 +21,11 @@ const Wrapper = styled.div`
 const Logo = styled.h1`
   font-size: 18px;
   font-weight: 800;
-  color: #707070;
+  color: ${({ theme }) => theme.color.text};
   text-transform: uppercase;
 
   & span {
-    font-weight: 300;
+    font-weight: ${({ theme }) => theme.font.weight.light};
   }
 `;
 
