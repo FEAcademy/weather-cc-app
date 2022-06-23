@@ -3,6 +3,7 @@ import { FooterTestIds } from './FooterTestIds';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
   return (
     <Container data-testid={FooterTestIds.Footer}>
       <FooterText>
