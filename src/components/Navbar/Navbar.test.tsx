@@ -1,15 +1,9 @@
-import { render, screen } from '@testing-library/react';
 import { Navbar } from 'components/Navbar';
-import { ThemeProvider } from 'styled-components';
-import { theme } from 'theme/theme';
+import { render, screen } from 'theme/theme-test-utils';
 
 describe('Navbar', () => {
   it('should render', () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <Navbar />
-      </ThemeProvider>
-    );
+    render(<Navbar />);
 
     const navbar = screen.getByRole('navigation');
 
@@ -17,11 +11,7 @@ describe('Navbar', () => {
   });
 
   it('should contain logo', () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <Navbar />
-      </ThemeProvider>
-    );
+    render(<Navbar />);
 
     const logo = screen.getByRole('heading', { name: /weather/i });
 
