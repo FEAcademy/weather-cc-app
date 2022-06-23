@@ -9,7 +9,7 @@ const theme = {
     appWidth: '1200px',
   },
   color: {
-    logoColor: '#707070',
+    mainTextColor: '#707070',
   },
 };
 

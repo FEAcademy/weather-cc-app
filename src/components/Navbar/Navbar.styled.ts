@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 const Logo = styled.h1`
   font-size: 18px;
   font-weight: 800;
-  color: ${(props) => props.theme.color.logoColor};
+  color: ${(props) => props.theme.color.mainTextColor};
   text-transform: uppercase;
 
   & span {
