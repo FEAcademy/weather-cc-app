@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Container = styled.footer`
   height: 76px;
-  padding: 0 18px;
+  padding: ${({ theme }) => theme.main.paddingLayout};
   display: flex;
   justify-content: center;
   align-items: center;
