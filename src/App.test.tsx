@@ -27,8 +27,8 @@ describe('Container component', () => {
     it('should be rendered', () => {
         render(<AppContainer />);
 
-        const container = screen.getByTestId(DataTestIDS.AppContainer);
+        const container = screen.getByRole('main');
 
-        expect(container).toBeVisible();
+        expect(container).toBeInTheDocument();
     });
  });
