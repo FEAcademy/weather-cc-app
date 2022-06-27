@@ -9,6 +9,7 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   max-width: ${(props) => props.theme.width.maxWidth};
+  width: 100%;
   display: flex;
   flex-direction: column;
   color: ${(props) => props.theme.color.fontColor};
