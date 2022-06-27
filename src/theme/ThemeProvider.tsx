@@ -1,7 +1,9 @@
 import { PropsWithChildren } from 'react';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider as StyledComponentThemeProvider } from 'styled-components';
 import { theme } from './theme';
 
-const ThemeProvider_t = ({ children }: PropsWithChildren) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+const ThemeProvider = ({ children }: PropsWithChildren) => (
+  <StyledComponentThemeProvider theme={theme}>{children}</StyledComponentThemeProvider>
+);
 
-export { ThemeProvider_t };
+export { ThemeProvider };

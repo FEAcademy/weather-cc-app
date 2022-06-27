@@ -5,20 +5,20 @@ const Container = styled.footer`
   left: 0;
   right: 0;
   height: 76px;
-  padding: ${(props) => props.theme.padding.appPadding};
+  padding: ${({ theme }) => theme.padding.appPadding};
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const FooterText = styled.span`
-  font-weight: ${(props) => props.theme.weight.headerWeight};
+  font-weight: ${({ theme }) => theme.weight.headerWeight};
   font-size: 12px;
   line-height: 14px;
-  color: ${(props) => props.theme.color.fontColor};
+  color: ${({ theme }) => theme.color.fontColor};
 
   span:first-child {
-    font-weight: ${(props) => props.theme.weight.normalWeight};
+    font-weight: ${({ theme }) => theme.weight.normalWeight};
   }
 
   span:nth-child(2) {

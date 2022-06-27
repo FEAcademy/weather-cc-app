@@ -1,14 +1,9 @@
-import React from 'react';
+import { PropsWithChildren } from 'react';
 import { Container, Wrapper } from './AppContainer.styled';
-import { AppContainerTestIds } from './AppContainerTestIds';
 
-type Props = {
-  children: React.ReactNode;
-};
-
-const AppContainer = ({ children }: Props) => {
+const AppContainer = ({ children }: PropsWithChildren) => {
   return (
-    <Container data-testid={AppContainerTestIds.AppContainer}>
+    <Container>
       <Wrapper>{children}</Wrapper>
     </Container>
   );

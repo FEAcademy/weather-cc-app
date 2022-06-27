@@ -1,16 +1,14 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.main`
   flex: 1;
-  padding: ${(props) => props.theme.padding.appPadding};
+  padding: ${({ theme }) => theme.padding.appPadding};
   display: flex;
   justify-content: center;
 `;
 
 export const Wrapper = styled.div`
-  max-width: ${(props) => props.theme.width.maxWidth};
+  max-width: ${({ theme }) => theme.width.maxWidth};
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  color: ${(props) => props.theme.color.fontColor};
+  color: ${({ theme }) => theme.color.fontColor};
 `;
