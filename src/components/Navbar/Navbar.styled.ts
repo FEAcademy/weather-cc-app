@@ -25,7 +25,7 @@ const Logo = styled.h1`
   text-transform: uppercase;
 
   & span {
-    font-weight: ${({ theme }) => theme.weight.normalWeight};
+    font-weight: ${({ theme }) => theme.fontWeight.normalWeight};
   }
 `;
 

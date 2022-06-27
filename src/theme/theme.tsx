@@ -8,7 +8,7 @@ const theme = {
   color: {
     fontColor: '#707070',
   },
-  weight: {
+  fontWeight: {
     normalWeight: '300',
     headerWeight: '900',
   },

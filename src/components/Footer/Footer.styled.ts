@@ -12,13 +12,13 @@ const Container = styled.footer`
 `;
 
 const FooterText = styled.span`
-  font-weight: ${({ theme }) => theme.weight.headerWeight};
+  font-weight: ${({ theme }) => theme.fontWeight.headerWeight};
   font-size: 12px;
   line-height: 14px;
   color: ${({ theme }) => theme.color.fontColor};
 
   span:first-child {
-    font-weight: ${({ theme }) => theme.weight.normalWeight};
+    font-weight: ${({ theme }) => theme.fontWeight.normalWeight};
   }
 
   span:nth-child(2) {
