@@ -1,11 +1,16 @@
 const theme = {
-  appMaxWidth: '1200px',
+  widths: {
+    appMax: '1200px',
+  },
   colors: {
-    lightGray: '#707070',
+    text: '#707070',
   },
   fontWeights: {
     light: 300,
     bold: 900,
+  },
+  paddings: {
+    app: '0 18px',
   },
 };
 
