@@ -1,6 +1,6 @@
 import App from 'App';
 import { styledRender, screen } from 'theme/test-utils';
-import { AppContainerTestIds } from 'components/AppContainer/AppContainerTestIds';
+import { ContainerTestIds } from 'components/Container/ContainerTestIds';
 import { FooterTestIds } from './components/Footer/FooterTestIds';
 import { NavbarTestIds } from './components/Navbar/NavbarTestIds';
 
@@ -16,7 +16,7 @@ describe('App', () => {
   it('should render appContainer', () => {
     styledRender(<App />);
 
-    const appContainer = screen.getByTestId(AppContainerTestIds.Container);
+    const appContainer = screen.getByTestId(ContainerTestIds.Container);
 
     expect(appContainer).toBeInTheDocument();
   });

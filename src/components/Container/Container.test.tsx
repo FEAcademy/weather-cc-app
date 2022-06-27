@@ -1,16 +1,16 @@
 import { styledRender, screen } from 'theme/test-utils';
-import { AppContainer } from './AppContainer';
-import { AppContainerTestIds } from './AppContainerTestIds';
+import { Container } from './Container';
+import { ContainerTestIds } from './ContainerTestIds';
 
 describe('App Container', () => {
   it('should render App Container', () => {
     styledRender(
-      <AppContainer>
+      <Container>
         <></>
-      </AppContainer>,
+      </Container>,
     );
 
-    const main = screen.getByTestId(AppContainerTestIds.Container);
+    const main = screen.getByTestId(ContainerTestIds.Container);
 
     expect(main).toBeInTheDocument();
   });
