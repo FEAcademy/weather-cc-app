@@ -12,6 +12,15 @@ describe('App', () => {
     expect(navbar).toBeInTheDocument();
   });
 
+  it('should render PageContainer', () => {
+    render(<App />);
+
+    const PageContainer = screen.getByRole('main');
+    console.log(PageContainer);
+
+    expect(PageContainer).toBeInTheDocument();
+  });
+
   it('should render footer', () => {
     render(<App />);
 
