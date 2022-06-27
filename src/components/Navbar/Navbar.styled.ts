@@ -6,13 +6,13 @@ const Container = styled.nav`
   position: sticky;
   display: flex;
   justify-content: center;
-  background: ${({ theme }) => theme.main.backgroundColor};
+  background: ${({ theme }) => theme.backgrounds.primary};
   opacity: 0.9;
-  padding: ${({ theme }) => theme.main.paddingLayout};
+  padding: ${({ theme }) => theme.paddings.app};
 `;
 
 const Wrapper = styled.div`
-  max-width: ${({ theme }) => theme.main.maxWidthLayout};
+  max-width: ${({ theme }) => theme.widths.appMax};
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -22,7 +22,7 @@ const Wrapper = styled.div`
 const Logo = styled.h1`
   font-size: 18px;
   font-weight: 800;
-  color: ${({ theme }) => theme.main.color};
+  color: ${({ theme }) => theme.colors.primary};
   text-transform: uppercase;
 
   & span {

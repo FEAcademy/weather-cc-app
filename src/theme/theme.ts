@@ -1,9 +1,15 @@
 const theme = {
-    main: {
-        color: '#707070',
-        backgroundColor: '#FFFFFF',
-        maxWidthLayout: '1200px',
-        paddingLayout: '0 18px',
+    widths: {
+        appMax: '1200px',
+    },
+    paddings: {
+        app: '0 18px'
+    },
+    colors: {
+        primary: '#707070',
+    },
+    backgrounds: {
+        primary: '#FFF',
     },
 };
 
