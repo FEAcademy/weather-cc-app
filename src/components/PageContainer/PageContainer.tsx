@@ -1,11 +1,8 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { Container, Wrapper } from './PageContainer.styled';
 
-type Props = {
-    children: React.ReactNode;
-};
 
-const PageContainer = ({ children }: Props) => {
+const PageContainer = ({ children }: PropsWithChildren) => {
     return (
         <Container>
             <Wrapper>
