@@ -1,19 +1,9 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-
-const theme = {
-  appMaxWidth: '1200px',
-  colors: {
-    lightGray: '#707070',
-  },
-  fontWeights: {
-    light: 300,
-    bold: 900,
-  },
-};
+import { theme } from './theme';
 
 const Theme = ({ children }: { children: React.ReactNode }) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
-export { Theme, theme };
+export { Theme };

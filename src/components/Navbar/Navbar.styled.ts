@@ -11,7 +11,7 @@ const Container = styled.nav`
 `;
 
 const Wrapper = styled.div`
-  max-width: ${(props) => props.theme.appMaxWidth};
+  max-width: ${({ theme }) => theme.appMaxWidth};
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -21,11 +21,11 @@ const Wrapper = styled.div`
 const Logo = styled.h1`
   font-size: 18px;
   font-weight: 800;
-  color: ${(props) => props.theme.colors.lightGray};
+  color: ${({ theme }) => theme.colors.lightGray};
   text-transform: uppercase;
 
   & span {
-    font-weight: ${(props) => props.theme.fontWeights.light};
+    font-weight: ${({ theme }) => theme.fontWeights.light};
   }
 `;
 
