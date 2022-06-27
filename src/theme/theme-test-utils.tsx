@@ -1,11 +1,11 @@
 import { render, RenderOptions } from '@testing-library/react';
 import React, { FC, ReactElement } from 'react';
-import { ThemeProvider } from 'styled-components';
-import { theme } from 'theme/theme';
+import { ThemeProvider } from './ThemeProvider';
+
 
 const AllTheProviders: FC<{ children: React.ReactNode; }> = ({ children }) => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       {children}
     </ThemeProvider>
   );
