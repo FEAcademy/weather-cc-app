@@ -1,7 +1,7 @@
 import { render, screen } from 'theme/theme-test-utils';
 import { PageContainer } from './PageContainer';
 
-describe('Navbar', () => {
+describe('PageContainer', () => {
     it('should render', () => {
         render(<PageContainer>
             <></>
