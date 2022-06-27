@@ -1,5 +1,4 @@
 import { render, screen } from 'theme/test-utils';
-import { Navbar } from 'components/Navbar';
 import { AppContainer } from './AppContainer';
 
 describe('App container', () => {
@@ -14,12 +13,12 @@ describe('App container', () => {
   it('should render children', () => {
     render(
       <AppContainer>
-        <Navbar />
+        <div data-testid="child-id"></div>
       </AppContainer>,
     );
 
-    const nav = screen.getByRole('navigation');
+    const child = screen.getByTestId('child-id');
 
-    expect(nav).toBeInTheDocument();
+    expect(child).toBeInTheDocument();
   });
 });
