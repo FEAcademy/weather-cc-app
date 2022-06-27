@@ -1,4 +1,4 @@
-import { render, screen, within } from '../../theme/theme-test-utils';
+import { render, screen } from '../../theme/theme-test-utils';
 import { Container } from './Container';
 
 describe('Footer', () => {
@@ -9,9 +9,8 @@ describe('Footer', () => {
       </Container>,
     );
 
-    const container = screen.getByRole('main');
-    const childOfComponent = within(container).getByTestId('container-child');
+    const childOfComponent = screen.getByTestId('container-child');
 
-    expect(childOfComponent).toBeDefined();
+    expect(childOfComponent).toBeInTheDocument();
   });
 });
