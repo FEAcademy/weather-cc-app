@@ -1,17 +1,7 @@
 import { FC, ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-const theme = {
-  padding: {
-    appPadding: '0 18px',
-  },
-  width: {
-    appWidth: '1200px',
-  },
-  color: {
-    mainTextColor: '#707070',
-  },
-};
+import { theme } from './theme';
 
 const GlobalThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
