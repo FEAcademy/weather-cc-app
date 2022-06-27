@@ -16,7 +16,6 @@ describe('App', () => {
     render(<App />);
 
     const PageContainer = screen.getByRole('main');
-    console.log(PageContainer);
 
     expect(PageContainer).toBeInTheDocument();
   });
