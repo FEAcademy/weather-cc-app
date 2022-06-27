@@ -19,4 +19,12 @@ describe('App', () => {
 
     expect(footer).toBeInTheDocument();
   });
+
+  it('should render app main container', () => {
+    render(<App />);
+
+    const mainContainer = screen.getByRole('main');
+
+    expect(mainContainer).toBeInTheDocument();
+  });
 });

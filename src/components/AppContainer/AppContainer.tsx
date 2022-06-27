@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { Container, Wrapper } from './AppContainer.styled';
 
-const AppContainer = ({ children }: { children: React.ReactNode }) => (
+const AppContainer = ({ children }: PropsWithChildren) => (
   <Container>
     <Wrapper>{children}</Wrapper>
   </Container>
