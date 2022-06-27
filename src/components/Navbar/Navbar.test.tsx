@@ -1,7 +1,5 @@
-import { screen } from '@testing-library/react';
-
 import { Navbar } from 'components/Navbar';
-import { render } from '../../theme/theme-test-utils';
+import { render, screen } from '../../theme/theme-test-utils';
 
 describe('Navbar', () => {
   it('should render', () => {

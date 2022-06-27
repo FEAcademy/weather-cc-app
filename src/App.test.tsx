@@ -1,10 +1,8 @@
-import { screen } from '@testing-library/react';
-
 import App from 'App';
 import { FooterTestIds } from './components/Footer/FooterTestIds';
 import { NavbarTestIds } from './components/Navbar/NavbarTestIds';
 
-import { render } from './theme/theme-test-utils';
+import { render, screen } from './theme/theme-test-utils';
 
 describe('App', () => {
   it('should render navbar', () => {

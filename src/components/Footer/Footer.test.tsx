@@ -1,6 +1,4 @@
-import { screen } from '@testing-library/react';
-
-import { render } from '../../theme/theme-test-utils';
+import { render, screen } from '../../theme/theme-test-utils';
 import { Footer } from './Footer';
 import { FooterTestIds } from './FooterTestIds';
 
