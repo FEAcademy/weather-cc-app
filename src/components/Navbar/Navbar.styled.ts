@@ -7,11 +7,11 @@ const Container = styled.nav`
   display: flex;
   justify-content: center;
   background: rgba(255, 255, 255, 0.9);
-  padding: ${(props) => props.theme.padding.appPadding};
+  padding: ${({ theme }) => theme.padding.appPadding};
 `;
 
 const Wrapper = styled.div`
-  max-width: ${(props) => props.theme.width.appWidth};
+  max-width: ${({ theme }) => theme.width.appWidth};
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 const Logo = styled.h1`
   font-size: 18px;
   font-weight: 800;
-  color: ${(props) => props.theme.color.mainTextColor};
+  color: ${({ theme }) => theme.color.mainTextColor};
   text-transform: uppercase;
 
   & span {
