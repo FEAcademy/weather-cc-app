@@ -1,11 +1,12 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import { DataTestIDS } from 'utils/data-test-ids';
+import { render } from 'utils/test-utils';
 import { HomePage } from './HomePage';
-import { HomePageTestIds } from './HomePageTestIds';
 
 describe('Home page', () => {
   it('should render title', () => {
     render(<HomePage />);
 
-    expect(screen.getByTestId(HomePageTestIds.Title)).toHaveTextContent('Home page');
+    expect(screen.getByTestId(DataTestIDS.HomeTitle)).toHaveTextContent('Home page');
   });
 });

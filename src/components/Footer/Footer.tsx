@@ -1,10 +1,10 @@
+import { DataTestIDS } from 'utils/data-test-ids';
 import { Container, FooterText } from './Footer.styled';
-import { FooterTestIds } from './FooterTestIds';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <Container data-testid={FooterTestIds.Footer}>
+    <Container data-testid={DataTestIDS.FooterContainer}>
       <FooterText>
         WEATHER<span>LY</span>
         <span>&nbsp;-&nbsp;{currentYear}</span>

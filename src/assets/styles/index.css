@@ -7,3 +7,9 @@ body {
   font-family: 'Lato', sans-serif;
   position: relative;
 }
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: stretch;
+}

@@ -1,5 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { Navbar } from 'components/Navbar';
+import { render } from 'utils/test-utils';
 
 describe('Navbar', () => {
   it('should render', () => {

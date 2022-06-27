@@ -1,6 +1,7 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import { DataTestIDS } from 'utils/data-test-ids';
+import { render } from 'utils/test-utils';
 import { Footer } from './Footer';
-import { FooterTestIds } from './FooterTestIds';
 
 describe('Footer', () => {
   it('should render footer', () => {
@@ -14,7 +15,7 @@ describe('Footer', () => {
     jest.setSystemTime(new Date('2016-01-01'));
 
     render(<Footer />);
-    const footer = screen.getByTestId(FooterTestIds.Footer);
+    const footer = screen.getByTestId(DataTestIDS.FooterContainer);
     expect(footer).toHaveTextContent(/weatherly - 2016/i);
   });
 });

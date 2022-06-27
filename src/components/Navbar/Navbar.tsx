@@ -1,9 +1,9 @@
 import React from 'react';
+import { DataTestIDS } from 'utils/data-test-ids';
 import { Logo, Container, Wrapper } from './Navbar.styled';
-import { NavbarTestIds } from './NavbarTestIds';
 
 const Navbar = () => (
-  <Container data-testid={NavbarTestIds.Container}>
+  <Container data-testid={DataTestIDS.NavbarContainer}>
     <Wrapper>
       <Logo>
         weather<span>ly</span>
