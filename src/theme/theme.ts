@@ -1,11 +1,11 @@
 export const theme = {
-  padding: {
+  paddings: {
     appPadding: '0 18px',
   },
-  width: {
+  widths: {
     appWidth: '1200px',
   },
-  color: {
+  colors: {
     mainTextColor: '#707070',
   },
 };
