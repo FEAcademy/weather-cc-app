@@ -6,7 +6,8 @@ const Container = styled.nav`
   position: sticky;
   display: flex;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.9);
+  background-color: ${({ theme }) => theme.colors.background};
+  opacity: 0.9;
   padding: ${({ theme }) => theme.paddings.app};
 `;
 
