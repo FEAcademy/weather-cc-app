@@ -1,6 +1,5 @@
-import { screen } from '@testing-library/react';
 import { DataTestIDS } from 'utils/data-test-ids';
-import { render } from 'utils/test-utils';
+import { render, screen } from 'utils/test-utils';
 import { Footer } from './Footer';
 
 describe('Footer', () => {

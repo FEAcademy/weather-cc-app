@@ -5,7 +5,7 @@ const Container = styled.footer`
   left: 0;
   right: 0;
   height: 76px;
-  padding: ${({theme}) => theme.appPadding};
+  padding: ${({theme}) => theme.paddings.app};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +15,7 @@ const FooterText = styled.span`
   font-weight: 900;
   font-size: 12px;
   line-height: 14px;
-  color: ${({theme}) => theme.color};
+  color: ${({theme}) => theme.colors.text};
 
   span:first-child {
     font-weight: 300;
