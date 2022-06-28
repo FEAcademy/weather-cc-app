@@ -5,7 +5,6 @@ import { PageContainer } from './components/PageContainer';
 import { HomePage } from './pages/Home';
 import 'assets/styles/index.css';
 
-
 const App = () => {
   return (
     <Router>

@@ -8,8 +8,8 @@ const Container = styled.main`
   padding: ${({ theme }) => theme.paddings.app};
 `;
 const Wrapper = styled.div`
-    width: 100%;
-    max-width: ${({ theme }) => theme.widths.app};
+  width: 100%;
+  max-width: ${({ theme }) => theme.widths.app};
 `;
 
 export { Container, Wrapper };

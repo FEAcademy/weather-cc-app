@@ -3,9 +3,7 @@ import { ThemeProvider as StyledComponentsThemeProvider } from 'styled-component
 import { theme } from './theme';
 
 const ThemeProvider = ({ children }: PropsWithChildren) => (
-    <StyledComponentsThemeProvider theme={theme}>
-        {children}
-    </StyledComponentsThemeProvider>
+  <StyledComponentsThemeProvider theme={theme}>{children}</StyledComponentsThemeProvider>
 );
 
 export { ThemeProvider };
