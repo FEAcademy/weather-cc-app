@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { ContainerEl, Wrapper } from './Container.styled';
+import { Container as ContainerEl, Wrapper } from './Container.styled';
 import { ContainerTestIds } from './ContainerTestIds';
 
 const Container = ({ children }: PropsWithChildren) => (
