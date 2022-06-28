@@ -1,11 +1,17 @@
-export const theme = {
-  paddings: {
-    appPadding: '0 18px',
-  },
+const theme = {
   widths: {
-    appWidth: '1200px',
+    app: '1200px',
+  },
+  paddings: {
+    app: '0px 18px',
   },
   colors: {
-    mainTextColor: '#707070',
+    text: '#707070',
+    background: '#ffffff',
   },
 };
+
+type themeType = typeof theme;
+
+export { theme };
+export type { themeType };
