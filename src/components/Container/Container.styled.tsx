@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
-const ContainerEl = styled.div`
+const ContainerEl = styled.main`
   display: flex;
   justify-content: center;
   flex: 1;
-  padding: ${({ theme }) => theme.size.basePadding};
+  padding: ${({ theme }) => theme.padding.app};
 `;
 
-const Wrapper = styled.main`
-  max-width: ${({ theme }) => theme.size.baseWidth};
+const Wrapper = styled.div`
+  max-width: ${({ theme }) => theme.width.app};
   width: 100%;
 `;
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Container = styled.footer`
   width: 100%;
   height: 76px;
-  padding: ${({ theme }) => theme.size.basePadding};
+  padding: ${({ theme }) => theme.padding.app};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@ const Container = styled.footer`
 
 const FooterText = styled.span`
   font-weight: ${({ theme }) => theme.font.weight.black};
-  font-size: ${({ theme }) => theme.font.size.xs};
+  font-size: 12px;
   line-height: 14px;
   color: ${({ theme }) => theme.color.text};
 

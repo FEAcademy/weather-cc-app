@@ -6,12 +6,13 @@ const Container = styled.nav`
   position: sticky;
   display: flex;
   justify-content: center;
-  background: ${({ theme }) => theme.color.backgroundWithOpacity};
-  padding: ${({ theme }) => theme.size.basePadding};
+  background: ${({ theme }) => theme.color.background};
+  opacity: 0.9;
+  padding: ${({ theme }) => theme.padding.app};
 `;
 
 const Wrapper = styled.div`
-  max-width: ${({ theme }) => theme.size.baseWidth};
+  max-width: ${({ theme }) => theme.width.app};
   width: 100%;
   display: flex;
   justify-content: space-between;
