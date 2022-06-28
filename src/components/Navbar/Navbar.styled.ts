@@ -6,12 +6,13 @@ const Container = styled.nav`
   position: sticky;
   display: flex;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.9);
+  background: ${({ theme }) => theme.colors.background};
+  opacity: 0.9;
   padding: ${({ theme }) => theme.paddings.app};
 `;
 
 const Wrapper = styled.div`
-  max-width: ${({ theme }) => theme.widths.appMax};
+  max-width: ${({ theme }) => theme.widths.app};
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -25,7 +26,7 @@ const Logo = styled.h1`
   text-transform: uppercase;
 
   & span {
-    font-weight: ${({ theme }) => theme.fontWeights.light};
+    font-weight: 300;
   }
 `;
 
