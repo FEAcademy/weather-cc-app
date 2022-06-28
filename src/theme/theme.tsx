@@ -1,19 +1,13 @@
 const theme = {
-  width: {
-    max: '1200px',
+  widths: {
+    app: '1200px',
   },
-  padding: {
+  paddings: {
     app: '0 18px',
   },
-  color: {
+  colors: {
     font: '#707070',
-  },
-  fontWeight: {
-    normal: '300',
-    bold: '900',
-  },
-  fontSize: {
-    normal: '20px',
+    background: '#FFFFFF',
   },
 };
 
