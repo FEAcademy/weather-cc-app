@@ -1,16 +1,17 @@
 const theme = {
     widths: {
-        appMax: '1200px',
+        app: '1200px',
     },
     paddings: {
-        app: '0 18px'
+        app: '0px 18px',
     },
     colors: {
-        primary: '#707070',
-    },
-    backgrounds: {
-        primary: '#FFF',
+        text: '#707070',
+        background: '#ffffff',
     },
 };
 
+type themeType = typeof theme;
+
 export { theme };
+export type { themeType };
