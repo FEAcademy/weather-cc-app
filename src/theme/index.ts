@@ -1,2 +1,2 @@
-export { Theme } from './Theme';
+export { ThemeProviderElement } from './ThemeProviderElement';
 export { theme } from './theme';
