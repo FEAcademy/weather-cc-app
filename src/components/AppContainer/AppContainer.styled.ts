@@ -4,6 +4,7 @@ const Container = styled.main`
   flex: 1;
   display: flex;
   justify-content: center;
+  padding: ${({ theme }) => theme.paddings.app};
 `;
 
 const Wrapper = styled.div`
