@@ -10,7 +10,7 @@ describe('App Container', () => {
   it('should render children', () => {
     render(
       <AppContainer>
-        <p data-testid={'children'}></p>
+        <p data-testid="children"></p>
       </AppContainer>,
     );
     const containerChild = screen.getByTestId('children');
