@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
 const Container = styled.footer`
-  bottom: 0;
-  left: 0;
-  right: 0;
   height: 76px;
   padding: ${({ theme }) => theme.padding.appPadding};
   display: flex;
