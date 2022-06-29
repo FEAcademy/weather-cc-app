@@ -2,7 +2,7 @@ import axios from 'axios';
 import { IWeatherData } from './IWeatherData';
 
 const apiClient = axios.create({
-  baseURL: `http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_KEY}&aqi=yes&q=`,
+  baseURL: `http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&aqi=yes&q=`,
   headers: {
     'Content-type': 'application/json',
   },
