@@ -9,7 +9,7 @@ const apiClient = axios.create({
 });
 
 const getWeatherInCity = async (city: string) => {
-  const response = await apiClient.get<IWeatherData[]>(city);
+  const response = await apiClient.get<IWeatherData>(city);
   return response.data;
 };
 
