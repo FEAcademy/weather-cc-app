@@ -9,7 +9,7 @@ describe('PageContainer', () => {
     expect(mainContainer).toBeInTheDocument();
   });
 
-  it('should render children inside PageContainer with text: "Children Element 123"', () => {
+  it('should render children', () => {
     render(
       <PageContainer>
         <div>Children Element 123</div>
