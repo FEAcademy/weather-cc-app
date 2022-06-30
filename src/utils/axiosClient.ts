@@ -11,7 +11,6 @@ const apiClient = axios.create({
 
 const getWeatherInCity = async (city: string): Promise<IWeatherData> => {
   const response = await apiClient.get<IWeatherData>('/current.json', { params: { q: city } });
-  console.log({ response });
   return response.data;
 };
 
