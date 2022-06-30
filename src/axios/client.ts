@@ -5,6 +5,7 @@ const axios = axiosBase.create({
   params: {
     key: process.env.REACT_APP_WEATHER_API_KEY,
     aqi: 'yes',
+    lang: 'pl',
   },
 });
 
