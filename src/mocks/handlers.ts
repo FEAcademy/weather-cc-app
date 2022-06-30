@@ -1,4 +1,5 @@
 import { rest } from 'msw';
+import { currentResponse } from './mockData';
 
 const weatherApiUrl = 'http://api.weatherapi.com/v1/current.json';
 
@@ -35,7 +36,7 @@ const handlers = [
         }),
       );
     }
-    return res(ctx.status(200), ctx.json({ temp: 20 }));
+    return res(ctx.status(200), ctx.json(currentResponse));
   }),
 ];
 
