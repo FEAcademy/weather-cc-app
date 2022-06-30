@@ -1,9 +1,9 @@
-import { render, screen } from '@testing-library/react';
-import { HomePage } from 'pages/Home';
-import { HomePageTestIds } from 'pages/Home/HomePageTestIds';
+import { render, screen } from 'theme/theme-test-utils';
+import { HomePage } from './HomePage';
+import { HomePageTestIds } from './HomePageTestIds';
 
 describe('Home page', () => {
-  test('renders title', () => {
+  it('should render title', () => {
     render(<HomePage />);
 
     expect(screen.getByTestId(HomePageTestIds.Title)).toHaveTextContent('Home page');

@@ -3,6 +3,12 @@
 
 html,
 body {
-  height: 100%;
   font-family: 'Lato', sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
