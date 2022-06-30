@@ -1,4 +1,4 @@
-export interface IWeatherData {
+interface IWeatherData {
   location: {
     name: string;
     region: string;
@@ -49,3 +49,5 @@ export interface IWeatherData {
     };
   };
 }
+
+export type { IWeatherData };
