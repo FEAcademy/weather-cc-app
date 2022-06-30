@@ -67,6 +67,7 @@ export const handlers = [
       return res(ctx.status(200), ctx.json(responseData));
     },
   ),
+
   rest.get<IWeatherData>(
     `http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&aqi=yes&q=xyz`,
     (_, res, ctx) => {
