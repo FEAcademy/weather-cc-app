@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { dummyResponse } from './mockData';
+import { weatherSuccessResponse } from './mockData';
 
 const currentWeatherApiUrl = process.env.REACT_APP_WEATHER_API_URL + '/current.json';
 
@@ -10,8 +10,8 @@ const handlers = [
 
     const isAuhtenticated = key === process.env.REACT_APP_WEATHER_API_KEY;
     const isKeyProvided = key !== '';
-    const isBadRequest = q === '';
-    const isResultNotFound = q === 'xyz';
+    const isEmptyQuery = q === '';
+    const isNotMatchingQuery = q === 'xyz';
 
     if (!isKeyProvided) {
       return res(
@@ -31,7 +31,7 @@ const handlers = [
         }),
       );
     }
-    if (isBadRequest) {
+    if (isEmptyQuery) {
       return res(
         ctx.status(400),
         ctx.json({
@@ -40,7 +40,7 @@ const handlers = [
         }),
       );
     }
-    if (isResultNotFound) {
+    if (isNotMatchingQuery) {
       return res(
         ctx.status(400),
         ctx.json({
@@ -49,7 +49,7 @@ const handlers = [
         }),
       );
     }
-    return res(ctx.status(200), ctx.json(dummyResponse));
+    return res(ctx.status(200), ctx.json(weatherSuccessResponse));
   }),
 ];
 

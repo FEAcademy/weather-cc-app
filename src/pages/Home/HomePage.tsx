@@ -4,13 +4,13 @@ import { useQuery } from 'react-query';
 import { Box } from 'components/Box';
 import { Title } from 'components/Title';
 import { getWeather } from '../../axios/queries';
-import { DummyResponse } from '../../mocks/mockData';
+import { WeatherSuccessResponse } from '../../mocks/mockData';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [cityName, setCityName] = useState('Wroclaw');
-  const { isLoading, isError, error, data } = useQuery<DummyResponse, Error>(['weather', cityName], () =>
+  const { isLoading, isError, error, data } = useQuery<WeatherSuccessResponse, Error>(['weather', cityName], () =>
     getWeather(cityName),
   );
 
