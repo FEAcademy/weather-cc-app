@@ -1,4 +1,4 @@
-const dummyResponse = {
+const weatherSuccessResponse = {
   current: {
     condition: { text: 'Sunny', icon: '//cdn.weatherapi.com/weather/64x64/day/113.png', code: 1000 },
     cloud: 0,
@@ -36,7 +36,7 @@ const dummyResponse = {
   },
 };
 
-type DummyResponse = Partial<typeof dummyResponse>;
+type WeatherSuccessResponse = typeof weatherSuccessResponse;
 
-export { dummyResponse };
-export type { DummyResponse };
+export { weatherSuccessResponse };
+export type { WeatherSuccessResponse };
