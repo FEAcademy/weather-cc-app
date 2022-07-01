@@ -1,42 +1,55 @@
 import { rest } from 'msw';
-import { currentResponse } from './mockData';
+import { dummyResponse } from './mockData';
 
-const weatherApiUrl = 'http://api.weatherapi.com/v1/current.json';
+const currentWeatherApiUrl = process.env.REACT_APP_WEATHER_API_URL + '/current.json';
 
 const handlers = [
-  rest.get(weatherApiUrl, (req, res, ctx) => {
+  rest.get(currentWeatherApiUrl, (req, res, ctx) => {
     const key = req.url.searchParams.get('key');
-    const isAuhtenticated = key === process.env.REACT_APP_WEATER_API_KEY;
-
     const q = req.url.searchParams.get('q');
+
+    const isAuhtenticated = key === process.env.REACT_APP_WEATHER_API_KEY;
+    const isKeyProvided = key !== '';
     const isBadRequest = q === '';
+    const isResultNotFound = q === 'xyz';
 
-    const isResultFound = q === 'xyz';
-
-    if (!isAuhtenticated)
+    if (!isKeyProvided) {
       return res(
-        ctx.status(403),
+        ctx.status(401),
         ctx.json({
-          message: 'Not Authenticated',
+          code: 1002,
+          message: 'API key not provided.',
         }),
       );
+    }
+    if (!isAuhtenticated) {
+      return res(
+        ctx.status(401),
+        ctx.json({
+          code: 2006,
+          message: 'API key provided is invalid',
+        }),
+      );
+    }
     if (isBadRequest) {
       return res(
         ctx.status(400),
         ctx.json({
-          message: 'Bad request',
+          code: 1003,
+          message: 'Parameter "q" not provided.',
         }),
       );
     }
-    if (isResultFound) {
+    if (!isResultNotFound) {
       return res(
-        ctx.status(404),
+        ctx.status(400),
         ctx.json({
-          message: 'Not Found',
+          code: 1006,
+          message: 'No location found matching parameter "q"',
         }),
       );
     }
-    return res(ctx.status(200), ctx.json(currentResponse));
+    return res(ctx.status(200), ctx.json(dummyResponse));
   }),
 ];
 
