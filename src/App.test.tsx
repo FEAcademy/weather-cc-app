@@ -1,9 +1,29 @@
 import App from 'App';
-import { render, screen } from 'theme/theme-test-utils';
+import { createMemoryHistory } from 'history';
+import React from 'react';
 import { FooterTestIds } from './components/Footer/FooterTestIds';
 import { NavbarTestIds } from './components/Navbar/NavbarTestIds';
+import { render, screen } from './utils/customRender';
 
 describe('App', () => {
+  it('router', async () => {
+    const history = createMemoryHistory();
+    const route = '/about';
+    history.push(route);
+
+    render(<App />);
+    // render(
+    //   <Router location={history.location} navigator={history}>
+    //     <App />
+    //   </Router>,
+    // );
+    setTimeout(() => {
+      expect(screen.queryByTestId('aboutPage')).toHaveTextContent(/AboutPage/i);
+    }, 500);
+    // await waitFor(() => expect(screen.queryByTestId('aboutPage')).toHaveTextContent(/AboutPage/i));
+    // await waitFor(() => expect(screen.queryByTestId('home-page-title')).toHaveTextContent(/Home Page/i));
+  });
+
   it('should render navbar', () => {
     render(<App />);
 

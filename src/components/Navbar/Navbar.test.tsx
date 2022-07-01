@@ -1,5 +1,5 @@
-import { render, screen } from 'theme/theme-test-utils';
 import { Navbar } from 'components/Navbar';
+import { render, screen } from '../../utils/customRender';
 
 describe('Navbar', () => {
   it('should render', () => {
