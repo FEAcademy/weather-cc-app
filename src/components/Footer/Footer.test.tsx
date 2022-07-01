@@ -1,4 +1,4 @@
-import { render, screen } from 'theme/theme-test-utils';
+import { render, screen } from 'utils/test-utils';
 import { Footer } from './Footer';
 import { FooterTestIds } from './FooterTestIds';
 
