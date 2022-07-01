@@ -27,7 +27,7 @@ const handlers = [
         ctx.status(401),
         ctx.json({
           code: 2006,
-          message: 'API key provided is invalid',
+          message: 'API key provided is invalid.',
         }),
       );
     }
@@ -40,12 +40,12 @@ const handlers = [
         }),
       );
     }
-    if (!isResultNotFound) {
+    if (isResultNotFound) {
       return res(
         ctx.status(400),
         ctx.json({
           code: 1006,
-          message: 'No location found matching parameter "q"',
+          message: 'No location found matching parameter "q".',
         }),
       );
     }

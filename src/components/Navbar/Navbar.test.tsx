@@ -1,4 +1,4 @@
-import { render, screen } from 'theme/theme-test-utils';
+import { render, screen } from 'test-utils';
 import { Navbar } from 'components/Navbar';
 
 describe('Navbar', () => {
