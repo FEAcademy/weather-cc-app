@@ -3,7 +3,13 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ThemeProvider } from 'theme';
 
 const queryClient = new QueryClient();
-const testClient = new QueryClient();
+const testClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+    },
+  },
+});
 
 interface Props {
   client?: QueryClient;
