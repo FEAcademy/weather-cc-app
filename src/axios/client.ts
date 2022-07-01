@@ -1,6 +1,6 @@
-import { default as axiosBase } from 'axios';
+import axios from 'axios';
 
-const axios = axiosBase.create({
+const axiosClient = axios.create({
   baseURL: process.env.REACT_APP_WEATHER_API_URL,
   params: {
     key: process.env.REACT_APP_WEATHER_API_KEY,
@@ -8,4 +8,4 @@ const axios = axiosBase.create({
   },
 });
 
-export { axios };
+export { axiosClient };
