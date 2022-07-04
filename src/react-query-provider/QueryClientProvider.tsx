@@ -11,16 +11,12 @@ const testQueryClient = new QueryClient({
   },
 });
 
-interface Props {
-  client?: QueryClient;
-}
-
-const QueryClientProvider = ({ children, client = queryClient }: PropsWithChildren<Props>) => (
-  <ReactQueryQueryClientProvider client={client}>{children}</ReactQueryQueryClientProvider>
+const QueryClientProvider = ({ children }: PropsWithChildren) => (
+  <ReactQueryQueryClientProvider client={queryClient}>{children}</ReactQueryQueryClientProvider>
 );
 
-const TestQueryClientProvider = ({ children, client = testQueryClient }: PropsWithChildren<Props>) => (
-  <ReactQueryQueryClientProvider client={client}>{children}</ReactQueryQueryClientProvider>
+const TestQueryClientProvider = ({ children }: PropsWithChildren) => (
+  <ReactQueryQueryClientProvider client={testQueryClient}>{children}</ReactQueryQueryClientProvider>
 );
 
-export { QueryClientProvider, TestQueryClientProvider, queryClient };
+export { QueryClientProvider, TestQueryClientProvider };
