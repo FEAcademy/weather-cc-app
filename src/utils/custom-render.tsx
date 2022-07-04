@@ -1,10 +1,10 @@
 import { render, RenderOptions } from '@testing-library/react';
-import { ReactElement } from 'react';
+import { ReactElement, PropsWithChildren } from 'react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '../theme/ThemeProvider';
 
-const AllProvidersWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const AllProvidersWrapper = ({ children }: PropsWithChildren) => {
   return (
     <BrowserRouter>
       <ThemeProvider>{children}</ThemeProvider>
