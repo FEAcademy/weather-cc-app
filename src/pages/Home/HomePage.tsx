@@ -15,11 +15,6 @@ const HomePage = () => {
 
   console.log({ status, data: data, isLoading, isError, error });
 
-  if (isError) {
-    console.log('isError ', isError);
-    return <p>Error</p>;
-  }
-
   return (
     <>
       <Title data-testid={HomePageTestIds.Title}>Home page</Title>
