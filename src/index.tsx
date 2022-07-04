@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { AllTheProvider } from './utils/AllTheProviders';
+import { AllProviders } from './utils/AllProviders';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
   <React.StrictMode>
-    <AllTheProvider>
+    <AllProviders>
       <App />
-    </AllTheProvider>
+    </AllProviders>
   </React.StrictMode>,
 );

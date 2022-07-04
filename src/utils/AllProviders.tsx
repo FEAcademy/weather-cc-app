@@ -4,10 +4,10 @@ import { ThemeProvider } from '../theme/ThemeProvider';
 
 const queryClient = new QueryClient();
 
-const AllTheProvider = ({ children }: PropsWithChildren) => (
+const AllProviders = ({ children }: PropsWithChildren) => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider>{children}</ThemeProvider>
   </QueryClientProvider>
 );
 
-export { AllTheProvider };
+export { AllProviders };

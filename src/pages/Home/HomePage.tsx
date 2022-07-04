@@ -1,11 +1,12 @@
 import { getWeatherByCity } from 'axios/getWeatherByCity';
+import { Weather } from 'axios/Weather';
 import { useQuery } from 'react-query';
 import { Box } from 'components/Box';
 import { Title } from 'components/Title';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
-  const { data } = useQuery('current_weather_by_city', () => getWeatherByCity('Wroclaw'));
+  const { data } = useQuery<Weather>('current_weather_by_city', () => getWeatherByCity('Wroclaw'));
   console.log(data);
 
   return (
