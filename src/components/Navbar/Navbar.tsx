@@ -1,15 +1,27 @@
 import React from 'react';
-import { Logo, Container, Wrapper } from './Navbar.styled';
+import { NavLink } from 'react-router-dom';
+import { ReactComponent as AboutIcon } from '../../assets/icons/about.svg';
+import { ReactComponent as HomePageIcon } from '../../assets/icons/homePage.svg';
+import { Logo, Container, Wrapper, NavButtons } from './Navbar.styled';
 import { NavbarTestIds } from './NavbarTestIds';
-
-const Navbar = () => (
-  <Container data-testid={NavbarTestIds.Container}>
-    <Wrapper>
-      <Logo>
-        weather<span>ly</span>
-      </Logo>
-    </Wrapper>
-  </Container>
-);
+const Navbar = () => {
+  return (
+    <Container data-testid={NavbarTestIds.Container}>
+      <Wrapper>
+        <Logo>
+          weather<span>ly</span>
+        </Logo>
+        <NavButtons>
+          <NavLink to="/" className={({ isActive }) => (isActive ? undefined : 'inactive')}>
+            <HomePageIcon />
+          </NavLink>
+          <NavLink to="about" className={({ isActive }) => (isActive ? undefined : 'inactive')}>
+            <AboutIcon />{' '}
+          </NavLink>
+        </NavButtons>
+      </Wrapper>
+    </Container>
+  );
+};
 
 export { Navbar };

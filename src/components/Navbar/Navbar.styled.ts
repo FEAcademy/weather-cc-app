@@ -30,4 +30,16 @@ const Logo = styled.h1`
   }
 `;
 
-export { Logo, Wrapper, Container };
+const NavButtons = styled.div`
+  display: flex;
+  > * {
+    display: flex;
+    align-items: center;
+    margin-left: 21px;
+  }
+  .inactive {
+    opacity: 0.4;
+  }
+`;
+
+export { Logo, Wrapper, Container, NavButtons };
