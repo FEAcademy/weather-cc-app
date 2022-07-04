@@ -24,7 +24,7 @@ const Navbar = () => {
             data-testid={NavbarTestIds.AboutIcon}
             className={({ isActive }) => (isActive ? undefined : 'inactive')}
           >
-            <AboutIcon />{' '}
+            <AboutIcon />
           </NavLink>
         </NavButtons>
       </Wrapper>
