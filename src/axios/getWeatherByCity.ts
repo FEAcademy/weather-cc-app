@@ -1,9 +1,9 @@
+import { WeatherSuccessResponse } from 'mocks/mockData';
 import { axiosClient } from './client';
-import { Weather } from './Weather';
 
-const getWeatherByCity = async (city: string): Promise<Weather> => {
-  const { data } = await axiosClient.get<Weather>('/current.json', {
-    params: { q: city, agi: 'yes' },
+const getWeatherByCity = async (city: string): Promise<WeatherSuccessResponse> => {
+  const { data } = await axiosClient.get<WeatherSuccessResponse>('/current.json', {
+    params: { q: city, aqi: 'yes' },
   });
   return data;
 };

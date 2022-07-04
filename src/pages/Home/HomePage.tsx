@@ -1,12 +1,17 @@
 import { getWeatherByCity } from 'axios/getWeatherByCity';
-import { Weather } from 'axios/Weather';
+import { WeatherSuccessResponse } from 'mocks/mockData';
+import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { Box } from 'components/Box';
 import { Title } from 'components/Title';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
-  const { data } = useQuery<Weather>('current_weather_by_city', () => getWeatherByCity('Wroclaw'));
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [cityName, setCityName] = useState('Wroclaw');
+  const { data } = useQuery<WeatherSuccessResponse>(['current_weather_by_city', cityName], () =>
+    getWeatherByCity(cityName),
+  );
   console.log(data);
 
   return (
