@@ -1,5 +1,5 @@
 import App from 'App';
-import { render, screen } from 'theme/theme-test-utils';
+import { render, screen } from 'utils/custom-render';
 import { FooterTestIds } from './components/Footer/FooterTestIds';
 import { NavbarTestIds } from './components/Navbar/NavbarTestIds';
 
