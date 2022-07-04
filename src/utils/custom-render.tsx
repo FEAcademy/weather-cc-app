@@ -1,10 +1,9 @@
 import { render, RenderOptions } from '@testing-library/react';
-import { ReactElement } from 'react';
-import React from 'react';
+import { PropsWithChildren, ReactElement } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '../theme/ThemeProvider';
 
-const AllTheProviders: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const AllProvidersWrapper = ({ children }: PropsWithChildren) => {
   return (
     <BrowserRouter>
       <ThemeProvider>{children}</ThemeProvider>
@@ -16,7 +15,7 @@ const renderWithRouter = (ui: ReactElement, { route = '/' } = {}, options?: Omit
   window.history.pushState({}, 'Test page', route);
 
   return {
-    ...render(ui, { wrapper: AllTheProviders, ...options }),
+    ...render(ui, { wrapper: AllProvidersWrapper, ...options }),
   };
 };
 
