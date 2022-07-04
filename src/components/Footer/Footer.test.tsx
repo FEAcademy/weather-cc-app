@@ -1,4 +1,4 @@
-import { render, screen } from '../../utils/customRender';
+import { render, screen } from '../../utils/custom-render';
 
 import { Footer } from './Footer';
 import { FooterTestIds } from './FooterTestIds';
