@@ -1,12 +1,13 @@
 import App from 'App';
+import { Paths } from 'utils';
 import { render, screen } from 'utils/custom-render';
 import { AboutPageTestIds } from 'pages/About/AboutPageTestIds';
 import { FooterTestIds } from './components/Footer/FooterTestIds';
 import { NavbarTestIds } from './components/Navbar/NavbarTestIds';
 
 describe('App', () => {
-  it('router', async () => {
-    const route = '/about';
+  it('should make possible reaching /about path', async () => {
+    const route = Paths.About;
 
     render(<App />, { route });
 
