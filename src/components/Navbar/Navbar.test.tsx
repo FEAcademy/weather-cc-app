@@ -1,5 +1,5 @@
+import { render, screen } from 'utils/custom-render';
 import { Navbar } from 'components/Navbar';
-import { render, screen } from '../../utils/custom-render';
 import { NavbarTestIds } from './NavbarTestIds';
 
 describe('Navbar', () => {
