@@ -20,7 +20,7 @@ const Navbar = () => {
             <HomePageIcon />
           </NavLink>
           <NavLink
-            to="about"
+            to="/about"
             data-testid={NavbarTestIds.AboutIcon}
             className={({ isActive }) => (isActive ? undefined : 'inactive')}
           >
