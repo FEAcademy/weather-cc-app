@@ -1,4 +1,4 @@
-import { render, screen } from '../../utils/custom-render';
+import { render, screen } from 'utils/custom-render';
 import { AboutPage } from './AboutPage';
 
 describe('About page', () => {
