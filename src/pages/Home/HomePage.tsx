@@ -8,8 +8,9 @@ import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
   const [cityName] = useState('Wroclaw');
-  const { data, isError, error, status, isLoading } = useQuery<WeatherSuccessResponse>(['weather-data', cityName], () =>
-    getWeatherInCity(cityName),
+  const { data, isError, error, status, isLoading } = useQuery<WeatherSuccessResponse, Error>(
+    ['weather-data', cityName],
+    () => getWeatherInCity(cityName),
   );
 
   console.log({ status, data: data, isLoading, isError, error });
