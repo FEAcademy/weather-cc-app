@@ -12,10 +12,18 @@ const Navbar = () => {
           weather<span>ly</span>
         </Logo>
         <NavButtons>
-          <NavLink to="/" className={({ isActive }) => (isActive ? undefined : 'inactive')}>
+          <NavLink
+            to="/"
+            data-testid={NavbarTestIds.HomePageIcon}
+            className={({ isActive }) => (isActive ? undefined : 'inactive')}
+          >
             <HomePageIcon />
           </NavLink>
-          <NavLink to="about" className={({ isActive }) => (isActive ? undefined : 'inactive')}>
+          <NavLink
+            to="about"
+            data-testid={NavbarTestIds.AboutIcon}
+            className={({ isActive }) => (isActive ? undefined : 'inactive')}
+          >
             <AboutIcon />{' '}
           </NavLink>
         </NavButtons>
