@@ -1,7 +1,7 @@
 import React from 'react';
-import mapImg from '../../assets/images/map.png';
-import parametersWidgetImg from '../../assets/images/parametersWidget.png';
-import temperatureWidgetImg from '../../assets/images/temperatureWidget.png';
+import mapImg from 'assets/images/map.png';
+import parametersWidgetImg from 'assets/images/parametersWidget.png';
+import temperatureWidgetImg from 'assets/images/temperatureWidget.png';
 import { MainHeading, LogoContainer, SubHeading, RowContainer, Title, Description, Content } from './AboutPage.styled';
 import { AboutPageTestIds } from './AboutPageTestIds';
 

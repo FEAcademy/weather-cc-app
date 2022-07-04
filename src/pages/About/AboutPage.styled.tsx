@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import cloudImg from '../../assets/images/clouds.png';
+import cloudImg from 'assets/images/clouds.png';
 
 const LogoContainer = styled.div`
   display: flex;
@@ -27,7 +27,6 @@ const SubHeading = styled.h5`
   font-weight: 300;
   font-size: 24px;
   line-height: 29px;
-  color: ${({ theme }) => theme.colors.text};
 `;
 
 const Content = styled.div`
@@ -42,7 +41,6 @@ const Title = styled.h3`
   font-size: 36px;
   line-height: 43px;
   margin-bottom: 9px;
-  color: ${({ theme }) => theme.colors.text};
 `;
 
 const Description = styled.p`
