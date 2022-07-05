@@ -12,7 +12,7 @@ const getWeather = async (cityName: string) => {
   return res.data;
 };
 
-export default {
-  useCity: (cityName: string) =>
-    useQuery<WeatherSuccessResponse, Error>(['weather', cityName], () => getWeather(cityName)),
-};
+const useCity = (cityName: string) =>
+  useQuery<WeatherSuccessResponse, Error>(['weather', cityName], () => getWeather(cityName));
+
+export { useCity };
