@@ -1,22 +1,20 @@
 import { PropsWithChildren } from 'react';
-import { QueryClientProvider as ReactQueryQueryClientProvider, QueryClient } from 'react-query';
+import { QueryClientProvider as ReactQueryClientProvider, QueryClient } from 'react-query';
 
-const queryClient = new QueryClient();
-
-const testQueryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
+const queryClient = (isRetry: boolean) =>
+  new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: isRetry,
+      },
     },
-  },
-});
+  });
 
-const QueryClientProvider = ({ children }: PropsWithChildren) => (
-  <ReactQueryQueryClientProvider client={queryClient}>{children}</ReactQueryQueryClientProvider>
+type ProviderProps = {
+  isRetry?: boolean;
+};
+const QueryClientProvider = ({ children, isRetry = true }: PropsWithChildren<ProviderProps>) => (
+  <ReactQueryClientProvider client={queryClient(isRetry)}>{children}</ReactQueryClientProvider>
 );
 
-const TestQueryClientProvider = ({ children }: PropsWithChildren) => (
-  <ReactQueryQueryClientProvider client={testQueryClient}>{children}</ReactQueryQueryClientProvider>
-);
-
-export { QueryClientProvider, TestQueryClientProvider };
+export { QueryClientProvider };

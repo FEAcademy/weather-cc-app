@@ -1,13 +1,13 @@
 import { render, RenderOptions } from '@testing-library/react';
 import { ReactElement, PropsWithChildren } from 'react';
-import { TestQueryClientProvider } from '../react-query-provider';
+import { QueryClientProvider } from '../react-query-provider';
 import { ThemeProvider } from '../theme/ThemeProvider';
 
 const AllTheProviders = ({ children }: PropsWithChildren) => {
   return (
-    <TestQueryClientProvider>
+    <QueryClientProvider isRetry={false}>
       <ThemeProvider>{children}</ThemeProvider>
-    </TestQueryClientProvider>
+    </QueryClientProvider>
   );
 };
 
