@@ -8,4 +8,4 @@ const weatherApiClient = axios.create({
   },
 });
 
-export default weatherApiClient;
+export { weatherApiClient };

@@ -1,6 +1,6 @@
 import { WeatherSuccessResponse } from 'mocks/mockData';
 import { useQuery } from 'react-query';
-import weatherApiClient from '../clients';
+import { weatherApiClient } from '../clients';
 
 export default {
   useCity: (cityName: string) =>
