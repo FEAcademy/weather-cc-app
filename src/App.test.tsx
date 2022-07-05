@@ -6,7 +6,7 @@ import { FooterTestIds } from './components/Footer/FooterTestIds';
 import { NavbarTestIds } from './components/Navbar/NavbarTestIds';
 
 describe('App', () => {
-  it('should make possible reaching /about path', async () => {
+  it('should make possible reaching /about path', () => {
     const route = Paths.About;
 
     render(<App />, { route });

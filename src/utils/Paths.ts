@@ -1,4 +1,5 @@
 enum Paths {
+  Home = '/',
   About = '/about',
 }
 

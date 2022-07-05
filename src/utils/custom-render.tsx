@@ -2,6 +2,7 @@ import { render, RenderOptions } from '@testing-library/react';
 import { PropsWithChildren, ReactElement } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'theme/ThemeProvider';
+import { Paths } from './Paths';
 
 const AllProvidersWrapper = ({ children }: PropsWithChildren) => {
   return (
@@ -11,7 +12,7 @@ const AllProvidersWrapper = ({ children }: PropsWithChildren) => {
   );
 };
 
-const renderWithRouter = (ui: ReactElement, { route = '/' } = {}, options?: Omit<RenderOptions, 'wrapper'>) => {
+const renderWithRouter = (ui: ReactElement, { route = Paths.Home } = {}, options?: Omit<RenderOptions, 'wrapper'>) => {
   window.history.pushState({}, 'Test page', route);
 
   return {

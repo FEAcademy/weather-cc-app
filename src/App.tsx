@@ -14,8 +14,8 @@ const App = () => {
       <Navbar />
       <PageContainer>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path={`${Paths.About}`} element={<AboutPage />} />
+          <Route path={Paths.Home} element={<HomePage />} />
+          <Route path={Paths.About} element={<AboutPage />} />
         </Routes>
       </PageContainer>
       <Footer />
