@@ -1,4 +1,4 @@
-import { render, screen } from '../../theme/theme-test-utils';
+import { render, screen } from 'theme/theme-test-utils';
 import { AboutPage } from './AboutPage';
 import { AboutPageTestIds } from './AboutPageTestIds';
 

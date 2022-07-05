@@ -48,7 +48,6 @@ const Description = styled.p`
   font-size: 20px;
   line-height: 24px;
   width: 582px;
-  color: ${({ theme }) => theme.colors.text};
 `;
 
 const RowContainer = styled.div`
