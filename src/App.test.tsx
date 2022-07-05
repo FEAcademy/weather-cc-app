@@ -1,6 +1,6 @@
 import App from 'App';
 import { Paths } from 'utils';
-import { render, screen } from 'utils/custom-render';
+import { render, screen } from 'utils';
 import { AboutPageTestIds } from 'pages/About/AboutPageTestIds';
 import { FooterTestIds } from './components/Footer/FooterTestIds';
 import { NavbarTestIds } from './components/Navbar/NavbarTestIds';
