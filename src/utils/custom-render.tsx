@@ -1,7 +1,7 @@
 import { render, RenderOptions } from '@testing-library/react';
 import { PropsWithChildren, ReactElement } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from '../theme/ThemeProvider';
+import { ThemeProvider } from 'theme/ThemeProvider';
 
 const AllProvidersWrapper = ({ children }: PropsWithChildren) => {
   return (
