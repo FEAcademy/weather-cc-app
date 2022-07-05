@@ -10,4 +10,10 @@ describe('AboutPage', () => {
 
     expect(aboutPage).toBeInTheDocument();
   });
+
+  it('should render correctly', () => {
+    const { asFragment } = render(<AboutPage />);
+
+    expect(asFragment).toMatchSnapshot();
+  });
 });
