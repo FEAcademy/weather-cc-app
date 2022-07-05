@@ -2,25 +2,23 @@ import { PropsWithChildren } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ThemeProvider } from 'theme';
 
-const queryClient = new QueryClient();
-const testClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
+const getQueryClient = (retry: boolean) =>
+  new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry,
+      },
     },
-  },
-});
+  });
 
 interface Props {
-  client?: QueryClient;
+  retryQueries?: boolean;
 }
 
-const Provider = ({ children, client = queryClient }: PropsWithChildren<Props>) => (
-  <QueryClientProvider client={client}>
+const Provider = ({ children, retryQueries = true }: PropsWithChildren<Props>) => (
+  <QueryClientProvider client={getQueryClient(retryQueries)}>
     <ThemeProvider>{children}</ThemeProvider>
   </QueryClientProvider>
 );
 
-const TestProvider = ({ children }: PropsWithChildren) => <Provider client={testClient}>{children}</Provider>;
-
-export { Provider, TestProvider };
+export { Provider };
