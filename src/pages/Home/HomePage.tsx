@@ -1,16 +1,13 @@
+import Weather from 'api/services/Weather';
 import { useState } from 'react';
-import { useQuery } from 'react-query';
-
 import { Box } from 'components/Box';
 import { Title } from 'components/Title';
-import { getWeather } from '../../axios/queries';
-import { WeatherSuccessResponse } from '../../mocks/mockData';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [cityName, setCityName] = useState('Wroclaw');
-  const { data } = useQuery<WeatherSuccessResponse, Error>(['weather', cityName], () => getWeather(cityName));
+  const { useCity } = Weather;
+  const [cityName] = useState('Wroclaw');
+  const { data } = useCity(cityName);
 
   data && console.log(data);
 
