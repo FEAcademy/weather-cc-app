@@ -11,7 +11,8 @@ describe('App', () => {
 
     render(<App />, { route });
 
-    expect(screen.getByTestId(AboutPageTestIds.Container)).toBeInTheDocument();
+    const aboutPage = screen.getByTestId(AboutPageTestIds.Container);
+    expect(aboutPage).toBeInTheDocument();
   });
 
   it('should render navbar', () => {
