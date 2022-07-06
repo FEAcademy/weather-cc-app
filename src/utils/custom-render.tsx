@@ -1,8 +1,8 @@
 import { render, RenderOptions } from '@testing-library/react';
+import { Paths } from 'enums/Paths';
 import { PropsWithChildren, ReactElement } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'theme/ThemeProvider';
-import { Paths } from './Paths';
 
 const AllProvidersWrapper = ({ children }: PropsWithChildren) => {
   return (

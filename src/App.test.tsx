@@ -1,5 +1,5 @@
 import App from 'App';
-import { Paths } from 'utils';
+import { Paths } from 'enums/Paths';
 import { render, screen } from 'utils';
 import { AboutPageTestIds } from 'pages/About/AboutPageTestIds';
 import { FooterTestIds } from './components/Footer/FooterTestIds';
