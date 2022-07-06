@@ -1,5 +1,5 @@
 enum TemperatureWidgetTestIds {
-  container = 'temperature-widget',
+  Container = 'temperature-widget',
 }
 
 export { TemperatureWidgetTestIds };

@@ -1,5 +1,5 @@
 enum HomePageTestIds {
-  Title = 'home-page-title',
+  WidgetsContainer = 'home-page-widget',
 }
 
 export { HomePageTestIds };
