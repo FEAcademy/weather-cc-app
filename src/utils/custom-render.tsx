@@ -1,6 +1,6 @@
 import { render, RenderOptions } from '@testing-library/react';
 import { Paths } from 'enums/Paths';
-import { PropsWithChildren, ReactElement } from 'react';
+import { ReactElement, PropsWithChildren } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'theme/ThemeProvider';
 

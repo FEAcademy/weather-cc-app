@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.nav`
@@ -30,4 +31,19 @@ const Logo = styled.h1`
   }
 `;
 
-export { Logo, Wrapper, Container };
+const NavButtonsWrapper = styled.div`
+  display: flex;
+`;
+
+const StyledNavLink = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  margin-left: 21px;
+  opacity: 0.4;
+  color: ${({ theme }) => theme.colors.text};
+  &[aria-current] {
+    opacity: 1;
+  }
+`;
+
+export { Logo, Wrapper, Container, NavButtonsWrapper, StyledNavLink };
