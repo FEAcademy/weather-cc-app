@@ -1,12 +1,15 @@
-import { Box } from 'components/Box';
-import { Title } from 'components/Title';
-import { HomePageTestIds } from './HomePageTestIds';
+import { TemperatureWidget } from 'components/TemperatureWidget';
+import { Row, Content, Heading, Section } from './HomePage.styled';
 
 const HomePage = () => (
-  <>
-    <Title data-testid={HomePageTestIds.Title}>Home page</Title>
-    <Box>Box content</Box>
-  </>
+  <Content>
+    <Section>
+      <Heading>Katowice</Heading>
+      <Row>
+        <TemperatureWidget />
+      </Row>
+    </Section>
+  </Content>
 );
 
 export { HomePage };

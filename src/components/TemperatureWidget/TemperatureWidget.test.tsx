@@ -1,10 +1,10 @@
 import { render, screen } from 'theme/theme-test-utils';
-import { TemperatureWidgetTestIds } from 'components/TemperatureWidget/TemperatureWidgetTestIds';
-import { HomePage } from './HomePage';
+import { TemperatureWidget } from './TemperatureWidget';
+import { TemperatureWidgetTestIds } from './TemperatureWidgetTestIds';
 
 describe('Home page', () => {
   it('should render temperature widget', () => {
-    render(<HomePage />);
+    render(<TemperatureWidget />);
 
     const temperatureWidget = screen.getByTestId(TemperatureWidgetTestIds.Container);
 
