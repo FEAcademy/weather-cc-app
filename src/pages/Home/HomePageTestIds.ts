@@ -1,6 +1,5 @@
 enum HomePageTestIds {
-  Title = 'home-page-title',
-  TemperatureBox = 'temperature-box',
+  WidgetWrpper = 'widget-wrapper',
 }
 
 export { HomePageTestIds };
