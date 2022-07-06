@@ -2,6 +2,7 @@ import App from 'App';
 import { render, screen } from 'test-utils';
 import { FooterTestIds } from './components/Footer/FooterTestIds';
 import { NavbarTestIds } from './components/Navbar/NavbarTestIds';
+import { TemperatureWidgetTestIds } from './components/TemperatureWidget/TemperatureWidgetTestIds';
 
 describe('App', () => {
   it('should render navbar', () => {
@@ -26,5 +27,13 @@ describe('App', () => {
     const footer = screen.getByTestId(FooterTestIds.Footer);
 
     expect(footer).toBeInTheDocument();
+  });
+
+  it('should render home page', () => {
+    render(<App />);
+
+    const homePage = screen.getByTestId(TemperatureWidgetTestIds.Container);
+
+    expect(homePage).toBeInTheDocument();
   });
 });
