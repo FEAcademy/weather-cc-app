@@ -6,6 +6,6 @@ describe('TemperatureBox', () => {
   it('should render widget wrapper', () => {
     render(<TemperatureBox />);
 
-    expect(screen.getByTestId(TemperatureBoxTestIds.TemperatureBox)).toBeInTheDocument();
+    expect(screen.getByTestId(TemperatureBoxTestIds.Container)).toBeInTheDocument();
   });
 });

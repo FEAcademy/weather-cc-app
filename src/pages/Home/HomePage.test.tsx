@@ -13,6 +13,6 @@ describe('Home page', () => {
   it('should render temperature box', () => {
     render(<HomePage />);
 
-    expect(screen.getByTestId(TemperatureBoxTestIds.TemperatureBox)).toBeInTheDocument();
+    expect(screen.getByTestId(TemperatureBoxTestIds.Container)).toBeInTheDocument();
   });
 });
