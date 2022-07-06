@@ -1,4 +1,4 @@
-import { Provider } from 'Provider';
+import { ProvidersCombined } from 'ProvidersCombined';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ReactQueryDevtools } from 'react-query/devtools';
@@ -8,9 +8,9 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
   <React.StrictMode>
-    <Provider>
+    <ProvidersCombined>
       <App />
       <ReactQueryDevtools initialIsOpen={false} />
-    </Provider>
+    </ProvidersCombined>
   </React.StrictMode>,
 );
