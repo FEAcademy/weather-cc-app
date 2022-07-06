@@ -4,12 +4,8 @@ import { ThemeProvider } from 'theme';
 
 const queryClient = new QueryClient();
 
-interface Props {
-  client?: QueryClient;
-}
-
-const Provider = ({ children, client = queryClient }: PropsWithChildren<Props>) => (
-  <QueryClientProvider client={client}>
+const Provider = ({ children }: PropsWithChildren) => (
+  <QueryClientProvider client={queryClient}>
     <ThemeProvider>{children}</ThemeProvider>
   </QueryClientProvider>
 );
