@@ -5,7 +5,6 @@ const Container = styled.div`
   width: 368px;
   height: 200px;
   align-items: center;
-  background-color: #eeeeee;
 
   div:nth-child(1) {
     padding-right: 17px;
@@ -26,22 +25,19 @@ const Container = styled.div`
   p:nth-child(1),
   p:nth-child(3) {
     font-size: 20px;
-    //line-height: 24px;
 
     span {
       font-size: 15px;
-      //line-height: 18px;
       font-weight: 100;
     }
   }
 
   p:nth-child(2) {
     font-size: 96px;
-    //line-height: 96px;
+    margin-bottom: -10px;
 
     span {
       font-size: 48px;
-      //line-height: 96px;
       font-weight: 100;
     }
   }
