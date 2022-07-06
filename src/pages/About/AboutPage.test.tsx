@@ -13,9 +13,6 @@ describe('AboutPage', () => {
 
   it('should render correctly', () => {
     const { asFragment } = render(<AboutPage />);
-
-    const firstRender = asFragment();
-
-    expect(firstRender).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 });
