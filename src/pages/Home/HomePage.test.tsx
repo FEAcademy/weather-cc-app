@@ -1,5 +1,5 @@
 import { render, screen } from 'test-utils';
-import { TemperatureBoxTestIds } from 'components/TemperatureBox';
+import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { HomePage } from './HomePage';
 import { HomePageTestIds } from './HomePageTestIds';
 
@@ -10,9 +10,9 @@ describe('Home page', () => {
     expect(screen.getByTestId(HomePageTestIds.WidgetWrapper)).toBeInTheDocument();
   });
 
-  it('should render temperature box', () => {
+  it('should render temperature widget', () => {
     render(<HomePage />);
 
-    expect(screen.getByTestId(TemperatureBoxTestIds.Container)).toBeInTheDocument();
+    expect(screen.getByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
   });
 });
