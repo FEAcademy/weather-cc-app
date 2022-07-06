@@ -1,5 +1,5 @@
 import { render, screen } from 'test-utils';
-import { TemperatureBoxTestIds } from '../../components/TemperatureBox';
+import { TemperatureBoxTestIds } from 'components/TemperatureBox';
 import { HomePage } from './HomePage';
 import { HomePageTestIds } from './HomePageTestIds';
 
