@@ -1,4 +1,4 @@
-import { render, screen } from 'test-utils';
+import { render, screen } from 'utils';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { HomePage } from './HomePage';
 
