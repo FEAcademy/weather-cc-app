@@ -2,7 +2,7 @@ import { render, screen } from 'test-utils';
 import { TemperatureWidget } from './TemperatureWidget';
 import { TemperatureWidgetTestIds } from './TemperatureWidgetTestIds';
 
-describe('TemperatureBox', () => {
+describe('TemperatureWidget', () => {
   it('should render temperature widget', () => {
     render(<TemperatureWidget />);
 

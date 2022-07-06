@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './TemperatureBox.styled';
+import { Container } from './TemperatureWidget.styled';
 import { TemperatureWidgetTestIds } from './TemperatureWidgetTestIds';
 
 const TemperatureWidget = () => {
