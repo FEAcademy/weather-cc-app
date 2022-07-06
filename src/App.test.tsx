@@ -2,7 +2,7 @@ import App from 'App';
 import { render, screen } from 'test-utils';
 import { FooterTestIds } from './components/Footer/FooterTestIds';
 import { NavbarTestIds } from './components/Navbar/NavbarTestIds';
-import { TemperatureWidgetTestIds } from './components/TemperatureWidget/TemperatureWidgetTestIds';
+import { HomePageTestIds } from './pages/Home/HomePageTestIds';
 
 describe('App', () => {
   it('should render navbar', () => {
@@ -32,7 +32,7 @@ describe('App', () => {
   it('should render home page', () => {
     render(<App />);
 
-    const homePage = screen.getByTestId(TemperatureWidgetTestIds.Container);
+    const homePage = screen.getByTestId(HomePageTestIds.HomePage);
 
     expect(homePage).toBeInTheDocument();
   });

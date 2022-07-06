@@ -11,11 +11,11 @@ const HomePage = () => {
   data && console.log(data);
 
   return (
-    <>
+    <div data-testid={HomePageTestIds.HomePage}>
       <WidgetWrapper data-testid={HomePageTestIds.WidgetWrapper}>
         <TemperatureWidget />
       </WidgetWrapper>
-    </>
+    </div>
   );
 };
 
