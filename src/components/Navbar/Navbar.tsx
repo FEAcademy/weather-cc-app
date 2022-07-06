@@ -1,6 +1,5 @@
-import React from 'react';
+import { Paths } from 'enums/Paths';
 import { Info, Home } from 'react-feather';
-import { Paths } from 'utils/Paths';
 import { Logo, Container, Wrapper, NavButtonsWrapper, StyledNavLink } from './Navbar.styled';
 import { NavbarTestIds } from './NavbarTestIds';
 
