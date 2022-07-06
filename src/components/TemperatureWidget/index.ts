@@ -1,0 +1,1 @@
+export { TemperatureWidget } from './TemperatureWidget';
