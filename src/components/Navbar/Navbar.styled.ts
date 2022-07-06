@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.nav`
@@ -30,16 +31,19 @@ const Logo = styled.h1`
   }
 `;
 
-const NavButtons = styled.div`
+const NavButtonsWrapper = styled.div`
   display: flex;
-  > * {
-    display: flex;
-    align-items: center;
-    margin-left: 21px;
-  }
-  .inactive {
-    opacity: 0.4;
+`;
+
+const StyledNavLink = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  margin-left: 21px;
+  opacity: 0.4;
+  color: ${({ theme }) => theme.colors.text};
+  &[aria-current] {
+    opacity: 1;
   }
 `;
 
-export { Logo, Wrapper, Container, NavButtons };
+export { Logo, Wrapper, Container, NavButtonsWrapper, StyledNavLink };
