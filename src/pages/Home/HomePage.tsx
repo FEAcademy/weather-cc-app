@@ -12,7 +12,7 @@ const HomePage = () => {
 
   return (
     <div data-testid={HomePageTestIds.HomePage}>
-      <WidgetWrapper data-testid={HomePageTestIds.WidgetWrapper}>
+      <WidgetWrapper>
         <TemperatureWidget />
       </WidgetWrapper>
     </div>
