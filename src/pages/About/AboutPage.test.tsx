@@ -1,9 +1,18 @@
 import { render, screen } from 'utils';
 import { AboutPage } from './AboutPage';
+import { AboutPageTestIds } from './AboutPageTestIds';
 
-describe('About page', () => {
+describe('AboutPage', () => {
   it('should render', () => {
     render(<AboutPage />);
-    expect(screen.getByText(/Aboutpage/i)).toBeInTheDocument();
+
+    const aboutPage = screen.getByTestId(AboutPageTestIds.Container);
+
+    expect(aboutPage).toBeInTheDocument();
+  });
+
+  it('should render correctly', () => {
+    const { asFragment } = render(<AboutPage />);
+    expect(asFragment()).toMatchSnapshot();
   });
 });
