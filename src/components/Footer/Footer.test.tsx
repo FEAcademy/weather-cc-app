@@ -1,4 +1,4 @@
-import { render, screen } from 'test-utils';
+import { render, screen } from 'utils';
 import { Footer } from './Footer';
 import { FooterTestIds } from './FooterTestIds';
 

@@ -1,4 +1,4 @@
-import { render, screen } from 'test-utils';
+import { render, screen } from 'utils';
 import { HomePage } from './HomePage';
 import { HomePageTestIds } from './HomePageTestIds';
 
