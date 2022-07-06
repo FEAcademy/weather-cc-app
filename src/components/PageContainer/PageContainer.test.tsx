@@ -1,4 +1,4 @@
-import { render, screen } from 'utils/custom-render';
+import { render, screen } from 'utils';
 import { PageContainer } from './PageContainer';
 
 describe('PageContainer', () => {

@@ -1,9 +1,19 @@
 import App from 'App';
+import { Paths } from 'enums/Paths';
+import { render, screen } from 'utils';
+import { AboutPageTestIds } from 'pages/About/AboutPageTestIds';
 import { FooterTestIds } from './components/Footer/FooterTestIds';
 import { NavbarTestIds } from './components/Navbar/NavbarTestIds';
-import { render, screen } from './utils/custom-render';
 
 describe('App', () => {
+  it('should make possible reaching /about path', () => {
+    const route = Paths.About;
+
+    render(<App />, { route });
+
+    expect(screen.getByTestId(AboutPageTestIds.Container)).toBeInTheDocument();
+  });
+
   it('should render navbar', () => {
     render(<App />);
 
