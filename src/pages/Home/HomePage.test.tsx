@@ -1,4 +1,4 @@
-import { render, screen } from 'theme/theme-test-utils';
+import { render, screen } from 'test-utils';
 import { HomePage } from './HomePage';
 import { HomePageTestIds } from './HomePageTestIds';
 
