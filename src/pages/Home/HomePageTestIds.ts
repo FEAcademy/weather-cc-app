@@ -1,5 +1,5 @@
 enum HomePageTestIds {
-  WidgetWrpper = 'widget-wrapper',
+  WidgetWrapper = 'widget-wrapper',
 }
 
 export { HomePageTestIds };

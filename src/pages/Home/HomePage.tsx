@@ -1,12 +1,12 @@
 import { TemperatureBox } from 'components/TemperatureBox';
-import { WidgetWrpper } from './HomePage.styled';
+import { WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => (
   <>
-    <WidgetWrpper data-testid={HomePageTestIds.WidgetWrpper}>
+    <WidgetWrapper data-testid={HomePageTestIds.WidgetWrapper}>
       <TemperatureBox />
-    </WidgetWrpper>
+    </WidgetWrapper>
   </>
 );
 

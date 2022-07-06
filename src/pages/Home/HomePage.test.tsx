@@ -7,7 +7,7 @@ describe('Home page', () => {
   it('should render widget wrapper', () => {
     render(<HomePage />);
 
-    expect(screen.getByTestId(HomePageTestIds.WidgetWrpper)).toBeInTheDocument();
+    expect(screen.getByTestId(HomePageTestIds.WidgetWrapper)).toBeInTheDocument();
   });
 
   it('should render temperature box', () => {
