@@ -8,4 +8,12 @@ describe('Home page', () => {
 
     expect(screen.getByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
   });
+
+  it('should contain weather description', async () => {
+    render(<HomePage />);
+
+    const description = await screen.findByText(/Sunny/i);
+
+    expect(description).toBeInTheDocument();
+  });
 });

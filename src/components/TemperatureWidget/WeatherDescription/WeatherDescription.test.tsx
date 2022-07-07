@@ -1,11 +1,11 @@
 import { render, screen } from 'test-utils';
-import { HomePage } from 'pages/Home';
+import { WeatherDescription } from './WeatherDescription';
  
-describe('Home page', () => {
-  it('should contain weather description', async () => {
-    render(<HomePage />);
+describe('WeatherDescription', () => {
+  it('should contain weather description',  () => {
+    render(<WeatherDescription description={'Partly cloudy'} />);
 
-    const description = await screen.findByText(/Sunny/i);
+    const description = screen.getByText(/Partly cloudy/i);
 
     expect(description).toBeInTheDocument();
   });
