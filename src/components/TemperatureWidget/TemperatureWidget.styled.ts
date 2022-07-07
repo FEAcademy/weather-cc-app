@@ -8,12 +8,12 @@ const Container = styled.div`
 `;
 
 const Temperature = styled.p`
-  font-weight: 275;
+  font-weight: 100;
   font-size: 96px;
   line-height: 96px;
 
   & span {
-    font-weight: 250;
+    font-weight: 400;
     font-size: 48px;
     line-height: 96px;
   }
