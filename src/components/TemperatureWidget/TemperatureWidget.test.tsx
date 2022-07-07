@@ -10,7 +10,7 @@ describe('TemperatureWidget', () => {
   });
 
   it('should contain weather description', () => {
-    render(<TemperatureWidget description={'Partly cloudy'} />);
+    render(<TemperatureWidget description="Partly cloudy" />);
 
     const description = screen.getByText(/Partly cloudy/i);
 
