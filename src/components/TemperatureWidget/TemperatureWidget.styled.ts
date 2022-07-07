@@ -7,4 +7,15 @@ const Container = styled.div`
   align-items: center;
 `;
 
-export { Container };
+const TemperatureDetails = styled.p`
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+
+  & span {
+    font-size: 15px;
+    line-height: 18px;
+  }
+`;
+
+export { Container, TemperatureDetails };
