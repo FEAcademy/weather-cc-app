@@ -8,7 +8,7 @@ interface Props {
 const TemperatureWidget = ({ icon }: Props) => {
   return (
     <Container data-testid={TemperatureWidgetTestIds.Container}>
-      <Icon src={icon} alt="Weather icon" />
+      {icon && <Icon src={icon} alt="Weather widget icon" />}
     </Container>
   );
 };
