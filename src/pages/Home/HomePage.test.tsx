@@ -9,6 +9,7 @@ describe('Home page', () => {
 
     expect(screen.getByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
   });
+
   it('should render weather icon with correct src', async () => {
     render(<HomePage />);
     const weatherIcon = await screen.findByAltText('Weather widget icon');
