@@ -1,9 +1,9 @@
-import { Container, WeatherDescription , Icon} from './TemperatureWidget.styled';
+import { Container, WeatherDescription, Icon } from './TemperatureWidget.styled';
 import { TemperatureWidgetTestIds } from './TemperatureWidgetTestIds';
 
 interface Props {
-  icon: string;
-  description: string;
+  icon?: string;
+  description?: string;
 }
 
 const TemperatureWidget = ({ icon, description }: Props) => {
