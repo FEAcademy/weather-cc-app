@@ -9,7 +9,7 @@ describe('TemperatureWidget', () => {
 
     expect(screen.getByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
   });
-  it('should icon', () => {
+  it('should render icon', () => {
     render(<TemperatureWidget icon={weatherSuccessResponse.current.condition.icon} />);
 
     const icon = screen.getByRole('img');
