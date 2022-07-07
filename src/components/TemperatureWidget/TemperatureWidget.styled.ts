@@ -19,4 +19,3 @@ const Icon = styled.img`
 `;
 
 export { Container ,WeatherDescription, Icon};
-
