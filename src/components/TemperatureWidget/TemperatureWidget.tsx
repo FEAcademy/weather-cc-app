@@ -1,9 +1,16 @@
-import React from 'react';
-import { Container } from './TemperatureWidget.styled';
+import { Container, Icon } from './TemperatureWidget.styled';
 import { TemperatureWidgetTestIds } from './TemperatureWidgetTestIds';
 
-const TemperatureWidget = () => {
-  return <Container data-testid={TemperatureWidgetTestIds.Container}></Container>;
+interface Props {
+  icon: string;
+}
+
+const TemperatureWidget = ({ icon }: Props) => {
+  return (
+    <Container data-testid={TemperatureWidgetTestIds.Container}>
+      {icon && <Icon src={icon} alt="Weather widget icon" />}
+    </Container>
+  );
 };
 
 export { TemperatureWidget };

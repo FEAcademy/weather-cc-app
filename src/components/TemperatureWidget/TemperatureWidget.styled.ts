@@ -7,4 +7,10 @@ const Container = styled.div`
   align-items: center;
 `;
 
-export { Container };
+const Icon = styled.img`
+  width: 126px;
+  height: 123px;
+  margin: 0 17px 0 14px;
+`;
+
+export { Container, Icon };
