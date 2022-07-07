@@ -7,6 +7,12 @@ const Container = styled.div`
   align-items: center;
 `;
 
+const Icon = styled.img`
+  width: 126px;
+  height: 123px;
+  margin: 0 17px 0 14px;
+`;
+
 const Temperature = styled.p`
   font-weight: 100;
   font-size: 96px;
@@ -19,4 +25,4 @@ const Temperature = styled.p`
   }
 `;
 
-export { Container, Temperature };
+export { Container, Icon, Temperature };
