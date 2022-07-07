@@ -16,4 +16,11 @@ const WeatherDescription = styled.p`
   line-height : 24px;
 `;
 
-export { Container ,WeatherDescription, InformationWrapper};
+const Icon = styled.img`
+  width: 126px;
+  height: 123px;
+  margin: 0 17px 0 14px;
+`;
+
+export { Container ,WeatherDescription, InformationWrapper, Icon};
+

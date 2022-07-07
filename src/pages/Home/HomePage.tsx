@@ -11,7 +11,7 @@ const HomePage = () => {
   return (
     <div data-testid={HomePageTestIds.HomePage}>
       <WidgetWrapper>
-        <TemperatureWidget description={data?.current.condition.text!}/>
+        <TemperatureWidget icon={data?.current.condition.icon!} description={data?.current.condition.text!}/>
       </WidgetWrapper>
     </div>
   );
