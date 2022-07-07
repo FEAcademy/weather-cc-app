@@ -1,7 +1,7 @@
 import Weather from 'api/services/Weather';
 import { useState } from 'react';
-import { Box } from 'components/Box';
-import { Title } from 'components/Title';
+import { TemperatureWidget } from 'components/TemperatureWidget';
+import { WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
@@ -11,10 +11,11 @@ const HomePage = () => {
   data && console.log(data);
 
   return (
-    <>
-      <Title data-testid={HomePageTestIds.Title}>Home page</Title>
-      <Box>Box content</Box>
-    </>
+    <div data-testid={HomePageTestIds.HomePage}>
+      <WidgetWrapper>
+        <TemperatureWidget />
+      </WidgetWrapper>
+    </div>
   );
 };
 

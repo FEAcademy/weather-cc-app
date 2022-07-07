@@ -1,11 +1,11 @@
 import { render, screen } from 'utils';
+import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { HomePage } from './HomePage';
-import { HomePageTestIds } from './HomePageTestIds';
 
 describe('Home page', () => {
-  it('should render title', () => {
+  it('should render temperature widget', () => {
     render(<HomePage />);
 
-    expect(screen.getByTestId(HomePageTestIds.Title)).toHaveTextContent('Home page');
+    expect(screen.getByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
   });
 });
