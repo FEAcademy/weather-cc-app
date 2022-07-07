@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { Container } from './TemperatureWidget.styled';
 import { TemperatureWidgetTestIds } from './TemperatureWidgetTestIds';
 
-const TemperatureWidget = () => {
-  return <Container data-testid={TemperatureWidgetTestIds.Container}></Container>;
+const TemperatureWidget = ({children} : PropsWithChildren) => {
+  return <Container data-testid={TemperatureWidgetTestIds.Container}>{children}</Container>;
 };
 
 export { TemperatureWidget };
