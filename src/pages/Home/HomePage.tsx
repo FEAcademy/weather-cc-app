@@ -10,11 +10,9 @@ const HomePage = () => {
 
   return (
     <div data-testid={HomePageTestIds.HomePage}>
-      {data && (
-        <WidgetWrapper>
-          <TemperatureWidget data={data} />
-        </WidgetWrapper>
-      )}
+      <WidgetWrapper>
+        <TemperatureWidget icon={data?.current.condition.icon!} />
+      </WidgetWrapper>
     </div>
   );
 };
