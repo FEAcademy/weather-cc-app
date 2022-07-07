@@ -3,9 +3,11 @@ import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { HomePage } from './HomePage';
 
 describe('Home page', () => {
-  it('should render temperature widget', () => {
+  it('should render temperature widget', async () => {
     render(<HomePage />);
 
-    expect(screen.getByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
+    const tempWidget = await screen.findByTestId(TemperatureWidgetTestIds.Container);
+
+    expect(tempWidget).toBeInTheDocument();
   });
 });

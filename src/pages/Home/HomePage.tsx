@@ -8,13 +8,13 @@ const HomePage = () => {
   const [cityName] = useState('Wroclaw');
   const { data } = Weather.useCity(cityName);
 
-  data && console.log(data);
-
   return (
     <div data-testid={HomePageTestIds.HomePage}>
-      <WidgetWrapper>
-        <TemperatureWidget />
-      </WidgetWrapper>
+      {data && (
+        <WidgetWrapper>
+          <TemperatureWidget data={data} />
+        </WidgetWrapper>
+      )}
     </div>
   );
 };
