@@ -7,4 +7,16 @@ const Container = styled.div`
   align-items: center;
 `;
 
-export { Container };
+const Temperature = styled.p`
+  font-weight: 275;
+  font-size: 96px;
+  line-height: 96px;
+
+  & span {
+    font-weight: 250;
+    font-size: 48px;
+    line-height: 96px;
+  }
+`;
+
+export { Container, Temperature };
