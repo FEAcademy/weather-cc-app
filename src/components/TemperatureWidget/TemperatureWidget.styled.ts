@@ -7,4 +7,13 @@ const Container = styled.div`
   align-items: center;
 `;
 
-export { Container };
+const InformationWrapper = styled.div`
+  margin-left: 17px;
+`; 
+
+const WeatherDescription = styled.p`
+  font-size: 20px;
+  line-height : 24px;
+`;
+
+export { Container ,WeatherDescription, InformationWrapper};

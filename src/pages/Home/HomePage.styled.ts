@@ -5,8 +5,4 @@ const WidgetWrapper = styled.div`
   justify-content: center;
 `;
 
-const InformationWrapper = styled.div`
-  margin-left: 17px;
-`; 
-
-export { WidgetWrapper, InformationWrapper };
+export { WidgetWrapper };

@@ -1,9 +1,18 @@
-import React, { PropsWithChildren } from 'react';
-import { Container } from './TemperatureWidget.styled';
+import { Container, WeatherDescription, InformationWrapper } from './TemperatureWidget.styled';
 import { TemperatureWidgetTestIds } from './TemperatureWidgetTestIds';
 
-const TemperatureWidget = ({children} : PropsWithChildren) => {
-  return <Container data-testid={TemperatureWidgetTestIds.Container}>{children}</Container>;
+type Props = {
+  description: string;
+};
+
+const TemperatureWidget = ({ description }: Props) => {
+  return (
+    <Container data-testid={TemperatureWidgetTestIds.Container}>
+      <InformationWrapper>
+        <WeatherDescription>{description}</WeatherDescription>
+      </InformationWrapper>
+    </Container>
+  );
 };
 
 export { TemperatureWidget };
