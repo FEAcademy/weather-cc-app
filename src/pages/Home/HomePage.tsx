@@ -14,7 +14,7 @@ const HomePage = () => {
       <WidgetWrapper>
         <TemperatureWidget>
           <InformationWrapper>
-            <WeatherDescription description={data?.current.condition.text} />
+            <WeatherDescription description={data?.current.condition.text!} />
           </InformationWrapper>
         </TemperatureWidget>
       </WidgetWrapper>

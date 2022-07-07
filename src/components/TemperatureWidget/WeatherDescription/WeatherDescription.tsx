@@ -2,7 +2,7 @@ import React from 'react';
 import {StylesDescription} from './WeatherDescription.styled';
 
 type Props = {
-  description: string | undefined,
+  description: string,
 }
 
 const WeatherDescription = ({description}: Props) => {
