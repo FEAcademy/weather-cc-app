@@ -7,7 +7,7 @@ on:
   pull_request:
 
 env:
-  REACT_APP_WEATHER_API_URL: ${{ env.REACT_APP_WEATHER_API_URL }}
+  REACT_APP_WEATHER_API_URL: ${{ secrets.REACT_APP_WEATHER_API_URL }}
 
 jobs:
   ci:
