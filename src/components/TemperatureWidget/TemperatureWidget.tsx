@@ -1,9 +1,9 @@
 import { Container, WeatherDescription, InformationWrapper } from './TemperatureWidget.styled';
 import { TemperatureWidgetTestIds } from './TemperatureWidgetTestIds';
 
-type Props = {
+interface Props {
   description: string;
-};
+}
 
 const TemperatureWidget = ({ description }: Props) => {
   return (
