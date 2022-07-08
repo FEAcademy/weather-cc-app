@@ -4,15 +4,18 @@ import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { HomePage } from './HomePage';
 
 describe('Home page', () => {
-  it('should render temperature widget', () => {
+  it('should render temperature widget', async () => {
     render(<HomePage />);
 
-    expect(screen.getByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
+    expect(await screen.findByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
   });
-  it('should render weather icon with correct src', async () => {
+  it('should render temperature widget content properly', async () => {
     render(<HomePage />);
+
     const weatherIcon = await screen.findByAltText('Weather widget icon');
+    const currentTemperature = await screen.findByText(/25/i);
 
     expect(weatherIcon).toHaveAttribute('src', weatherSuccessResponse.current.condition.icon);
+    expect(currentTemperature).toBeInTheDocument();
   });
 });
