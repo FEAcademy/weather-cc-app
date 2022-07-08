@@ -10,6 +10,7 @@ const Container = styled.div`
 const WeatherDescription = styled.p`
   font-size: 20px;
   line-height : 24px;
+  font-weight: 300;
 `;
 
 const Icon = styled.img`
