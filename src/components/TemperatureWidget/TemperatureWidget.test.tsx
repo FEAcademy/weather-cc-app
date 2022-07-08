@@ -9,6 +9,7 @@ describe('TemperatureWidget', () => {
       <TemperatureWidget
         icon={weatherSuccessResponse.current.condition.icon}
         currentTemperature={weatherSuccessResponse.current.temp_c}
+        description={weatherSuccessResponse.current.condition.text}
       />,
     );
 
@@ -20,6 +21,7 @@ describe('TemperatureWidget', () => {
       <TemperatureWidget
         icon={weatherSuccessResponse.current.condition.icon}
         currentTemperature={weatherSuccessResponse.current.temp_c}
+        description={weatherSuccessResponse.current.condition.text}
       />,
     );
 
@@ -34,11 +36,25 @@ describe('TemperatureWidget', () => {
       <TemperatureWidget
         icon={weatherSuccessResponse.current.condition.icon}
         currentTemperature={weatherSuccessResponse.current.temp_c}
+        description={weatherSuccessResponse.current.condition.text}
       />,
     );
 
     const icon = screen.getByRole('img');
 
     expect(icon).toBeInTheDocument();
+  });
+
+  it('should contain weather description', () => {
+    render(
+      <TemperatureWidget
+        description={weatherSuccessResponse.current.condition.text}
+        icon={weatherSuccessResponse.current.condition.icon}
+        currentTemperature={weatherSuccessResponse.current.temp_c}
+      />,
+    );
+    const description = screen.getByText(/Sunny/i);
+
+    expect(description).toBeInTheDocument();
   });
 });

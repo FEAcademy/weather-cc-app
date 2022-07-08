@@ -7,6 +7,12 @@ const Container = styled.div`
   align-items: center;
 `;
 
+const WeatherDescription = styled.p`
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 300;
+`;
+
 const Icon = styled.img`
   width: 126px;
   height: 123px;
@@ -25,4 +31,4 @@ const Temperature = styled.p`
   }
 `;
 
-export { Container, Icon, Temperature };
+export { Container, WeatherDescription, Icon, Temperature };
