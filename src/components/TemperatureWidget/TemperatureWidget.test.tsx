@@ -8,30 +8,31 @@ describe('TemperatureWidget', () => {
     render(
       <TemperatureWidget
         icon={weatherSuccessResponse.current.condition.icon}
-        feelslike_c={weatherSuccessResponse.current.feelslike_c}
+        feelslikeTemperature={weatherSuccessResponse.current.feelslike_c}
       />,
     );
 
     expect(screen.getByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
   });
 
-  it('should display temperature correctly', () => {
+  it('should display feels like temperature correctly', () => {
     render(
       <TemperatureWidget
         icon={weatherSuccessResponse.current.condition.icon}
-        feelslike_c={weatherSuccessResponse.current.feelslike_c}
+        feelslikeTemperature={weatherSuccessResponse.current.feelslike_c}
       />,
     );
 
     const feelsLike = screen.getByText(/feels like/i);
 
+    expect(feelsLike).toBeInTheDocument();
     expect(feelsLike).toHaveTextContent('feels like 26.1\u00B0C');
   });
   it('should render icon', () => {
     render(
       <TemperatureWidget
         icon={weatherSuccessResponse.current.condition.icon}
-        feelslike_c={weatherSuccessResponse.current.feelslike_c}
+        feelslikeTemperature={weatherSuccessResponse.current.feelslike_c}
       />,
     );
 
