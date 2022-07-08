@@ -13,8 +13,8 @@ const HomePage = () => {
       <WidgetWrapper>
         {data && (
           <TemperatureWidget
-            feelslikeTemperature={data.current.feelslike_c}
             currentTemperature={data.current.temp_c}
+            feelslikeTemperature={data.current.feelslike_c}
             icon={data.current.condition.icon}
           />
         )}

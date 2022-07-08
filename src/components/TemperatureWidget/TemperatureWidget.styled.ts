@@ -13,17 +13,6 @@ const Icon = styled.img`
   margin: 0 17px 0 14px;
 `;
 
-const TemperatureDetails = styled.p`
-  font-weight: 300;
-  font-size: 20px;
-  line-height: 24px;
-
-  & span {
-    font-size: 15px;
-    line-height: 18px;
-  }
-`;
-
 const Temperature = styled.p`
   font-weight: 100;
   font-size: 96px;
@@ -33,6 +22,17 @@ const Temperature = styled.p`
     font-weight: 400;
     font-size: 48px;
     line-height: 96px;
+  }
+`;
+
+const TemperatureDetails = styled.p`
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+
+  & span {
+    font-size: 15px;
+    line-height: 18px;
   }
 `;
 

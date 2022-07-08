@@ -20,8 +20,8 @@ describe('TemperatureWidget', () => {
     render(
       <TemperatureWidget
         icon={weatherSuccessResponse.current.condition.icon}
-        feelslikeTemperature={weatherSuccessResponse.current.feelslike_c}
         currentTemperature={weatherSuccessResponse.current.temp_c}
+        feelslikeTemperature={weatherSuccessResponse.current.feelslike_c}
       />,
     );
 
@@ -34,8 +34,8 @@ describe('TemperatureWidget', () => {
     render(
       <TemperatureWidget
         icon={weatherSuccessResponse.current.condition.icon}
-        feelslikeTemperature={weatherSuccessResponse.current.feelslike_c}
         currentTemperature={weatherSuccessResponse.current.temp_c}
+        feelslikeTemperature={weatherSuccessResponse.current.feelslike_c}
       />,
     );
 
@@ -49,8 +49,8 @@ describe('TemperatureWidget', () => {
     render(
       <TemperatureWidget
         icon={weatherSuccessResponse.current.condition.icon}
-        feelslikeTemperature={weatherSuccessResponse.current.feelslike_c}
         currentTemperature={weatherSuccessResponse.current.temp_c}
+        feelslikeTemperature={weatherSuccessResponse.current.feelslike_c}
       />,
     );
 
