@@ -13,9 +13,10 @@ const HomePage = () => {
       <WidgetWrapper>
         {data && (
           <TemperatureWidget
+            icon={data.current.condition.icon}
+            description={data.current.condition.text}
             currentTemperature={data.current.temp_c}
             feelslikeTemperature={data.current.feelslike_c}
-            icon={data.current.condition.icon}
           />
         )}
       </WidgetWrapper>
