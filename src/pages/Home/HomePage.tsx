@@ -12,7 +12,11 @@ const HomePage = () => {
     <div data-testid={HomePageTestIds.HomePage}>
       <WidgetWrapper>
         {data && (
-          <TemperatureWidget feelslikeTemperature={data.current.feelslike_c} icon={data.current.condition.icon} />
+          <TemperatureWidget
+            feelslikeTemperature={data.current.feelslike_c}
+            currentTemperature={data.current.temp_c}
+            icon={data.current.condition.icon}
+          />
         )}
       </WidgetWrapper>
     </div>

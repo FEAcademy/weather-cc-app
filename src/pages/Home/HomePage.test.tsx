@@ -9,14 +9,15 @@ describe('Home page', () => {
 
     expect(await screen.findByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
   });
-
   it('should render temperature widget content properly', async () => {
     render(<HomePage />);
 
     const weatherIcon = await screen.findByAltText('Weather widget icon');
     const feelslikeTemperature = await screen.findByText(/feels like/i);
+    const currentTemperature = await screen.findByText(/25/i);
 
     expect(weatherIcon).toHaveAttribute('src', weatherSuccessResponse.current.condition.icon);
     expect(feelslikeTemperature).toBeInTheDocument();
+    expect(currentTemperature).toBeInTheDocument();
   });
 });
