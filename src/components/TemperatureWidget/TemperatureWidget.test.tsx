@@ -5,22 +5,56 @@ import { TemperatureWidgetTestIds } from './TemperatureWidgetTestIds';
 
 describe('TemperatureWidget', () => {
   it('should render', () => {
-    render(<TemperatureWidget description="Partly cloudy" icon={weatherSuccessResponse.current.condition.icon} />);
+    render(
+      <TemperatureWidget
+        icon={weatherSuccessResponse.current.condition.icon}
+        currentTemperature={weatherSuccessResponse.current.temp_c}
+        description={weatherSuccessResponse.current.condition.text}
+      />,
+    );
 
     expect(screen.getByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
   });
 
-  it('should contain weather description', () => {
-    render(<TemperatureWidget description="Partly cloudy" icon={weatherSuccessResponse.current.condition.icon} />);
-    const description = screen.getByText(/Partly cloudy/i);
+  it('should display temperature correctly', () => {
+    render(
+      <TemperatureWidget
+        icon={weatherSuccessResponse.current.condition.icon}
+        currentTemperature={weatherSuccessResponse.current.temp_c}
+        description={weatherSuccessResponse.current.condition.text}
+      />,
+    );
 
-    expect(description).toBeInTheDocument();
+    const temperature = screen.getByText(/25/i);
+
+    expect(temperature).toBeInTheDocument();
+    expect(temperature).toHaveTextContent('25\u00B0C');
   });
-  
+
   it('should render icon', () => {
-    render(<TemperatureWidget icon={weatherSuccessResponse.current.condition.icon} description="Partly cloudy" />);
+    render(
+      <TemperatureWidget
+        icon={weatherSuccessResponse.current.condition.icon}
+        currentTemperature={weatherSuccessResponse.current.temp_c}
+        description={weatherSuccessResponse.current.condition.text}
+      />,
+    );
+
     const icon = screen.getByRole('img');
 
     expect(icon).toBeInTheDocument();
+  });
+
+  it('should contain weather description', () => {
+    render(
+      <TemperatureWidget
+        description={weatherSuccessResponse.current.condition.text}
+        icon={weatherSuccessResponse.current.condition.icon}
+        currentTemperature={weatherSuccessResponse.current.temp_c}
+      />,
+    );
+    const description = screen.getByText(/Sunny/i);
+
+    expect(description).toBeInTheDocument();
   });
 });
