@@ -3,16 +3,16 @@ import { TemperatureWidgetTestIds } from './TemperatureWidgetTestIds';
 
 interface Props {
   icon: string;
-  temp_c: number;
+  currentTemperature: number;
 }
 
-const TemperatureWidget = ({ temp_c, icon }: Props) => {
+const TemperatureWidget = ({ currentTemperature, icon }: Props) => {
   return (
     <Container data-testid={TemperatureWidgetTestIds.Container}>
-      {icon && <Icon src={icon} alt="Weather widget icon" />}
+      <Icon src={icon} alt="Weather widget icon" />
       <div>
         <Temperature data-testid={TemperatureWidgetTestIds.Temperature}>
-          {temp_c}
+          {currentTemperature}
           <span>&deg;C</span>
         </Temperature>
       </div>

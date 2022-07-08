@@ -8,7 +8,7 @@ describe('TemperatureWidget', () => {
     render(
       <TemperatureWidget
         icon={weatherSuccessResponse.current.condition.icon}
-        temp_c={weatherSuccessResponse.current.temp_c}
+        currentTemperature={weatherSuccessResponse.current.temp_c}
       />,
     );
 
@@ -19,12 +19,13 @@ describe('TemperatureWidget', () => {
     render(
       <TemperatureWidget
         icon={weatherSuccessResponse.current.condition.icon}
-        temp_c={weatherSuccessResponse.current.temp_c}
+        currentTemperature={weatherSuccessResponse.current.temp_c}
       />,
     );
 
-    const temperature = screen.getByTestId(TemperatureWidgetTestIds.Temperature);
+    const temperature = screen.getByText(/25/i);
 
+    expect(temperature).toBeInTheDocument();
     expect(temperature).toHaveTextContent('25\u00B0C');
   });
 
@@ -32,7 +33,7 @@ describe('TemperatureWidget', () => {
     render(
       <TemperatureWidget
         icon={weatherSuccessResponse.current.condition.icon}
-        temp_c={weatherSuccessResponse.current.temp_c}
+        currentTemperature={weatherSuccessResponse.current.temp_c}
       />,
     );
 
