@@ -1,4 +1,6 @@
-const weatherSuccessResponse = {
+import { Weather } from 'models/Weather';
+
+const weatherSuccessResponse: Weather = {
   current: {
     condition: { text: 'Sunny', icon: '//cdn.weatherapi.com/weather/64x64/day/113.png', code: 1000 },
     cloud: 0,
@@ -36,7 +38,5 @@ const weatherSuccessResponse = {
   },
 };
 
-type WeatherSuccessResponse = typeof weatherSuccessResponse;
-
 export { weatherSuccessResponse };
-export type { WeatherSuccessResponse };
+
