@@ -11,15 +11,17 @@ const HomePage = () => {
 
   return (
     <div data-testid={HomePageTestIds.HomePage}>
-      <WidgetWrapper>{data && <WeatherInfoWidget humidity={data.current.humidity} />}</WidgetWrapper>
       <WidgetWrapper>
         {data && (
-          <TemperatureWidget
-            icon={data.current.condition.icon}
-            description={data.current.condition.text}
-            currentTemperature={data.current.temp_c}
-            feelslikeTemperature={data.current.feelslike_c}
-          />
+          <>
+            <WeatherInfoWidget humidity={data.current.humidity} />
+            <TemperatureWidget
+              icon={data.current.condition.icon}
+              description={data.current.condition.text}
+              currentTemperature={data.current.temp_c}
+              feelslikeTemperature={data.current.feelslike_c}
+            />
+          </>
         )}
       </WidgetWrapper>
     </div>
