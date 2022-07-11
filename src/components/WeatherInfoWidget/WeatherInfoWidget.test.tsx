@@ -5,7 +5,12 @@ import { WeatherInfoWidgetTestIds } from './WeatherInfoWidgetTestIds';
 
 describe('WeatherInfoWidget', () => {
   it('should render', () => {
-    render(<WeatherInfoWidget humidity={weatherSuccessResponse.current.humidity} />);
+    render(
+      <WeatherInfoWidget
+        humidity={weatherSuccessResponse.current.humidity}
+        cloud={weatherSuccessResponse.current.cloud}
+      />,
+    );
 
     const container = screen.getByTestId(WeatherInfoWidgetTestIds.Container);
 
@@ -13,10 +18,17 @@ describe('WeatherInfoWidget', () => {
   });
 
   it('should display weather data', () => {
-    render(<WeatherInfoWidget humidity={weatherSuccessResponse.current.humidity} />);
+    render(
+      <WeatherInfoWidget
+        humidity={weatherSuccessResponse.current.humidity}
+        cloud={weatherSuccessResponse.current.cloud}
+      />,
+    );
 
     const humidity = screen.getByText('69%');
+    const cloud = screen.getByText('0%');
 
     expect(humidity).toBeInTheDocument();
+    expect(cloud).toBeInTheDocument();
   });
 });
