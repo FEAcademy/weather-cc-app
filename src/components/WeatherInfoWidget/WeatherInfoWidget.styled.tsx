@@ -24,7 +24,7 @@ const WeatherData = styled.div`
 
 const Property = styled.p`
   font-size: 12px;
-  line-height: 14.4px;
+  line-height: 14px;
   font-weight: 700;
 `;
 
