@@ -37,7 +37,7 @@ describe('Home page', () => {
     render(<HomePage />);
 
     const humidity = await screen.findByText('69%');
-    const precip = screen.getByText('0 mm');
+    const precip = await screen.findByText('0 mm');
 
     expect(humidity).toBeInTheDocument();
     expect(precip).toBeInTheDocument();
