@@ -4,6 +4,7 @@ import { render, screen } from 'utils';
 import { AboutPageTestIds } from 'pages/About/AboutPageTestIds';
 import { FooterTestIds } from './components/Footer/FooterTestIds';
 import { NavbarTestIds } from './components/Navbar/NavbarTestIds';
+import { HomePageTestIds } from './pages/Home/HomePageTestIds';
 
 describe('App', () => {
   it('should make possible reaching /about path', () => {
@@ -37,5 +38,13 @@ describe('App', () => {
     const footer = screen.getByTestId(FooterTestIds.Footer);
 
     expect(footer).toBeInTheDocument();
+  });
+
+  it('should render home page', () => {
+    render(<App />);
+
+    const homePage = screen.getByTestId(HomePageTestIds.HomePage);
+
+    expect(homePage).toBeInTheDocument();
   });
 });
