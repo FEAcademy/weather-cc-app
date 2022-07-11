@@ -16,6 +16,7 @@ const HomePage = () => {
             icon={data.current.condition.icon}
             description={data.current.condition.text}
             currentTemperature={data.current.temp_c}
+            feelslikeTemperature={data.current.feelslike_c}
           />
         )}
       </WidgetWrapper>
