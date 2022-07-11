@@ -37,7 +37,9 @@ describe('Home page', () => {
     render(<HomePage />);
 
     const humidity = await screen.findByText(/69%/i);
+    const pressure = await screen.findByText(/1011 mb/i);
 
     expect(humidity).toBeInTheDocument();
+    expect(pressure).toBeInTheDocument();
   });
 });
