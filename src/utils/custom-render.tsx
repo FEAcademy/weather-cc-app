@@ -1,13 +1,13 @@
 import { render, RenderOptions } from '@testing-library/react';
 import { Paths } from 'enums/Paths';
+import { ProvidersCombined } from 'ProvidersCombined';
 import { ReactElement, PropsWithChildren } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from 'theme/ThemeProvider';
 
 const AllProvidersWrapper = ({ children }: PropsWithChildren) => {
   return (
     <BrowserRouter>
-      <ThemeProvider>{children}</ThemeProvider>
+      <ProvidersCombined>{children}</ProvidersCombined>
     </BrowserRouter>
   );
 };

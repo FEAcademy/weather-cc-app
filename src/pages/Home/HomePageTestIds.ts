@@ -1,5 +1,5 @@
 enum HomePageTestIds {
-  Title = 'home-page-title',
+  HomePage = 'home-page',
 }
 
 export { HomePageTestIds };
