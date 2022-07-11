@@ -1,6 +1,7 @@
 import { weatherSuccessResponse } from 'mocks/mockData';
 import { render, screen } from 'utils';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
+import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
 import { HomePage } from './HomePage';
 
 describe('Home page', () => {
@@ -21,5 +22,19 @@ describe('Home page', () => {
     expect(description).toBeInTheDocument();
     expect(currentTemperature).toBeInTheDocument();
     expect(feelslikeTemperature).toBeInTheDocument();
+  });
+  it('should render weather info widget', async () => {
+    render(<HomePage />);
+
+    const weatherInfoWidget = await screen.findByTestId(WeatherInfoWidgetTestIds.Container);
+
+    expect(weatherInfoWidget).toBeInTheDocument();
+  });
+  it('should render weather info widget content properly', async () => {
+    render(<HomePage />);
+
+    const humidity = await screen.findByText(/69%/i);
+
+    expect(humidity).toBeInTheDocument();
   });
 });
