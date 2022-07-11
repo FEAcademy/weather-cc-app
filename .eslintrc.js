@@ -49,6 +49,7 @@ module.exports = {
           { pattern: 'pages/**', group: 'internal' },
           { pattern: 'assets/**', group: 'internal' },
           { pattern: 'features/**', group: 'internal' },
+          { pattern: 'models/**', group: 'internal' },
         ],
       },
     ],
