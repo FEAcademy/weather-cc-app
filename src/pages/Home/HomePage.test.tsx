@@ -10,6 +10,7 @@ describe('Home page', () => {
 
     expect(await screen.findByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
   });
+
   it('should render temperature widget content properly', async () => {
     render(<HomePage />);
 
@@ -23,6 +24,7 @@ describe('Home page', () => {
     expect(currentTemperature).toBeInTheDocument();
     expect(feelslikeTemperature).toBeInTheDocument();
   });
+
   it('should render weather info widget', async () => {
     render(<HomePage />);
 
@@ -30,6 +32,7 @@ describe('Home page', () => {
 
     expect(weatherInfoWidget).toBeInTheDocument();
   });
+
   it('should render weather info widget content properly', async () => {
     render(<HomePage />);
 
