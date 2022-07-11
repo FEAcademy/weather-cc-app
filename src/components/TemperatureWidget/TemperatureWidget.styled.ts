@@ -23,6 +23,7 @@ const Temperature = styled.p`
   font-weight: 100;
   font-size: 96px;
   line-height: 96px;
+  height: 94px;
 
   & span {
     font-weight: 400;
