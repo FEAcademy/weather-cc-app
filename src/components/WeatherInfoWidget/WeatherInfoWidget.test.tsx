@@ -8,6 +8,7 @@ describe('WeatherInfoWidget', () => {
     render(
       <WeatherInfoWidget
         humidity={weatherSuccessResponse.current.humidity}
+        cloud={weatherSuccessResponse.current.cloud}
         gust={weatherSuccessResponse.current.gust_kph}
         pressure={weatherSuccessResponse.current.pressure_mb}
         precip={weatherSuccessResponse.current.precip_mm}
@@ -23,19 +24,22 @@ describe('WeatherInfoWidget', () => {
     render(
       <WeatherInfoWidget
         humidity={weatherSuccessResponse.current.humidity}
+        cloud={weatherSuccessResponse.current.cloud}
         gust={weatherSuccessResponse.current.gust_kph}
         pressure={weatherSuccessResponse.current.pressure_mb}
         precip={weatherSuccessResponse.current.precip_mm}
       />,
     );
 
-    const humidity = screen.getByText('69%');
-    const gust = screen.getByText(/5 km\/h/i);
+    const cloud = screen.getByText('0%');
     const precip = screen.getByText('0 mm');
+    const humidity = screen.getByText('69%');
     const pressure = screen.getByText('1011 mb');
+    const gust = screen.getByText(/5 km\/h/i);
 
-    expect(humidity).toBeInTheDocument();
+    expect(cloud).toBeInTheDocument();
     expect(precip).toBeInTheDocument();
+    expect(humidity).toBeInTheDocument();
     expect(pressure).toBeInTheDocument();
     expect(gust).toBeInTheDocument();
   });

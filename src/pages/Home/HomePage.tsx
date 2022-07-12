@@ -19,6 +19,7 @@ const HomePage = () => {
               precip={data.current.precip_mm}
               pressure={data.current.pressure_mb}
               gust={data.current.gust_kph}
+              cloud={data.current.cloud}
             />
             <TemperatureWidget
               icon={data.current.condition.icon}
