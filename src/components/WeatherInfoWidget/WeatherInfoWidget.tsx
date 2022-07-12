@@ -5,9 +5,10 @@ import { WeatherInfoWidgetTestIds } from './WeatherInfoWidgetTestIds';
 interface Props {
   humidity: number;
   precip: number;
+  pressure: number;
 }
 
-const WeatherInfoWidget = ({ humidity, precip }: Props) => {
+const WeatherInfoWidget = ({ humidity, precip, pressure }: Props) => {
   const roundedPrecip = Math.round(precip);
 
   return (
@@ -19,6 +20,10 @@ const WeatherInfoWidget = ({ humidity, precip }: Props) => {
       <WeatherData>
         <Property>Humidity:</Property>
         <Value>{humidity}%</Value>
+      </WeatherData>
+      <WeatherData>
+        <Property>Pressure:</Property>
+        <Value>{pressure}&nbsp;mb</Value>
       </WeatherData>
     </Container>
   );
