@@ -36,9 +36,10 @@ describe('Home page', () => {
   it('should render weather info widget content properly', async () => {
     render(<HomePage />);
 
-    const cloud = await screen.findByText('0%');
-    const precip = await screen.findByText('0 mm');
-    const humidity = await screen.findByText('69%');
+    const cloud = await screen.findByText(/0%/);
+    const humidity = await screen.findByText(/69%/);
+    const windSpeed = await screen.findByText(/7 km\/h/);
+    const precip = await screen.findByText(/0 mm/i);
     const pressure = await screen.findByText(/1011 mb/i);
     const gust = await screen.findByText(/5 km\/h/i);
 
@@ -46,6 +47,7 @@ describe('Home page', () => {
     expect(precip).toBeInTheDocument();
     expect(humidity).toBeInTheDocument();
     expect(pressure).toBeInTheDocument();
+    expect(windSpeed).toBeInTheDocument();
     expect(gust).toBeInTheDocument();
   });
 });
