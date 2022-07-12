@@ -8,11 +8,13 @@ interface Props {
 }
 
 const WeatherInfoWidget = ({ humidity, precip }: Props) => {
+  const roundedPrecip = Math.round(precip);
+
   return (
     <Container data-testid={WeatherInfoWidgetTestIds.Container}>
       <WeatherData>
         <Property>Precip:</Property>
-        <Value>{Math.round(precip)}&nbsp;mm</Value>
+        <Value>{roundedPrecip}&nbsp;mm</Value>
       </WeatherData>
       <WeatherData>
         <Property>Humidity:</Property>
