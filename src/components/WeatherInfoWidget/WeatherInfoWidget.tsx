@@ -11,12 +11,12 @@ const WeatherInfoWidget = ({ humidity, precip }: Props) => {
   return (
     <Container data-testid={WeatherInfoWidgetTestIds.Container}>
       <WeatherData>
-        <Property>Humidity:</Property>
-        <Value>{humidity}%</Value>
-      </WeatherData>
-      <WeatherData>
         <Property>Precip:</Property>
         <Value>{precip} mm</Value>
+      </WeatherData>
+      <WeatherData>
+        <Property>Humidity:</Property>
+        <Value>{humidity}%</Value>
       </WeatherData>
     </Container>
   );
