@@ -36,9 +36,9 @@ describe('Home page', () => {
   it('should render weather info widget content properly', async () => {
     render(<HomePage />);
 
-    const humidity = await screen.findByText(/69%/i);
+    const humidity = await screen.findByText(/69%/);
     const windSpeed = await screen.findByText(/SSE/i);
-    const windDir = await screen.findByText(/6 km\/h/);
+    const windDir = await screen.findByText(/7 km\/h/);
 
     expect(humidity).toBeInTheDocument();
     expect(windSpeed).toBeInTheDocument();

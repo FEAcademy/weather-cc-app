@@ -18,7 +18,7 @@ const WeatherInfoWidget = ({ humidity, windSpeed, windDir }: Props) => {
       <WeatherData>
         <Property>Wind:</Property>
         <Value>
-          {windDir} {Math.floor(windSpeed)} km/h
+          {windDir} {Math.round(windSpeed)} km/h
         </Value>
       </WeatherData>
     </Container>
