@@ -5,10 +5,9 @@ import { WeatherInfoWidgetTestIds } from './WeatherInfoWidgetTestIds';
 interface Props {
   humidity: number;
   windSpeed: number;
-  windDir: string;
 }
 
-const WeatherInfoWidget = ({ humidity, windSpeed, windDir }: Props) => {
+const WeatherInfoWidget = ({ humidity, windSpeed }: Props) => {
   return (
     <Container data-testid={WeatherInfoWidgetTestIds.Container}>
       <WeatherData>
@@ -17,9 +16,7 @@ const WeatherInfoWidget = ({ humidity, windSpeed, windDir }: Props) => {
       </WeatherData>
       <WeatherData>
         <Property>Wind:</Property>
-        <Value>
-          {windDir} {Math.round(windSpeed)} km/h
-        </Value>
+        <Value>{Math.round(windSpeed)} km/h</Value>
       </WeatherData>
     </Container>
   );
