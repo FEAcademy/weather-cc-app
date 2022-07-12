@@ -4,6 +4,7 @@ import { AboutPage } from 'pages/About';
 import { HomePage } from 'pages/Home';
 import { Footer } from './components/Footer';
 import { Navbar } from './components/Navbar';
+//import { MapPage } from 'pages/Map';
 import { PageContainer } from './components/PageContainer';
 import 'assets/styles/index.css';
 
@@ -15,6 +16,7 @@ const App = () => {
         <Routes>
           <Route path={Paths.Home} element={<HomePage />} />
           <Route path={Paths.About} element={<AboutPage />} />
+          {/*<Route path={Paths.Map} element={<MapPage />} />*/}
         </Routes>
       </PageContainer>
       <Footer />

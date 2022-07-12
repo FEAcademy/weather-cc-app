@@ -1,0 +1,3 @@
+#root>main>div>div>div>div.leaflet-control-container>div.leaflet-bottom.leaflet-right {
+  visibility: hidden;
+}

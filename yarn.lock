@@ -1727,6 +1727,11 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
+"@react-leaflet/core@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@react-leaflet/core/-/core-2.0.0.tgz#212f4d87dc7681f40ca0e47d99672676c20c8ef6"
+  integrity sha512-SQQ5DCQIaLzvslN6wCXs5OWqtlvk1Ubv2n5d7zTM8SDl9hM5Rr2wVy7/nOCIY958D75/ovhq6ZoSvT7GLCX6sg==
+
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.1"
   resolved "https://registry.npmjs.org/@rollup/plugin-babel/-/plugin-babel-5.3.1.tgz"
@@ -2084,6 +2089,11 @@
   resolved "https://registry.npmjs.org/@types/feather-icons/-/feather-icons-4.7.0.tgz"
   integrity sha512-vflOrmlHMGIGVN4AEl6ErPCNKBLcP1ehEpLqnJkTgf69r5QmJzy7BF1WzbBc8Hqs9KffROPT/JqlSKH4o5vB/w==
 
+"@types/geojson@*":
+  version "7946.0.8"
+  resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-7946.0.8.tgz#30744afdb385e2945e22f3b033f897f76b1f12ca"
+  integrity sha512-1rkryxURpr6aWP7R786/UQOkJ3PcpQiWkAXBmdWc7ryFWqN6a4xfK7BtjXvFBKO9LjQ+MWQSWxYeZX1OApnArA==
+
 "@types/graceful-fs@^4.1.2":
   version "4.1.5"
   resolved "https://registry.npmjs.org/@types/graceful-fs/-/graceful-fs-4.1.5.tgz"
@@ -2160,6 +2170,13 @@
   version "0.0.29"
   resolved "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz"
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
+
+"@types/leaflet@^1.7.11":
+  version "1.7.11"
+  resolved "https://registry.yarnpkg.com/@types/leaflet/-/leaflet-1.7.11.tgz#48b33b7a15b015bbb1e8950399298a112c3220c8"
+  integrity sha512-VwAYom2pfIAf/pLj1VR5aLltd4tOtHyvfaJlNYCoejzP2nu52PrMi1ehsLRMUS+bgafmIIKBV1cMfKeS+uJ0Vg==
+  dependencies:
+    "@types/geojson" "*"
 
 "@types/mime@^1":
   version "1.3.2"
@@ -6339,6 +6356,11 @@ language-tags@^1.0.5:
   dependencies:
     language-subtag-registry "~0.3.2"
 
+leaflet@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.8.0.tgz#4615db4a22a304e8e692cae9270b983b38a2055e"
+  integrity sha512-gwhMjFCQiYs3x/Sf+d49f10ERXaEFCPr+nVTryhAW8DWbMGqJqt9G4XuIaHmFW08zYvhgdzqXGr8AlW8v8dQkA==
+
 leven@^3.1.0:
   version "3.1.0"
   resolved "https://registry.npmjs.org/leven/-/leven-3.1.0.tgz"
@@ -7979,6 +8001,13 @@ react-is@^18.0.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-is/-/react-is-18.2.0.tgz"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
+
+react-leaflet@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/react-leaflet/-/react-leaflet-4.0.1.tgz#84f085241c741b43184808c2038642e88de7655e"
+  integrity sha512-CpMQ99+52AklQofrGrVQHqHSyY41wqax1wT65XdyEkky/26V/j+Sv+fp0/wOaqPvdEMaSO/Ovj4dS7bGqtYpwQ==
+  dependencies:
+    "@react-leaflet/core" "^2.0.0"
 
 react-query@^3.39.1:
   version "3.39.1"

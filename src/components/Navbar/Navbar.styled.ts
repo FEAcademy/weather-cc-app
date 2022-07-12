@@ -10,6 +10,7 @@ const Container = styled.nav`
   background: ${({ theme }) => theme.colors.background};
   opacity: 0.9;
   padding: ${({ theme }) => theme.paddings.app};
+  z-index: 500;
 `;
 
 const Wrapper = styled.div`
