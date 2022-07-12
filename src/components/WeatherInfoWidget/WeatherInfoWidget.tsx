@@ -33,12 +33,12 @@ const WeatherInfoWidget = ({ humidity, cloud, windSpeed, precip, pressure, gust 
         <Value>{roundedHumidity}%</Value>
       </WeatherData>
       <WeatherData>
-        <Property>Wind:</Property>
-        <Value>{roundedWindSpeed} km/h</Value>
-      </WeatherData>
-      <WeatherData>
         <Property>Pressure:</Property>
         <Value>{roundedPressure}&nbsp;mb</Value>
+      </WeatherData>
+      <WeatherData>
+        <Property>Wind:</Property>
+        <Value>{roundedWindSpeed} km/h</Value>
       </WeatherData>
       <WeatherData>
         <Property>Gusts:</Property>
