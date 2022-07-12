@@ -26,7 +26,7 @@ describe('WeatherInfoWidget', () => {
     );
 
     const humidity = screen.getByText('69%');
-    const gust = screen.getByText(/5.4 km\/h/i);
+    const gust = screen.getByText(/5 km\/h/i);
 
     expect(humidity).toBeInTheDocument();
     expect(gust).toBeInTheDocument();
