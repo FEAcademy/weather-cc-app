@@ -12,7 +12,7 @@ const WeatherInfoWidget = ({ humidity, precip }: Props) => {
     <Container data-testid={WeatherInfoWidgetTestIds.Container}>
       <WeatherData>
         <Property>Precip:</Property>
-        <Value>{precip} mm</Value>
+        <Value>{Math.round(precip)} mm</Value>
       </WeatherData>
       <WeatherData>
         <Property>Humidity:</Property>
