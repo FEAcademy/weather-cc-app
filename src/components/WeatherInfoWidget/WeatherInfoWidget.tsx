@@ -8,6 +8,8 @@ interface Props {
 }
 
 const WeatherInfoWidget = ({ humidity, windSpeed }: Props) => {
+  const roundedWindSpeed = Math.round(windSpeed);
+
   return (
     <Container data-testid={WeatherInfoWidgetTestIds.Container}>
       <WeatherData>
@@ -16,7 +18,7 @@ const WeatherInfoWidget = ({ humidity, windSpeed }: Props) => {
       </WeatherData>
       <WeatherData>
         <Property>Wind:</Property>
-        <Value>{Math.round(windSpeed)} km/h</Value>
+        <Value>{roundedWindSpeed} km/h</Value>
       </WeatherData>
     </Container>
   );
