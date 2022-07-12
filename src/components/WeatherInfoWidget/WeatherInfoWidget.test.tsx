@@ -9,6 +9,7 @@ describe('WeatherInfoWidget', () => {
       <WeatherInfoWidget
         humidity={weatherSuccessResponse.current.humidity}
         pressure={weatherSuccessResponse.current.pressure_mb}
+        precip={weatherSuccessResponse.current.precip_mm}
       />,
     );
 
@@ -22,13 +23,16 @@ describe('WeatherInfoWidget', () => {
       <WeatherInfoWidget
         humidity={weatherSuccessResponse.current.humidity}
         pressure={weatherSuccessResponse.current.pressure_mb}
+        precip={weatherSuccessResponse.current.precip_mm}
       />,
     );
 
     const humidity = screen.getByText('69%');
+    const precip = screen.getByText('0 mm');
     const pressure = screen.getByText('1011 mb');
 
     expect(humidity).toBeInTheDocument();
+    expect(precip).toBeInTheDocument();
     expect(pressure).toBeInTheDocument();
   });
 });
