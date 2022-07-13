@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { MultiValue, SingleValue } from 'react-select';
 import AsyncSelect from 'react-select/async';
 
 import { Location } from 'models/Loction';
@@ -6,7 +7,8 @@ import { inputStyles } from './Input.styled';
 import { InputTestIds } from './InputTestIds';
 
 const Input = () => {
-  const [cityName, setCityName] = useState('');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [cityName, setCityName] = useState<SingleValue<Location> | MultiValue<Location>>(null);
 
   const cities: Location[] = [
     {
@@ -38,10 +40,6 @@ const Input = () => {
     },
   ];
 
-  const onInputChange = (value: string) => {
-    setCityName(value);
-  };
-
   const filterCities = (inputValue: string) => {
     const unifiedValue = inputValue.trim().toLowerCase();
 
@@ -61,15 +59,13 @@ const Input = () => {
     }, 1000);
   };
 
+  const onChange = (newValue: SingleValue<Location> | MultiValue<Location>) => {
+    setCityName(newValue);
+  };
+
   return (
     <div data-testid={InputTestIds.Input}>
-      <AsyncSelect
-        loadOptions={loadOptions}
-        styles={inputStyles}
-        inputValue={cityName}
-        onInputChange={onInputChange}
-        placeholder={'Search'}
-      />
+      <AsyncSelect loadOptions={loadOptions} styles={inputStyles} placeholder={'Search'} onChange={onChange} />
     </div>
   );
 };
