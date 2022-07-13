@@ -1,7 +1,7 @@
 import Weather from 'api/services/Weather';
 import { useState } from 'react';
 import { TemperatureWidget } from 'components/TemperatureWidget';
-import { WeatherAqiWidget } from 'components/WeatherAqiWidget/WeatherAqiWidget';
+import { WeatherAqiWidget } from 'components/WeatherAqiWidget';
 import { WeatherInfoWidget } from 'components/WeatherInfoWidget';
 import { WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
