@@ -9,4 +9,12 @@ const StyledMapContainer = styled(MapContainer)`
   width: 100%;
 `;
 
-export { StyledMapContainer };
+const MapWrapper = styled.div`
+  > div.leaflet-control-container {
+    > div.leaflet-bottom.leaflet-right {
+      visibility: hidden;
+    }
+  }
+`;
+
+export { StyledMapContainer, MapWrapper };
