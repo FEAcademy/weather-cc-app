@@ -1,5 +1,5 @@
 enum MapPageTestIds {
-  Container = 'map-page-container',
+  MapPage = 'map-page',
 }
 
 export { MapPageTestIds };
