@@ -43,7 +43,9 @@ const Input = () => {
   };
 
   const filterCities = (inputValue: string) => {
-    const filteredCities = cities.filter((i) => i.name.toLowerCase().includes(inputValue.toLowerCase()));
+    const unifiedValue = inputValue.trim().toLowerCase();
+
+    const filteredCities = cities.filter((i) => i.name.toLowerCase().includes(unifiedValue));
     const res = filteredCities.map((city) => {
       return {
         ...city,
