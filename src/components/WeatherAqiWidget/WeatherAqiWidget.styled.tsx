@@ -7,16 +7,16 @@ interface DefraTheme {
 }
 
 const Container = styled(WeatherInfoWidgetContainer)<{ defraColors: DefraTheme }>`
-  ${({ defraColors }) => {
-    return css`
+  &&& {
+    ${({ defraColors }) => css`
       background: linear-gradient(
         106.29deg,
         ${defraColors.backgroundColors[0]} 0%,
         ${defraColors.backgroundColors[1]} 100%
       );
       color: ${defraColors.textColor};
-    `;
-  }}
+    `}
+  }
 `;
 
 const WeatherData = styled.div`
