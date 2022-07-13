@@ -39,10 +39,11 @@ const inputStyles: StylesConfig<Location> = {
   input: (styles) => ({
     ...styles,
     padding: '16px 0 16px 18px',
-    ontWeight: '500',
+    fontWeight: '500',
     fontSize: '18px',
     lineHeight: '22px',
     color: theme.colors.text,
+    cursor: 'pointer',
   }),
   option: (styles, { isFocused }) => ({
     ...styles,

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import AsyncSelect from 'react-select/async';
 
 import { Location } from 'models/Loction';
-import { inputStyles } from './Input.styles';
+import { inputStyles } from './Input.styled';
 import { InputTestIds } from './InputTestIds';
 
 const Input = () => {
