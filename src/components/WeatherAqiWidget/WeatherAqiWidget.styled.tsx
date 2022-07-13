@@ -1,22 +1,19 @@
-import styled, { css } from 'styled-components';
+import { DefraIndexKeys } from 'enums/DefraIndexKeys';
+import styled from 'styled-components';
 import { Container as WeatherInfoWidgetContainer } from 'components/WeatherInfoWidget/WeatherInfoWidget.styled';
 
-interface DefraTheme {
-  backgroundColors: string[];
-  textColor: string;
-}
+const getColorsByDefraIndex = (defraIndex: number): DefraIndexKeys => {
+  if (!defraIndex) return DefraIndexKeys.Low;
+  if (defraIndex <= 3) return DefraIndexKeys.Low;
+  if (defraIndex > 3 && defraIndex <= 6) return DefraIndexKeys.Moderate;
+  if (defraIndex > 6 && defraIndex <= 9) return DefraIndexKeys.High;
+  if (defraIndex >= 10) return DefraIndexKeys.VeryHigh;
 
-const Container = styled(WeatherInfoWidgetContainer)<{ defraColors: DefraTheme }>`
-  &&& {
-    ${({ defraColors }) => css`
-      background: linear-gradient(
-        106.29deg,
-        ${defraColors.backgroundColors[0]} 0%,
-        ${defraColors.backgroundColors[1]} 100%
-      );
-      color: ${defraColors.textColor};
-    `}
-  }
+  return DefraIndexKeys.Low;
+};
+
+const Container = styled(WeatherInfoWidgetContainer)<{ defraIndex: number }>`
+  ${({ theme, defraIndex }) => theme.defraColors[getColorsByDefraIndex(defraIndex)]};
 `;
 
 const WeatherData = styled.div`
