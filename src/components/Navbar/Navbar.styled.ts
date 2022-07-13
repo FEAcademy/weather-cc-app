@@ -1,7 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Props } from './Navbar';
+interface Props {
+  ifInMapRoute: boolean;
+}
 
 const Container = styled.nav<Props>`
   width: 100%;

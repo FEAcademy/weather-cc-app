@@ -1,13 +1,13 @@
 import { Paths } from 'enums/Paths';
 import { Info, Home } from 'react-feather';
+import { useLocation, Location } from 'react-router-dom';
 import { Logo, Container, Wrapper, NavButtonsWrapper, StyledNavLink } from './Navbar.styled';
 import { NavbarTestIds } from './NavbarTestIds';
 
-interface Props {
-  ifInMapRoute: boolean;
-}
+const Navbar = () => {
+  const location: Location = useLocation();
+  const ifInMapRoute: boolean = location.pathname === Paths.Map ? true : false;
 
-const Navbar = ({ ifInMapRoute }: Props) => {
   return (
     <Container data-testid={NavbarTestIds.Container} ifInMapRoute={ifInMapRoute}>
       <Wrapper>
@@ -28,4 +28,3 @@ const Navbar = ({ ifInMapRoute }: Props) => {
 };
 
 export { Navbar };
-export type { Props };
