@@ -19,6 +19,7 @@ describe('WeatherInfoWidget', () => {
     const container = screen.getByTestId(WeatherInfoWidgetTestIds.Container);
     expect(container).toBeInTheDocument();
   });
+
   it('should display weather data', () => {
     render(
       <WeatherInfoWidget

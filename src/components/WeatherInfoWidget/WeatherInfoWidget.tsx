@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, Value, Property, WeatherData } from './WeatherInfoWidget.styled';
 import { WeatherInfoWidgetTestIds } from './WeatherInfoWidgetTestIds';
 
@@ -10,6 +9,7 @@ interface Props {
   pressure: number;
   gust: number;
 }
+
 const WeatherInfoWidget = ({ humidity, cloud, windSpeed, precip, pressure, gust }: Props) => {
   const roundedHumidity = Math.round(humidity);
   const roundedPrecip = Math.round(precip);
