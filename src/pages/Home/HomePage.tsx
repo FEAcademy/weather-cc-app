@@ -1,6 +1,7 @@
 import Weather from 'api/services/Weather';
 import { useState } from 'react';
 import { TemperatureWidget } from 'components/TemperatureWidget';
+import { WeatherAqiWidget } from 'components/WeatherAqiWidget/WeatherAqiWidget';
 import { WeatherInfoWidget } from 'components/WeatherInfoWidget';
 import { WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
@@ -28,6 +29,7 @@ const HomePage = () => {
               currentTemperature={data.current.temp_c}
               feelslikeTemperature={data.current.feelslike_c}
             />
+            <WeatherAqiWidget defraIndex={data.current.air_quality['gb-defra-index']} />
           </>
         )}
       </WidgetWrapper>

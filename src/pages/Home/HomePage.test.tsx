@@ -1,6 +1,7 @@
 import { weatherSuccessResponse } from 'mocks/mockData';
 import { render, screen } from 'utils';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
+import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
 import { HomePage } from './HomePage';
 
@@ -49,5 +50,13 @@ describe('Home page', () => {
     expect(pressure).toBeInTheDocument();
     expect(windSpeed).toBeInTheDocument();
     expect(gust).toBeInTheDocument();
+  });
+
+  it('should render weather aqi widget', async () => {
+    render(<HomePage />);
+
+    const weatherAqiWidget = await screen.findByTestId(WeatherAqiWidgetTestIds.Container);
+
+    expect(weatherAqiWidget).toBeInTheDocument();
   });
 });
