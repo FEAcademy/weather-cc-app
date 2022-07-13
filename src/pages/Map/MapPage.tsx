@@ -1,9 +1,7 @@
-import {MapPageTestIds} from './MapPageTestIds';
+import { MapPageTestIds } from './MapPageTestIds';
 
 const MapPage = () => {
-  return (
-    <div data-testid={MapPageTestIds.MapPage}>MapPage</div>
-  );
+  return <div data-testid={MapPageTestIds.MapPage}>MapPage</div>;
 };
 
-export {MapPage};
+export { MapPage };
