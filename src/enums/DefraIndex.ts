@@ -1,8 +1,8 @@
-enum DefraIndexKeys {
+enum DefraIndex {
   Low = 'low',
   Moderate = 'moderate',
   High = 'high',
   VeryHigh = 'veryHigh',
 }
 
-export { DefraIndexKeys };
+export { DefraIndex };
