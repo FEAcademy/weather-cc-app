@@ -1,6 +1,5 @@
 import { Paths } from 'enums/Paths';
-import { Routes, Route, useLocation } from 'react-router-dom';
-import { Location } from 'react-router-dom';
+import { Routes, Route, useLocation, Location } from 'react-router-dom';
 import { AboutPage } from 'pages/About';
 import { HomePage } from 'pages/Home';
 //import { MapPage } from 'pages/Map';
