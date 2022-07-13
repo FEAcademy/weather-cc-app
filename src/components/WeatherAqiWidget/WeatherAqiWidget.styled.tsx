@@ -3,7 +3,9 @@ import { getColorsByDefraIndex } from 'utils/getColorsByDefraIndex';
 import { Container as WeatherInfoWidgetContainer } from 'components/WeatherInfoWidget/WeatherInfoWidget.styled';
 
 const Container = styled(WeatherInfoWidgetContainer)<{ defraIndex: number }>`
-  ${({ theme, defraIndex }) => theme.defraColors[getColorsByDefraIndex(defraIndex)]};
+  &&& {
+    ${({ theme, defraIndex }) => theme.defraColors[getColorsByDefraIndex(defraIndex)]};
+  }
 `;
 
 const WeatherData = styled.div`
