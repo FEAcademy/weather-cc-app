@@ -2,6 +2,7 @@ import App from 'App';
 import { Paths } from 'enums/Paths';
 import { render, screen } from 'utils';
 import { AboutPageTestIds } from 'pages/About/AboutPageTestIds';
+import { MapPageTestIds } from 'pages/Map/MapPageTestIds';
 import { FooterTestIds } from './components/Footer/FooterTestIds';
 import { NavbarTestIds } from './components/Navbar/NavbarTestIds';
 import { HomePageTestIds } from './pages/Home/HomePageTestIds';
@@ -14,6 +15,15 @@ describe('App', () => {
 
     const aboutPage = screen.getByTestId(AboutPageTestIds.Container);
     expect(aboutPage).toBeInTheDocument();
+  });
+
+  it('should make possible reaching /map path', () => {
+    const route = Paths.Map;
+
+    render(<App />, { route });
+
+    const mapPage = screen.getByTestId(MapPageTestIds.MapPage);
+    expect(mapPage).toBeInTheDocument();
   });
 
   it('should render navbar', () => {
