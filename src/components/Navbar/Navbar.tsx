@@ -3,9 +3,13 @@ import { Info, Home } from 'react-feather';
 import { Logo, Container, Wrapper, NavButtonsWrapper, StyledNavLink } from './Navbar.styled';
 import { NavbarTestIds } from './NavbarTestIds';
 
-const Navbar = () => {
+interface Props {
+  ifInMapRoute: boolean;
+}
+
+const Navbar = ({ ifInMapRoute }: Props) => {
   return (
-    <Container data-testid={NavbarTestIds.Container}>
+    <Container data-testid={NavbarTestIds.Container} ifInMapRoute={ifInMapRoute}>
       <Wrapper>
         <Logo>
           weather<span>ly</span>
@@ -24,3 +28,4 @@ const Navbar = () => {
 };
 
 export { Navbar };
+export type { Props };
