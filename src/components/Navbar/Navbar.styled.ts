@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface Props {
-  ifInMapRoute: boolean;
+  isMapRoute: boolean;
 }
 
 const Container = styled.nav<Props>`
@@ -15,7 +15,7 @@ const Container = styled.nav<Props>`
   opacity: 0.9;
   padding: ${({ theme }) => theme.paddings.app};
   z-index: 500;
-  box-shadow: ${(props) => props.ifInMapRoute && '0px 12px 20px rgba(0, 0, 0, 0.1)'};
+  box-shadow: ${(props) => props.isMapRoute && '0px 12px 20px rgba(0, 0, 0, 0.1)'};
 `;
 
 const Wrapper = styled.div`

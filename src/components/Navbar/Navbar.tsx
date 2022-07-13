@@ -6,10 +6,10 @@ import { NavbarTestIds } from './NavbarTestIds';
 
 const Navbar = () => {
   const location: Location = useLocation();
-  const ifInMapRoute: boolean = location.pathname === Paths.Map ? true : false;
+  const isMapRoute: boolean = location.pathname === Paths.Map;
 
   return (
-    <Container data-testid={NavbarTestIds.Container} ifInMapRoute={ifInMapRoute}>
+    <Container data-testid={NavbarTestIds.Container} isMapRoute={isMapRoute}>
       <Wrapper>
         <Logo>
           weather<span>ly</span>
