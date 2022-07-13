@@ -1,11 +1,12 @@
 import { TileLayer } from 'react-leaflet';
 import { StyledMapContainer } from './MapPage.styled';
+import { MapPageTestIds } from './MapPageTestId';
 
 const MapPage = () => {
   const localization = { long: 17.038, lat: 51.107 };
 
   return (
-    <div>
+    <div data-testid={MapPageTestIds.Container}>
       <StyledMapContainer
         center={[localization.lat, localization.long]}
         zoom={10}
