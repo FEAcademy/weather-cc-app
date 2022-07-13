@@ -1,5 +1,6 @@
 import Weather from 'api/services/Weather';
 import { useState } from 'react';
+import { Input } from 'components/Input';
 import { TemperatureWidget } from 'components/TemperatureWidget';
 import { WeatherInfoWidget } from 'components/WeatherInfoWidget';
 import { WidgetWrapper } from './HomePage.styled';
@@ -11,6 +12,7 @@ const HomePage = () => {
 
   return (
     <div data-testid={HomePageTestIds.HomePage}>
+      <Input />
       <WidgetWrapper>
         {data && (
           <>
