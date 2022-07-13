@@ -2,12 +2,10 @@ import { DefraIndexKeys } from 'enums/DefraIndexKeys';
 import styled from 'styled-components';
 import { Container as WeatherInfoWidgetContainer } from 'components/WeatherInfoWidget/WeatherInfoWidget.styled';
 
-const getColorsByDefraIndex = (defraIndex: number): DefraIndexKeys => {
-  if (!defraIndex) return DefraIndexKeys.Low;
-  if (defraIndex <= 3) return DefraIndexKeys.Low;
-  if (defraIndex > 3 && defraIndex <= 6) return DefraIndexKeys.Moderate;
-  if (defraIndex > 6 && defraIndex <= 9) return DefraIndexKeys.High;
-  if (defraIndex >= 10) return DefraIndexKeys.VeryHigh;
+const getColorsByDefraIndex = (i: number): DefraIndexKeys => {
+  if (i > 3 && i <= 6) return DefraIndexKeys.Moderate;
+  if (i > 6 && i <= 9) return DefraIndexKeys.High;
+  if (i >= 10) return DefraIndexKeys.VeryHigh;
 
   return DefraIndexKeys.Low;
 };
