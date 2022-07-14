@@ -1,6 +1,6 @@
 import { DefraIndex } from 'enums/DefraIndex';
 
-const getColorsByDefraIndex = (i: number): DefraIndex => {
+const serializeDefraIndex = (i: number): DefraIndex => {
   if (i > 3 && i <= 6) return DefraIndex.Moderate;
   if (i > 6 && i <= 9) return DefraIndex.High;
   if (i >= 10) return DefraIndex.VeryHigh;
@@ -8,4 +8,4 @@ const getColorsByDefraIndex = (i: number): DefraIndex => {
   return DefraIndex.Low;
 };
 
-export { getColorsByDefraIndex };
+export { serializeDefraIndex };
