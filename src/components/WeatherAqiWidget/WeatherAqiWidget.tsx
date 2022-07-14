@@ -5,7 +5,7 @@ interface Props {
   defraIndex: number;
 }
 
-const WeatherAqiWidget = ({ defraIndex = 1 }: Props) => {
+const WeatherAqiWidget = ({ defraIndex }: Props) => {
   return <Container defraIndex={defraIndex} data-testid={WeatherAqiWidgetTestIds.Container}></Container>;
 };
 
