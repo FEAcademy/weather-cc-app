@@ -4,8 +4,8 @@ const useLocalStorage = (key: string): [string, (value: string) => void] => {
   const [value, setValue] = useState('');
 
   const getItem = useCallback(() => {
-    const resp = localStorage.getItem(key);
-    return resp ?? '';
+    const response = localStorage.getItem(key);
+    return response ?? '';
   }, [key]);
 
   const setItem = useCallback(
