@@ -2,13 +2,12 @@ import { useState } from 'react';
 import { MultiValue, SingleValue } from 'react-select';
 import AsyncSelect from 'react-select/async';
 
-import { Location } from 'models/Loction';
+import { Location } from 'models/Location';
 import { inputStyles } from './AutocompleteInput.styled';
 import { InputTestIds } from './AutocompleteInputTestIds';
 
 const AutocompleteInput = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [cityName, setCityName] = useState<SingleValue<Location> | MultiValue<Location>>(null);
+  const [, setCityName] = useState<SingleValue<Location> | MultiValue<Location>>(null);
 
   const cities: Location[] = [
     {
