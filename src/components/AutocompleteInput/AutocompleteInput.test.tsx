@@ -1,10 +1,10 @@
 import { render, screen } from 'utils';
-import { Input } from './Input';
-import { InputTestIds } from './InputTestIds';
+import { AutocompleteInput } from './AutocompleteInput';
+import { InputTestIds } from './AutocompleteInputTestIds';
 
 describe('Input', () => {
   it('should render', () => {
-    render(<Input />);
+    render(<AutocompleteInput />);
     const input = screen.getByTestId(InputTestIds.Input);
     expect(input).toBeInTheDocument();
   });

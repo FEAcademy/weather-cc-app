@@ -3,10 +3,10 @@ import { MultiValue, SingleValue } from 'react-select';
 import AsyncSelect from 'react-select/async';
 
 import { Location } from 'models/Loction';
-import { inputStyles } from './Input.styled';
-import { InputTestIds } from './InputTestIds';
+import { inputStyles } from './AutocompleteInput.styled';
+import { InputTestIds } from './AutocompleteInputTestIds';
 
-const Input = () => {
+const AutocompleteInput = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [cityName, setCityName] = useState<SingleValue<Location> | MultiValue<Location>>(null);
 
@@ -70,4 +70,4 @@ const Input = () => {
   );
 };
 
-export { Input };
+export { AutocompleteInput };

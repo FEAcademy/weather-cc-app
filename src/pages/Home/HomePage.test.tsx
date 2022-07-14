@@ -1,6 +1,6 @@
 import { weatherSuccessResponse } from 'mocks/mockData';
 import { render, screen } from 'utils';
-import { InputTestIds } from 'components/Input/InputTestIds';
+import { InputTestIds } from 'components/AutocompleteInput/AutocompleteInputTestIds';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
 import { HomePage } from './HomePage';
