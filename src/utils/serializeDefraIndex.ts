@@ -1,11 +1,10 @@
 import { DefraIndex } from 'enums/DefraIndex';
 
-const serializeDefraIndex = (i: number): DefraIndex => {
-  if (i > 3 && i <= 6) return DefraIndex.Moderate;
-  if (i > 6 && i <= 9) return DefraIndex.High;
-  if (i >= 10) return DefraIndex.VeryHigh;
-
-  return DefraIndex.Low;
+const serializeDefraIndex = (index: number) => {
+  if (index <= 3) return DefraIndex.Low;
+  if (index <= 6) return DefraIndex.Moderate;
+  if (index <= 9) return DefraIndex.High;
+  return DefraIndex.VeryHigh;
 };
 
 export { serializeDefraIndex };
