@@ -1,7 +1,8 @@
 enum NavbarTestIds {
   Container = 'navbar-container',
-  HomePageIcon = 'link-home-page',
-  AboutIcon = 'link-about',
+  HomeIcon = 'navbar-link-home',
+  AboutIcon = 'navbar-link-about',
+  MapIcon = 'navbar-link-map',
 }
 
 export { NavbarTestIds };

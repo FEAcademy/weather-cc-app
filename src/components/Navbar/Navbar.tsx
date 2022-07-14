@@ -1,5 +1,5 @@
 import { Paths } from 'enums/Paths';
-import { Info, Home } from 'react-feather';
+import { Info, Home, Map } from 'react-feather';
 import { Logo, Container, Wrapper, NavButtonsWrapper, StyledNavLink } from './Navbar.styled';
 import { NavbarTestIds } from './NavbarTestIds';
 
@@ -11,8 +11,11 @@ const Navbar = () => {
           weather<span>ly</span>
         </Logo>
         <NavButtonsWrapper>
-          <StyledNavLink to="/" data-testid={NavbarTestIds.HomePageIcon}>
+          <StyledNavLink to={Paths.Home} data-testid={NavbarTestIds.HomeIcon}>
             <Home />
+          </StyledNavLink>
+          <StyledNavLink to={Paths.Map} data-testid={NavbarTestIds.MapIcon}>
+            <Map />
           </StyledNavLink>
           <StyledNavLink to={Paths.About} data-testid={NavbarTestIds.AboutIcon}>
             <Info />
