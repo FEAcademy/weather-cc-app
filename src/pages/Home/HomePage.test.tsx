@@ -9,6 +9,7 @@ describe('Home page', () => {
 
     expect(await screen.findByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
   });
+
   it('should render temperature widget content properly', async () => {
     render(<HomePage />);
 
