@@ -1,7 +1,7 @@
 enum Paths {
   Home = '/',
   About = '/about',
-  Map = '/map'
+  Map = '/map',
 }
 
 export { Paths };
