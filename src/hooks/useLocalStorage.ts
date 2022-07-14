@@ -1,6 +1,8 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const useLocalStorage = (key: string): [string, (value: string) => void] => {
+  const [value, setValue] = useState('');
+
   const getItem = useCallback(() => {
     const resp = localStorage.getItem(key);
     return resp ?? '';
@@ -9,13 +11,16 @@ const useLocalStorage = (key: string): [string, (value: string) => void] => {
   const setItem = useCallback(
     (value: string) => {
       localStorage.setItem(key, JSON.stringify(value));
+      setValue(value);
     },
     [key],
   );
 
-  const localValue = useMemo(() => getItem(), [getItem]);
+  useEffect(() => {
+    setValue(getItem());
+  }, [getItem]);
 
-  return [localValue, setItem];
+  return [value, setItem];
 };
 
 export { useLocalStorage };
