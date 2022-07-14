@@ -1,6 +1,7 @@
 import { weatherSuccessResponse } from 'mocks/mockData';
 import { render, screen } from 'utils';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
+import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
 import { HomePage } from './HomePage';
 
 describe('Home page', () => {
@@ -9,6 +10,7 @@ describe('Home page', () => {
 
     expect(await screen.findByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
   });
+
   it('should render temperature widget content properly', async () => {
     render(<HomePage />);
 
@@ -21,5 +23,31 @@ describe('Home page', () => {
     expect(description).toBeInTheDocument();
     expect(currentTemperature).toBeInTheDocument();
     expect(feelslikeTemperature).toBeInTheDocument();
+  });
+
+  it('should render weather info widget', async () => {
+    render(<HomePage />);
+
+    const weatherInfoWidget = await screen.findByTestId(WeatherInfoWidgetTestIds.Container);
+
+    expect(weatherInfoWidget).toBeInTheDocument();
+  });
+
+  it('should render weather info widget content properly', async () => {
+    render(<HomePage />);
+
+    const cloud = await screen.findByText(/0%/);
+    const humidity = await screen.findByText(/69%/);
+    const windSpeed = await screen.findByText(/7 km\/h/);
+    const precip = await screen.findByText(/0 mm/i);
+    const pressure = await screen.findByText(/1011 mb/i);
+    const gust = await screen.findByText(/5 km\/h/i);
+
+    expect(cloud).toBeInTheDocument();
+    expect(precip).toBeInTheDocument();
+    expect(humidity).toBeInTheDocument();
+    expect(pressure).toBeInTheDocument();
+    expect(windSpeed).toBeInTheDocument();
+    expect(gust).toBeInTheDocument();
   });
 });
