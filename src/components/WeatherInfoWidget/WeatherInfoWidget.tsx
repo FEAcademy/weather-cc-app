@@ -1,4 +1,3 @@
-// import { Container, Value, Property, WeatherData } from './WeatherInfoWidget.styled';
 import { Container } from 'components/WeatherWidgetInfo';
 import { DataItem } from '../WeatherWidgetInfo';
 import { WeatherInfoWidgetTestIds } from './WeatherInfoWidgetTestIds';
