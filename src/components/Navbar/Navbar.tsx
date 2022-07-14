@@ -6,10 +6,10 @@ import { NavbarTestIds } from './NavbarTestIds';
 
 const Navbar = () => {
   const location: Location = useLocation();
-  const isMapRoute: boolean = location.pathname === Paths.Map;
+  const isWithShadow: boolean = location.pathname === Paths.Map;
 
   return (
-    <Container data-testid={NavbarTestIds.Container} isMapRoute={isMapRoute}>
+    <Container data-testid={NavbarTestIds.Container} withShadow={isWithShadow}>
       <Wrapper>
         <Logo>
           weather<span>ly</span>
