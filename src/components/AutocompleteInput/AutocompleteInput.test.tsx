@@ -2,7 +2,7 @@ import { render, screen } from 'utils';
 import { AutocompleteInput } from './AutocompleteInput';
 import { InputTestIds } from './AutocompleteInputTestIds';
 
-describe('Input', () => {
+describe('Autocomplete input', () => {
   it('should render', () => {
     render(<AutocompleteInput />);
     const input = screen.getByTestId(InputTestIds.Input);
