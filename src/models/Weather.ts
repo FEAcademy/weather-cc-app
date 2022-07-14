@@ -15,7 +15,7 @@ interface Condition {
   code: number;
 }
 
-export interface Aqi {
+interface Aqi {
   co: number;
   no2: number;
   o3: number;
