@@ -1,7 +1,7 @@
 import { DefraIndex } from 'enums/DefraIndex';
 import { serializeDefraIndex } from './serializeDefraIndex';
 
-describe('getColorsByDefraIndex', () => {
+describe('serializeDefraIndex', () => {
   it('should return valid defra index', () => {
     expect(serializeDefraIndex(1)).toBe(DefraIndex.Low);
     expect(serializeDefraIndex(6)).toBe(DefraIndex.Moderate);
