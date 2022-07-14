@@ -10,8 +10,8 @@ const StyledMapContainer = styled(MapContainer)`
 `;
 
 const MapWrapper = styled.div`
-  div.leaflet-control-container {
-    div.leaflet-bottom.leaflet-right {
+  .leaflet-control-container {
+    .leaflet-bottom.leaflet-right {
       visibility: hidden;
     }
   }
