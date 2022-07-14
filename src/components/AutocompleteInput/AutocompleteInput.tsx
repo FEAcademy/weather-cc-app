@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { MultiValue, SingleValue } from 'react-select';
 import AsyncSelect from 'react-select/async';
 
 import { Location } from 'models/Location';
@@ -7,7 +6,7 @@ import { inputStyles } from './AutocompleteInput.styled';
 import { InputTestIds } from './AutocompleteInputTestIds';
 
 const AutocompleteInput = () => {
-  const [, setCityName] = useState<SingleValue<Location> | MultiValue<Location>>(null);
+  const [, setCityName] = useState<Location | null>(null);
 
   const cities: Location[] = [
     {
@@ -58,13 +57,19 @@ const AutocompleteInput = () => {
     }, 1000);
   };
 
-  const onChange = (newValue: SingleValue<Location> | MultiValue<Location>) => {
+  const onChange = (newValue: Location | null) => {
     setCityName(newValue);
   };
 
   return (
     <div data-testid={InputTestIds.Input}>
-      <AsyncSelect loadOptions={loadOptions} styles={inputStyles} placeholder={'Search'} onChange={onChange} />
+      <AsyncSelect
+        loadOptions={loadOptions}
+        styles={inputStyles}
+        placeholder={'Search'}
+        onChange={onChange}
+        isMulti={false}
+      />
     </div>
   );
 };
