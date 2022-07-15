@@ -1,4 +1,4 @@
-import WeatherWidget from '../WeatherWidget';
+import { WeatherWidget } from 'components/WeatherWidget';
 import { WeatherInfoWidgetTestIds } from './WeatherInfoWidgetTestIds';
 
 interface Props {
@@ -19,14 +19,14 @@ const WeatherInfoWidget = ({ humidity, precip, pressure, windSpeed, cloud, gust 
   const roundedGust = Math.round(gust);
 
   return (
-    <WeatherWidget.Container data-testid={WeatherInfoWidgetTestIds.Container}>
+    <WeatherWidget data-testid={WeatherInfoWidgetTestIds.Container}>
       <WeatherWidget.DataItem label={'Cloudiness:'} value={roundedCloud + '%'} />
       <WeatherWidget.DataItem label={'Precip:'} value={roundedPrecip + ' mm'} />
       <WeatherWidget.DataItem label={'Humidity:'} value={roundedHumidity + '%'} />
       <WeatherWidget.DataItem label={'Pressure:'} value={roundedPressure + ' mb'} />
       <WeatherWidget.DataItem label={'Wind:'} value={roundedWindSpeed + ' km/h'} />
       <WeatherWidget.DataItem label={'Gusts:'} value={roundedGust + ' km/h'} />
-    </WeatherWidget.Container>
+    </WeatherWidget>
   );
 };
 

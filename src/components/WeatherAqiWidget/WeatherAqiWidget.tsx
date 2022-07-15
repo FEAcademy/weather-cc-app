@@ -1,4 +1,4 @@
-import WeatherWidget from 'components/WeatherWidget';
+import { WeatherWidget } from 'components/WeatherWidget';
 import { WeatherAqiWidgetTestIds } from './WeatherAqiWidgetTestIds';
 
 interface Props {
@@ -6,12 +6,7 @@ interface Props {
 }
 
 const WeatherAqiWidget = ({ defraIndex }: Props) => {
-  return (
-    <WeatherWidget.Container
-      defraIndex={defraIndex}
-      data-testid={WeatherAqiWidgetTestIds.Container}
-    ></WeatherWidget.Container>
-  );
+  return <WeatherWidget defraIndex={defraIndex} data-testid={WeatherAqiWidgetTestIds.Container}></WeatherWidget>;
 };
 
 export { WeatherAqiWidget };
