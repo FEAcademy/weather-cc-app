@@ -15,13 +15,15 @@ export default {
       return res.data;
     }),
   useSearchCities: (cityName: string) =>
-    useQuery<Location[], Error>(['location', cityName], async () => {
+    useQuery<string[], Error>(['location', cityName], async () => {
       const res = await weatherClient.get<Location[]>('/search.json', {
         params: {
           q: cityName,
           lang: 'pl',
         },
       });
-      return res.data;
+      const cities: string[] = res.data.map((city) => city.name);
+
+      return cities;
     }),
 };
