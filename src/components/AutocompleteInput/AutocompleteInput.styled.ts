@@ -43,7 +43,7 @@ const inputStyles: StylesConfig<Location> = {
     fontSize: '18px',
     lineHeight: '22px',
     color: theme.colors.text,
-    cursor: 'pointer',
+    cursor: 'text',
   }),
   option: (styles, { isFocused }) => ({
     ...styles,
