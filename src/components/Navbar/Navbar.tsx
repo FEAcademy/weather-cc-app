@@ -3,6 +3,7 @@ import { Info, Home, Map } from 'react-feather';
 import { useLocation, Location } from 'react-router-dom';
 import { Logo, Container, Wrapper, NavButtonsWrapper, StyledNavLink } from './Navbar.styled';
 import { NavbarTestIds } from './NavbarTestIds';
+import { NavbarTitles } from './NavbarTitles';
 
 const Navbar = () => {
   const location: Location = useLocation();
@@ -15,13 +16,13 @@ const Navbar = () => {
           weather<span>ly</span>
         </Logo>
         <NavButtonsWrapper>
-          <StyledNavLink to={Paths.Home} data-testid={NavbarTestIds.HomeLink}>
+          <StyledNavLink to={Paths.Home} title={NavbarTitles.Home}>
             <Home />
           </StyledNavLink>
-          <StyledNavLink to={Paths.Map} data-testid={NavbarTestIds.MapLink}>
+          <StyledNavLink to={Paths.Map} title={NavbarTitles.Map}>
             <Map />
           </StyledNavLink>
-          <StyledNavLink to={Paths.About} data-testid={NavbarTestIds.AboutLink}>
+          <StyledNavLink to={Paths.About} title={NavbarTitles.About}>
             <Info />
           </StyledNavLink>
         </NavButtonsWrapper>

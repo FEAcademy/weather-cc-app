@@ -1,6 +1,6 @@
 import { render, screen } from 'utils';
 import { Navbar } from 'components/Navbar';
-import { NavbarTestIds } from './NavbarTestIds';
+import { NavbarTitles } from 'components/Navbar/NavbarTitles';
 
 describe('Navbar', () => {
   it('should render', () => {
@@ -20,21 +20,21 @@ describe('Navbar', () => {
   });
   it('should contain link to home page', () => {
     render(<Navbar />);
-    const link = screen.getByTestId(NavbarTestIds.HomeLink);
+    const link = screen.getByTitle(NavbarTitles.Home);
 
     expect(link).toBeInTheDocument();
   });
 
   it('should contain link to about page', () => {
     render(<Navbar />);
-    const link = screen.getByTestId(NavbarTestIds.AboutLink);
+    const link = screen.getByTitle(NavbarTitles.About);
 
     expect(link).toBeInTheDocument();
   });
 
   it('should contain link to map page', () => {
     render(<Navbar />);
-    const link = screen.getByTestId(NavbarTestIds.MapLink);
+    const link = screen.getByTitle(NavbarTitles.Map);
 
     expect(link).toBeInTheDocument();
   });

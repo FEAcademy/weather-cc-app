@@ -4,6 +4,7 @@ import { Paths } from 'enums/Paths';
 import { render, screen } from 'utils';
 import { FooterTestIds } from 'components/Footer/FooterTestIds';
 import { NavbarTestIds } from 'components/Navbar/NavbarTestIds';
+import { NavbarTitles } from 'components/Navbar/NavbarTitles';
 import { AboutPageTestIds } from 'pages/About/AboutPageTestIds';
 import { HomePageTestIds } from 'pages/Home/HomePageTestIds';
 import { MapPageTestIds } from 'pages/Map/MapPageTestIds';
@@ -63,7 +64,7 @@ describe('App', () => {
     const route = Paths.Home;
     render(<App />, { route });
 
-    const mapLink = screen.getByTestId(NavbarTestIds.MapLink);
+    const mapLink = screen.getByTitle(NavbarTitles.Map);
 
     await userEvent.click(mapLink);
 
@@ -76,7 +77,7 @@ describe('App', () => {
     const route = Paths.About;
     render(<App />, { route });
 
-    const homeLink = screen.getByTestId(NavbarTestIds.HomeLink);
+    const homeLink = screen.getByTitle(NavbarTitles.Home);
 
     await userEvent.click(homeLink);
 
@@ -88,7 +89,7 @@ describe('App', () => {
   it('should redirect to /about after link click', async () => {
     render(<App />);
 
-    const aboutLink = screen.getByTestId(NavbarTestIds.AboutLink);
+    const aboutLink = screen.getByTitle(NavbarTitles.About);
 
     await userEvent.click(aboutLink);
 
