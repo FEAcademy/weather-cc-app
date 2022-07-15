@@ -3,10 +3,18 @@ import { WeatherAqiWidgetTestIds } from './WeatherAqiWidgetTestIds';
 
 interface Props {
   defraIndex: number;
+  no2: number;
 }
 
-const WeatherAqiWidget = ({ defraIndex }: Props) => {
-  return <WeatherWidget defraIndex={defraIndex} data-testid={WeatherAqiWidgetTestIds.Container}></WeatherWidget>;
+const WeatherAqiWidget = ({ defraIndex, no2 }: Props) => {
+  const roundedNo2 = Math.round(no2);
+  const unit = ' μm/m3';
+
+  return (
+    <WeatherWidget defraIndex={defraIndex} data-testid={WeatherAqiWidgetTestIds.Container}>
+      <WeatherWidget.DataItem label={'NO2:'} value={roundedNo2 + unit} />
+    </WeatherWidget>
+  );
 };
 
 export { WeatherAqiWidget };

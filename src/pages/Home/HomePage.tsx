@@ -29,7 +29,10 @@ const HomePage = () => {
               currentTemperature={data.current.temp_c}
               feelslikeTemperature={data.current.feelslike_c}
             />
-            <WeatherAqiWidget defraIndex={data.current.air_quality['gb-defra-index']} />
+            <WeatherAqiWidget
+              defraIndex={data.current.air_quality['gb-defra-index']}
+              no2={data.current.air_quality.no2}
+            />
           </>
         )}
       </WidgetWrapper>
