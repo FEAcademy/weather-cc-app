@@ -20,21 +20,21 @@ describe('Navbar', () => {
   });
   it('should contain link to home page', () => {
     render(<Navbar />);
-    const link = screen.getByTestId(NavbarTestIds.HomeIcon);
+    const link = screen.getByTestId(NavbarTestIds.HomeLink);
 
     expect(link).toBeInTheDocument();
   });
 
   it('should contain link to about page', () => {
     render(<Navbar />);
-    const link = screen.getByTestId(NavbarTestIds.AboutIcon);
+    const link = screen.getByTestId(NavbarTestIds.AboutLink);
 
     expect(link).toBeInTheDocument();
   });
 
   it('should contain link to map page', () => {
     render(<Navbar />);
-    const link = screen.getByTestId(NavbarTestIds.MapIcon);
+    const link = screen.getByTestId(NavbarTestIds.MapLink);
 
     expect(link).toBeInTheDocument();
   });

@@ -15,13 +15,13 @@ const Navbar = () => {
           weather<span>ly</span>
         </Logo>
         <NavButtonsWrapper>
-          <StyledNavLink to={Paths.Home} data-testid={NavbarTestIds.HomeIcon}>
+          <StyledNavLink to={Paths.Home} data-testid={NavbarTestIds.HomeLink}>
             <Home />
           </StyledNavLink>
-          <StyledNavLink to={Paths.Map} data-testid={NavbarTestIds.MapIcon}>
+          <StyledNavLink to={Paths.Map} data-testid={NavbarTestIds.MapLink}>
             <Map />
           </StyledNavLink>
-          <StyledNavLink to={Paths.About} data-testid={NavbarTestIds.AboutIcon}>
+          <StyledNavLink to={Paths.About} data-testid={NavbarTestIds.AboutLink}>
             <Info />
           </StyledNavLink>
         </NavButtonsWrapper>
