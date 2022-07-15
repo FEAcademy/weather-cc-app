@@ -14,7 +14,6 @@ const HomePage = () => {
 
   useEffect(() => {
     setLocalValue(cityName);
-    console.log(cityName);
   }, [cityName, setLocalValue]);
 
   const handleSelect = useCallback((cityName: string) => {
