@@ -1,26 +1,26 @@
 import { useCallback, useEffect, useState } from 'react';
 
 const useLocalStorage = (key: string): [string, (value: string) => void] => {
-  const [value, setValue] = useState('');
+  const [localValue, setLocalValue] = useState('');
 
   const getItem = useCallback(() => {
-    const response = localStorage.getItem(key);
-    return response ?? '';
+    const value = localStorage.getItem(key);
+    return value ?? '';
   }, [key]);
 
   const setItem = useCallback(
     (value: string) => {
       localStorage.setItem(key, JSON.stringify(value));
-      setValue(value);
+      setLocalValue(value);
     },
     [key],
   );
 
   useEffect(() => {
-    setValue(getItem());
+    setLocalValue(getItem());
   }, [getItem]);
 
-  return [value, setItem];
+  return [localValue, setItem];
 };
 
 export { useLocalStorage };
