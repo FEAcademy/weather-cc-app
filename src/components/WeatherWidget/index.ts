@@ -1,5 +1,5 @@
 import { DataItem } from './components/DataItem';
-import { Container } from './WeatherWidgetInfo.styled';
+import { Container } from './WeatherWidget.styled';
 
 export default {
   Container,

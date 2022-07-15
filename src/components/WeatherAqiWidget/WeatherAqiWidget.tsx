@@ -1,4 +1,4 @@
-import WeatherWidget from 'components/WeatherWidgetInfo';
+import WeatherWidget from 'components/WeatherWidget';
 import { WeatherAqiWidgetTestIds } from './WeatherAqiWidgetTestIds';
 
 interface Props {
