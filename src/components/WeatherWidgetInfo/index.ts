@@ -1,2 +1,7 @@
-export { Container } from './WeatherWidgetInfo.styled';
-export { DataItem } from './components/DataItem';
+import { DataItem } from './components/DataItem';
+import { Container } from './WeatherWidgetInfo.styled';
+
+export default {
+  Container,
+  DataItem,
+};

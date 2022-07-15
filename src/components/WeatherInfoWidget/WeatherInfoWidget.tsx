@@ -1,5 +1,4 @@
-import { Container } from 'components/WeatherWidgetInfo';
-import { DataItem } from '../WeatherWidgetInfo';
+import WeatherWidget from '../WeatherWidgetInfo';
 import { WeatherInfoWidgetTestIds } from './WeatherInfoWidgetTestIds';
 
 interface Props {
@@ -20,14 +19,14 @@ const WeatherInfoWidget = ({ humidity, precip, pressure, windSpeed, cloud, gust 
   const roundedGust = Math.round(gust);
 
   return (
-    <Container data-testid={WeatherInfoWidgetTestIds.Container}>
-      <DataItem label={'Cloudiness:'} value={roundedCloud + '%'} />
-      <DataItem label={'Precip:'} value={roundedPrecip + ' mm'} />
-      <DataItem label={'Humidity:'} value={roundedHumidity + '%'} />
-      <DataItem label={'Pressure:'} value={roundedPressure + ' mb'} />
-      <DataItem label={'Wind:'} value={roundedWindSpeed + ' km/h'} />
-      <DataItem label={'Gusts:'} value={roundedGust + ' km/h'} />
-    </Container>
+    <WeatherWidget.Container data-testid={WeatherInfoWidgetTestIds.Container}>
+      <WeatherWidget.DataItem label={'Cloudiness:'} value={roundedCloud + '%'} />
+      <WeatherWidget.DataItem label={'Precip:'} value={roundedPrecip + ' mm'} />
+      <WeatherWidget.DataItem label={'Humidity:'} value={roundedHumidity + '%'} />
+      <WeatherWidget.DataItem label={'Pressure:'} value={roundedPressure + ' mb'} />
+      <WeatherWidget.DataItem label={'Wind:'} value={roundedWindSpeed + ' km/h'} />
+      <WeatherWidget.DataItem label={'Gusts:'} value={roundedGust + ' km/h'} />
+    </WeatherWidget.Container>
   );
 };
 
