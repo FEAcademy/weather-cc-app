@@ -4,7 +4,6 @@ const Container = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(112, 112, 112, 0.5);
   padding-bottom: 7px;
 `;
 

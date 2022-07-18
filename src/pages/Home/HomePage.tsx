@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { TemperatureWidget } from 'components/TemperatureWidget';
 import { WeatherAqiWidget } from 'components/WeatherAqiWidget';
 import { WeatherInfoWidget } from 'components/WeatherInfoWidget';
+// import { WeatherWidget } from 'components/WeatherWidget';
 import { WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
+// import MyLoader from './Skelet';
 
 const HomePage = () => {
   const [cityName] = useState('Wroclaw');
@@ -29,7 +31,10 @@ const HomePage = () => {
               currentTemperature={data.current.temp_c}
               feelslikeTemperature={data.current.feelslike_c}
             />
-            <WeatherAqiWidget defraIndex={data.current.air_quality['gb-defra-index']} />
+            <WeatherAqiWidget
+              defraIndex={data.current.air_quality['gb-defra-index']}
+              pm2_5={data.current.air_quality.pm2_5}
+            />
           </>
         )}
       </WidgetWrapper>

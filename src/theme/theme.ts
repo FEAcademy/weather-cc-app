@@ -7,7 +7,9 @@ const theme = {
   },
   colors: {
     text: '#707070',
+    lightText: '#ECEBEB',
     background: '#ffffff',
+    ligthtBorder: '#DCD6D6',
   },
   defraBackgrounds: {
     low: 'linear-gradient(106.46deg, #A9E0A8 0%, #9FD29E 100%)',
