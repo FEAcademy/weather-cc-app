@@ -64,9 +64,11 @@ describe('Home page', () => {
     render(<HomePage />);
 
     const co = await screen.findByText(/155 µg\/m3/i);
+    const o3 = await screen.findByText(/119 µg\/m3/i);
     const pm25 = await screen.findByText(/7 μg\/m3/i);
 
     expect(co).toBeInTheDocument();
+    expect(o3).toBeInTheDocument();
     expect(pm25).toBeInTheDocument();
   });
 });
