@@ -12,7 +12,7 @@ const WeatherAqiWidget = ({ defraIndex, co }: Props) => {
 
   return (
     <WeatherWidget defraIndex={defraIndex} data-testid={WeatherAqiWidgetTestIds.Container}>
-      <WeatherWidget.DataItem label="CO" value={roundedCo + unit} />
+      <WeatherWidget.DataItem label="CO:" value={roundedCo + unit} />
     </WeatherWidget>
   );
 };
