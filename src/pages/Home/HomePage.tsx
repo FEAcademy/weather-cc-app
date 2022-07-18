@@ -10,7 +10,7 @@ import { HomePageTestIds } from './HomePageTestIds';
 const HomePage = () => {
   const [cityName] = useState('Wroclaw');
   const { data } = Weather.useCity(cityName);
-  const [, setLocation] = useLocalStorage('Wroclaw');
+  const [, setLocation] = useLocalStorage('current_location', 'Wroclaw');
 
   const handleSelect = useCallback(
     (cityName: string) => {
