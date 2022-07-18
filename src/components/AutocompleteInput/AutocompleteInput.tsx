@@ -70,6 +70,8 @@ const AutocompleteInput = ({ handleSelect }: Props) => {
         placeholder={'Search'}
         onChange={onChange}
         isMulti={false}
+        defaultMenuIsOpen={true}
+        defaultOptions
       />
     </div>
   );
