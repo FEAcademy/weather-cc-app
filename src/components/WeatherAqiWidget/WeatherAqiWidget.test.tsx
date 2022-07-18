@@ -12,7 +12,7 @@ describe('WeatherAqiWidget', () => {
         pm25={0}
         o3={weatherSuccessResponse.current.air_quality.o3}
         pm10={weatherSuccessResponse.current.air_quality.pm10}
-        so2={weatherSuccessResponse.current.air_quality['so2']}
+        so2={weatherSuccessResponse.current.air_quality.so2}
       />,
     );
 
@@ -29,7 +29,7 @@ describe('WeatherAqiWidget', () => {
         o3={weatherSuccessResponse.current.air_quality.o3}
         pm25={weatherSuccessResponse.current.air_quality.pm2_5}
         pm10={weatherSuccessResponse.current.air_quality.pm10}
-        so2={weatherSuccessResponse.current.air_quality['so2']}
+        so2={weatherSuccessResponse.current.air_quality.so2}
       />,
     );
 
@@ -37,7 +37,7 @@ describe('WeatherAqiWidget', () => {
     const o3 = screen.getByText(/119 µg\/m3/i);
     const pm25 = screen.getByText(/7 μg\/m3/i);
     const pm10 = screen.getByText(/13 µg\/m3/i);
-    const so2 = screen.getByText(/4 μg\/m3/);
+    const so2 = screen.getByText(/4 μg\/m3/i);
 
     expect(co).toBeInTheDocument();
     expect(o3).toBeInTheDocument();
