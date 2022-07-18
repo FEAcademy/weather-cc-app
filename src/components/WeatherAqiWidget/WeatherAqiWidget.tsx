@@ -8,7 +8,7 @@ interface Props {
 
 const WeatherAqiWidget = ({ defraIndex, no2 }: Props) => {
   const roundedNo2 = Math.round(no2);
-  const unit = ' μm/m3';
+  const unit = ' \u00B5m/m3';
 
   return (
     <WeatherWidget defraIndex={defraIndex} data-testid={WeatherAqiWidgetTestIds.Container}>

@@ -59,4 +59,10 @@ describe('Home page', () => {
 
     expect(weatherAqiWidget).toBeInTheDocument();
   });
+
+  it('should render aqi widget content properly', async () => {
+    render(<HomePage />);
+    const no2 = await screen.findByText('4 \u00B5m/m3');
+    expect(no2).toBeInTheDocument();
+  });
 });
