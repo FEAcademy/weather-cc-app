@@ -5,18 +5,36 @@ import { WeatherAqiWidgetTestIds } from './WeatherAqiWidgetTestIds';
 
 describe('WeatherAqiWidget', () => {
   it('should render', () => {
-    render(<WeatherAqiWidget defraIndex={2} pm10={weatherSuccessResponse.current.air_quality.pm10} />);
+    render(
+      <WeatherAqiWidget
+        defraIndex={2}
+        co={weatherSuccessResponse.current.air_quality.co}
+        pm25={0}
+        pm10={weatherSuccessResponse.current.air_quality.pm10}
+      />,
+    );
 
     const container = screen.getByTestId(WeatherAqiWidgetTestIds.Container);
 
     expect(container).toBeInTheDocument();
   });
 
-  it('should render proper air quality data', () => {
-    render(<WeatherAqiWidget defraIndex={2} pm10={weatherSuccessResponse.current.air_quality.pm10} />);
+  it('should display air quality data', () => {
+    render(
+      <WeatherAqiWidget
+        defraIndex={weatherSuccessResponse.current.air_quality['gb-defra-index']}
+        co={weatherSuccessResponse.current.air_quality.co}
+        pm25={weatherSuccessResponse.current.air_quality.pm2_5}
+        pm10={weatherSuccessResponse.current.air_quality.pm10}
+      />,
+    );
 
-    const pm10 = screen.getByText(/7 µg\/m3/i);
+    const co = screen.getByText(/155 µg\/m3/i);
+    const pm25 = screen.getByText(/7 μg\/m3/i);
+    const pm10 = screen.getByText(/13 µg\/m3/i);
 
+    expect(co).toBeInTheDocument();
+    expect(pm25).toBeInTheDocument();
     expect(pm10).toBeInTheDocument();
   });
 });
