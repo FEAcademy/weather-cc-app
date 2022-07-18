@@ -31,7 +31,7 @@ const weatherSuccessResponse: Weather = {
       o3: 118.69999694824219,
       so2: 4.099999904632568,
       pm2_5: 6.599999904632568,
-      pm10: 7.400000095367432,
+      pm10: 12.800000095367432,
       'us-epa-index': 1,
       'gb-defra-index': 1,
     },

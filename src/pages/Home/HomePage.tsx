@@ -35,6 +35,7 @@ const HomePage = () => {
               no2={data.current.air_quality.no2}
               o3={data.current.air_quality.o3}
               pm25={data.current.air_quality.pm2_5}
+              pm10={data.current.air_quality.pm10}
             />
           </>
         )}
