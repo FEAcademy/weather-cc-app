@@ -11,7 +11,7 @@ const WeatherAqiWidget = ({ defraIndex, pm10 }: Props) => {
   const roundedPm10 = Math.round(pm10);
   return (
     <WeatherWidget defraIndex={defraIndex} data-testid={WeatherAqiWidgetTestIds.Container}>
-      <WeatherWidget.DataItem label={'PM 10:'} value={roundedPm10 + unit} />
+      <WeatherWidget.DataItem label="PM 10:" value={roundedPm10 + unit} />
     </WeatherWidget>
   );
 };
