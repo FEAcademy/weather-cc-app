@@ -1,11 +1,13 @@
+import userEvent from '@testing-library/user-event';
 import App from 'App';
 import { Paths } from 'enums/Paths';
 import { render, screen } from 'utils';
+import { FooterTestIds } from 'components/Footer/FooterTestIds';
+import { NavbarTestIds } from 'components/Navbar/NavbarTestIds';
+import { NavbarTitles } from 'components/Navbar/NavbarTitles';
 import { AboutPageTestIds } from 'pages/About/AboutPageTestIds';
+import { HomePageTestIds } from 'pages/Home/HomePageTestIds';
 import { MapPageTestIds } from 'pages/Map/MapPageTestIds';
-import { FooterTestIds } from './components/Footer/FooterTestIds';
-import { NavbarTestIds } from './components/Navbar/NavbarTestIds';
-import { HomePageTestIds } from './pages/Home/HomePageTestIds';
 
 describe('App', () => {
   it('should make possible reaching /about path', () => {
@@ -56,5 +58,43 @@ describe('App', () => {
     const homePage = screen.getByTestId(HomePageTestIds.HomePage);
 
     expect(homePage).toBeInTheDocument();
+  });
+
+  it('should redirect to /map after link click', async () => {
+    const route = Paths.Home;
+    render(<App />, { route });
+
+    const mapLink = screen.getByTitle(NavbarTitles.Map);
+
+    await userEvent.click(mapLink);
+
+    const map = screen.getByTestId(MapPageTestIds.MapPage);
+
+    expect(map).toBeInTheDocument();
+  });
+
+  it('should redirect to /home from /about after link click', async () => {
+    const route = Paths.About;
+    render(<App />, { route });
+
+    const homeLink = screen.getByTitle(NavbarTitles.Home);
+
+    await userEvent.click(homeLink);
+
+    const home = screen.getByTestId(HomePageTestIds.HomePage);
+
+    expect(home).toBeInTheDocument();
+  });
+
+  it('should redirect to /about after link click', async () => {
+    render(<App />);
+
+    const aboutLink = screen.getByTitle(NavbarTitles.About);
+
+    await userEvent.click(aboutLink);
+
+    const about = screen.getByTestId(AboutPageTestIds.Container);
+
+    expect(about).toBeInTheDocument();
   });
 });
