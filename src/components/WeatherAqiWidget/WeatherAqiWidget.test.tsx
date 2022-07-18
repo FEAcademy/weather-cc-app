@@ -13,7 +13,7 @@ describe('WeatherAqiWidget', () => {
   });
   it('should display rounded air quality data', () => {
     render(<WeatherAqiWidget defraIndex={2} no2={weatherSuccessResponse.current.air_quality.no2} />);
-    const no2 = screen.getByText('4 \u00B5m/m3');
+    const no2 = screen.getByText('4 \u00B5g/m3');
     expect(no2).toBeInTheDocument();
   });
 });
