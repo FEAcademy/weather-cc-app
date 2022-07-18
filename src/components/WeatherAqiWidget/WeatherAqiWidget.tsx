@@ -7,11 +7,12 @@ interface Props {
 }
 
 const WeatherAqiWidget = ({ defraIndex, co }: Props) => {
+  const unit = ' µg/m3';
   const roundedCo = Math.round(co);
 
   return (
     <WeatherWidget defraIndex={defraIndex} data-testid={WeatherAqiWidgetTestIds.Container}>
-      <WeatherWidget.DataItem label="CO" value={`${roundedCo} µg/m3`} />
+      <WeatherWidget.DataItem label="CO" value={roundedCo + unit} />
     </WeatherWidget>
   );
 };
