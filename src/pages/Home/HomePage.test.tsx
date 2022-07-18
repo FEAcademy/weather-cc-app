@@ -1,3 +1,4 @@
+//import userEvent from '@testing-library/user-event';
 import { weatherSuccessResponse } from 'mocks/mockData';
 import { render, screen } from 'utils';
 import { InputTestIds } from 'components/AutocompleteInput/AutocompleteInputTestIds';
@@ -19,6 +20,57 @@ describe('Home page', () => {
 
     expect(input).toBeInTheDocument();
   });
+
+  // it('should render autocomplete input cities correctly', async () => {
+  //   render(<HomePage />);
+
+  //   const input = screen.getByRole('combobox');
+
+  //   await userEvent.type(input, 'Wars');
+
+  //   const listEl = await screen.findByText('Warszawa');
+
+  //   await userEvent.click(listEl);
+
+  //   expect('Warszawa').toBeInTheDocument();
+  // });
+
+  // it('should render autocomplete input cities correctlyyyy', async () => {
+  //   render(<HomePage />);
+
+  //   const input = screen.getByRole('combobox');
+
+  //   // fireEvent.change(input, { target: { value: 'Wal' } });
+
+  //   // act(() => {
+  //   // });
+  //   // fireEvent.change(input, { target: { value: 'Wal' } });
+  //   userEvent.type(input, 'Wal');
+  //   // fireEvent.keyPress(input, { key: 'W', code: 'KeyWr' });
+
+  //   // await waitFor(() => screen.findByText(/Walbrzych/i));
+  //   // await screen.findByText(/Wal/i);
+
+  //   // const output = await screen.findByText(/Wroc/i);
+  //   expect(input).toBeInTheDocument();
+  //   expect(input).toHaveValue('Wal');
+
+  //   // expect(await screen.findByText(/W/i)).toBeInTheDocument();
+  //   // expect(await screen.findByText(/Wroclaw/i)).toBeInTheDocument();
+  //   // expect(output).toBeInTheDocument();
+
+  //   // await waitFor(() => screen.findByText(/Wroclaw/i));
+  // });
+
+  // it('should render autocomplete input cities correctlyy2', async () => {
+  //   //const getById = queryByAttribute.bind(null, 'id');
+  //   render(<HomePage />);
+  //   const input = screen.getByRole('combobox');
+  //   userEvent.type(input, 'Wroc');
+  //   userEvent.keyboard('[Enter]');
+  //   const option1 = await waitFor(() => screen.findByText('Wroclaw'));
+  //   expect(option1).toBeInTheDocument();
+  // });
 
   it('should render temperature widget content properly', async () => {
     render(<HomePage />);
