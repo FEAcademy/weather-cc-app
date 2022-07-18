@@ -32,6 +32,7 @@ const HomePage = () => {
             <WeatherAqiWidget
               defraIndex={data.current.air_quality['gb-defra-index']}
               co={data.current.air_quality.co}
+              pm25={data.current.air_quality.pm2_5}
             />
           </>
         )}
