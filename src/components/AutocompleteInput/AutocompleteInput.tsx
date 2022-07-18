@@ -1,28 +1,23 @@
-import Weather from 'api/services/Weather';
-//import { useEffect } from 'react';
-import { useState } from 'react';
+import React from 'react';
 import AsyncSelect from 'react-select/async';
-//import { Location } from 'models/Location';
-//import { weatherClient } from '../../api/clients';
 
+import { Select } from 'models/Select';
 import { inputStyles } from './AutocompleteInput.styled';
 import { InputTestIds } from './AutocompleteInputTestIds';
 
-const AutocompleteInput = () => {
-  const [, setCityName] = useState<Select | null>(null);
-  // ! inputValue should have its initial value filled from local storage
-  const [inputValue, setInputValue] = useState('wroclaw');
-  const { data } = Weather.useSearchCities(inputValue);
-  interface Select {
-    value: string;
-    label: string;
-  }
+interface Props {
+  handleSelect: (newValue: Select | null) => void;
+  data: string[] | undefined;
+  setInputValue: React.Dispatch<React.SetStateAction<string>>;
+}
 
+const AutocompleteInput = ({ handleSelect, data, setInputValue }: Props) => {
   const loadOptions = (inputValue: string, callback: (options: Select[]) => void) => {
     setInputValue(inputValue);
 
-    if (data === undefined || data.length == 0) callback([]);
-    else {
+    if (data === undefined || data.length == 0) {
+      callback([]);
+    } else {
       const temp = data.map((cityName) => ({
         value: cityName,
         label: cityName,
@@ -32,7 +27,7 @@ const AutocompleteInput = () => {
   };
 
   const onChange = (newValue: Select | null) => {
-    setCityName(newValue);
+    handleSelect(newValue);
   };
 
   return (
@@ -43,6 +38,10 @@ const AutocompleteInput = () => {
         placeholder={'Search'}
         onChange={onChange}
         isMulti={false}
+        name="cities"
+        inputId="cities"
+        // defaultMenuIsOpen={true}
+        // defaultOptions
       />
     </div>
   );

@@ -19,7 +19,6 @@ export default {
       const res = await weatherClient.get<Location[]>('/search.json', {
         params: {
           q: cityName,
-          lang: 'pl',
         },
       });
       const cities: string[] = res.data.map((city) => city.name);
