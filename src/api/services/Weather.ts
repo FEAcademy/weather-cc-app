@@ -11,6 +11,6 @@ export default {
           aqi: 'yes',
         },
       });
-      return res.data ;
+      return res.data;
     }),
 };

@@ -3,10 +3,8 @@ import { useState } from 'react';
 import { TemperatureWidget } from 'components/TemperatureWidget';
 import { WeatherAqiWidget } from 'components/WeatherAqiWidget';
 import { WeatherInfoWidget } from 'components/WeatherInfoWidget';
-// import { WeatherWidget } from 'components/WeatherWidget';
 import { WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
-// import MyLoader from './Skelet';
 
 const HomePage = () => {
   const [cityName] = useState('Wroclaw');

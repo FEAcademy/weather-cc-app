@@ -20,7 +20,7 @@ describe('WeatherAqiWidget', () => {
       />,
     );
 
-    const pm2_5 = screen.getByText(/7 \u00b5g\/m3/i);
+    const pm2_5 = screen.getByText(/7 μg\/m3/i);
 
     expect(pm2_5).toBeInTheDocument();
   });
