@@ -1,7 +1,11 @@
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const Container = styled.nav`
+interface Props {
+  withShadow: boolean;
+}
+
+const Container = styled.nav<Props>`
   width: 100%;
   height: 60px;
   position: sticky;
@@ -10,6 +14,12 @@ const Container = styled.nav`
   background: ${({ theme }) => theme.colors.background};
   opacity: 0.9;
   padding: ${({ theme }) => theme.paddings.app};
+  z-index: 500;
+  ${(props) =>
+    props.withShadow &&
+    css`
+      box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.1);
+    `};
 `;
 
 const Wrapper = styled.div`
