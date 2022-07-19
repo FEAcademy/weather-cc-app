@@ -68,11 +68,13 @@ describe('Home page', () => {
     const o3 = await screen.findByText(/119 µg\/m3/i);
     const pm25 = await screen.findByText(/7 μg\/m3/i);
     const pm10 = await screen.findByText(/13 μg\/m3/i);
+    const so2 = await screen.findByText(/2 μg\/m3/i);
 
     expect(pm10).toBeInTheDocument();
     expect(co).toBeInTheDocument();
     expect(no2).toBeInTheDocument();
     expect(o3).toBeInTheDocument();
     expect(pm25).toBeInTheDocument();
+    expect(so2).toBeInTheDocument();
   });
 });
