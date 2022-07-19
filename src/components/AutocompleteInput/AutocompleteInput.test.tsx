@@ -16,11 +16,11 @@ describe('Autocomplete input', () => {
     render(<AutocompleteInput handleSelect={handleSelect} />);
     const input = screen.getByRole('combobox');
 
-    await userEvent.type(input, 'Wars');
+    userEvent.type(input, 'Wars');
 
     const listEl = await screen.findByText('Warszawa');
 
-    await userEvent.click(listEl);
+    userEvent.click(listEl);
 
     expect(handleSelect).toBeCalledWith('Warszawa');
   });
