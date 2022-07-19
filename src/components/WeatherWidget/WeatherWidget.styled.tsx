@@ -5,7 +5,7 @@ const Container = styled.div<{ defraIndex?: number }>`
   background: ${({ theme, defraIndex }) =>
     defraIndex ? theme.defraTheme.backgrounds[serializeDefraIndex(defraIndex)] : theme.colors.background};
   color: ${({ theme, defraIndex }) =>
-    defraIndex && defraIndex >= 6 ? theme.defraTheme.colors.light : theme.defraTheme.colors.dark};
+    defraIndex && defraIndex > 6 ? theme.defraTheme.colors.light : theme.defraTheme.colors.dark};
   box-shadow: 0px 10px 30px rgba(227, 227, 227, 0.5);
   border-radius: 20px;
   width: 368px;
