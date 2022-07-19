@@ -12,17 +12,19 @@ interface Props {
 }
 
 const AutocompleteInput = ({ handleSelect, data, setInputValue }: Props) => {
-  const loadOptions = (inputValue: string, callback: (options: Select[]) => void) => {
+  const loadOptions = (inputValue: string) => {
     setInputValue(inputValue);
 
-    if (data === undefined || data.length == 0) {
-      callback([]);
-    } else {
+    // if (data === undefined || data.length == 0) {
+    //   callback([]);
+    // } else {
+    if (data) {
       const temp = data.map((cityName) => ({
         value: cityName,
         label: cityName,
       }));
-      callback(temp);
+      // callback(temp);
+      return Promise.resolve(temp);
     }
   };
 
