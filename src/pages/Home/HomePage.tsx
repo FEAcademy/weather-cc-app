@@ -1,4 +1,5 @@
 import Weather from 'api/services/Weather';
+import { useLocalStorage } from 'hooks/useLocalStorage';
 import { useState, useCallback } from 'react';
 import { AutocompleteInput } from 'components/AutocompleteInput';
 import { TemperatureWidget } from 'components/TemperatureWidget';
@@ -10,13 +11,17 @@ import { HomePageTestIds } from './HomePageTestIds';
 const HomePage = () => {
   const [cityName, setCityName] = useState<string>('Wroclaw');
   const { data: weatherData } = Weather.useCity(cityName);
-  // ! inputValue should have its initial value filled from local storage
   const [inputValue, setInputValue] = useState<string>('wroclaw');
+  const [, setLocation] = useLocalStorage('current_location', 'Wroclaw');
   const { data: cityData } = Weather.useSearchCities(inputValue);
 
-  const handleSelect = useCallback((city: Select | null) => {
-    city && setCityName(city.value);
-  }, []);
+  const handleSelect = useCallback(
+    (city: Select | null) => {
+      city && setCityName(city.value);
+      city && setLocation(city.value);
+    },
+    [setLocation],
+  );
 
   return (
     <div data-testid={HomePageTestIds.HomePage}>
