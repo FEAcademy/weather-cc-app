@@ -1,13 +1,14 @@
-import { useState } from 'react';
 import AsyncSelect from 'react-select/async';
 
 import { Location } from 'models/Location';
 import { inputStyles } from './AutocompleteInput.styled';
 import { InputTestIds } from './AutocompleteInputTestIds';
 
-const AutocompleteInput = () => {
-  const [, setCityName] = useState<Location | null>(null);
+interface Props {
+  handleSelect: (cityName: string) => void;
+}
 
+const AutocompleteInput = ({ handleSelect }: Props) => {
   const cities: Location[] = [
     {
       name: 'Wroclaw',
@@ -58,7 +59,7 @@ const AutocompleteInput = () => {
   };
 
   const onChange = (newValue: Location | null) => {
-    setCityName(newValue);
+    handleSelect(newValue!.name);
   };
 
   return (
