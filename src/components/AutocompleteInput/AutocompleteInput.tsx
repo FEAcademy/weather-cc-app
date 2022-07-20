@@ -16,16 +16,16 @@ const AutocompleteInput = ({ handleSelect, data, setInputValue }: Props) => {
   const loadOptions = (inputValue: string) => {
     setInputValue(inputValue);
 
+    let optionsData: Select[] = [] as Select[];
+
     if (data) {
-      const temp: Select[] = data.map((cityName) => ({
+      optionsData = data.map((cityName) => ({
         value: cityName,
         label: cityName,
       }));
-      return Promise.resolve(temp);
-    } else {
-      const temp: Select[] = [] as Select[];
-      return Promise.resolve(temp);
     }
+
+    return Promise.resolve(optionsData);
   };
 
   const onChange = (newValue: Select | null) => {

@@ -48,7 +48,7 @@ const handlers = [
         ctx.delay(500),
       );
     }
-    return res(ctx.status(200), ctx.json(cities), ctx.delay(100));
+    return res(ctx.status(200), ctx.json(cities), ctx.delay(500));
   }),
 ];
 
