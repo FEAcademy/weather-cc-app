@@ -1,8 +1,10 @@
 import { rest } from 'msw';
 import { weatherSuccessResponse, cities } from './mockData';
 
-const currentWeatherApiUrl = process.env.REACT_APP_WEATHER_API_URL + '/current.json';
-const searchCitiesApiUrl = process.env.REACT_APP_WEATHER_API_URL + '/search.json';
+const apiUrl = process.env.REACT_APP_WEATHER_API_URL;
+
+const currentWeatherApiUrl = `${apiUrl}/current.json`;
+const searchCitiesApiUrl = `${apiUrl}/search.json`;
 
 const handlers = [
   rest.get(currentWeatherApiUrl, (req, res, ctx) => {

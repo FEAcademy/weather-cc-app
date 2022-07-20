@@ -1,5 +1,6 @@
+import Weather from 'api/services/Weather';
 import debounce from 'debounce-promise';
-import React from 'react';
+import React, { useState } from 'react';
 import AsyncSelect from 'react-select/async';
 
 import { Select } from 'models/Select';
@@ -8,11 +9,13 @@ import { InputTestIds } from './AutocompleteInputTestIds';
 
 interface Props {
   handleSelect: (newValue: Select | null) => void;
-  data: string[] | undefined;
-  setInputValue: React.Dispatch<React.SetStateAction<string>>;
+  savedLocation: string;
 }
 
-const AutocompleteInput = ({ handleSelect, data, setInputValue }: Props) => {
+const AutocompleteInput = ({ handleSelect, savedLocation }: Props) => {
+  const [inputValue, setInputValue] = useState<string>(savedLocation);
+  const { data } = Weather.useSearchCities(inputValue);
+
   const loadOptions = (inputValue: string) => {
     setInputValue(inputValue);
 
