@@ -1,3 +1,4 @@
+import debounce from 'debounce-promise';
 import React from 'react';
 import AsyncSelect from 'react-select/async';
 
@@ -16,10 +17,13 @@ const AutocompleteInput = ({ handleSelect, data, setInputValue }: Props) => {
     setInputValue(inputValue);
 
     if (data) {
-      const temp = data.map((cityName) => ({
+      const temp: Select[] = data.map((cityName) => ({
         value: cityName,
         label: cityName,
       }));
+      return Promise.resolve(temp);
+    } else {
+      const temp: Select[] = [] as Select[];
       return Promise.resolve(temp);
     }
   };
@@ -28,10 +32,14 @@ const AutocompleteInput = ({ handleSelect, data, setInputValue }: Props) => {
     handleSelect(newValue);
   };
 
+  const debounceLoadOptions = debounce(async (inputValue: string) => {
+    return loadOptions(inputValue);
+  }, 200);
+
   return (
     <div data-testid={InputTestIds.Input}>
       <AsyncSelect
-        loadOptions={loadOptions}
+        loadOptions={debounceLoadOptions}
         styles={inputStyles}
         placeholder={'Search'}
         onChange={onChange}
