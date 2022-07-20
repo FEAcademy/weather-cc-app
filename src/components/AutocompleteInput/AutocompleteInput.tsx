@@ -1,5 +1,4 @@
 import Weather from 'api/services/Weather';
-import debounce from 'debounce-promise';
 import React, { useState } from 'react';
 import AsyncSelect from 'react-select/async';
 
@@ -31,14 +30,10 @@ const AutocompleteInput = ({ handleSelect, savedLocation }: Props) => {
     return Promise.resolve(optionsData);
   };
 
-  const debounceLoadOptions = debounce(async (inputValue: string) => {
-    return loadOptions(inputValue);
-  }, 300);
-
   return (
     <div data-testid={InputTestIds.Input}>
       <AsyncSelect
-        loadOptions={debounceLoadOptions}
+        loadOptions={loadOptions}
         styles={inputStyles}
         placeholder={'Search'}
         onChange={(newValue: Select | null) => handleSelect(newValue)}
