@@ -1,4 +1,3 @@
-import userEvent from '@testing-library/user-event';
 import { weatherSuccessResponse } from 'mocks/mockData';
 import { render, screen } from 'utils';
 import { InputTestIds } from 'components/AutocompleteInput/AutocompleteInputTestIds';
@@ -19,24 +18,6 @@ describe('Home page', () => {
     const input = screen.getByTestId(InputTestIds.Input);
 
     expect(input).toBeInTheDocument();
-  });
-
-  it('should render autocomplete input options correctly', async () => {
-    render(<HomePage />);
-
-    const input = screen.getByRole('combobox');
-
-    userEvent.type(input, 'Wal');
-
-    setTimeout(async () => {
-      const option1 = await screen.findByText('Walbrzych');
-      const option2 = await screen.findByText('Wroclaw');
-      const option3 = await screen.findByText('Warszawa');
-
-      expect(option1).toBeInTheDocument();
-      expect(option2).toBeInTheDocument();
-      expect(option3).toBeInTheDocument();
-    }, 1000);
   });
 
   it('should render temperature widget content properly', async () => {

@@ -9,10 +9,12 @@ import { WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
-  const [cityName, setCityName] = useState<string>('Wroclaw');
+  const [savedLocation, setLocation] = useLocalStorage('current_location', 'Wroclaw');
+
+  const [inputValue, setInputValue] = useState<string>(savedLocation);
+  const [cityName, setCityName] = useState<string>(savedLocation);
+
   const { data: weatherData } = Weather.useCity(cityName);
-  const [inputValue, setInputValue] = useState<string>('wroclaw');
-  const [, setLocation] = useLocalStorage('current_location', 'Wroclaw');
   const { data: cityData } = Weather.useSearchCities(inputValue);
 
   const handleSelect = useCallback(
@@ -22,6 +24,8 @@ const HomePage = () => {
     },
     [setLocation],
   );
+
+  console.log(weatherData?.location.name);
 
   return (
     <div data-testid={HomePageTestIds.HomePage}>

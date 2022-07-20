@@ -15,15 +15,11 @@ const AutocompleteInput = ({ handleSelect, data, setInputValue }: Props) => {
   const loadOptions = (inputValue: string) => {
     setInputValue(inputValue);
 
-    // if (data === undefined || data.length == 0) {
-    //   callback([]);
-    // } else {
     if (data) {
       const temp = data.map((cityName) => ({
         value: cityName,
         label: cityName,
       }));
-      // callback(temp);
       return Promise.resolve(temp);
     }
   };
@@ -42,8 +38,6 @@ const AutocompleteInput = ({ handleSelect, data, setInputValue }: Props) => {
         isMulti={false}
         name="cities"
         inputId="cities"
-        // defaultMenuIsOpen={true}
-        // defaultOptions
       />
     </div>
   );
