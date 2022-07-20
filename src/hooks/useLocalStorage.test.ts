@@ -9,7 +9,7 @@ describe('useLocalStorage', () => {
     const { result } = renderHook(() => useLocalStorage(key, newValue));
 
     expect(result.current[0]).toEqual(newValue);
-    expect(localStorage.getItem(key)).toEqual(JSON.stringify(newValue));
+    expect(localStorage.getItem(key)).toEqual(newValue);
   });
 
   it('should save item to local storage', () => {
@@ -21,6 +21,6 @@ describe('useLocalStorage', () => {
       result.current[1](newValue);
     });
     expect(result.current[0]).toEqual(newValue);
-    expect(localStorage.getItem(key)).toEqual(JSON.stringify(newValue));
+    expect(localStorage.getItem(key)).toEqual(newValue);
   });
 });
