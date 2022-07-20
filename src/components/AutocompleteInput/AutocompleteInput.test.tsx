@@ -4,11 +4,6 @@ import { render, screen } from 'utils';
 import { AutocompleteInput } from './AutocompleteInput';
 import { InputTestIds } from './AutocompleteInputTestIds';
 
-jest.mock('react', () => ({
-  ...jest.requireActual('react'),
-  useState: jest.fn(),
-}));
-
 describe('Autocomplete input', () => {
   const setState = jest.fn();
   const useStateMock: any = (initState: any) => [initState, setState];

@@ -16,7 +16,7 @@ const AutocompleteInput = ({ handleSelect, data, setInputValue }: Props) => {
   const loadOptions = (inputValue: string) => {
     setInputValue(inputValue);
 
-    let optionsData: Select[] = [] as Select[];
+    let optionsData = [] as Select[];
 
     if (data) {
       optionsData = data.map((cityName) => ({
@@ -26,10 +26,6 @@ const AutocompleteInput = ({ handleSelect, data, setInputValue }: Props) => {
     }
 
     return Promise.resolve(optionsData);
-  };
-
-  const onChange = (newValue: Select | null) => {
-    handleSelect(newValue);
   };
 
   const debounceLoadOptions = debounce(async (inputValue: string) => {
@@ -42,7 +38,7 @@ const AutocompleteInput = ({ handleSelect, data, setInputValue }: Props) => {
         loadOptions={debounceLoadOptions}
         styles={inputStyles}
         placeholder={'Search'}
-        onChange={onChange}
+        onChange={(newValue: Select | null) => handleSelect(newValue)}
         isMulti={false}
         name="cities"
         inputId="cities"
