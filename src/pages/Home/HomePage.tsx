@@ -25,8 +25,6 @@ const HomePage = () => {
     [setLocation],
   );
 
-  console.log(weatherData?.location.name);
-
   return (
     <div data-testid={HomePageTestIds.HomePage}>
       <AutocompleteInput handleSelect={handleSelect} data={cityData} setInputValue={setInputValue} />
