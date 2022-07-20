@@ -1,11 +1,6 @@
 import { StylesConfig } from 'react-select';
 import { theme } from 'theme/theme';
-// import { Location } from 'models/Location';
-
-interface Select {
-  value: string;
-  label: string;
-}
+import { Select } from 'models/Select';
 
 const inputStyles: StylesConfig<Select> = {
   container: (styles) => ({
