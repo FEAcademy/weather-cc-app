@@ -34,7 +34,7 @@ const AutocompleteInput = ({ handleSelect, data, setInputValue }: Props) => {
 
   const debounceLoadOptions = debounce(async (inputValue: string) => {
     return loadOptions(inputValue);
-  }, 200);
+  }, 300);
 
   return (
     <div data-testid={InputTestIds.Input}>
