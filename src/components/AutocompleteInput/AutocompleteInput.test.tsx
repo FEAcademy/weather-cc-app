@@ -1,5 +1,4 @@
 import { weatherSuccessResponse } from 'mocks/mockData';
-import React from 'react';
 import { render, screen } from 'utils';
 import { AutocompleteInput } from './AutocompleteInput';
 import { InputTestIds } from './AutocompleteInputTestIds';
