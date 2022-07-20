@@ -10,17 +10,20 @@ interface Props {
 }
 
 const TemperatureWidget = ({ icon, description, currentTemperature, feelslikeTemperature }: Props) => {
+  const roundedCurrentTemperature = Math.round(currentTemperature);
+  const roundedFeelslikeTemperature = Math.round(feelslikeTemperature);
+
   return (
     <Container data-testid={TemperatureWidgetTestIds.Container}>
       <Icon src={icon} alt="Weather widget icon" />
       <div>
         <WeatherDescription>{description}</WeatherDescription>
         <Temperature data-testid={TemperatureWidgetTestIds.Temperature}>
-          {currentTemperature}
+          {roundedCurrentTemperature}
           <span>&deg;C</span>
         </Temperature>
         <TemperatureDetails>
-          feels like {feelslikeTemperature}
+          feels like {roundedFeelslikeTemperature}
           <span>&deg;C</span>
         </TemperatureDetails>
       </div>
