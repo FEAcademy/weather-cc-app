@@ -15,7 +15,9 @@ const HomePage = () => {
   const renderContent = () => {
     if (isLoading) {
       return <WeatherWidgetLoader data-testid={WeatherAqiWidgetTestIds.Loader} />;
-    } else if (data) {
+    }
+
+    if (data) {
       return (
         <>
           <WeatherInfoWidget
