@@ -6,6 +6,7 @@
     "axios": "^0.27.2",
     "leaflet": "^1.8.0",
     "react": "^18.1.0",
+    "react-content-loader": "^6.2.0",
     "react-dom": "^18.1.0",
     "react-feather": "^2.0.10",
     "react-leaflet": "^4.0.1",
@@ -81,5 +82,5 @@
   },
   "resolutions": {
     "autoprefixer": "10.4.5"
-}
+  }
 }

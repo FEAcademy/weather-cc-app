@@ -1,11 +1,21 @@
 import { weatherSuccessResponse } from 'mocks/mockData';
-import { render, screen } from 'utils';
+import { render, screen, waitForElementToBeRemoved } from 'utils';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
 import { HomePage } from './HomePage';
 
 describe('Home page', () => {
+  it('should render aqi widget loader', async () => {
+    render(<HomePage />);
+
+    const loader = screen.getByTestId(WeatherAqiWidgetTestIds.LoadingComponentForAqiWidget);
+    expect(loader).toBeInTheDocument();
+
+    await waitForElementToBeRemoved(loader);
+    expect(loader).not.toBeInTheDocument();
+  });
+
   it('should render temperature widget', async () => {
     render(<HomePage />);
 

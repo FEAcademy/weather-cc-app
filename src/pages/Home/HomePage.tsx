@@ -2,17 +2,24 @@ import Weather from 'api/services/Weather';
 import { useState } from 'react';
 import { TemperatureWidget } from 'components/TemperatureWidget';
 import { WeatherAqiWidget } from 'components/WeatherAqiWidget';
+import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
 import { WeatherInfoWidget } from 'components/WeatherInfoWidget';
+import { WeatherWidgetLoader } from 'components/WeatherWidget/WeatherWidgetLoader';
 import { WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
   const [cityName] = useState('Wroclaw');
-  const { data } = Weather.useCity(cityName);
+  const { isLoading, data } = Weather.useCity(cityName);
 
   return (
     <div data-testid={HomePageTestIds.HomePage}>
       <WidgetWrapper>
+        {isLoading && (
+          <>
+            <WeatherWidgetLoader testid={WeatherAqiWidgetTestIds.LoadingComponentForAqiWidget} />
+          </>
+        )}
         {data && (
           <>
             <WeatherInfoWidget
