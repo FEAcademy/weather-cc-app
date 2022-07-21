@@ -10,7 +10,7 @@ import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
   const [savedLocation, setLocation] = useLocalStorage('current_location');
-  const { data: weatherData } = Weather.useCity(savedLocation);
+  const { data: weatherData } = Weather.useCity(savedLocation || '');
 
   const handleSelect = useCallback(
     (city: Select | null) => {

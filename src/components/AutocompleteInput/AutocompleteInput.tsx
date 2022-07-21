@@ -8,11 +8,11 @@ import { InputTestIds } from './AutocompleteInputTestIds';
 
 interface Props {
   handleSelect: (newValue: Select | null) => void;
-  savedLocation: string;
+  savedLocation: string | null;
 }
 
 const AutocompleteInput = ({ handleSelect, savedLocation }: Props) => {
-  const [inputValue, setInputValue] = useState<string>(savedLocation);
+  const [inputValue, setInputValue] = useState(savedLocation || '');
   const { data } = Weather.useSearchCities(inputValue);
 
   const loadOptions = (inputValue: string) => {

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 
-const getItem = (key: string) => localStorage.getItem(key) || '';
+const getItem = (key: string): string | null => localStorage.getItem(key);
 
 const setItem = (key: string, value: string) => localStorage.setItem(key, value);
 
-const useLocalStorage = (key: string): [string, (value: string) => void] => {
-  const [localValue, setLocalValue] = useState(() => getItem(key));
+const useLocalStorage = (key: string): [string | null, (value: string) => void] => {
+  const [localValue, setLocalValue] = useState<string | null>(() => getItem(key));
 
   useEffect(() => {
     localValue && setItem(key, localValue);

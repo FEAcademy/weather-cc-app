@@ -6,6 +6,10 @@ import { HomePage } from './HomePage';
 import { HomePageTestIds } from './HomePageTestIds';
 
 describe('Home page', () => {
+  beforeEach(() => {
+    localStorage.setItem('current_location', 'Warszawa');
+  });
+
   it('should render temperature widget', async () => {
     localStorage.setItem('current_location', 'Warszawa');
     render(<HomePage />);
@@ -14,7 +18,6 @@ describe('Home page', () => {
   });
 
   it('should render temperature widget content properly', async () => {
-    localStorage.setItem('current_location', 'Warszawa');
     render(<HomePage />);
 
     const weatherIcon = await screen.findByAltText('Weather widget icon');
@@ -37,7 +40,6 @@ describe('Home page', () => {
   });
 
   it('should render weather info widget content properly', async () => {
-    localStorage.setItem('current_location', 'Warszawa');
     render(<HomePage />);
 
     const cloud = await screen.findByText(/0%/);
