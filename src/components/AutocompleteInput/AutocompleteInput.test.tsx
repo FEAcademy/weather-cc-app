@@ -19,7 +19,6 @@ describe('Autocomplete input', () => {
 
     const input = screen.getByRole('combobox');
 
-    expect(input).toBeInTheDocument();
     expect(input).toHaveValue(weatherSuccessResponse.location.name);
   });
 });
