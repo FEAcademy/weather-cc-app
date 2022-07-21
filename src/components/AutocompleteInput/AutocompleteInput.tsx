@@ -35,7 +35,7 @@ const AutocompleteInput = ({ handleSelect, savedLocation }: Props) => {
       <AsyncSelect
         loadOptions={loadOptions}
         styles={inputStyles}
-        placeholder={'Search'}
+        placeholder="Search"
         onChange={(newValue: Select | null) => handleSelect(newValue)}
         isMulti={false}
         name="cities"
