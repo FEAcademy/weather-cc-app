@@ -2,7 +2,7 @@ import { Weather } from 'models/Weather';
 
 const weatherSuccessResponse: Weather = {
   current: {
-    condition: { text: 'Sunny', icon: '//cdn.weatherapi.com/weather/64x64/day/113.png', code: 1000 },
+    condition: { text: 'Sunny', icon: '//cdn.weatherapi.com/weather/128x128/day/113.png', code: 1000 },
     cloud: 0,
     feelslike_c: 25.5,
     feelslike_f: 79,
