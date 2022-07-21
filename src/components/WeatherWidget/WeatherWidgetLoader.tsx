@@ -6,9 +6,7 @@ interface Props {
 }
 
 const WeatherWidgetLoader = ({ ...props }: Props) => {
-  const artificialData = [1, 2, 3, 4, 5, 6];
-
-  const content = artificialData.map((id) => {
+  const content = [...Array(6)].map((_, id) => {
     return (
       <ContentLoader
         key={id}
