@@ -40,6 +40,7 @@ const AutocompleteInput = ({ handleSelect, savedLocation }: Props) => {
         isMulti={false}
         name="cities"
         inputId="cities"
+        defaultInputValue={savedLocation}
       />
     </div>
   );
