@@ -21,7 +21,7 @@ const HomePage = () => {
 
   return (
     <div data-testid={HomePageTestIds.HomePage}>
-      <AutocompleteInput handleSelect={handleSelect} savedLocation={savedLocation} />
+      <AutocompleteInput handleSelect={handleSelect} savedLocation={savedLocation || ''} />
       <WidgetWrapper data-testid={HomePageTestIds.Widgets}>
         {savedLocation && weatherData && (
           <>
