@@ -12,7 +12,7 @@ interface Props {
 }
 
 const AutocompleteInput = ({ handleSelect, savedLocation }: Props) => {
-  const [inputValue, setInputValue] = useState<string>(savedLocation);
+  const [inputValue, setInputValue] = useState(savedLocation);
   const { data } = Weather.useSearchCities(inputValue);
 
   const loadOptions = (inputValue: string) => {

@@ -1,5 +1,5 @@
 import Weather from 'api/services/Weather';
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import { AutocompleteInput } from 'components/AutocompleteInput';
 import { TemperatureWidget } from 'components/TemperatureWidget';
 import { WeatherInfoWidget } from 'components/WeatherInfoWidget';
@@ -9,13 +9,11 @@ import { WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
-  const [savedLocation, setLocation] = useLocalStorage('current_location', 'Wroclaw');
-  const [cityName, setCityName] = useState<string>(savedLocation);
-  const { data: weatherData } = Weather.useCity(cityName);
+  const [savedLocation, setLocation] = useLocalStorage('current_location');
+  const { data: weatherData } = Weather.useCity(savedLocation || '');
 
   const handleSelect = useCallback(
     (city: Select | null) => {
-      city && setCityName(city.value);
       city && setLocation(city.value);
     },
     [setLocation],
@@ -23,9 +21,9 @@ const HomePage = () => {
 
   return (
     <div data-testid={HomePageTestIds.HomePage}>
-      <AutocompleteInput handleSelect={handleSelect} savedLocation={savedLocation} />
-      <WidgetWrapper>
-        {weatherData && (
+      <AutocompleteInput handleSelect={handleSelect} savedLocation={savedLocation || ''} />
+      <WidgetWrapper data-testid={HomePageTestIds.Widgets}>
+        {savedLocation && weatherData && (
           <>
             <WeatherInfoWidget
               cloud={weatherData.current.cloud}
