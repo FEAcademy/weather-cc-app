@@ -22,7 +22,7 @@
     "test": "react-scripts test --watchAll=false",
     "test:coverage": "react-scripts test --coverage",
     "eject": "react-scripts eject",
-    "lint": "eslint -c .eslintrc.js --ext .js,.tsx,.ts,.tsx .",
+    "lint": "eslint -c .eslintrc.js --ext .js,.jsx,.ts,.tsx .",
     "lint:fix": "yarn run lint --fix",
     "clean": "rimraf build"
   },
