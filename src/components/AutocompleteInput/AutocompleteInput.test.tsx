@@ -1,4 +1,4 @@
-import userEvent from '@testing-library/user-event';
+import { weatherSuccessResponse } from 'mocks/mockData';
 import { render, screen } from 'utils';
 import { AutocompleteInput } from './AutocompleteInput';
 import { InputTestIds } from './AutocompleteInputTestIds';
@@ -6,22 +6,10 @@ import { InputTestIds } from './AutocompleteInputTestIds';
 describe('Autocomplete input', () => {
   it('should render', () => {
     const fn = jest.fn();
-    render(<AutocompleteInput handleSelect={fn} />);
+
+    render(<AutocompleteInput handleSelect={fn} savedLocation={weatherSuccessResponse.location.name} />);
+
     const input = screen.getByTestId(InputTestIds.Input);
     expect(input).toBeInTheDocument();
-  });
-
-  it('should call function after selection', async () => {
-    const handleSelect = jest.fn();
-    render(<AutocompleteInput handleSelect={handleSelect} />);
-    const input = screen.getByRole('combobox');
-
-    userEvent.type(input, 'Wars');
-
-    const listEl = await screen.findByText('Warszawa');
-
-    userEvent.click(listEl);
-
-    expect(handleSelect).toBeCalledWith('Warszawa');
   });
 });

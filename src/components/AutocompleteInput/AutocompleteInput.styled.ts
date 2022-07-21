@@ -1,8 +1,8 @@
 import { StylesConfig } from 'react-select';
 import { theme } from 'theme/theme';
-import { Location } from 'models/Location';
+import { Select } from 'models/Select';
 
-const inputStyles: StylesConfig<Location> = {
+const inputStyles: StylesConfig<Select> = {
   container: (styles) => ({
     ...styles,
     margin: '109px auto 35px',

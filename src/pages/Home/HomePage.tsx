@@ -1,43 +1,45 @@
 import Weather from 'api/services/Weather';
-import { useLocalStorage } from 'hooks/useLocalStorage';
 import { useState, useCallback } from 'react';
 import { AutocompleteInput } from 'components/AutocompleteInput';
 import { TemperatureWidget } from 'components/TemperatureWidget';
 import { WeatherInfoWidget } from 'components/WeatherInfoWidget';
+import { Select } from 'models/Select';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
-  const [cityName] = useState('Wroclaw');
-  const { data } = Weather.useCity(cityName);
-  const [, setLocation] = useLocalStorage('current_location', 'Wroclaw');
+  const [savedLocation, setLocation] = useLocalStorage('current_location', 'Wroclaw');
+  const [cityName, setCityName] = useState<string>(savedLocation);
+  const { data: weatherData } = Weather.useCity(cityName);
 
   const handleSelect = useCallback(
-    (cityName: string) => {
-      setLocation(cityName);
+    (city: Select | null) => {
+      city && setCityName(city.value);
+      city && setLocation(city.value);
     },
     [setLocation],
   );
 
   return (
     <div data-testid={HomePageTestIds.HomePage}>
-      <AutocompleteInput handleSelect={handleSelect} />
+      <AutocompleteInput handleSelect={handleSelect} savedLocation={savedLocation} />
       <WidgetWrapper>
-        {data && (
+        {weatherData && (
           <>
             <WeatherInfoWidget
-              cloud={data.current.cloud}
-              precip={data.current.precip_mm}
-              humidity={data.current.humidity}
-              pressure={data.current.pressure_mb}
-              windSpeed={data.current.wind_kph}
-              gust={data.current.gust_kph}
+              cloud={weatherData.current.cloud}
+              precip={weatherData.current.precip_mm}
+              humidity={weatherData.current.humidity}
+              pressure={weatherData.current.pressure_mb}
+              windSpeed={weatherData.current.wind_kph}
+              gust={weatherData.current.gust_kph}
             />
             <TemperatureWidget
-              icon={data.current.condition.icon}
-              description={data.current.condition.text}
-              currentTemperature={data.current.temp_c}
-              feelslikeTemperature={data.current.feelslike_c}
+              icon={weatherData.current.condition.icon}
+              description={weatherData.current.condition.text}
+              currentTemperature={weatherData.current.temp_c}
+              feelslikeTemperature={weatherData.current.feelslike_c}
             />
           </>
         )}

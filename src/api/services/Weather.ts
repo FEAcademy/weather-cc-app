@@ -1,5 +1,6 @@
 import { useQuery } from 'react-query';
 import { Weather } from 'models/Weather';
+import { Location } from 'models/Weather';
 import { weatherClient } from '../clients';
 
 export default {
@@ -12,5 +13,16 @@ export default {
         },
       });
       return res.data;
+    }),
+  useSearchCities: (cityName: string) =>
+    useQuery<string[], Error>(['location', cityName], async () => {
+      const res = await weatherClient.get<Location[]>('/search.json', {
+        params: {
+          q: cityName,
+        },
+      });
+      const cities: string[] = res.data.map((city) => city.name);
+
+      return cities;
     }),
 };

@@ -1,6 +1,5 @@
 import { weatherSuccessResponse } from 'mocks/mockData';
 import { render, screen } from 'utils';
-import { InputTestIds } from 'components/AutocompleteInput/AutocompleteInputTestIds';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
 import { HomePage } from './HomePage';
@@ -10,14 +9,6 @@ describe('Home page', () => {
     render(<HomePage />);
 
     expect(await screen.findByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
-  });
-
-  it('should render autocomplete input', () => {
-    render(<HomePage />);
-
-    const input = screen.getByTestId(InputTestIds.Input);
-
-    expect(input).toBeInTheDocument();
   });
 
   it('should render temperature widget content properly', async () => {
