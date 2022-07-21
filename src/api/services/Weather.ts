@@ -11,6 +11,7 @@ export default {
           aqi: 'yes',
         },
       });
+      res.data.current.condition.icon = res.data.current.condition.icon.replace(/64/g,'128');
       return res.data;
     }),
 };
