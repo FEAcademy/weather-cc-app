@@ -25,6 +25,16 @@ const weatherSuccessResponse: Weather = {
     wind_dir: 'SSE',
     wind_kph: 6.8,
     wind_mph: 4.3,
+    air_quality: {
+      co: 155.1999969482422,
+      no2: 3.799999952316284,
+      o3: 118.69999694824219,
+      so2: 2.099999904632568,
+      pm2_5: 6.599999904632568,
+      pm10: 12.800000095367432,
+      'us-epa-index': 1,
+      'gb-defra-index': 1,
+    },
   },
   location: {
     country: 'Poland',
