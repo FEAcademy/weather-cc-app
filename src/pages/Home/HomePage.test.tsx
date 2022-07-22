@@ -9,21 +9,15 @@ describe('Home page', () => {
   it('should render and remove temperature widget loader', async () => {
     render(<HomePage />);
 
-    const loader = screen.getByTestId(TemperatureWidgetTestIds.Loader);
-    expect(loader).toBeInTheDocument();
+    const temperatureLoader = screen.getByTestId(TemperatureWidgetTestIds.Loader);
+    const aqiloader = screen.getByTestId(WeatherAqiWidgetTestIds.Loader);
+    expect(temperatureLoader).toBeInTheDocument();
+    expect(aqiloader).toBeInTheDocument();
 
-    await waitForElementToBeRemoved(loader);
-    expect(loader).not.toBeInTheDocument();
-  });
-
-  it('should render and remove aqi widget loader', async () => {
-    render(<HomePage />);
-
-    const loader = screen.getByTestId(WeatherAqiWidgetTestIds.Loader);
-    expect(loader).toBeInTheDocument();
-
-    await waitForElementToBeRemoved(loader);
-    expect(loader).not.toBeInTheDocument();
+    await waitForElementToBeRemoved(temperatureLoader).then(() => {
+      expect(temperatureLoader).not.toBeInTheDocument();
+      expect(aqiloader).not.toBeInTheDocument();
+    });
   });
 
   it('should render temperature widget', async () => {
