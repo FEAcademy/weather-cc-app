@@ -14,4 +14,4 @@ const WidgetWrapper = styled.div`
   justify-content: space-between;
 `;
 
-export { WidgetWrapper ,Container};
+export { WidgetWrapper, Container};
