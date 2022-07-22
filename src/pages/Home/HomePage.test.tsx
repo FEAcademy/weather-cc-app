@@ -4,8 +4,13 @@ import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
 import { HomePage } from './HomePage';
+import { HomePageTestIds } from './HomePageTestIds';
 
 describe('Home page', () => {
+  beforeEach(() => {
+    localStorage.setItem('current_location', 'Warszawa');
+  });
+
   it('should render and remove widgets loader', async () => {
     render(<HomePage />);
 
@@ -25,6 +30,7 @@ describe('Home page', () => {
   });
 
   it('should render temperature widget', async () => {
+    localStorage.setItem('current_location', 'Warszawa');
     render(<HomePage />);
 
     expect(await screen.findByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
@@ -68,6 +74,15 @@ describe('Home page', () => {
     expect(pressure).toBeInTheDocument();
     expect(windSpeed).toBeInTheDocument();
     expect(gust).toBeInTheDocument();
+  });
+
+  it('should not display widgets when savedLocation is not provided', () => {
+    localStorage.removeItem('current_location');
+    render(<HomePage />);
+
+    const widgetsContainer = screen.getByTestId(HomePageTestIds.Widgets);
+
+    expect(widgetsContainer).toBeEmptyDOMElement();
   });
 
   it('should render weather aqi widget', async () => {

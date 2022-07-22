@@ -48,4 +48,6 @@ const weatherSuccessResponse: Weather = {
   },
 };
 
-export { weatherSuccessResponse };
+const cities: string[] = ['Wroclaw', 'Warszawa', 'Walbrzych'];
+
+export { weatherSuccessResponse, cities };
