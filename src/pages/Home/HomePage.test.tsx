@@ -16,6 +16,16 @@ describe('Home page', () => {
     expect(loader).not.toBeInTheDocument();
   });
 
+  it('should render and remove info widget loader', async () => {
+    render(<HomePage />);
+
+    const loader = screen.getByTestId(WeatherInfoWidgetTestIds.Loader);
+    expect(loader).toBeInTheDocument();
+
+    await waitForElementToBeRemoved(loader);
+    expect(loader).not.toBeInTheDocument();
+  });
+
   it('should render temperature widget', async () => {
     render(<HomePage />);
 
