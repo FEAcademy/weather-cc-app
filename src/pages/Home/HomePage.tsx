@@ -5,7 +5,7 @@ import { WeatherAqiWidget } from 'components/WeatherAqiWidget';
 import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
 import { WeatherInfoWidget } from 'components/WeatherInfoWidget';
 import { WeatherWidgetLoader } from 'components/WeatherWidget/WeatherWidgetLoader';
-import { WidgetWrapper } from './HomePage.styled';
+import { Container, WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
@@ -49,9 +49,9 @@ const HomePage = () => {
   };
 
   return (
-    <div data-testid={HomePageTestIds.HomePage}>
+    <Container data-testid={HomePageTestIds.HomePage}>
       <WidgetWrapper>{renderContent()}</WidgetWrapper>
-    </div>
+    </Container>
   );
 };
 
