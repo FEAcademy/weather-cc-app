@@ -10,12 +10,14 @@ describe('Home page', () => {
     render(<HomePage />);
 
     const temperatureLoader = screen.getByTestId(TemperatureWidgetTestIds.Loader);
+    const infoLoader = screen.getByTestId(WeatherInfoWidgetTestIds.Loader);
     const aqiloader = screen.getByTestId(WeatherAqiWidgetTestIds.Loader);
     expect(temperatureLoader).toBeInTheDocument();
     expect(aqiloader).toBeInTheDocument();
 
     await waitForElementToBeRemoved(temperatureLoader).then(() => {
       expect(temperatureLoader).not.toBeInTheDocument();
+      expect(infoLoader).not.toBeInTheDocument();
       expect(aqiloader).not.toBeInTheDocument();
     });
   });

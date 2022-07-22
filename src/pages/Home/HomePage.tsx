@@ -5,6 +5,7 @@ import { TemperatureWidgetLoader } from 'components/TemperatureWidget/Temperatur
 import { WeatherAqiWidget } from 'components/WeatherAqiWidget';
 import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
 import { WeatherInfoWidget } from 'components/WeatherInfoWidget';
+import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
 import { WeatherWidgetLoader } from 'components/WeatherWidget/WeatherWidgetLoader';
 import { WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
@@ -17,6 +18,7 @@ const HomePage = () => {
     if (isLoading) {
       return (
         <>
+          <WeatherWidgetLoader data-testid={WeatherInfoWidgetTestIds.Loader} />
           <TemperatureWidgetLoader data-testid={TemperatureWidgetTestIds.Loader} />
           <WeatherWidgetLoader data-testid={WeatherAqiWidgetTestIds.Loader} />
         </>
