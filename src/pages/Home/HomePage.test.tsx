@@ -1,6 +1,7 @@
 import { weatherSuccessResponse } from 'mocks/mockData';
-import { render, screen } from 'utils';
+import { render, screen, waitForElementToBeRemoved } from 'utils';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
+import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
 import { HomePage } from './HomePage';
 import { HomePageTestIds } from './HomePageTestIds';
@@ -8,6 +9,16 @@ import { HomePageTestIds } from './HomePageTestIds';
 describe('Home page', () => {
   beforeEach(() => {
     localStorage.setItem('current_location', 'Warszawa');
+  });
+
+  it('should render and remove aqi widget loader', async () => {
+    render(<HomePage />);
+
+    const loader = screen.getByTestId(WeatherAqiWidgetTestIds.Loader);
+    expect(loader).toBeInTheDocument();
+
+    await waitForElementToBeRemoved(loader);
+    expect(loader).not.toBeInTheDocument();
   });
 
   it('should render temperature widget', async () => {
@@ -64,5 +75,31 @@ describe('Home page', () => {
     const widgetsContainer = screen.getByTestId(HomePageTestIds.Widgets);
 
     expect(widgetsContainer).toBeEmptyDOMElement();
+  });
+
+  it('should render weather aqi widget', async () => {
+    render(<HomePage />);
+
+    const weatherAqiWidget = await screen.findByTestId(WeatherAqiWidgetTestIds.Container);
+
+    expect(weatherAqiWidget).toBeInTheDocument();
+  });
+
+  it('should render weather aqi content properly', async () => {
+    render(<HomePage />);
+
+    const co = await screen.findByText(/155 µg\/m3/i);
+    const no2 = await screen.findByText(/4 µg\/m3/i);
+    const o3 = await screen.findByText(/119 µg\/m3/i);
+    const pm25 = await screen.findByText(/7 μg\/m3/i);
+    const pm10 = await screen.findByText(/13 μg\/m3/i);
+    const so2 = await screen.findByText(/2 μg\/m3/i);
+
+    expect(pm10).toBeInTheDocument();
+    expect(co).toBeInTheDocument();
+    expect(no2).toBeInTheDocument();
+    expect(o3).toBeInTheDocument();
+    expect(pm25).toBeInTheDocument();
+    expect(so2).toBeInTheDocument();
   });
 });

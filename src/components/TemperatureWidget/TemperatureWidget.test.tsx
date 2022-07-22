@@ -37,6 +37,6 @@ describe('TemperatureWidget', () => {
     expect(temperature).toHaveTextContent('25\u00B0C');
     expect(description).toBeInTheDocument();
     expect(feelsLike).toBeInTheDocument();
-    expect(feelsLike).toHaveTextContent('feels like 26.1\u00B0C');
+    expect(feelsLike).toHaveTextContent('feels like 26\u00B0C');
   });
 });

@@ -2,9 +2,9 @@ import { Weather } from 'models/Weather';
 
 const weatherSuccessResponse: Weather = {
   current: {
-    condition: { text: 'Sunny', icon: '//cdn.weatherapi.com/weather/64x64/day/113.png', code: 1000 },
+    condition: { text: 'Sunny', icon: '//cdn.weatherapi.com/weather/128x128/day/113.png', code: 1000 },
     cloud: 0,
-    feelslike_c: 26.1,
+    feelslike_c: 25.5,
     feelslike_f: 79,
     gust_kph: 5.4,
     gust_mph: 3.4,
@@ -16,7 +16,7 @@ const weatherSuccessResponse: Weather = {
     precip_mm: 0,
     pressure_in: 29.85,
     pressure_mb: 1011,
-    temp_c: 25,
+    temp_c: 25.1,
     temp_f: 77,
     uv: 7,
     vis_km: 10,
@@ -25,6 +25,16 @@ const weatherSuccessResponse: Weather = {
     wind_dir: 'SSE',
     wind_kph: 6.8,
     wind_mph: 4.3,
+    air_quality: {
+      co: 155.1999969482422,
+      no2: 3.799999952316284,
+      o3: 118.69999694824219,
+      so2: 2.099999904632568,
+      pm2_5: 6.599999904632568,
+      pm10: 12.800000095367432,
+      'us-epa-index': 1,
+      'gb-defra-index': 1,
+    },
   },
   location: {
     country: 'Poland',

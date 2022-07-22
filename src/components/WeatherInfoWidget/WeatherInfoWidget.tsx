@@ -1,16 +1,16 @@
-import { Container, Value, Property, WeatherData } from './WeatherInfoWidget.styled';
+import { WeatherWidget } from 'components/WeatherWidget';
 import { WeatherInfoWidgetTestIds } from './WeatherInfoWidgetTestIds';
 
 interface Props {
   humidity: number;
-  cloud: number;
-  windSpeed: number;
   precip: number;
   pressure: number;
+  windSpeed: number;
+  cloud: number;
   gust: number;
 }
 
-const WeatherInfoWidget = ({ humidity, cloud, windSpeed, precip, pressure, gust }: Props) => {
+const WeatherInfoWidget = ({ humidity, precip, pressure, windSpeed, cloud, gust }: Props) => {
   const roundedHumidity = Math.round(humidity);
   const roundedPrecip = Math.round(precip);
   const roundedPressure = Math.round(pressure);
@@ -19,32 +19,14 @@ const WeatherInfoWidget = ({ humidity, cloud, windSpeed, precip, pressure, gust 
   const roundedGust = Math.round(gust);
 
   return (
-    <Container data-testid={WeatherInfoWidgetTestIds.Container}>
-      <WeatherData>
-        <Property>Cloudiness:</Property>
-        <Value>{roundedCloud}%</Value>
-      </WeatherData>
-      <WeatherData>
-        <Property>Precip:</Property>
-        <Value>{roundedPrecip}&nbsp;mm</Value>
-      </WeatherData>
-      <WeatherData>
-        <Property>Humidity:</Property>
-        <Value>{roundedHumidity}%</Value>
-      </WeatherData>
-      <WeatherData>
-        <Property>Pressure:</Property>
-        <Value>{roundedPressure}&nbsp;mb</Value>
-      </WeatherData>
-      <WeatherData>
-        <Property>Wind:</Property>
-        <Value>{roundedWindSpeed} km/h</Value>
-      </WeatherData>
-      <WeatherData>
-        <Property>Gusts:</Property>
-        <Value>{roundedGust}&nbsp;km/h</Value>
-      </WeatherData>
-    </Container>
+    <WeatherWidget data-testid={WeatherInfoWidgetTestIds.Container}>
+      <WeatherWidget.DataItem label={'Cloudiness:'} value={roundedCloud + '%'} />
+      <WeatherWidget.DataItem label={'Precip:'} value={roundedPrecip + ' mm'} />
+      <WeatherWidget.DataItem label={'Humidity:'} value={roundedHumidity + '%'} />
+      <WeatherWidget.DataItem label={'Pressure:'} value={roundedPressure + ' mb'} />
+      <WeatherWidget.DataItem label={'Wind:'} value={roundedWindSpeed + ' km/h'} />
+      <WeatherWidget.DataItem label={'Gusts:'} value={roundedGust + ' km/h'} />
+    </WeatherWidget>
   );
 };
 
