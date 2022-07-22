@@ -8,7 +8,7 @@ import { WeatherInfoWidget } from 'components/WeatherInfoWidget';
 import { WeatherWidgetLoader } from 'components/WeatherWidget/WeatherWidgetLoader';
 import { Select } from 'models/Select';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
-import { WidgetWrapper } from './HomePage.styled';
+import { Container, WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
@@ -59,10 +59,10 @@ const HomePage = () => {
   };
 
   return (
-    <div data-testid={HomePageTestIds.HomePage}>
+    <Container data-testid={HomePageTestIds.HomePage}>
       <AutocompleteInput handleSelect={handleSelect} savedLocation={savedLocation || ''} />
       <WidgetWrapper data-testid={HomePageTestIds.Widgets}>{renderContent()}</WidgetWrapper>
-    </div>
+    </Container>
   );
 };
 
