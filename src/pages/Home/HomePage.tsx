@@ -4,6 +4,7 @@ import { TemperatureWidget } from 'components/TemperatureWidget';
 import { WeatherAqiWidget } from 'components/WeatherAqiWidget';
 import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
 import { WeatherInfoWidget } from 'components/WeatherInfoWidget';
+import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
 import { WeatherWidgetLoader } from 'components/WeatherWidget/WeatherWidgetLoader';
 import { WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
@@ -14,7 +15,12 @@ const HomePage = () => {
 
   const renderContent = () => {
     if (isLoading) {
-      return <WeatherWidgetLoader data-testid={WeatherAqiWidgetTestIds.Loader} />;
+      return (
+        <>
+          <WeatherWidgetLoader data-testid={WeatherInfoWidgetTestIds.Loader} />
+          <WeatherWidgetLoader data-testid={WeatherAqiWidgetTestIds.Loader} />
+        </>
+      );
     }
 
     if (data) {

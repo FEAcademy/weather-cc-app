@@ -6,14 +6,18 @@ import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherIn
 import { HomePage } from './HomePage';
 
 describe('Home page', () => {
-  it('should render and remove aqi widget loader', async () => {
+  it('should render and unmount widgets loaders', async () => {
     render(<HomePage />);
 
-    const loader = screen.getByTestId(WeatherAqiWidgetTestIds.Loader);
-    expect(loader).toBeInTheDocument();
+    const infoLoader = screen.getByTestId(WeatherInfoWidgetTestIds.Loader);
+    const aqiLoader = screen.getByTestId(WeatherAqiWidgetTestIds.Loader);
+    expect(infoLoader).toBeInTheDocument();
+    expect(aqiLoader).toBeInTheDocument();
 
-    await waitForElementToBeRemoved(loader);
-    expect(loader).not.toBeInTheDocument();
+    await waitForElementToBeRemoved(infoLoader).then(() => {
+      expect(infoLoader).not.toBeInTheDocument();
+      expect(aqiLoader).not.toBeInTheDocument();
+    });
   });
 
   it('should render temperature widget', async () => {
