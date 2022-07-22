@@ -1,6 +1,7 @@
 import Weather from 'api/services/Weather';
 import { useState } from 'react';
-import { TemperatureWidget } from 'components/TemperatureWidget';
+import { TemperatureWidget, TemperatureWidgetTestIds } from 'components/TemperatureWidget';
+import { TemperatureWidgetLoader } from 'components/TemperatureWidget/TemperatureWidgetLoader';
 import { WeatherAqiWidget } from 'components/WeatherAqiWidget';
 import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
 import { WeatherInfoWidget } from 'components/WeatherInfoWidget';
@@ -14,7 +15,12 @@ const HomePage = () => {
 
   const renderContent = () => {
     if (isLoading) {
-      return <WeatherWidgetLoader data-testid={WeatherAqiWidgetTestIds.Loader} />;
+      return (
+        <>
+          <TemperatureWidgetLoader data-testid={TemperatureWidgetTestIds.Loader} />
+          <WeatherWidgetLoader data-testid={WeatherAqiWidgetTestIds.Loader} />
+        </>
+      );
     }
 
     if (data) {
