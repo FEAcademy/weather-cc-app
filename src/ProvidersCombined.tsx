@@ -10,4 +10,4 @@ const ProvidersCombined = ({ children }: PropsWithChildren) => (
   </QueryClientProvider>
 );
 
-export { ProvidersCombined };
+export { ProvidersCombined, queryClient };

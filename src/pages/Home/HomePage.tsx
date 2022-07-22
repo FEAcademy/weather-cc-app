@@ -1,10 +1,12 @@
 import Weather from 'api/services/Weather';
 import { useCallback } from 'react';
 import { AutocompleteInput } from 'components/AutocompleteInput';
-import { TemperatureWidget } from 'components/TemperatureWidget';
+import { TemperatureWidget, TemperatureWidgetTestIds } from 'components/TemperatureWidget';
+import { TemperatureWidgetLoader } from 'components/TemperatureWidget/TemperatureWidgetLoader';
 import { WeatherAqiWidget } from 'components/WeatherAqiWidget';
 import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
 import { WeatherInfoWidget } from 'components/WeatherInfoWidget';
+import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
 import { WeatherWidgetLoader } from 'components/WeatherWidget/WeatherWidgetLoader';
 import { Select } from 'models/Select';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
@@ -24,7 +26,13 @@ const HomePage = () => {
 
   const renderContent = () => {
     if (isLoading) {
-      return <WeatherWidgetLoader data-testid={WeatherAqiWidgetTestIds.Loader} />;
+      return (
+        <>
+          <WeatherWidgetLoader data-testid={WeatherInfoWidgetTestIds.Loader} />
+          <TemperatureWidgetLoader data-testid={TemperatureWidgetTestIds.Loader} />
+          <WeatherWidgetLoader data-testid={WeatherAqiWidgetTestIds.Loader} />
+        </>
+      );
     }
 
     if (data) {
