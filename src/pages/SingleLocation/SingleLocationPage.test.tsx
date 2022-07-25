@@ -6,6 +6,6 @@ describe('Single location page', () => {
   it('should render', () => {
     render(<SingleLocationPage />);
 
-    expect(screen.getByTestId(SingleLocationTestIds.SingleLocationPage)).toBeInTheDocument();
+    expect(screen.getByTestId(SingleLocationTestIds.Container)).toBeInTheDocument();
   });
 });

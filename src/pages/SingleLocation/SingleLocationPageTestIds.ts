@@ -1,5 +1,5 @@
 enum SingleLocationTestIds {
-  SingleLocationPage = 'single-location-page',
+  Container = 'single-location-page',
 }
 
 export { SingleLocationTestIds };
