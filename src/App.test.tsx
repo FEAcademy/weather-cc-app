@@ -28,6 +28,15 @@ describe('App', () => {
     expect(mapPage).toBeInTheDocument();
   });
 
+  it('should make possible reaching dynamic route /cities/:cityName path', () => {
+    const route = Paths.SingleLocation;
+
+    render(<App />, { route });
+
+    const cityPage = screen.getByText(/City Page/);
+    expect(cityPage).toBeInTheDocument();
+  });
+
   it('should render navbar', () => {
     render(<App />);
 
