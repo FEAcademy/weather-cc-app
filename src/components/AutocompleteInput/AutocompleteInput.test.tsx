@@ -1,5 +1,5 @@
 import { weatherSuccessResponse } from 'mocks/mockData';
-import { fireEvent, render, screen } from 'utils';
+import { fireEvent, render, screen, waitFor } from 'utils';
 import { AutocompleteInput } from './AutocompleteInput';
 import { InputTestIds } from './AutocompleteInputTestIds';
 
@@ -21,7 +21,8 @@ describe('Autocomplete input', () => {
 
     expect(input).toHaveValue(weatherSuccessResponse.location.name);
   });
-  it('should display loading state', async () => {
+
+  it('should display loading state and then remove it', async () => {
     const fn = jest.fn();
     render(<AutocompleteInput handleSelect={fn} savedLocation={weatherSuccessResponse.location.name} />);
 
@@ -35,6 +36,30 @@ describe('Autocomplete input', () => {
     });
 
     expect(input).toHaveValue('Walb');
-    expect(await screen.findByText('Loading...')).toBeInTheDocument();
+
+    const loadingState = await screen.findByText('Loading...');
+    expect(loadingState).toBeInTheDocument();
+    await waitFor(() => {
+      expect(loadingState).not.toBeInTheDocument();
+    });
+  });
+
+  it('should display output', async () => {
+    const fn = jest.fn();
+    render(<AutocompleteInput handleSelect={fn} savedLocation={weatherSuccessResponse.location.name} />);
+
+    const input = screen.getByRole('combobox');
+
+    fireEvent.input(input, {
+      target: {
+        value: 'Walb',
+      },
+    });
+
+    expect(input).toHaveValue('Walb');
+
+    setTimeout(async () => {
+      expect(await screen.findByText('Walbrzych')).toBeInTheDocument();
+    }, 100);
   });
 });
