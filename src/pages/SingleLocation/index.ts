@@ -1,1 +1,1 @@
-export { SingleLocationPage } from './/SingleLocationPage';
+export { SingleLocationPage } from './SingleLocationPage';
