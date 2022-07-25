@@ -1,0 +1,1 @@
+export { SingleLocationPage } from './/SingleLocationPage';
