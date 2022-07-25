@@ -6,6 +6,7 @@ import { FooterTestIds } from 'components/Footer/FooterTestIds';
 import { NavbarTestIds } from 'components/Navbar/NavbarTestIds';
 import { NavbarTitles } from 'components/Navbar/NavbarTitles';
 import { AboutPageTestIds } from 'pages/About/AboutPageTestIds';
+import { CityPageTestIds } from 'pages/City/CityPageTestIds';
 import { HomePageTestIds } from 'pages/Home/HomePageTestIds';
 import { MapPageTestIds } from 'pages/Map/MapPageTestIds';
 
@@ -33,7 +34,7 @@ describe('App', () => {
 
     render(<App />, { route });
 
-    const cityPage = screen.getByText(/City Page/);
+    const cityPage = screen.getByTestId(CityPageTestIds.Container);
     expect(cityPage).toBeInTheDocument();
   });
 

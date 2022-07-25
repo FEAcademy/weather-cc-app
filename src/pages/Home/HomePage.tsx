@@ -1,6 +1,7 @@
 import Weather from 'api/services/Weather';
 import { useCallback } from 'react';
 import { AutocompleteInput } from 'components/AutocompleteInput';
+import { PageContentContainer } from 'components/PageContentContainer';
 import { TemperatureWidget, TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { TemperatureWidgetLoader } from 'components/TemperatureWidget/TemperatureWidgetLoader';
 import { WeatherAqiWidget } from 'components/WeatherAqiWidget';
@@ -10,7 +11,7 @@ import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherIn
 import { WeatherWidgetLoader } from 'components/WeatherWidget/WeatherWidgetLoader';
 import { Select } from 'models/Select';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
-import { Container, WidgetWrapper } from './HomePage.styled';
+import { WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
@@ -67,10 +68,10 @@ const HomePage = () => {
   };
 
   return (
-    <Container data-testid={HomePageTestIds.HomePage}>
+    <PageContentContainer data-testid={HomePageTestIds.HomePage}>
       <AutocompleteInput handleSelect={handleSelect} savedLocation={savedLocation || ''} />
       <WidgetWrapper data-testid={HomePageTestIds.Widgets}>{renderContent()}</WidgetWrapper>
-    </Container>
+    </PageContentContainer>
   );
 };
 
