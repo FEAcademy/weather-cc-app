@@ -8,7 +8,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const InputContainer = styled.div`
+const FormContainer = styled.div`
   position: relative;
 `;
 
@@ -18,4 +18,4 @@ const WidgetWrapper = styled.div`
   justify-content: space-between;
 `;
 
-export { WidgetWrapper, InputContainer, Container };
+export { WidgetWrapper, FormContainer, Container };
