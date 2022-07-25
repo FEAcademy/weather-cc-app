@@ -11,6 +11,14 @@ describe('Home page', () => {
     localStorage.setItem('current_location', 'Warszawa');
   });
 
+  it('should display geolocation button', () => {
+    render(<HomePage />);
+
+    const geolocationButton = screen.getByRole('button');
+
+    expect(geolocationButton).toBeInTheDocument();
+  });
+
   it('should render and remove widgets loader', async () => {
     render(<HomePage />);
 

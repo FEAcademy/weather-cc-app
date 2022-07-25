@@ -1,8 +1,6 @@
 import Weather from 'api/services/Weather';
 import { useCallback } from 'react';
-import { MapPin } from 'react-feather';
 import { AutocompleteInput } from 'components/AutocompleteInput';
-//import { GeolocationButton } from 'components/GeolocationButton';
 import { TemperatureWidget, TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { TemperatureWidgetLoader } from 'components/TemperatureWidget/TemperatureWidgetLoader';
 import { WeatherAqiWidget } from 'components/WeatherAqiWidget';
@@ -12,7 +10,8 @@ import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherIn
 import { WeatherWidgetLoader } from 'components/WeatherWidget/WeatherWidgetLoader';
 import { Select } from 'models/Select';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
-import { Container, InputContainer, GeolocationButton, WidgetWrapper } from './HomePage.styled';
+import { GeolocationButton } from './components/GeolocationButton/GeolocationButton';
+import { Container, InputContainer, WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
@@ -72,9 +71,7 @@ const HomePage = () => {
     <Container data-testid={HomePageTestIds.HomePage}>
       <InputContainer>
         <AutocompleteInput handleSelect={handleSelect} savedLocation={savedLocation || ''} />
-        <GeolocationButton>
-          <MapPin />
-        </GeolocationButton>
+        <GeolocationButton />
       </InputContainer>
       <WidgetWrapper data-testid={HomePageTestIds.Widgets}>{renderContent()}</WidgetWrapper>
     </Container>
