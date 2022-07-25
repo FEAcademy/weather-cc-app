@@ -11,7 +11,7 @@ import { WeatherWidgetLoader } from 'components/WeatherWidget/WeatherWidgetLoade
 import { Select } from 'models/Select';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { GeolocationButton } from './components/GeolocationButton/GeolocationButton';
-import { Container, FormContainer, WidgetWrapper } from './HomePage.styled';
+import { Container, SelectContainer, WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
@@ -69,10 +69,10 @@ const HomePage = () => {
 
   return (
     <Container data-testid={HomePageTestIds.HomePage}>
-      <FormContainer>
+      <SelectContainer>
         <AutocompleteInput handleSelect={handleSelect} savedLocation={savedLocation || ''} />
         <GeolocationButton />
-      </FormContainer>
+      </SelectContainer>
       <WidgetWrapper data-testid={HomePageTestIds.Widgets}>{renderContent()}</WidgetWrapper>
     </Container>
   );
