@@ -15,6 +15,7 @@ const inputStyles: StylesConfig<Select> = {
     boxShadow: '0px 12px 20px rgba(0, 0, 0, 0.1)',
     borderRadius: '10px',
     marginBottom: '8px',
+    paddingRight: '35px',
   }),
   valueContainer: (styles) => ({
     ...styles,
