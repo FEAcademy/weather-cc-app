@@ -29,7 +29,7 @@ describe('App', () => {
   });
 
   it('should make possible reaching dynamic route /cities/:cityName path', () => {
-    const route = Paths.SingleLocation;
+    const route = Paths.City;
 
     render(<App />, { route });
 
