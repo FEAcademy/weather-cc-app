@@ -5,7 +5,7 @@ import { Select } from 'models/Select';
 const inputStyles: StylesConfig<Select> = {
   container: (styles) => ({
     ...styles,
-    margin: '0px 24px 35px',
+    margin: '0px 24px 35px 0',
     width: '308px',
   }),
   control: (styles) => ({
