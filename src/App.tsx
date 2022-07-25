@@ -17,6 +17,7 @@ const App = () => {
           <Route path={Paths.Home} element={<HomePage />} />
           <Route path={Paths.About} element={<AboutPage />} />
           <Route path={Paths.Map} element={<MapPage />} />
+          <Route path={Paths.City} element={<div>City Page</div>} />
         </Routes>
       </PageContainer>
       <Footer />
