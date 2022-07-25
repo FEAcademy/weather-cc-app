@@ -6,6 +6,7 @@ import { FooterTestIds } from 'components/Footer/FooterTestIds';
 import { NavbarTestIds } from 'components/Navbar/NavbarTestIds';
 import { NavbarTitles } from 'components/Navbar/NavbarTitles';
 import { AboutPageTestIds } from 'pages/About/AboutPageTestIds';
+import { CityPageTestIds } from 'pages/City/CityPageTestIds';
 import { HomePageTestIds } from 'pages/Home/HomePageTestIds';
 import { MapPageTestIds } from 'pages/Map/MapPageTestIds';
 
@@ -26,6 +27,15 @@ describe('App', () => {
 
     const mapPage = screen.getByTestId(MapPageTestIds.MapPage);
     expect(mapPage).toBeInTheDocument();
+  });
+
+  it('should make possible reaching dynamic route /cities/:cityName path', () => {
+    const route = Paths.City;
+
+    render(<App />, { route });
+
+    const cityPage = screen.getByTestId(CityPageTestIds.Container);
+    expect(cityPage).toBeInTheDocument();
   });
 
   it('should render navbar', () => {
