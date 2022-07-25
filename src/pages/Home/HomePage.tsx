@@ -10,7 +10,7 @@ import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherIn
 import { WeatherWidgetLoader } from 'components/WeatherWidget/WeatherWidgetLoader';
 import { Select } from 'models/Select';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
-import { GeolocationButton } from './components/GeolocationButton/GeolocationButton';
+import { GeolocationButton } from './components/GeolocationButton';
 import { Container, SelectContainer, WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
 
