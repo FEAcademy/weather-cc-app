@@ -2,27 +2,19 @@ import { useEffect, useState } from 'react';
 import { Position } from 'models/Position';
 import { GeoLocation } from '../models/GeoLocation';
 
-const useGeoLocation = (canAskUserForLocation: boolean) => {
-  const [geoLocation, setGeoLocation] = useState<GeoLocation>({
-    isLoaded: false,
-    coordinates: { latitude: NaN, longitude: NaN },
-  });
+const useGeoLocation = () => {
+  const [canAskUserForLocation, setCanAskUserForLocation] = useState(false);
+  const [geoLocation, setGeoLocation] = useState<GeoLocation | null>(null);
 
   const onSuccess = (position: Position) => {
     setGeoLocation({
-      isLoaded: true,
-      coordinates: {
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude,
-      },
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude,
     });
   };
 
   const onError = () => {
-    setGeoLocation({
-      isLoaded: true,
-      coordinates: { latitude: NaN, longitude: NaN },
-    });
+    setGeoLocation(null);
   };
 
   useEffect(() => {
@@ -35,7 +27,7 @@ const useGeoLocation = (canAskUserForLocation: boolean) => {
     }
   }, [canAskUserForLocation]);
 
-  return [geoLocation];
+  return [geoLocation, () => setCanAskUserForLocation(true)];
 };
 
 export { useGeoLocation };

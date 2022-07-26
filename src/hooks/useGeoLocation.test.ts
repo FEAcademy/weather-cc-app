@@ -9,25 +9,19 @@ describe('useGeoLocation', () => {
 
   it('should return correct coordinates', () => {
     (global as any).navigator.geolocation = mockGetCurrentPosition;
-    const { result } = renderHook(() => useGeoLocation(true));
+    const { result } = renderHook(() => useGeoLocation());
 
     setTimeout(() => {
-      expect(result.current[0]).toEqual({
-        isLoaded: true,
-        coordinates: { latitude: 34.5, longitude: 55.2 },
-      });
+      expect(result.current[0]).toEqual({ latitude: 34.5, longitude: 55.2 });
     }, 1000);
   });
 
   it('should return incorrect coordinates', () => {
     (global as any).navigator.geolocation = mockGetCurrentPosition;
-    const { result } = renderHook(() => useGeoLocation(false));
+    const { result } = renderHook(() => useGeoLocation());
 
     setTimeout(() => {
-      expect(result.current[0]).toEqual({
-        isLoaded: true,
-        coordinates: { latitude: NaN, longitude: NaN },
-      });
+      expect(result.current[0]).toEqual(null);
     }, 1000);
   });
 });

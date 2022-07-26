@@ -1,6 +1,5 @@
 import Weather from 'api/services/Weather';
 import { useGeoLocation } from 'hooks/useGeoLocation';
-import { useState } from 'react';
 import { useCallback } from 'react';
 import { AutocompleteInput } from 'components/AutocompleteInput';
 import { TemperatureWidget, TemperatureWidgetTestIds } from 'components/TemperatureWidget';
@@ -19,15 +18,10 @@ import { HomePageTestIds } from './HomePageTestIds';
 const HomePage = () => {
   const [savedLocation, setLocation] = useLocalStorage('current_location');
   const { data, isLoading } = Weather.useCity(savedLocation || '');
-  const [canAskUserForLocation, setCanAskUserForLocation] = useState<boolean>(false);
-  const [location] = useGeoLocation(canAskUserForLocation);
+  const [location, askForLocation] = useGeoLocation();
 
   // I had to use 'location' somewhere because of eslint errors - TODO delete when it will be used in the future
   location;
-
-  const handleGeolocationButtonClick = () => {
-    setCanAskUserForLocation(true);
-  };
 
   const handleSelect = useCallback(
     (city: Select | null) => {
@@ -82,7 +76,7 @@ const HomePage = () => {
     <Container data-testid={HomePageTestIds.HomePage}>
       <SelectContainer>
         <AutocompleteInput handleSelect={handleSelect} savedLocation={savedLocation || ''} />
-        <GeolocationButton onClick={handleGeolocationButtonClick} />
+        <GeolocationButton onClick={askForLocation as () => void} />
       </SelectContainer>
       <WidgetWrapper data-testid={HomePageTestIds.Widgets}>{renderContent()}</WidgetWrapper>
     </Container>
