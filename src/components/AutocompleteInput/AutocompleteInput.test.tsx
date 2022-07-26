@@ -44,4 +44,21 @@ describe('Autocomplete input', () => {
       expect(loadingState).not.toBeInTheDocument();
     });
   });
+  // it('should display autocomplete input options', async () => {
+  //   const fn = jest.fn();
+  //   render(
+  //     <AutocompleteInput handleSelect={fn} savedLocation={weatherSuccessResponse.location.name} />
+  //   );
+  //   const input = screen.getByRole('combobox');
+  //   expect(input).toBeInTheDocument();
+
+  //   fireEvent.input(input, {
+  //     target: {
+  //       value: 'Walbrz',
+  //     },
+  //   });
+  //   expect(input).toHaveValue('Walbrz');
+
+  //   expect(await screen.findByText('Walbrzych')).toBeInTheDocument();
+  // });
 });
