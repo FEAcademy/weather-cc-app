@@ -1,4 +1,4 @@
-import { render, screen } from 'utils';
+import { screen, render } from 'utils';
 import { CityPagePage } from './CityPage';
 import { CityPageTestIds } from './CityPageTestIds';
 

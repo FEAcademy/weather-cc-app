@@ -6,6 +6,8 @@ const apiUrl = process.env.REACT_APP_WEATHER_API_URL;
 const currentWeatherApiUrl = `${apiUrl}/current.json`;
 const searchCitiesApiUrl = `${apiUrl}/search.json`;
 
+const dealy = 100;
+
 const handlers = [
   rest.get(currentWeatherApiUrl, (req, res, ctx) => {
     const q = req.url.searchParams.get('q');
@@ -20,7 +22,7 @@ const handlers = [
           code: 1003,
           message: 'Parameter "q" not provided.',
         }),
-        ctx.delay(500),
+        ctx.delay(dealy),
       );
     }
     if (isNotMatchingQuery) {
@@ -30,10 +32,10 @@ const handlers = [
           code: 1006,
           message: 'No location found matching parameter "q".',
         }),
-        ctx.delay(500),
+        ctx.delay(dealy),
       );
     }
-    return res(ctx.status(200), ctx.json(weatherSuccessResponse), ctx.delay(500));
+    return res(ctx.status(200), ctx.json(weatherSuccessResponse), ctx.delay(dealy));
   }),
   rest.get(searchCitiesApiUrl, (req, res, ctx) => {
     const q = req.url.searchParams.get('q');
@@ -47,10 +49,10 @@ const handlers = [
           code: 1003,
           message: 'Parameter q is missing.',
         }),
-        ctx.delay(500),
+        ctx.delay(dealy),
       );
     }
-    return res(ctx.status(200), ctx.json(cities), ctx.delay(500));
+    return res(ctx.status(200), ctx.json(cities), ctx.delay(dealy));
   }),
 ];
 
