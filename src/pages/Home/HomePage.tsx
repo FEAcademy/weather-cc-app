@@ -1,4 +1,6 @@
 import Weather from 'api/services/Weather';
+// import { useGeoLocation } from 'hooks/useGeoLocation';
+// import { useState } from 'react';
 import { useCallback } from 'react';
 import { AutocompleteInput } from 'components/AutocompleteInput';
 import { TemperatureWidget, TemperatureWidgetTestIds } from 'components/TemperatureWidget';
@@ -16,6 +18,8 @@ import { HomePageTestIds } from './HomePageTestIds';
 const HomePage = () => {
   const [savedLocation, setLocation] = useLocalStorage('current_location');
   const { data, isLoading } = Weather.useCity(savedLocation || '');
+  // const [canAskUserForLocation, setCanAskUserForLocation] = useState<boolean>(false);
+  // const [location] = useGeoLocation(canAskUserForLocation);
 
   const handleSelect = useCallback(
     (city: Select | null) => {
