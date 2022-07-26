@@ -38,7 +38,7 @@ describe('App', () => {
     expect(cityPage).toBeInTheDocument();
   });
 
-  it('should redirect to /map if no city name provided', () => {
+  it('should redirect to /map if no city name provided to /cities/:city', () => {
     const route = Paths.Cities;
 
     render(<App />, { route });
