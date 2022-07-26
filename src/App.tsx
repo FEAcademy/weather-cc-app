@@ -19,7 +19,7 @@ const App = () => {
           <Route path={Paths.About} element={<AboutPage />} />
           <Route path={Paths.Map} element={<MapPage />} />
           <Route path={Paths.City} element={<CityPage />} />
-          <Route path={Paths.Cities} element={<Navigate to={Paths.Map} />} />
+          <Route path="*" element={<Navigate to={Paths.Map} />} />
         </Routes>
       </PageContainer>
       <Footer />

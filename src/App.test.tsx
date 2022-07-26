@@ -39,7 +39,7 @@ describe('App', () => {
   });
 
   it('should redirect to /map if no city name provided to /cities/:city', () => {
-    const route = Paths.Cities;
+    const route = '/cities';
 
     render(<App />, { route });
 
