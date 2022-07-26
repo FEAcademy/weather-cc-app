@@ -1,6 +1,6 @@
-import { renderHook } from '@testing-library/react';
 import { useGeoLocation } from 'hooks/useGeoLocation';
 import { positionData } from 'mocks/mockData';
+import { renderHook, act } from 'utils/custom-render';
 
 describe('useGeoLocation', () => {
   const mockGetCurrentPosition = {
@@ -11,8 +11,12 @@ describe('useGeoLocation', () => {
     (global as any).navigator.geolocation = mockGetCurrentPosition;
     const { result } = renderHook(() => useGeoLocation());
 
+    act(() => {
+      result.current[1]();
+    });
+
     setTimeout(() => {
-      expect(result.current[0]).toEqual({ latitude: 34.5, longitude: 55.2 });
+      expect(result.current[0]).toMatchObject({ latitude: 34.5, longitude: 55.2 });
     }, 1000);
   });
 
