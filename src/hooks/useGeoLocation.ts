@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { GeoLocation } from 'models/GeoLocation';
 import { Position } from 'models/Position';
-import { GeoLocation } from '../models/GeoLocation';
 
-const useGeoLocation = () => {
-  const [canAskUserForLocation, setCanAskUserForLocation] = useState(false);
+const useGeoLocation = (): [GeoLocation | null, () => void] => {
   const [geoLocation, setGeoLocation] = useState<GeoLocation | null>(null);
 
   const onSuccess = (position: Position) => {
@@ -17,17 +16,11 @@ const useGeoLocation = () => {
     setGeoLocation(null);
   };
 
-  useEffect(() => {
-    if (!('geolocation' in navigator)) {
-      onError();
-    }
+  const getLocation = () => {
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+  };
 
-    if (canAskUserForLocation) {
-      navigator.geolocation.getCurrentPosition(onSuccess, onError);
-    }
-  }, [canAskUserForLocation]);
-
-  return [geoLocation, () => setCanAskUserForLocation(true)];
+  return [geoLocation, getLocation];
 };
 
 export { useGeoLocation };

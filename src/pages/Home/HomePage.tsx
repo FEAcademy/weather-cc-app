@@ -22,6 +22,7 @@ const HomePage = () => {
 
   // I had to use 'location' somewhere because of eslint errors - TODO delete when it will be used in the future
   location;
+  console.log(location);
 
   const handleSelect = useCallback(
     (city: Select | null) => {
@@ -76,7 +77,7 @@ const HomePage = () => {
     <Container data-testid={HomePageTestIds.HomePage}>
       <SelectContainer>
         <AutocompleteInput handleSelect={handleSelect} savedLocation={savedLocation || ''} />
-        <GeolocationButton onClick={askForLocation as () => void} />
+        <GeolocationButton onClick={askForLocation} />
       </SelectContainer>
       <WidgetWrapper data-testid={HomePageTestIds.Widgets}>{renderContent()}</WidgetWrapper>
     </Container>
