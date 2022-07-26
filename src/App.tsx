@@ -1,5 +1,5 @@
 import { Paths } from 'enums/Paths';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { AboutPage } from 'pages/About';
 import { CityPagePage } from 'pages/City';
 import { HomePage } from 'pages/Home';
@@ -19,6 +19,7 @@ const App = () => {
           <Route path={Paths.About} element={<AboutPage />} />
           <Route path={Paths.Map} element={<MapPage />} />
           <Route path={Paths.City} element={<CityPagePage />} />
+          <Route path={Paths.Cities} element={<Navigate to={Paths.Map} />} />
         </Routes>
       </PageContainer>
       <Footer />

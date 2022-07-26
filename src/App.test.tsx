@@ -38,6 +38,16 @@ describe('App', () => {
     expect(cityPage).toBeInTheDocument();
   });
 
+  it('should redirect to /map if no city name provided', () => {
+    const route = Paths.Cities;
+
+    render(<App />, { route });
+
+    const map = screen.getByTestId(MapPageTestIds.MapPage);
+
+    expect(map).toBeInTheDocument();
+  });
+
   it('should render navbar', () => {
     render(<App />);
 
