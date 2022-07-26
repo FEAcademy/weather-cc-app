@@ -22,7 +22,6 @@ const HomePage = () => {
 
   // I had to use 'location' somewhere because of eslint errors - TODO delete when it will be used in the future
   location;
-  console.log(location);
 
   const handleSelect = useCallback(
     (city: Select | null) => {
