@@ -1,4 +1,4 @@
-import { Position } from 'models/Position';
+import { GeoLocation } from 'models/GeoLocation';
 import { Weather } from 'models/Weather';
 
 const weatherSuccessResponse: Weather = {
@@ -51,7 +51,7 @@ const weatherSuccessResponse: Weather = {
 
 const cities: string[] = ['Wroclaw', 'Warszawa', 'Walbrzych'];
 
-const positionData: Position = {
+const positionData: GeoLocation = {
   coords: {
     accuracy: 12,
     altitude: 12,
