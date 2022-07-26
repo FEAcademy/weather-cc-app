@@ -18,10 +18,7 @@ import { HomePageTestIds } from './HomePageTestIds';
 const HomePage = () => {
   const [savedLocation, setLocation] = useLocalStorage('current_location');
   const { data, isLoading } = Weather.useCity(savedLocation || '');
-  const [location, askForLocation] = useGeoLocation();
-
-  // I had to use 'location' somewhere because of eslint errors - TODO delete when it will be used in the future
-  location;
+  const [, askForLocation] = useGeoLocation();
 
   const handleSelect = useCallback(
     (city: Select | null) => {
