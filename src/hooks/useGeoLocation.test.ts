@@ -1,19 +1,6 @@
 import { renderHook } from '@testing-library/react';
 import { useGeoLocation } from 'hooks/useGeoLocation';
-import { Position } from 'models/Position';
-
-const positionData: Position = {
-  coords: {
-    accuracy: 12,
-    altitude: 12,
-    altitudeAccuracy: 12,
-    heading: 12,
-    latitude: 34.5,
-    longitude: 55.2,
-    speed: 3,
-  },
-  timestamp: 23,
-};
+import { positionData } from 'mocks/mockData';
 
 describe('useGeoLocation', () => {
   const mockGetCurrentPosition = {
