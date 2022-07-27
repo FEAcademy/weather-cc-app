@@ -4,11 +4,13 @@ import { PageContentContainer } from 'components/PageContentContainer';
 import { CityName } from './CityPage.styled';
 import { CityPageTestIds } from './CityPageTestIds';
 
-const CityPage = () => {
-  const { city } = useParams();
-  const { data } = Weather.useCity(city!);
+type Params = {
+  city: string;
+};
 
-  console.log('city: ' + city);
+const CityPage = () => {
+  const { city } = useParams() as Params;
+  const { data } = Weather.useCity(city);
 
   return (
     <PageContentContainer data-testid={CityPageTestIds.Container}>

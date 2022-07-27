@@ -1,3 +1,4 @@
+import { Route, Routes } from 'react-router-dom';
 import { render, screen } from 'utils';
 import { CityPage } from './CityPage';
 import { CityPageTestIds } from './CityPageTestIds';
@@ -9,14 +10,17 @@ describe('City page', () => {
     expect(screen.getByTestId(CityPageTestIds.Container)).toBeInTheDocument();
   });
 
-  it('should display city name after entering /cities/:city route', () => {
+  it('should display city name after entering /cities/:city route', async () => {
     const route = '/cities/wroclaw';
 
-    render(<CityPage />, { route });
+    render(
+      <Routes>
+        <Route path="/cities/:city" element={<CityPage />} />
+      </Routes>,
+      { route },
+    );
 
-    setTimeout(async () => {
-      const cityNameElement = await screen.findByText(/Wroclaw/i);
-      expect(cityNameElement).toBeInTheDocument();
-    }, 1000);
+    const cityNameElement = await screen.findByText(/Wroclaw/i);
+    expect(cityNameElement).toBeInTheDocument();
   });
 });
