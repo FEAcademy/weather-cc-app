@@ -8,6 +8,8 @@ const CityPage = () => {
   const { city } = useParams();
   const { data } = Weather.useCity(city!);
 
+  console.log('city: ' + city);
+
   return (
     <PageContentContainer data-testid={CityPageTestIds.Container}>
       {data && <CityName>{data.location.name}</CityName>}

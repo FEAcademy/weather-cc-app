@@ -117,14 +117,4 @@ describe('App', () => {
 
     expect(about).toBeInTheDocument();
   });
-
-  it('should display city name after entering /cities/:city route', async () => {
-    const route = '/cities/wroclaw' as Paths;
-
-    render(<App />, { route });
-
-    const cityNameElement = await screen.findByText(/Wroclaw/i);
-
-    expect(cityNameElement).toBeInTheDocument();
-  });
 });
