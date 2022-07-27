@@ -1,8 +1,8 @@
 import { PageContentContainer } from 'components/PageContentContainer';
 import { CityPageTestIds } from './CityPageTestIds';
 
-const CityPagePage = () => {
+const CityPage = () => {
   return <PageContentContainer data-testid={CityPageTestIds.Container}></PageContentContainer>;
 };
 
-export { CityPagePage };
+export { CityPage };
