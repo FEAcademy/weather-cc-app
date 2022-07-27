@@ -1,14 +1,17 @@
+import * as geoLocationHooks from 'hooks/useGeoLocation';
 import { render, screen, fireEvent } from 'utils';
-import { Button } from './GeolocationButton.styled';
+import { GeolocationButton } from './GeolocationButton';
+import { GeolocationButtonTestIds } from './GeolocationButtonTestIds';
 
 describe('GeolocationButton', () => {
-  it('should call callback onClick', async () => {
-    const mockCallBack = jest.fn();
-    render(<Button onClick={mockCallBack} />);
+  it('should call getLocation on click', async () => {
+    const getLocation = jest.fn();
+    jest.spyOn(geoLocationHooks, 'useGeoLocation').mockReturnValue([null, getLocation]);
 
-    const button = screen.getByRole('button');
-    fireEvent.click(button);
+    render(<GeolocationButton />);
 
-    expect(mockCallBack).toHaveBeenCalledTimes(1);
+    fireEvent.click(screen.getByTestId(GeolocationButtonTestIds.Button));
+
+    expect(getLocation).toHaveBeenCalledTimes(1);
   });
 });
