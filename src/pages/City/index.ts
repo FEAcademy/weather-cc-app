@@ -1,1 +1,1 @@
-export { CityPagePage } from './CityPage';
+export { CityPage } from './CityPage';

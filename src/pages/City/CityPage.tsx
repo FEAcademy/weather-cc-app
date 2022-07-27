@@ -4,7 +4,7 @@ import { PageContentContainer } from 'components/PageContentContainer';
 import { CityName } from './CityPage.styled';
 import { CityPageTestIds } from './CityPageTestIds';
 
-const CityPagePage = () => {
+const CityPage = () => {
   const { city } = useParams();
   const { data } = Weather.useCity(city!);
 
@@ -15,4 +15,4 @@ const CityPagePage = () => {
   );
 };
 
-export { CityPagePage };
+export { CityPage };

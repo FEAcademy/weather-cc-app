@@ -12,7 +12,11 @@ const AllProvidersWrapper = ({ children }: PropsWithChildren) => {
   );
 };
 
-const renderWithRouter = (ui: ReactElement, { route = Paths.Home } = {}, options?: Omit<RenderOptions, 'wrapper'>) => {
+const renderWithRouter = (
+  ui: ReactElement,
+  { route = Paths.Home as string } = {},
+  options?: Omit<RenderOptions, 'wrapper'>,
+) => {
   window.history.pushState({}, 'Test page', route);
 
   return {
