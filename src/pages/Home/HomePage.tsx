@@ -1,5 +1,4 @@
 import Weather from 'api/services/Weather';
-import { useGeoLocation } from 'hooks/useGeoLocation';
 import { useCallback } from 'react';
 import { AutocompleteInput } from 'components/AutocompleteInput';
 import { TemperatureWidget, TemperatureWidgetTestIds } from 'components/TemperatureWidget';
@@ -18,7 +17,6 @@ import { HomePageTestIds } from './HomePageTestIds';
 const HomePage = () => {
   const [savedLocation, setLocation] = useLocalStorage('current_location');
   const { data, isLoading } = Weather.useCity(savedLocation || '');
-  const [, askForLocation] = useGeoLocation();
 
   const handleSelect = useCallback(
     (city: Select | null) => {
@@ -73,7 +71,7 @@ const HomePage = () => {
     <Container data-testid={HomePageTestIds.HomePage}>
       <SelectContainer>
         <AutocompleteInput handleSelect={handleSelect} savedLocation={savedLocation || ''} />
-        <GeolocationButton onClick={askForLocation} />
+        <GeolocationButton />
       </SelectContainer>
       <WidgetWrapper data-testid={HomePageTestIds.Widgets}>{renderContent()}</WidgetWrapper>
     </Container>
