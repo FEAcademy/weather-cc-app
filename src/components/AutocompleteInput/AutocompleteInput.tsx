@@ -18,13 +18,12 @@ const AutocompleteInput = ({ handleSelect, savedLocation }: Props) => {
   
   const loadOptions = (inputValue: string) => {
     setInputValue(inputValue);
-    const filteredData = data?.map((cityName) => ({
+    const optionsData = data?.map((cityName) => ({
       value: cityName,
       label: cityName,
     })) || [];
-
-    console.log(inputValue,filteredData);
-    return Promise.resolve(filteredData); // .filter(e => e.label.includes(inputValue)))
+    
+    return Promise.resolve(optionsData); 
   };
 
   return (

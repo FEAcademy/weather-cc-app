@@ -28,7 +28,7 @@ export default {
           },
         });
         const cities: string[] = res.data.map((city) => city.name);
-        console.log(cities);
+
         return cities;
       },
       { enabled: !!cityName },
