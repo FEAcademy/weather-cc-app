@@ -10,7 +10,7 @@ const CityPagePage = () => {
 
   return (
     <PageContentContainer data-testid={CityPageTestIds.Container}>
-      {data && <CityName role="cityName">{data.location.name}</CityName>}
+      {data && <CityName>{data.location.name}</CityName>}
     </PageContentContainer>
   );
 };
