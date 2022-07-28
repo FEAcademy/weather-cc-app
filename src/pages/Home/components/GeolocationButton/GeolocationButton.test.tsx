@@ -33,11 +33,8 @@ describe('GeolocationButton', () => {
 
     fireEvent.click(screen.getByTestId(GeolocationButtonTestIds.Button));
 
-    const location = {
-      latitude: 34.5,
-      longitude: 55.2,
-    };
-
-    expect(updateSavedLocation).toHaveBeenCalledWith(`${location.latitude},${location.longitude}`);
+    expect(updateSavedLocation).toHaveBeenCalledWith(
+      `${positionData.coords.latitude},${positionData.coords.longitude}`,
+    );
   });
 });
