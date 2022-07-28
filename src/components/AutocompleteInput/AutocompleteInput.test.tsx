@@ -7,7 +7,7 @@ describe('Autocomplete input', () => {
   it('should render', () => {
     const fn = jest.fn();
 
-    render(<AutocompleteInput handleSelect={fn} savedLocation={weatherSuccessResponse.location.name} />);
+    render(<AutocompleteInput setSavedLocation={fn} savedLocation={weatherSuccessResponse.location.name} />);
 
     const input = screen.getByTestId(InputTestIds.Input);
     expect(input).toBeInTheDocument();
@@ -15,7 +15,7 @@ describe('Autocomplete input', () => {
   it('should load data from localstorage and fulfill input', () => {
     const fn = jest.fn();
 
-    render(<AutocompleteInput handleSelect={fn} savedLocation={weatherSuccessResponse.location.name} />);
+    render(<AutocompleteInput setSavedLocation={fn} savedLocation={weatherSuccessResponse.location.name} />);
 
     const input = screen.getByRole('combobox');
 
