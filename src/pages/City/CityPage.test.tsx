@@ -35,12 +35,12 @@ describe('City page', () => {
       { route },
     );
 
-    const temperatureLoader = screen.getByTestId(WeatherInfoWidgetTestIds.Loader);
+    const weatherInfoLoader = screen.getByTestId(WeatherInfoWidgetTestIds.Loader);
 
-    expect(temperatureLoader).toBeInTheDocument();
+    expect(weatherInfoLoader).toBeInTheDocument();
 
-    await waitForElementToBeRemoved(temperatureLoader).then(() => {
-      expect(temperatureLoader).not.toBeInTheDocument();
+    await waitForElementToBeRemoved(weatherInfoLoader).then(() => {
+      expect(weatherInfoLoader).not.toBeInTheDocument();
     });
   });
 
