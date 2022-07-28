@@ -9,7 +9,7 @@ import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiW
 import { WeatherInfoWidget } from 'components/WeatherInfoWidget';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
 import { WeatherWidgetLoader } from 'components/WeatherWidget/WeatherWidgetLoader';
-import { WidgetWrapper } from 'components/WidgetWrapper/WidgetWrapper.styled';
+import { WidgetWrapper } from 'components/WidgetWrapper';
 import { Select } from 'models/Select';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { HomePageTestIds } from './HomePageTestIds';

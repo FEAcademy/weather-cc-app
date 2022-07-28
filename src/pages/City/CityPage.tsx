@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { PageContentContainer } from 'components/PageContentContainer';
 import { TemperatureWidget, TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { TemperatureWidgetLoader } from 'components/TemperatureWidget/TemperatureWidgetLoader';
-import { WidgetWrapper } from 'components/WidgetWrapper/WidgetWrapper.styled';
+import { WidgetWrapper } from 'components/WidgetWrapper';
 import { CityName } from './CityPage.styled';
 import { CityPageTestIds } from './CityPageTestIds';
 
