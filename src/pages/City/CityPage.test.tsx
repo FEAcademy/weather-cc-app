@@ -44,12 +44,12 @@ describe('City page', () => {
       { route },
     );
 
-    const aqiloader = screen.getByTestId(TemperatureWidgetTestIds.Loader);
+    const temperatureWidgetLoader = screen.getByTestId(TemperatureWidgetTestIds.Loader);
 
-    expect(aqiloader).toBeInTheDocument();
+    expect(temperatureWidgetLoader).toBeInTheDocument();
 
-    await waitForElementToBeRemoved(aqiloader).then(() => {
-      expect(aqiloader).not.toBeInTheDocument();
+    await waitForElementToBeRemoved(temperatureWidgetLoader).then(() => {
+      expect(temperatureWidgetLoader).not.toBeInTheDocument();
     });
   });
 
@@ -81,7 +81,7 @@ describe('City page', () => {
     const weatherIcon = await screen.findByAltText('Weather widget icon');
     const description = await screen.findByText(/Sunny/i);
     const currentTemperature = await screen.findByText(/25/i);
-    const feelslikeTemperature = await screen.findByText(/feels like/i);
+    const feelslikeTemperature = await screen.findByText(/26/i);
 
     expect(weatherIcon).toHaveAttribute('src', weatherSuccessResponse.current.condition.icon);
     expect(description).toBeInTheDocument();
