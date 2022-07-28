@@ -4,6 +4,17 @@ import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherIn
 import { CityPage } from './CityPage';
 import { CityPageTestIds } from './CityPageTestIds';
 
+const route = '/cities/wroclaw';
+
+const renderCityPageInRoute = () => {
+  render(
+    <Routes>
+      <Route path="/cities/:city" element={<CityPage />} />
+    </Routes>,
+    { route },
+  );
+};
+
 describe('City page', () => {
   it('should render', () => {
     render(<CityPage />);
@@ -12,28 +23,14 @@ describe('City page', () => {
   });
 
   it('should display city name after entering /cities/:city route', async () => {
-    const route = '/cities/wroclaw';
-
-    render(
-      <Routes>
-        <Route path="/cities/:city" element={<CityPage />} />
-      </Routes>,
-      { route },
-    );
+    renderCityPageInRoute();
 
     const cityNameElement = await screen.findByText(/Wroclaw/i);
     expect(cityNameElement).toBeInTheDocument();
   });
 
   it('should render and remove widgets loader', async () => {
-    const route = '/cities/wroclaw';
-
-    render(
-      <Routes>
-        <Route path="/cities/:city" element={<CityPage />} />
-      </Routes>,
-      { route },
-    );
+    renderCityPageInRoute();
 
     const weatherInfoLoader = screen.getByTestId(WeatherInfoWidgetTestIds.Loader);
 
@@ -53,27 +50,13 @@ describe('City page', () => {
   });
 
   it('should render weather info widget', async () => {
-    const route = '/cities/wroclaw';
-
-    render(
-      <Routes>
-        <Route path="/cities/:city" element={<CityPage />} />
-      </Routes>,
-      { route },
-    );
+    renderCityPageInRoute();
 
     expect(await screen.findByTestId(WeatherInfoWidgetTestIds.Container)).toBeInTheDocument();
   });
 
   it('should render weather info widget content properly', async () => {
-    const route = '/cities/wroclaw';
-
-    render(
-      <Routes>
-        <Route path="/cities/:city" element={<CityPage />} />
-      </Routes>,
-      { route },
-    );
+    renderCityPageInRoute();
 
     const cloud = await screen.findByText(/0%/);
     const humidity = await screen.findByText(/69%/);
