@@ -4,6 +4,15 @@ import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiW
 import { CityPage } from './CityPage';
 import { CityPageTestIds } from './CityPageTestIds';
 
+const renderCityPageInRoute = (route: string) => {
+  render(
+    <Routes>
+      <Route path="/cities/:city" element={<CityPage />} />
+    </Routes>,
+    { route },
+  );
+};
+
 describe('City page', () => {
   it('should render', () => {
     render(<CityPage />);
@@ -22,12 +31,7 @@ describe('City page', () => {
   it('should display city name after entering /cities/:city route', async () => {
     const route = '/cities/wroclaw';
 
-    render(
-      <Routes>
-        <Route path="/cities/:city" element={<CityPage />} />
-      </Routes>,
-      { route },
-    );
+    renderCityPageInRoute(route);
 
     const cityNameElement = await screen.findByText(/Wroclaw/i);
     expect(cityNameElement).toBeInTheDocument();
@@ -36,12 +40,7 @@ describe('City page', () => {
   it('should render weather aqi widget after entering /cities/:city route', async () => {
     const route = '/cities/wroclaw';
 
-    render(
-      <Routes>
-        <Route path="/cities/:city" element={<CityPage />} />
-      </Routes>,
-      { route },
-    );
+    renderCityPageInRoute(route);
 
     const weatherAqiWidget = await screen.findByTestId(WeatherAqiWidgetTestIds.Container);
 
@@ -51,12 +50,7 @@ describe('City page', () => {
   it('should render and remove widgets loader after entering /cities/:city route', async () => {
     const route = '/cities/wroclaw';
 
-    render(
-      <Routes>
-        <Route path="/cities/:city" element={<CityPage />} />
-      </Routes>,
-      { route },
-    );
+    renderCityPageInRoute(route);
 
     const aqiloader = screen.getByTestId(WeatherAqiWidgetTestIds.Loader);
 
@@ -70,12 +64,7 @@ describe('City page', () => {
   it('should render weather aqi content properly after entering /cities/:city route', async () => {
     const route = '/cities/wroclaw';
 
-    render(
-      <Routes>
-        <Route path="/cities/:city" element={<CityPage />} />
-      </Routes>,
-      { route },
-    );
+    renderCityPageInRoute(route);
 
     const co = await screen.findByText(/155 µg\/m3/i);
     const no2 = await screen.findByText(/4 µg\/m3/i);
