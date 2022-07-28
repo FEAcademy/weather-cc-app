@@ -23,17 +23,15 @@ const CityPage = () => {
 
     if (data) {
       return (
-        <>
-          <WeatherAqiWidget
-            defraIndex={data.current.air_quality['gb-defra-index']}
-            so2={data.current.air_quality.so2}
-            co={data.current.air_quality.co}
-            no2={data.current.air_quality.no2}
-            o3={data.current.air_quality.o3}
-            pm25={data.current.air_quality.pm2_5}
-            pm10={data.current.air_quality.pm10}
-          />
-        </>
+        <WeatherAqiWidget
+          defraIndex={data.current.air_quality['gb-defra-index']}
+          so2={data.current.air_quality.so2}
+          co={data.current.air_quality.co}
+          no2={data.current.air_quality.no2}
+          o3={data.current.air_quality.o3}
+          pm25={data.current.air_quality.pm2_5}
+          pm10={data.current.air_quality.pm10}
+        />
       );
     }
   };
