@@ -1,5 +1,6 @@
+import userEvent from '@testing-library/user-event';
 import { weatherSuccessResponse } from 'mocks/mockData';
-import {  fireEvent, render, screen, waitFor } from 'utils';
+import {   fireEvent, render, screen, waitFor } from 'utils';
 import { AutocompleteInput } from './AutocompleteInput';
 import { InputTestIds } from './AutocompleteInputTestIds';
 
@@ -36,11 +37,8 @@ describe('Autocomplete input', () => {
     const input = screen.getByRole('combobox');
     expect(input).toBeInTheDocument();
 
-    fireEvent.input(input, {
-      target: {
-        value: 'Walb',
-      },
-    });
+    userEvent.clear(input);
+    userEvent.type(input, 'Walb');
 
     expect(input).toHaveValue('Walb');
 
@@ -51,6 +49,7 @@ describe('Autocomplete input', () => {
       expect(loadingState).not.toBeInTheDocument();
     });
   });
+
   it('should display autocomplete input options', async () => {
     const fn = jest.fn();
     
@@ -59,17 +58,15 @@ describe('Autocomplete input', () => {
     );
     
     const input = screen.getByRole('combobox');
-  
-    expect(input).toBeInTheDocument();
-   
-    fireEvent.input(input, {
-      target: {
-        value: 'Walbrz',
-      },
-    });
+    
+    userEvent.clear(input);
+    userEvent.type(input, 'Walb');
   
     expect(await screen.findByText('Walbrzych')).toBeInTheDocument();
+    expect(await screen.findByText('Wroclaw')).toBeInTheDocument();
+    expect(await screen.findByText('Warszawa')).toBeInTheDocument();
   });
+
   it('should display the selected option', async () => {
     const fn = jest.fn();
     
@@ -79,14 +76,14 @@ describe('Autocomplete input', () => {
     
     const input = screen.getByRole('combobox');
    
-    fireEvent.input(input, {
-      target: {
-        value: 'Walbrz',
-      },
-    });
-
+    
+    userEvent.clear(input);
+    userEvent.type(input, 'Walb');
     fireEvent.click(await screen.findByText('Walbrzych'));
     
     expect(screen.getByText('Walbrzych')).toBeInTheDocument();
+    expect(screen.queryByText('Wroclaw')).not.toBeInTheDocument();
+    expect(screen.queryByText('Warszawa')).not.toBeInTheDocument();
+   
   });
 });

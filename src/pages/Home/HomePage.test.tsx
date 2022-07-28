@@ -1,42 +1,27 @@
+import userEvent from '@testing-library/user-event';
+import hooks from 'api/services/Weather';
 import { weatherSuccessResponse } from 'mocks/mockData';
-// import { UseQueryResult } from 'react-query';
-import {  render, screen, waitForElementToBeRemoved } from 'utils';
+import { UseQueryResult } from 'react-query';
+import { render, screen, waitForElementToBeRemoved } from 'utils';
+import { InputTestIds } from 'components/AutocompleteInput/AutocompleteInputTestIds';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
-// import hooks from '../../api/services/Weather';
 import { HomePage } from './HomePage';
 import { HomePageTestIds } from './HomePageTestIds';
 
-
 describe('Home page', () => {
   beforeEach(() => {
+
+    jest.spyOn(hooks, 'useSearchCities').mockReturnValue({
+      data: ['Walbrzych','Wroclaw','Warszawa']
+    } as UseQueryResult<string[], Error>);
+
     localStorage.setItem('current_location', 'Warszawa');
   });
- 
-  // it('should display autocomplete input options', async () => {
-  //   jest.spyOn(hooks, 'useSearchCities').mockReturnValue({
-  //     data: ['Walbrzych']
-  //   } as UseQueryResult<string[], Error>);
-
-  //   render(
-  //     <HomePage/>
-  //   );
-    
-  //   const input = screen.getByRole('combobox');
-  
-  //   expect(input).toBeInTheDocument();
-   
-  //   fireEvent.input(input, {
-  //     target: {
-  //       value: 'Walbrz',
-  //     },
-  //   });
-  
-  //   expect(await screen.findByText('Walbrzych')).toBeInTheDocument();
-  // });
 
   it('should render and remove widgets loader', async () => {
+    
     render(<HomePage />);
 
     const temperatureLoader = screen.getByTestId(TemperatureWidgetTestIds.Loader);
@@ -55,7 +40,6 @@ describe('Home page', () => {
   });
 
   it('should render temperature widget', async () => {
-    localStorage.setItem('current_location', 'Warszawa');
     render(<HomePage />);
 
     expect(await screen.findByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
@@ -134,5 +118,25 @@ describe('Home page', () => {
     expect(o3).toBeInTheDocument();
     expect(pm25).toBeInTheDocument();
     expect(so2).toBeInTheDocument();
+  });
+
+  it('should render autocomplete input', () => {
+    render(<HomePage />);
+
+    const input = screen.getByTestId(InputTestIds.Input);
+    expect(input).toBeInTheDocument();
+  });
+
+  it('should display autocomplete input options', async () => {
+    render(<HomePage />);
+    
+    const input = screen.getByRole('combobox');
+    
+    userEvent.clear(input);
+    userEvent.type(input, 'Walb');
+  
+    expect(await screen.findByText('Walbrzych')).toBeInTheDocument();
+    expect(await screen.findByText('Wroclaw')).toBeInTheDocument();
+    expect(await screen.findByText('Warszawa')).toBeInTheDocument();
   });
 });

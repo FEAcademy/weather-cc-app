@@ -1,4 +1,3 @@
-
 import App from 'App';
 import { Paths } from 'enums/Paths';
 import { fireEvent, render, screen } from 'utils';
