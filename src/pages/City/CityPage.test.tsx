@@ -11,6 +11,14 @@ describe('City page', () => {
     expect(screen.getByTestId(CityPageTestIds.Container)).toBeInTheDocument();
   });
 
+  it('should display widgets', () => {
+    render(<CityPage />);
+
+    const widgetsContainer = screen.getByTestId(CityPageTestIds.Widgets);
+
+    expect(widgetsContainer).toBeInTheDocument();
+  });
+
   it('should display city name after entering /cities/:city route', async () => {
     const route = '/cities/wroclaw';
 
