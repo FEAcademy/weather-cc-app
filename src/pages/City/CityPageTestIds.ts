@@ -1,6 +1,6 @@
 enum CityPageTestIds {
   Container = 'single-location-page',
-  Widgets = 'widgets',
+  Widgets = 'single-location-page-widgets',
 }
 
 export { CityPageTestIds };

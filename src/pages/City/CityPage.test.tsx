@@ -11,15 +11,6 @@ describe('City page', () => {
     expect(screen.getByTestId(CityPageTestIds.Container)).toBeInTheDocument();
   });
 
-  it('should display widgets', () => {
-    localStorage.removeItem('current_location');
-    render(<CityPage />);
-
-    const widgetsContainer = screen.getByTestId(CityPageTestIds.Widgets);
-
-    expect(widgetsContainer).toBeInTheDocument();
-  });
-
   it('should display city name after entering /cities/:city route', async () => {
     const route = '/cities/wroclaw';
 
@@ -32,6 +23,21 @@ describe('City page', () => {
 
     const cityNameElement = await screen.findByText(/Wroclaw/i);
     expect(cityNameElement).toBeInTheDocument();
+  });
+
+  it('should render weather aqi widget after entering /cities/:city route', async () => {
+    const route = '/cities/wroclaw';
+
+    render(
+      <Routes>
+        <Route path="/cities/:city" element={<CityPage />} />
+      </Routes>,
+      { route },
+    );
+
+    const weatherAqiWidget = await screen.findByTestId(WeatherAqiWidgetTestIds.Container);
+
+    expect(weatherAqiWidget).toBeInTheDocument();
   });
 
   it('should render and remove widgets loader after entering /cities/:city route', async () => {
