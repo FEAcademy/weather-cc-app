@@ -18,25 +18,19 @@ const CityPage = () => {
 
   const renderContent = () => {
     if (isLoading) {
-      return (
-        <>
-          <WeatherWidgetLoader data-testid={WeatherInfoWidgetTestIds.Loader} />
-        </>
-      );
+      return <WeatherWidgetLoader data-testid={WeatherInfoWidgetTestIds.Loader} />;
     }
 
     if (data) {
       return (
-        <>
-          <WeatherInfoWidget
-            cloud={data.current.cloud}
-            precip={data.current.precip_mm}
-            humidity={data.current.humidity}
-            pressure={data.current.pressure_mb}
-            windSpeed={data.current.wind_kph}
-            gust={data.current.gust_kph}
-          />
-        </>
+        <WeatherInfoWidget
+          cloud={data.current.cloud}
+          precip={data.current.precip_mm}
+          humidity={data.current.humidity}
+          pressure={data.current.pressure_mb}
+          windSpeed={data.current.wind_kph}
+          gust={data.current.gust_kph}
+        />
       );
     }
   };
