@@ -85,7 +85,10 @@ describe('App', () => {
     render(<App />, { route });
 
     const mapLink = screen.getByTitle(NavbarTitles.Map);
-    userEvent.click(mapLink);
+
+    const user = userEvent.setup();
+    await user.click(mapLink);
+
     const map = screen.getByTestId(MapPageTestIds.MapPage);
 
     expect(map).toBeInTheDocument();
@@ -96,7 +99,10 @@ describe('App', () => {
     render(<App />, { route });
 
     const homeLink = screen.getByTitle(NavbarTitles.Home);
-    userEvent.click(homeLink);
+
+    const user = userEvent.setup();
+    await user.click(homeLink);
+
     const home = screen.getByTestId(HomePageTestIds.HomePage);
 
     expect(home).toBeInTheDocument();
@@ -106,7 +112,10 @@ describe('App', () => {
     render(<App />);
 
     const aboutLink = screen.getByTitle(NavbarTitles.About);
-    userEvent.click(aboutLink);
+
+    const user = userEvent.setup();
+    await user.click(aboutLink);
+
     const about = screen.getByTestId(AboutPageTestIds.Container);
 
     expect(about).toBeInTheDocument();
