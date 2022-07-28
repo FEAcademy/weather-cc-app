@@ -86,7 +86,8 @@ describe('App', () => {
 
     const mapLink = screen.getByTitle(NavbarTitles.Map);
 
-    await userEvent.click(mapLink);
+    const user = userEvent.setup();
+    await user.click(mapLink);
 
     const map = screen.getByTestId(MapPageTestIds.MapPage);
 
@@ -99,7 +100,8 @@ describe('App', () => {
 
     const homeLink = screen.getByTitle(NavbarTitles.Home);
 
-    await userEvent.click(homeLink);
+    const user = userEvent.setup();
+    await user.click(homeLink);
 
     const home = screen.getByTestId(HomePageTestIds.HomePage);
 
@@ -111,7 +113,8 @@ describe('App', () => {
 
     const aboutLink = screen.getByTitle(NavbarTitles.About);
 
-    await userEvent.click(aboutLink);
+    const user = userEvent.setup();
+    await user.click(aboutLink);
 
     const about = screen.getByTestId(AboutPageTestIds.Container);
 
