@@ -9,9 +9,9 @@ import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiW
 import { WeatherInfoWidget } from 'components/WeatherInfoWidget';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
 import { WeatherWidgetLoader } from 'components/WeatherWidget/WeatherWidgetLoader';
+import { WidgetWrapper } from 'components/WidgetWrapper/WidgetWrapper.styled';
 import { Select } from 'models/Select';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
-import { WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {

@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import { PageContentContainer } from 'components/PageContentContainer';
 import { TemperatureWidget, TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { TemperatureWidgetLoader } from 'components/TemperatureWidget/TemperatureWidgetLoader';
-import { CityName, WidgetWrapper } from './CityPage.styled';
+import { WidgetWrapper } from 'components/WidgetWrapper/WidgetWrapper.styled';
+import { CityName } from './CityPage.styled';
 import { CityPageTestIds } from './CityPageTestIds';
 
 type Params = {
