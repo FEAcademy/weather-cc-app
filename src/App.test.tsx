@@ -1,6 +1,7 @@
+import userEvent from '@testing-library/user-event';
 import App from 'App';
 import { Paths } from 'enums/Paths';
-import { fireEvent, render, screen } from 'utils';
+import { render, screen } from 'utils';
 import { FooterTestIds } from 'components/Footer/FooterTestIds';
 import { NavbarTestIds } from 'components/Navbar/NavbarTestIds';
 import { NavbarTitles } from 'components/Navbar/NavbarTitles';
@@ -84,9 +85,7 @@ describe('App', () => {
     render(<App />, { route });
 
     const mapLink = screen.getByTitle(NavbarTitles.Map);
-
-    fireEvent.click(mapLink);
-
+    userEvent.click(mapLink);
     const map = screen.getByTestId(MapPageTestIds.MapPage);
 
     expect(map).toBeInTheDocument();
@@ -97,9 +96,7 @@ describe('App', () => {
     render(<App />, { route });
 
     const homeLink = screen.getByTitle(NavbarTitles.Home);
-
-    fireEvent.click(homeLink);
-
+    userEvent.click(homeLink);
     const home = screen.getByTestId(HomePageTestIds.HomePage);
 
     expect(home).toBeInTheDocument();
@@ -109,9 +106,7 @@ describe('App', () => {
     render(<App />);
 
     const aboutLink = screen.getByTitle(NavbarTitles.About);
-
-    fireEvent.click(aboutLink);
-
+    userEvent.click(aboutLink);
     const about = screen.getByTestId(AboutPageTestIds.Container);
 
     expect(about).toBeInTheDocument();
