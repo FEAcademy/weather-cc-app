@@ -15,14 +15,14 @@ import { Container, SelectContainer, WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
-  const [savedLocation, setLocation] = useLocalStorage('current_location');
-  const { data, isLoading } = Weather.useCity(savedLocation || '');
+  const [savedLocation, setSavedLocation] = useLocalStorage('current_location');
+  const { data, isLoading } = Weather.useLocation(savedLocation || '');
 
   const handleSelect = useCallback(
     (city: Select | null) => {
-      city && setLocation(city.value);
+      city && setSavedLocation(city.value);
     },
-    [setLocation],
+    [setSavedLocation],
   );
 
   const renderContent = () => {
@@ -71,7 +71,7 @@ const HomePage = () => {
     <Container data-testid={HomePageTestIds.HomePage}>
       <SelectContainer>
         <AutocompleteInput handleSelect={handleSelect} savedLocation={savedLocation || ''} />
-        <GeolocationButton />
+        <GeolocationButton updateSavedLocation={(location) => setSavedLocation(location)} />
       </SelectContainer>
       <WidgetWrapper data-testid={HomePageTestIds.Widgets}>{renderContent()}</WidgetWrapper>
     </Container>
