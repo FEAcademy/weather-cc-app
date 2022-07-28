@@ -18,11 +18,7 @@ const CityPage = () => {
 
   const renderContent = () => {
     if (isLoading) {
-      return (
-        <>
-          <WeatherWidgetLoader data-testid={WeatherAqiWidgetTestIds.Loader} />
-        </>
-      );
+      return <WeatherWidgetLoader data-testid={WeatherAqiWidgetTestIds.Loader} />;
     }
 
     if (data) {
