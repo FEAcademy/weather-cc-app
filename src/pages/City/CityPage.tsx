@@ -4,7 +4,8 @@ import { PageContentContainer } from 'components/PageContentContainer';
 import { WeatherInfoWidget } from 'components/WeatherInfoWidget';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
 import { WeatherWidgetLoader } from 'components/WeatherWidget/WeatherWidgetLoader';
-import { CityName, WidgetWrapper } from './CityPage.styled';
+import { WidgetWrapper } from 'components/WidgetWrapper';
+import { CityName } from './CityPage.styled';
 import { CityPageTestIds } from './CityPageTestIds';
 
 type Params = {

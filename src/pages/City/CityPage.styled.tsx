@@ -6,10 +6,4 @@ const CityName = styled.h3`
   line-height: 34px;
 `;
 
-const WidgetWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`;
-
-export { CityName, WidgetWrapper };
+export { CityName };
