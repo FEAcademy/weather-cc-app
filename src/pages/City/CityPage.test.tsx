@@ -5,6 +5,17 @@ import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { CityPage } from './CityPage';
 import { CityPageTestIds } from './CityPageTestIds';
 
+const route = '/cities/wroclaw';
+
+const renderCityPageInRoute = () => {
+  render(
+    <Routes>
+      <Route path="/cities/:city" element={<CityPage />} />
+    </Routes>,
+    { route },
+  );
+};
+
 describe('City page', () => {
   it('should render', () => {
     render(<CityPage />);
@@ -13,14 +24,7 @@ describe('City page', () => {
   });
 
   it('should display city name after entering /cities/:city route', async () => {
-    const route = '/cities/wroclaw';
-
-    render(
-      <Routes>
-        <Route path="/cities/:city" element={<CityPage />} />
-      </Routes>,
-      { route },
-    );
+    renderCityPageInRoute();
 
     const cityNameElement = await screen.findByText(/Wroclaw/i);
     expect(cityNameElement).toBeInTheDocument();
@@ -35,14 +39,7 @@ describe('City page', () => {
   });
 
   it('should render and remove widgets loader after entering /cities/:city route', async () => {
-    const route = '/cities/wroclaw';
-
-    render(
-      <Routes>
-        <Route path="/cities/:city" element={<CityPage />} />
-      </Routes>,
-      { route },
-    );
+    renderCityPageInRoute();
 
     const temperatureWidgetLoader = screen.getByTestId(TemperatureWidgetTestIds.Loader);
 
@@ -54,14 +51,7 @@ describe('City page', () => {
   });
 
   it('should render temperature widget after entering /cities/:city route', async () => {
-    const route = '/cities/wroclaw';
-
-    render(
-      <Routes>
-        <Route path="/cities/:city" element={<CityPage />} />
-      </Routes>,
-      { route },
-    );
+    renderCityPageInRoute();
 
     const temperatureWidget = await screen.findByTestId(TemperatureWidgetTestIds.Container);
 
@@ -69,14 +59,7 @@ describe('City page', () => {
   });
 
   it('should render temperature widget content properly after entering /cities/:city route', async () => {
-    const route = '/cities/wroclaw';
-
-    render(
-      <Routes>
-        <Route path="/cities/:city" element={<CityPage />} />
-      </Routes>,
-      { route },
-    );
+    renderCityPageInRoute();
 
     const weatherIcon = await screen.findByAltText('Weather widget icon');
     const description = await screen.findByText(/Sunny/i);
