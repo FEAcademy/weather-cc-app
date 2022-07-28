@@ -25,6 +25,15 @@ describe('City page', () => {
     const cityNameElement = await screen.findByText(/Wroclaw/i);
     expect(cityNameElement).toBeInTheDocument();
   });
+
+  it('should display widgets', () => {
+    render(<CityPage />);
+
+    const widgets = screen.getByTestId(CityPageTestIds.Widgets);
+
+    expect(widgets).toBeInTheDocument();
+  });
+
   it('should render and remove widgets loader after entering /cities/:city route', async () => {
     const route = '/cities/wroclaw';
 
@@ -46,6 +55,7 @@ describe('City page', () => {
 
   it('should render temperature widget after entering /cities/:city route', async () => {
     const route = '/cities/wroclaw';
+
     render(
       <Routes>
         <Route path="/cities/:city" element={<CityPage />} />
@@ -60,7 +70,6 @@ describe('City page', () => {
 
   it('should render temperature widget content properly after entering /cities/:city route', async () => {
     const route = '/cities/wroclaw';
-    console.log(route);
 
     render(
       <Routes>

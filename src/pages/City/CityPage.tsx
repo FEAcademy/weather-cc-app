@@ -33,7 +33,7 @@ const CityPage = () => {
   return (
     <PageContentContainer data-testid={CityPageTestIds.Container}>
       {data && <CityName>{data.location.name}</CityName>}
-      <WidgetWrapper>{renderContent()}</WidgetWrapper>
+      <WidgetWrapper data-testid={CityPageTestIds.Widgets}>{renderContent()}</WidgetWrapper>
     </PageContentContainer>
   );
 };
