@@ -4,7 +4,7 @@ import { PageContentContainer } from 'components/PageContentContainer';
 import { WeatherAqiWidget } from 'components/WeatherAqiWidget';
 import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
 import { WeatherWidgetLoader } from 'components/WeatherWidget/WeatherWidgetLoader';
-import { WidgetWrapper } from 'pages/Home/HomePage.styled';
+import { WidgetWrapper } from 'components/WidgetWrapper';
 import { CityName } from './CityPage.styled';
 import { CityPageTestIds } from './CityPageTestIds';
 
