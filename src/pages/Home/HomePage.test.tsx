@@ -1,15 +1,40 @@
 import { weatherSuccessResponse } from 'mocks/mockData';
-import { render, screen, waitForElementToBeRemoved } from 'utils';
+// import { UseQueryResult } from 'react-query';
+import {  render, screen, waitForElementToBeRemoved } from 'utils';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
+// import hooks from '../../api/services/Weather';
 import { HomePage } from './HomePage';
 import { HomePageTestIds } from './HomePageTestIds';
+
 
 describe('Home page', () => {
   beforeEach(() => {
     localStorage.setItem('current_location', 'Warszawa');
   });
+ 
+  // it('should display autocomplete input options', async () => {
+  //   jest.spyOn(hooks, 'useSearchCities').mockReturnValue({
+  //     data: ['Walbrzych']
+  //   } as UseQueryResult<string[], Error>);
+
+  //   render(
+  //     <HomePage/>
+  //   );
+    
+  //   const input = screen.getByRole('combobox');
+  
+  //   expect(input).toBeInTheDocument();
+   
+  //   fireEvent.input(input, {
+  //     target: {
+  //       value: 'Walbrz',
+  //     },
+  //   });
+  
+  //   expect(await screen.findByText('Walbrzych')).toBeInTheDocument();
+  // });
 
   it('should render and remove widgets loader', async () => {
     render(<HomePage />);
