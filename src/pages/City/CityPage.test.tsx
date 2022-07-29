@@ -57,28 +57,6 @@ describe('City page', () => {
     expect(widgetsContainer).toBeInTheDocument();
   });
 
-  it('should render weather info widget', async () => {
-    renderCityPageInRoute();
-
-    expect(await screen.findByTestId(WeatherInfoWidgetTestIds.Container)).toBeInTheDocument();
-  });
-
-  it('should render temperature widget after entering /cities/:city route', async () => {
-    renderCityPageInRoute();
-
-    const temperatureWidget = await screen.findByTestId(TemperatureWidgetTestIds.Container);
-
-    expect(temperatureWidget).toBeInTheDocument();
-  });
-
-  it('should render weather aqi widget after entering /cities/:city route', async () => {
-    renderCityPageInRoute();
-
-    const weatherAqiWidget = await screen.findByTestId(WeatherAqiWidgetTestIds.Container);
-
-    expect(weatherAqiWidget).toBeInTheDocument();
-  });
-
   it('should render weather info widget content properly', async () => {
     renderCityPageInRoute();
 
