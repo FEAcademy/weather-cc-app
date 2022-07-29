@@ -4,9 +4,9 @@ import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherIn
 import { CityPage } from './CityPage';
 import { CityPageTestIds } from './CityPageTestIds';
 
-const route = '/cities/wroclaw';
-
 const renderCityPageInRoute = () => {
+  const route = '/cities/wroclaw';
+
   render(
     <Routes>
       <Route path="/cities/:city" element={<CityPage />} />
