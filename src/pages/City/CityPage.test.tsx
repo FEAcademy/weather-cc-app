@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { render, screen, waitForElementToBeRemoved } from 'utils';
+import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
 import { CityPage } from './CityPage';
 import { CityPageTestIds } from './CityPageTestIds';
@@ -33,11 +34,14 @@ describe('City page', () => {
     renderCityPageInRoute();
 
     const weatherInfoLoader = screen.getByTestId(WeatherInfoWidgetTestIds.Loader);
+    const aqiloader = screen.getByTestId(WeatherAqiWidgetTestIds.Loader);
 
     expect(weatherInfoLoader).toBeInTheDocument();
+    expect(aqiloader).toBeInTheDocument();
 
     await waitForElementToBeRemoved(weatherInfoLoader).then(() => {
       expect(weatherInfoLoader).not.toBeInTheDocument();
+      expect(aqiloader).not.toBeInTheDocument();
     });
   });
 
@@ -53,6 +57,14 @@ describe('City page', () => {
     renderCityPageInRoute();
 
     expect(await screen.findByTestId(WeatherInfoWidgetTestIds.Container)).toBeInTheDocument();
+  });
+
+  it('should render weather aqi widget after entering /cities/:city route', async () => {
+    renderCityPageInRoute();
+
+    const weatherAqiWidget = await screen.findByTestId(WeatherAqiWidgetTestIds.Container);
+
+    expect(weatherAqiWidget).toBeInTheDocument();
   });
 
   it('should render weather info widget content properly', async () => {
@@ -71,5 +83,23 @@ describe('City page', () => {
     expect(pressure).toBeInTheDocument();
     expect(windSpeed).toBeInTheDocument();
     expect(gust).toBeInTheDocument();
+  });
+
+  it('should render weather aqi content properly after entering /cities/:city route', async () => {
+    renderCityPageInRoute();
+
+    const co = await screen.findByText(/155 µg\/m3/i);
+    const no2 = await screen.findByText(/4 µg\/m3/i);
+    const o3 = await screen.findByText(/119 µg\/m3/i);
+    const pm25 = await screen.findByText(/7 μg\/m3/i);
+    const pm10 = await screen.findByText(/13 μg\/m3/i);
+    const so2 = await screen.findByText(/2 μg\/m3/i);
+
+    expect(pm10).toBeInTheDocument();
+    expect(co).toBeInTheDocument();
+    expect(no2).toBeInTheDocument();
+    expect(o3).toBeInTheDocument();
+    expect(pm25).toBeInTheDocument();
+    expect(so2).toBeInTheDocument();
   });
 });
