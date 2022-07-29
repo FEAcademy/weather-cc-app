@@ -1,4 +1,3 @@
-import userEvent from '@testing-library/user-event';
 import hooks from 'api/services/Weather';
 import { weatherSuccessResponse } from 'mocks/mockData';
 import { UseQueryResult } from 'react-query';
@@ -123,18 +122,5 @@ describe('Home page', () => {
 
     const input = screen.getByTestId(InputTestIds.Input);
     expect(input).toBeInTheDocument();
-  });
-
-  it('should display autocomplete input options', async () => {
-    render(<HomePage />);
-
-    const input = screen.getByRole('combobox');
-
-    userEvent.clear(input);
-    userEvent.type(input, 'Walb');
-
-    expect(await screen.findByText('Walbrzych')).toBeInTheDocument();
-    expect(await screen.findByText('Wroclaw')).toBeInTheDocument();
-    expect(await screen.findByText('Warszawa')).toBeInTheDocument();
   });
 });
