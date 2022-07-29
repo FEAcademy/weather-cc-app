@@ -1,5 +1,4 @@
 import Weather from 'api/services/Weather';
-import { useCallback } from 'react';
 import { AutocompleteInput } from 'components/AutocompleteInput';
 import { TemperatureWidget, TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { TemperatureWidgetLoader } from 'components/TemperatureWidget/TemperatureWidgetLoader';
@@ -8,22 +7,14 @@ import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiW
 import { WeatherInfoWidget } from 'components/WeatherInfoWidget';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
 import { WeatherWidgetLoader } from 'components/WeatherWidget/WeatherWidgetLoader';
-import { Select } from 'models/Select';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { GeolocationButton } from './components/GeolocationButton';
 import { Container, SelectContainer, WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
-  const [savedLocation, setLocation] = useLocalStorage('current_location');
-  const { data, isLoading } = Weather.useCity(savedLocation || '');
-
-  const handleSelect = useCallback(
-    (city: Select | null) => {
-      city && setLocation(city.value);
-    },
-    [setLocation],
-  );
+  const [savedLocation, setSavedLocation] = useLocalStorage('current_location');
+  const { data, isLoading } = Weather.useLocation(savedLocation || '');
 
   const renderContent = () => {
     if (isLoading) {
@@ -70,8 +61,8 @@ const HomePage = () => {
   return (
     <Container data-testid={HomePageTestIds.HomePage}>
       <SelectContainer>
-        <AutocompleteInput handleSelect={handleSelect} savedLocation={savedLocation || ''} />
-        <GeolocationButton />
+        <AutocompleteInput setSavedLocation={setSavedLocation} savedLocation={savedLocation || ''} />
+        <GeolocationButton updateSavedLocation={setSavedLocation} />
       </SelectContainer>
       <WidgetWrapper data-testid={HomePageTestIds.Widgets}>{renderContent()}</WidgetWrapper>
     </Container>

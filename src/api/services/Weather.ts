@@ -4,19 +4,19 @@ import { Location } from 'models/Weather';
 import { weatherClient } from '../clients';
 
 export default {
-  useCity: (cityName: string) =>
+  useLocation: (location: string) =>
     useQuery<Weather, Error>(
-      ['weather', cityName],
+      ['weather', location],
       async () => {
         const res = await weatherClient.get<Weather>('/current.json', {
           params: {
-            q: cityName,
+            q: location,
             aqi: 'yes',
           },
         });
         return res.data;
       },
-      { enabled: !!cityName },
+      { enabled: !!location },
     ),
   useSearchCities: (cityName: string) =>
     useQuery<string[], Error>(

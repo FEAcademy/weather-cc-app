@@ -7,13 +7,17 @@ import { inputStyles } from './AutocompleteInput.styled';
 import { InputTestIds } from './AutocompleteInputTestIds';
 
 interface Props {
-  handleSelect: (newValue: Select | null) => void;
+  setSavedLocation: React.Dispatch<React.SetStateAction<string | null>>;
   savedLocation: string;
 }
 
-const AutocompleteInput = ({ handleSelect, savedLocation }: Props) => {
+const AutocompleteInput = ({ setSavedLocation, savedLocation }: Props) => {
   const [inputValue, setInputValue] = useState(savedLocation);
   const { data } = Weather.useSearchCities(inputValue);
+
+  const handleSelect = (city: Select | null) => {
+    city && setSavedLocation(city.value);
+  };
 
   const loadOptions = (inputValue: string) => {
     setInputValue(inputValue);
