@@ -6,6 +6,7 @@ import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiW
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
 import { CityPage } from './CityPage';
 import { CityPageTestIds } from './CityPageTestIds';
+import { CityNameLoaderTestIds } from './components/CityNameLoader';
 
 const renderCityPageInRoute = () => {
   const route = '/cities/wroclaw';
@@ -29,6 +30,18 @@ describe('City page', () => {
 
     const cityNameElement = await screen.findByText(/Wroclaw/i);
     expect(cityNameElement).toBeInTheDocument();
+  });
+
+  it('should render and remove city name loader', async () => {
+    renderCityPageInRoute();
+
+    const cityNameLoader = await screen.findByTestId(CityNameLoaderTestIds.Loader);
+
+    expect(cityNameLoader).toBeInTheDocument();
+
+    await waitForElementToBeRemoved(cityNameLoader).then(() => {
+      expect(cityNameLoader).not.toBeInTheDocument();
+    });
   });
 
   it('should render and remove widgets loader', async () => {
