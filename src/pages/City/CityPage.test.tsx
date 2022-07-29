@@ -66,7 +66,6 @@ describe('City page', () => {
   });
 
   it('should render temperature widget', async () => {
-    localStorage.setItem('current_location', 'Warszawa');
     renderCityPageInRoute();
 
     expect(await screen.findByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
