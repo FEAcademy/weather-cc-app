@@ -57,6 +57,29 @@ describe('City page', () => {
     expect(widgetsContainer).toBeInTheDocument();
   });
 
+  it('should render weather info widget', async () => {
+    renderCityPageInRoute();
+
+    const weatherInfoWidget = await screen.findByTestId(WeatherInfoWidgetTestIds.Container);
+
+    expect(weatherInfoWidget).toBeInTheDocument();
+  });
+
+  it('should render temperature widget', async () => {
+    localStorage.setItem('current_location', 'Warszawa');
+    renderCityPageInRoute();
+
+    expect(await screen.findByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
+  });
+
+  it('should render weather aqi widget', async () => {
+    renderCityPageInRoute();
+
+    const weatherAqiWidget = await screen.findByTestId(WeatherAqiWidgetTestIds.Container);
+
+    expect(weatherAqiWidget).toBeInTheDocument();
+  });
+
   it('should render weather info widget content properly', async () => {
     renderCityPageInRoute();
 
