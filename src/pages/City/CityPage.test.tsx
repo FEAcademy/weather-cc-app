@@ -4,7 +4,9 @@ import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiW
 import { CityPage } from './CityPage';
 import { CityPageTestIds } from './CityPageTestIds';
 
-const renderCityPageInRoute = (route: string) => {
+const renderCityPageInRoute = () => {
+  const route = '/cities/wroclaw';
+
   render(
     <Routes>
       <Route path="/cities/:city" element={<CityPage />} />
@@ -29,18 +31,14 @@ describe('City page', () => {
   });
 
   it('should display city name after entering /cities/:city route', async () => {
-    const route = '/cities/wroclaw';
-
-    renderCityPageInRoute(route);
+    renderCityPageInRoute();
 
     const cityNameElement = await screen.findByText(/Wroclaw/i);
     expect(cityNameElement).toBeInTheDocument();
   });
 
   it('should render weather aqi widget after entering /cities/:city route', async () => {
-    const route = '/cities/wroclaw';
-
-    renderCityPageInRoute(route);
+    renderCityPageInRoute();
 
     const weatherAqiWidget = await screen.findByTestId(WeatherAqiWidgetTestIds.Container);
 
@@ -48,9 +46,7 @@ describe('City page', () => {
   });
 
   it('should render and remove widgets loader after entering /cities/:city route', async () => {
-    const route = '/cities/wroclaw';
-
-    renderCityPageInRoute(route);
+    renderCityPageInRoute();
 
     const aqiloader = screen.getByTestId(WeatherAqiWidgetTestIds.Loader);
 
@@ -62,9 +58,7 @@ describe('City page', () => {
   });
 
   it('should render weather aqi content properly after entering /cities/:city route', async () => {
-    const route = '/cities/wroclaw';
-
-    renderCityPageInRoute(route);
+    renderCityPageInRoute();
 
     const co = await screen.findByText(/155 µg\/m3/i);
     const no2 = await screen.findByText(/4 µg\/m3/i);
