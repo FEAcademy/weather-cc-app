@@ -77,13 +77,12 @@ describe('Autocomplete input', () => {
 
     const input = screen.getByRole('combobox');
 
-    fireEvent.input(input, {
-      target: {
-        value: 'Walb',
-      },
-    });
-    
-    fireEvent.click(await screen.findByText('Walbrzych'));
+    const user = userEvent.setup();
+    await user.clear(input);
+    await user.type(input, 'Walb');
+
+    const option = await screen.findByText('Walbrzych');
+    await user.click(option);
 
     expect(screen.getByText('Walbrzych')).toBeInTheDocument();
     expect(screen.queryByText('Wroclaw')).not.toBeInTheDocument();
