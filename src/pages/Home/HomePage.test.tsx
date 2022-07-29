@@ -12,16 +12,14 @@ import { HomePageTestIds } from './HomePageTestIds';
 
 describe('Home page', () => {
   beforeEach(() => {
-
     jest.spyOn(hooks, 'useSearchCities').mockReturnValue({
-      data: ['Walbrzych','Wroclaw','Warszawa']
+      data: ['Walbrzych', 'Wroclaw', 'Warszawa'],
     } as UseQueryResult<string[], Error>);
 
     localStorage.setItem('current_location', 'Warszawa');
   });
 
   it('should render and remove widgets loader', async () => {
-    
     render(<HomePage />);
 
     const temperatureLoader = screen.getByTestId(TemperatureWidgetTestIds.Loader);
@@ -129,12 +127,12 @@ describe('Home page', () => {
 
   it('should display autocomplete input options', async () => {
     render(<HomePage />);
-    
+
     const input = screen.getByRole('combobox');
-    
+
     userEvent.clear(input);
     userEvent.type(input, 'Walb');
-  
+
     expect(await screen.findByText('Walbrzych')).toBeInTheDocument();
     expect(await screen.findByText('Wroclaw')).toBeInTheDocument();
     expect(await screen.findByText('Warszawa')).toBeInTheDocument();

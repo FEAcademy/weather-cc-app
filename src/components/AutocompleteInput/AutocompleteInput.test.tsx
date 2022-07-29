@@ -7,14 +7,14 @@ import { InputTestIds } from './AutocompleteInputTestIds';
 jest.mock('api/services/Weather', () => ({
   ...jest.requireActual('api/services/Weather'),
   useSearchCities: () => ({
-    data: ['Walbrzych', 'Wroclaw','Warszawa'],
+    data: ['Walbrzych', 'Wroclaw', 'Warszawa'],
   }),
 }));
-
 
 describe('Autocomplete input', () => {
   it('should render', () => {
     const fn = jest.fn();
+
     render(<AutocompleteInput handleSelect={fn} savedLocation={weatherSuccessResponse.location.name} />);
 
     const input = screen.getByTestId(InputTestIds.Input);
@@ -23,6 +23,7 @@ describe('Autocomplete input', () => {
 
   it('should load data from localstorage and fulfill input', () => {
     const fn = jest.fn();
+
     render(<AutocompleteInput handleSelect={fn} savedLocation={weatherSuccessResponse.location.name} />);
 
     const input = screen.getByRole('combobox');
@@ -30,12 +31,10 @@ describe('Autocomplete input', () => {
     expect(input).toHaveValue(weatherSuccessResponse.location.name);
   });
 
- 
   it('should display loading state and then remove it', async () => {
     const fn = jest.fn();
-    render(
-      <AutocompleteInput handleSelect={fn} savedLocation={weatherSuccessResponse.location.name} />
-    );
+
+    render(<AutocompleteInput handleSelect={fn} savedLocation={weatherSuccessResponse.location.name} />);
 
     const input = screen.getByRole('combobox');
     expect(input).toBeInTheDocument();
@@ -57,16 +56,15 @@ describe('Autocomplete input', () => {
 
   it('should display autocomplete input options', async () => {
     const fn = jest.fn();
-    render(
-      <AutocompleteInput handleSelect={fn} savedLocation={weatherSuccessResponse.location.name} />
-    );
-    
+
+    render(<AutocompleteInput handleSelect={fn} savedLocation={weatherSuccessResponse.location.name} />);
+
     const input = screen.getByRole('combobox');
-    
+
     const user = userEvent.setup();
     await user.clear(input);
     await user.type(input, 'Walb');
-  
+
     expect(await screen.findByText('Walbrzych')).toBeInTheDocument();
     expect(await screen.findByText('Wroclaw')).toBeInTheDocument();
     expect(await screen.findByText('Warszawa')).toBeInTheDocument();
@@ -74,21 +72,21 @@ describe('Autocomplete input', () => {
 
   it('should display the selected option', async () => {
     const fn = jest.fn();
-    render(
-      <AutocompleteInput handleSelect={fn} savedLocation={weatherSuccessResponse.location.name} />
-    );
+
+    render(<AutocompleteInput handleSelect={fn} savedLocation={weatherSuccessResponse.location.name} />);
+
     const input = screen.getByRole('combobox');
-   
+
     fireEvent.input(input, {
       target: {
         value: 'Walb',
       },
     });
-    fireEvent.click(await screen.findByText('Walbrzych'));
     
+    fireEvent.click(await screen.findByText('Walbrzych'));
+
     expect(screen.getByText('Walbrzych')).toBeInTheDocument();
     expect(screen.queryByText('Wroclaw')).not.toBeInTheDocument();
     expect(screen.queryByText('Warszawa')).not.toBeInTheDocument();
-   
   });
 });
