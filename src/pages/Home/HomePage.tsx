@@ -62,7 +62,7 @@ const HomePage = () => {
     <Container data-testid={HomePageTestIds.HomePage}>
       <SelectContainer>
         <AutocompleteInput setSavedLocation={setSavedLocation} savedLocation={savedLocation || ''} />
-        <GeolocationButton updateSavedLocation={(location) => setSavedLocation(location)} />
+        <GeolocationButton updateSavedLocation={setSavedLocation} />
       </SelectContainer>
       <WidgetWrapper data-testid={HomePageTestIds.Widgets}>{renderContent()}</WidgetWrapper>
     </Container>
