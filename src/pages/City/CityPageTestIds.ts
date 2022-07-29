@@ -1,5 +1,5 @@
 enum CityPageTestIds {
-  Container = 'single-location-page',
+  Container = 'city-page',
   Widgets = 'city-page-widgets',
 }
 

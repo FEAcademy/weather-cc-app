@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { PageContentContainer } from 'components/PageContentContainer';
 import { WeatherAqiWidget } from 'components/WeatherAqiWidget';
 import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
+import { WeatherInfoWidget } from 'components/WeatherInfoWidget';
+import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
 import { WeatherWidgetLoader } from 'components/WeatherWidget/WeatherWidgetLoader';
 import { WidgetWrapper } from 'components/WidgetWrapper';
 import { CityName } from './CityPage.styled';
@@ -18,20 +20,35 @@ const CityPage = () => {
 
   const renderContent = () => {
     if (isLoading) {
-      return <WeatherWidgetLoader data-testid={WeatherAqiWidgetTestIds.Loader} />;
+      return (
+        <>
+          <WeatherWidgetLoader data-testid={WeatherInfoWidgetTestIds.Loader} />
+          <WeatherWidgetLoader data-testid={WeatherAqiWidgetTestIds.Loader} />
+        </>
+      );
     }
 
     if (data) {
       return (
-        <WeatherAqiWidget
-          defraIndex={data.current.air_quality['gb-defra-index']}
-          so2={data.current.air_quality.so2}
-          co={data.current.air_quality.co}
-          no2={data.current.air_quality.no2}
-          o3={data.current.air_quality.o3}
-          pm25={data.current.air_quality.pm2_5}
-          pm10={data.current.air_quality.pm10}
-        />
+        <>
+          <WeatherInfoWidget
+            cloud={data.current.cloud}
+            precip={data.current.precip_mm}
+            humidity={data.current.humidity}
+            pressure={data.current.pressure_mb}
+            windSpeed={data.current.wind_kph}
+            gust={data.current.gust_kph}
+          />
+          <WeatherAqiWidget
+            defraIndex={data.current.air_quality['gb-defra-index']}
+            so2={data.current.air_quality.so2}
+            co={data.current.air_quality.co}
+            no2={data.current.air_quality.no2}
+            o3={data.current.air_quality.o3}
+            pm25={data.current.air_quality.pm2_5}
+            pm10={data.current.air_quality.pm10}
+          />
+        </>
       );
     }
   };
