@@ -1,1 +1,1 @@
-export { WidgetWrapper } from './WidgetWrapper.styled';
+export { WidgetWrapper } from './WidgetWrapper';
