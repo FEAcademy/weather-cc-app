@@ -1,5 +1,7 @@
+import { weatherSuccessResponse } from 'mocks/mockData';
 import { Route, Routes } from 'react-router-dom';
 import { render, screen, waitForElementToBeRemoved } from 'utils';
+import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
 import { CityPage } from './CityPage';
@@ -7,7 +9,6 @@ import { CityPageTestIds } from './CityPageTestIds';
 
 const renderCityPageInRoute = () => {
   const route = '/cities/wroclaw';
-
   render(
     <Routes>
       <Route path="/cities/:city" element={<CityPage />} />
@@ -34,13 +35,16 @@ describe('City page', () => {
     renderCityPageInRoute();
 
     const weatherInfoLoader = screen.getByTestId(WeatherInfoWidgetTestIds.Loader);
+    const temperatureWidgetLoader = screen.getByTestId(TemperatureWidgetTestIds.Loader);
     const aqiloader = screen.getByTestId(WeatherAqiWidgetTestIds.Loader);
 
     expect(weatherInfoLoader).toBeInTheDocument();
+    expect(temperatureWidgetLoader).toBeInTheDocument();
     expect(aqiloader).toBeInTheDocument();
 
     await waitForElementToBeRemoved(weatherInfoLoader).then(() => {
       expect(weatherInfoLoader).not.toBeInTheDocument();
+      expect(temperatureWidgetLoader).not.toBeInTheDocument();
       expect(aqiloader).not.toBeInTheDocument();
     });
   });
@@ -56,10 +60,18 @@ describe('City page', () => {
   it('should render weather info widget', async () => {
     renderCityPageInRoute();
 
-    expect(await screen.findByTestId(WeatherInfoWidgetTestIds.Container)).toBeInTheDocument();
+    const weatherInfoWidget = await screen.findByTestId(WeatherInfoWidgetTestIds.Container);
+
+    expect(weatherInfoWidget).toBeInTheDocument();
   });
 
-  it('should render weather aqi widget after entering /cities/:city route', async () => {
+  it('should render temperature widget', async () => {
+    renderCityPageInRoute();
+
+    expect(await screen.findByTestId(TemperatureWidgetTestIds.Container)).toBeInTheDocument();
+  });
+
+  it('should render weather aqi widget', async () => {
     renderCityPageInRoute();
 
     const weatherAqiWidget = await screen.findByTestId(WeatherAqiWidgetTestIds.Container);
@@ -83,6 +95,20 @@ describe('City page', () => {
     expect(pressure).toBeInTheDocument();
     expect(windSpeed).toBeInTheDocument();
     expect(gust).toBeInTheDocument();
+  });
+
+  it('should render temperature widget content properly after entering /cities/:city route', async () => {
+    renderCityPageInRoute();
+
+    const weatherIcon = await screen.findByAltText('Weather widget icon');
+    const description = await screen.findByText(/Sunny/i);
+    const currentTemperature = await screen.findByText(/25/i);
+    const feelslikeTemperature = await screen.findByText(/26/i);
+
+    expect(weatherIcon).toHaveAttribute('src', weatherSuccessResponse.current.condition.icon);
+    expect(description).toBeInTheDocument();
+    expect(currentTemperature).toBeInTheDocument();
+    expect(feelslikeTemperature).toBeInTheDocument();
   });
 
   it('should render weather aqi content properly after entering /cities/:city route', async () => {
