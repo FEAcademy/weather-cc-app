@@ -17,8 +17,7 @@ describe('Autocomplete input', () => {
 
     render(<AutocompleteInput setSavedLocation={fn} savedLocation={weatherSuccessResponse.location.name} />);
 
-    const input = screen.getByRole('combobox');
-
-    expect(input).toHaveValue(weatherSuccessResponse.location.name);
+    const inputValue = screen.getByText(weatherSuccessResponse.location.name);
+    expect(inputValue).toBeInTheDocument();
   });
 });
