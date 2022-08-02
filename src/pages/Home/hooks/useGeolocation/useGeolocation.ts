@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Coordinates } from 'models/Coordinates';
-import { GeoLocation } from 'models/GeoLocation';
+import { Geolocation } from 'models/Geolocation';
 
-const useGeoLocation = (): [Coordinates | null, () => void] => {
+const useGeolocation = (): [Coordinates | null, () => void] => {
   const [geoLocation, setGeoLocation] = useState<Coordinates | null>(null);
 
-  const onSuccess = (geolocation: GeoLocation) => {
+  const onSuccess = (geolocation: Geolocation) => {
     setGeoLocation({
       latitude: geolocation.coords.latitude,
       longitude: geolocation.coords.longitude,
@@ -23,4 +23,4 @@ const useGeoLocation = (): [Coordinates | null, () => void] => {
   return [geoLocation, getLocation];
 };
 
-export { useGeoLocation };
+export { useGeolocation };

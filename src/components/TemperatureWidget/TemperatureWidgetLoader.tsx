@@ -1,13 +1,10 @@
 import ContentLoader from 'react-content-loader';
 import { Container } from './TemperatureWidget.styled';
+import { TemperatureWidgetTestIds } from './TemperatureWidgetTestIds';
 
-interface Props {
-  'data-testid': string;
-}
-
-const TemperatureWidgetLoader = (props: Props) => {
+const TemperatureWidgetLoader = () => {
   return (
-    <Container {...props}>
+    <Container data-testid={TemperatureWidgetTestIds.Loader}>
       <ContentLoader
         speed={2}
         width={131}

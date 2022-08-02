@@ -1,8 +1,8 @@
 import { StylesConfig } from 'react-select';
 import { theme } from 'theme/theme';
-import { Select } from 'models/Select';
+import { AutocompleteOption } from 'models/AutocompleteLocation';
 
-const inputStyles: StylesConfig<Select> = {
+const inputStyles: StylesConfig<AutocompleteOption> = {
   container: (styles) => ({
     ...styles,
     margin: '0px 24px 35px 0',
