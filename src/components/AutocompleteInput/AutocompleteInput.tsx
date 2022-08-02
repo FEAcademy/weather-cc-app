@@ -15,6 +15,11 @@ const AutocompleteInput = ({ setSavedLocation, savedLocation }: Props) => {
   const [inputValue, setInputValue] = useState(savedLocation);
   const { data } = Weather.useSearchCities(inputValue);
 
+  const value: Select = {
+    label: savedLocation,
+    value: savedLocation,
+  };
+
   const handleSelect = (city: Select | null) => {
     city && setSavedLocation(city.value);
   };
@@ -44,7 +49,7 @@ const AutocompleteInput = ({ setSavedLocation, savedLocation }: Props) => {
         isMulti={false}
         name="cities"
         inputId="cities"
-        defaultInputValue={savedLocation}
+        value={value}
       />
     </div>
   );
