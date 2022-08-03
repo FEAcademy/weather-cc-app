@@ -1,4 +1,3 @@
-import React from 'react';
 import { useEffect } from 'react';
 import { MapPin } from 'react-feather';
 import { serializeCoordinates } from 'utils/serializeCoordinates';

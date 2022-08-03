@@ -1,5 +1,5 @@
 import Weather from 'api/services/Weather';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Select from 'react-select';
 import { useDebouncedCallback } from 'use-debounce';
 import { AutocompleteOption } from 'models/AutocompleteLocation';
