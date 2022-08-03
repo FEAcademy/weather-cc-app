@@ -1,4 +1,4 @@
-interface GeoLocation {
+interface Geolocation {
   coords: {
     accuracy: number;
     altitude: number | null;
@@ -11,4 +11,4 @@ interface GeoLocation {
   timestamp: number;
 }
 
-export type { GeoLocation };
+export type { Geolocation };

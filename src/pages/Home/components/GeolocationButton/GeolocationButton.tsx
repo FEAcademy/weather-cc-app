@@ -1,21 +1,21 @@
-import { useGeoLocation } from 'hooks/useGeoLocation';
 import React from 'react';
 import { useEffect } from 'react';
 import { MapPin } from 'react-feather';
 import { serializeCoordinates } from 'utils/serializeCoordinates';
+import { useGeolocation } from '../../hooks/useGeolocation';
 import { Button } from './GeolocationButton.styled';
 import { GeolocationButtonTestIds } from './GeolocationButtonTestIds';
 
 interface Props {
-  updateSavedLocation: React.Dispatch<React.SetStateAction<string | null>>;
+  onGeolocation: (newGeolocation: string) => void;
 }
 
-const GeolocationButton = ({ updateSavedLocation }: Props) => {
-  const [location, getLocation] = useGeoLocation();
+const GeolocationButton = ({ onGeolocation }: Props) => {
+  const [location, getLocation] = useGeolocation();
 
   useEffect(() => {
-    if (location) updateSavedLocation(serializeCoordinates(location));
-  }, [location, updateSavedLocation]);
+    if (location) onGeolocation(serializeCoordinates(location));
+  }, [location, onGeolocation]);
 
   return (
     <Button data-testid={GeolocationButtonTestIds.Button} onClick={getLocation}>

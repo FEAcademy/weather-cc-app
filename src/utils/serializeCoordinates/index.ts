@@ -1,0 +1,1 @@
+export { serializeCoordinates } from './serializeCoordinates';

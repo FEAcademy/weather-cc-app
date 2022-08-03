@@ -1,9 +1,9 @@
 import { weatherSuccessResponse } from 'mocks/mockData';
-import { render, screen, waitForElementToBeRemoved } from 'utils';
+import { render, screen, waitForElementToBeRemoved } from 'test-utils';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
-import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
-import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
-import { GeolocationButtonTestIds } from './components/GeolocationButton/GeolocationButtonTestIds';
+import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget';
+import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget';
+import { GeolocationButtonTestIds } from './components/GeolocationButton';
 import { HomePage } from './HomePage';
 import { HomePageTestIds } from './HomePageTestIds';
 
