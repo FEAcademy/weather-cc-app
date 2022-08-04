@@ -1,5 +1,6 @@
 import Weather from 'api/services/Weather';
 import { useLocalStorage } from 'hooks/useLocalStorage';
+import { useCallback } from 'react';
 import { TemperatureWidget, TemperatureWidgetLoader } from 'components/TemperatureWidget';
 import { WeatherAqiWidget, WeatherAqiWidgetLoader } from 'components/WeatherAqiWidget';
 import { WeatherInfoWidget, WeatherInfoWidgetLoader } from 'components/WeatherInfoWidget';
@@ -56,11 +57,15 @@ const HomePage = () => {
     }
   };
 
+  const handleChangeSavedLocation = useCallback((value:string) => {
+    setSavedLocation(value);
+  },[setSavedLocation]);
+
   return (
     <Container data-testid={HomePageTestIds.HomePage}>
       <SelectContainer>
-        <AutocompleteInput onChange={newValue=>setSavedLocation(newValue)} value={data?.location.name || ''} />
-        <GeolocationButton onGeolocation={newValue=>setSavedLocation(newValue)} />
+        <AutocompleteInput onChange={handleChangeSavedLocation} value={data?.location.name || ''} />
+        <GeolocationButton onGeolocation={handleChangeSavedLocation} />
       </SelectContainer>
       <WidgetWrapper data-testid={HomePageTestIds.Widgets}>{renderContent()}</WidgetWrapper>
     </Container>
