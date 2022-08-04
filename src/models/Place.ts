@@ -4,6 +4,7 @@ interface Place {
   id: number;
   tags: {
     name: string;
+    population: string;
   };
 }
 

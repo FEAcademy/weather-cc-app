@@ -1,12 +1,12 @@
 import { overPassClient } from 'api/clients';
 import { useQuery } from 'react-query';
 import { generateCacheKey } from 'utils/generateCacheKey';
-import { serializeLayerQuery } from 'utils/serializeLayerQuery';
+import { serializeQuery } from 'utils/serializeQuery';
 import { Place } from 'models/Place';
 
 export default {
   usePlaces: (box: string, zoom: number) => {
-    const query = serializeLayerQuery(zoom, box);
+    const query = serializeQuery(zoom, box);
 
     const cacheKey = generateCacheKey(box);
     cacheKey.push(zoom);
@@ -15,7 +15,12 @@ export default {
       ['cities', cacheKey],
       async () => {
         const res = await overPassClient.post('/interpreter', query);
-        return res.data.elements;
+
+        const data = res.data.elements
+          .sort((a: Place, b: Place) => Number(b.tags.population) - Number(a.tags.population))
+          .slice(0, 15);
+
+        return data;
       },
       { enabled: !!box, refetchOnWindowFocus: false },
     );
