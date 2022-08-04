@@ -1,5 +1,4 @@
 import { TileLayer } from 'react-leaflet';
-import { MarkerWeather } from './components/MarkerWeather';
 import { StyledMapContainer, MapWrapper } from './MapPage.styled';
 import { MapPageTestIds } from './MapPageTestIds';
 
@@ -14,7 +13,6 @@ const MapPage = () => {
         zoomControl={false}
         scrollWheelZoom={true}
       >
-        <MarkerWeather lat={localization.lat} lon={localization.long} />
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       </StyledMapContainer>
     </MapWrapper>

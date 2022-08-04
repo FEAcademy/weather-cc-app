@@ -1,15 +1,15 @@
 import Weather from 'api/services/Weather';
-import { Container, Content, WeatherIcon, Temperature, City } from './MarkerWeather.styled';
+import { Marker } from 'react-leaflet';
+import { Content, WeatherIcon, Temperature, City } from './MarkerWeather.styled';
 import { MarkerWeatherLoader } from './MarkerWeatherLoader';
 import { MarkerWeatherTestIds } from './MarkerWeatherTestIds';
 
 interface Props {
-  lat: number;
-  lon: number;
+  pos: [number, number];
 }
 
-const MarkerWeather = ({ lat, lon }: Props) => {
-  const { data, isLoading } = Weather.useCity(`${lat},${lon}`);
+const MarkerWeather = ({ pos }: Props) => {
+  const { data, isLoading } = Weather.useCity(`${pos[0]},${pos[1]}`);
 
   const renderContent = () => {
     if (isLoading) {
@@ -31,11 +31,11 @@ const MarkerWeather = ({ lat, lon }: Props) => {
 
   return (
     <div data-testid={MarkerWeatherTestIds.Container}>
-      <Container position={[lat, lon]} opacity={0}>
+      <Marker position={pos} opacity={0}>
         <Content permanent={true} direction="top">
           {renderContent()}
         </Content>
-      </Container>
+      </Marker>
     </div>
   );
 };

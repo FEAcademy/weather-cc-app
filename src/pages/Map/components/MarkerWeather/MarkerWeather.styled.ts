@@ -1,10 +1,6 @@
 import ContentLoader from 'react-content-loader';
-import { Marker, Tooltip } from 'react-leaflet';
+import { Tooltip } from 'react-leaflet';
 import styled from 'styled-components';
-
-const Container = styled(Marker)`
-  opacity: 0;
-`;
 
 const Content = styled(Tooltip)`
   width: 120px;
@@ -66,4 +62,4 @@ const WeatherTextLoader = styled(ContentLoader)`
   margin-top: 33px;
 `;
 
-export { Container, Content, WeatherIcon, Temperature, City, WeatherIconLoader, WeatherTextLoader };
+export { Content, WeatherIcon, Temperature, City, WeatherIconLoader, WeatherTextLoader };
