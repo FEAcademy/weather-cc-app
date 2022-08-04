@@ -7,7 +7,10 @@ const theme = {
   },
   colors: {
     text: '#707070',
-    background: '#ffffff',
+    backgrounds: {
+      main: '#ffffff',
+      gradient: 'linear-gradient(106.29deg, #FFFFFF 0%, #FAFAFA 100%)',
+    },
   },
   defraTheme: {
     backgrounds: {
