@@ -25,7 +25,7 @@ describe('Autocomplete input', () => {
 
   it('should display loading state and then remove it', async () => {
     const fn = jest.fn();
-   
+
     render(<AutocompleteInput onChange={fn} value={weatherSuccessResponse.location.name} />);
 
     const input = screen.getByRole('combobox');
@@ -72,7 +72,7 @@ describe('Autocomplete input', () => {
 
     const firstOption = await screen.findByText('Brzeg');
     const secondOption = await screen.findByText('Nowa Brzezina');
-    
+
     expect(firstOption).toBeInTheDocument();
     expect(secondOption).toBeInTheDocument();
 
@@ -80,7 +80,7 @@ describe('Autocomplete input', () => {
 
     expect(firstOption).toBeInTheDocument();
     await waitFor(() => {
-      expect(secondOption).not.toBeInTheDocument();});
+      expect(secondOption).not.toBeInTheDocument();
+    });
   });
-
 });
