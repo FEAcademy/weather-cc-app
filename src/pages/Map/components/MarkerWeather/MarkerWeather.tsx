@@ -24,11 +24,12 @@ const MarkerWeather = ({ pos }: Props) => {
     }
     if (data) {
       const { condition } = data.current;
+      const roundedTemperature = Math.round(data.current.temp_c);
       return (
         <>
           <WeatherIcon src={condition.icon} alt="Weather Icon" />
           <Temperature>
-            {data.current.temp_c}
+            {roundedTemperature}
             <span>&deg;C</span>
           </Temperature>
           <City>{data.location.name}</City>
