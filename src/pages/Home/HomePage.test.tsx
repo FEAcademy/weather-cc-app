@@ -1,14 +1,23 @@
 import { weatherSuccessResponse } from 'mocks/mockData';
-import { render, screen, waitForElementToBeRemoved } from 'utils';
+import { render, screen, waitForElementToBeRemoved } from 'test-utils';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
-import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
-import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
+import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget';
+import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget';
+import { GeolocationButtonTestIds } from './components/GeolocationButton';
 import { HomePage } from './HomePage';
 import { HomePageTestIds } from './HomePageTestIds';
 
 describe('Home page', () => {
   beforeEach(() => {
     localStorage.setItem('current_location', 'Warszawa');
+  });
+
+  it('should display geolocation button', () => {
+    render(<HomePage />);
+
+    const geolocationButton = screen.getByTestId(GeolocationButtonTestIds.Button);
+
+    expect(geolocationButton).toBeInTheDocument();
   });
 
   it('should render and remove widgets loader', async () => {

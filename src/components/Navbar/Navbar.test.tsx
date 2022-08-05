@@ -1,4 +1,4 @@
-import { render, screen } from 'utils';
+import { render, screen } from 'test-utils';
 import { Navbar } from 'components/Navbar';
 import { NavbarTitles } from 'components/Navbar/NavbarTitles';
 
