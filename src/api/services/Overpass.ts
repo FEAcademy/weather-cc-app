@@ -1,4 +1,4 @@
-import { overPassClient } from 'api/clients';
+import { overpassClient } from 'api/clients';
 import { useQuery } from 'react-query';
 import { generateCacheKey } from 'utils/generateCacheKey';
 import { serializeQuery } from 'utils/serializeQuery';
@@ -14,7 +14,7 @@ export default {
     return useQuery<Place[], Error>(
       ['cities', cacheKey],
       async () => {
-        const res = await overPassClient.post('/interpreter', query);
+        const res = await overpassClient.post('/interpreter', query);
 
         const data = res.data.elements
           .sort((a: Place, b: Place) => Number(b.tags.population) - Number(a.tags.population))

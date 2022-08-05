@@ -43,7 +43,7 @@ const MarkerWeather = ({ pos, cityName }: Props) => {
   return (
     <div data-testid={MarkerWeatherTestIds.Container}>
       <Marker icon={DefaultIcon} position={pos} opacity={0}>
-        <Content interactive={true} className="tooltipek" permanent={true} direction="top">
+        <Content interactive={true} permanent={true} direction="top">
           {renderContent()}
         </Content>
       </Marker>
