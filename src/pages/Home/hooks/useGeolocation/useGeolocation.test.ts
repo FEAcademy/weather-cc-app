@@ -17,10 +17,14 @@ describe('useGeolocation', () => {
     await waitFor(() => expect(result.current[0]).toMatchObject({ latitude: 34.5, longitude: 55.2 }));
   });
 
-  it('should return incorrect coordinates on error', async () => {
-    getCurrentPositionMock.mockImplementation((_, rejected) => rejected({}));
+  it('should return ip lookup coordinates on error', async () => {
+    getCurrentPositionMock.mockImplementation((_, rejected) => rejected());
 
     const { result } = renderHook(() => useGeolocation());
+
+    act(() => {
+      result.current[1]();
+    });
 
     await waitFor(() => expect(result.current[0]).toEqual(null));
   });
