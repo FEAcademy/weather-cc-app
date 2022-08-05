@@ -1,0 +1,1 @@
+export { serializeDefraIndex } from './serializeDefraIndex';

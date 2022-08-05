@@ -1,5 +1,5 @@
 import { weatherSuccessResponse } from 'mocks/mockData';
-import { render, screen } from 'utils';
+import { render, screen } from 'test-utils';
 import { WeatherInfoWidget } from './WeatherInfoWidget';
 import { WeatherInfoWidgetTestIds } from './WeatherInfoWidgetTestIds';
 

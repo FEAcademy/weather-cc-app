@@ -1,21 +1,23 @@
-import hooks from 'api/services/Weather';
 import { weatherSuccessResponse } from 'mocks/mockData';
-import { UseQueryResult } from 'react-query';
-import { render, screen, waitForElementToBeRemoved } from 'utils';
-import { InputTestIds } from 'components/AutocompleteInput/AutocompleteInputTestIds';
+import { render, screen, waitForElementToBeRemoved } from 'test-utils';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
-import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
-import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
+import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget';
+import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget';
+import { GeolocationButtonTestIds } from './components/GeolocationButton';
 import { HomePage } from './HomePage';
 import { HomePageTestIds } from './HomePageTestIds';
 
 describe('Home page', () => {
   beforeEach(() => {
-    jest.spyOn(hooks, 'useSearchCities').mockReturnValue({
-      data: ['Walbrzych', 'Wroclaw', 'Warszawa'],
-    } as UseQueryResult<string[], Error>);
-
     localStorage.setItem('current_location', 'Warszawa');
+  });
+
+  it('should display geolocation button', () => {
+    render(<HomePage />);
+
+    const geolocationButton = screen.getByTestId(GeolocationButtonTestIds.Button);
+
+    expect(geolocationButton).toBeInTheDocument();
   });
 
   it('should render and remove widgets loader', async () => {
@@ -115,12 +117,5 @@ describe('Home page', () => {
     expect(o3).toBeInTheDocument();
     expect(pm25).toBeInTheDocument();
     expect(so2).toBeInTheDocument();
-  });
-
-  it('should render autocomplete input', () => {
-    render(<HomePage />);
-
-    const input = screen.getByTestId(InputTestIds.Input);
-    expect(input).toBeInTheDocument();
   });
 });

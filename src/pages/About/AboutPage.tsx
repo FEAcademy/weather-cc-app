@@ -1,4 +1,3 @@
-import React from 'react';
 import mapImg from 'assets/images/map.png';
 import parametersWidgetImg from 'assets/images/parametersWidget.png';
 import temperatureWidgetImg from 'assets/images/temperatureWidget.png';

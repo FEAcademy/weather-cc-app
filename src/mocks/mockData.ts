@@ -1,3 +1,4 @@
+import { Geolocation } from 'models/Geolocation';
 import { Weather } from 'models/Weather';
 
 const weatherSuccessResponse: Weather = {
@@ -48,4 +49,19 @@ const weatherSuccessResponse: Weather = {
   },
 };
 
-export { weatherSuccessResponse };
+const cities: string[] = ['Wroclaw', 'Warszawa', 'Walbrzych'];
+
+const positionData: Geolocation = {
+  coords: {
+    accuracy: 12,
+    altitude: 12,
+    altitudeAccuracy: 12,
+    heading: 12,
+    latitude: 34.5,
+    longitude: 55.2,
+    speed: 3,
+  },
+  timestamp: 23,
+};
+
+export { weatherSuccessResponse, cities, positionData };
