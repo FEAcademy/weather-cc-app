@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Content = styled(Tooltip)`
   width: 120px;
-  height: 108px;
+  min-height: 108px;
   opacity: 0.9;
   box-shadow: 0px 10px 20px rgba(227, 227, 227, 0.4);
   border-radius: 20px;
@@ -47,6 +47,10 @@ const City = styled.p`
   font-weight: 300;
   font-size: 15px;
   line-height: 18px;
+  word-break: break-word;
+  white-space: normal;
+  text-align: center;
+  margin-bottom: 18px;
 `;
 
 const WeatherIconLoader = styled(ContentLoader)`

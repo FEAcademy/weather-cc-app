@@ -16,9 +16,10 @@ const MarkerWeather = ({ pos }: Props) => {
       return <MarkerWeatherLoader />;
     }
     if (data) {
+      const { condition } = data.current;
       return (
         <>
-          <WeatherIcon src={data.current.condition.icon} alt="Weather Icon" />
+          <WeatherIcon src={condition.icon} alt="Weather Icon" />
           <Temperature>
             {data.current.temp_c}
             <span>&deg;C</span>
