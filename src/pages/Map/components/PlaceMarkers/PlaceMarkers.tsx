@@ -34,12 +34,8 @@ const PlaceMarkers = ({ boundsCoordinates, zoom }: Props) => {
   };
 
   const map = useMapEvents({
-    zoomend: () => {
-      setMapPosition(map);
-    },
-    dragend: () => {
-      setMapPosition(map);
-    },
+    zoomend: () => setMapPosition(map),
+    dragend: () => setMapPosition(map),
   });
 
   return (
