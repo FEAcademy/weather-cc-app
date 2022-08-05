@@ -5,7 +5,7 @@ const serializeQuery = (zoom: number, bounds: string): string => {
   if (zoom >= 10 && zoom <= 12) places = places.concat('|town');
 
   const newQuery = `
-  [out:json][timeout:25];
+  [out:json][timeout:50];
   (
     node["place"~"${places}"]${bounds};
   );

@@ -2,7 +2,7 @@ import { serializeQuery } from './serializeQuery';
 
 const getQuery = (newLayerQuery: string) => {
   return `
-  [out:json][timeout:25];
+  [out:json][timeout:50];
   (
     ${newLayerQuery};
   );
