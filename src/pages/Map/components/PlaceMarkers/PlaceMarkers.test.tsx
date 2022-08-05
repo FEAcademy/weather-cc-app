@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer } from 'react-leaflet';
 import { render, screen } from 'test-utils';
+import { MarkerWeatherTestIds } from '../MarkerWeather';
 import { PlaceMarkers } from './PlaceMarkers';
-import { PlaceMarkersTestIds } from './PlaceMarkersTestIds';
 
 describe('PlaceMarkers', () => {
   it('should render markers', async () => {
@@ -15,7 +15,7 @@ describe('PlaceMarkers', () => {
       </MapContainer>,
     );
 
-    const markers = await screen.findAllByTestId(PlaceMarkersTestIds.Marker);
+    const markers = await screen.findAllByTestId(MarkerWeatherTestIds.Container);
 
     expect(markers.length).toEqual(3);
   });

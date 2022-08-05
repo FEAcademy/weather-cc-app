@@ -7,12 +7,12 @@ const initialBounds = '(50.72167742756552,16.311950683593754,51.48993452350156,1
 const initialZoom = 10;
 
 const MapPage = () => {
-  const localization = { long: 17.038, lat: 51.107 };
+  const localization: [number, number] = [51.107, 17.038];
 
   return (
     <MapWrapper data-testid={MapPageTestIds.MapPage}>
       <StyledMapContainer
-        center={[localization.lat, localization.long]}
+        center={localization}
         zoom={10}
         zoomControl={false}
         scrollWheelZoom={true}

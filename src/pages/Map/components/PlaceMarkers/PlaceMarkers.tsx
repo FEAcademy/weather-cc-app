@@ -1,9 +1,9 @@
 import Overpass from 'api/services/Overpass';
 import { Map } from 'leaflet';
 import { useState } from 'react';
-import { useMapEvents, Marker, Tooltip } from 'react-leaflet';
+import { useMapEvents } from 'react-leaflet';
 import { useDebouncedCallback } from 'use-debounce';
-import { PlaceMarkersTestIds } from './PlaceMarkersTestIds';
+import { MarkerWeather } from '../MarkerWeather';
 
 interface Props {
   boundsCoordinates: string;
@@ -42,22 +42,12 @@ const PlaceMarkers = ({ boundsCoordinates, zoom }: Props) => {
   });
 
   return (
-    <div>
+    <>
       {places &&
         places.map((place) => {
-          return (
-            <div data-testid={PlaceMarkersTestIds.Marker} key={place.id}>
-              <Marker position={[place.lat, place.lon]} opacity={0}>
-                <Tooltip direction="top" permanent opacity={1}>
-                  <div>
-                    <p>{place.tags.name}</p>
-                  </div>
-                </Tooltip>
-              </Marker>
-            </div>
-          );
+          return <MarkerWeather pos={[place.lat, place.lon]} cityName={place.tags.name} key={place.id} />;
         })}
-    </div>
+    </>
   );
 };
 
