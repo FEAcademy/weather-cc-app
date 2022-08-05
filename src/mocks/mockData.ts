@@ -49,7 +49,12 @@ const weatherSuccessResponse: Weather = {
   },
 };
 
-const cities: string[] = ['Wroclaw', 'Warszawa', 'Walbrzych'];
+const cities: { [name: string]: string }[] = [
+  { name: 'Warszawa' },
+  { name: 'Walbrzych' },
+  { name: 'Brzeg' },
+  { name: 'Nowa Brzezina' },
+];
 
 const positionData: Geolocation = {
   coords: {
