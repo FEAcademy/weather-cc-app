@@ -2,7 +2,7 @@ import userEvent from '@testing-library/user-event';
 import { weatherSuccessResponse } from 'mocks/mockData';
 import { render, screen, waitFor } from 'test-utils';
 import { AutocompleteInput } from './AutocompleteInput';
-import { InputTestIds } from './AutocompleteInputTestIds';
+import { AutocompleteInputTestIds } from './AutocompleteInputTestIds';
 
 describe('Autocomplete input', () => {
   it('should render', () => {
@@ -10,7 +10,7 @@ describe('Autocomplete input', () => {
 
     render(<AutocompleteInput onChange={fn} value={weatherSuccessResponse.location.name} />);
 
-    const input = screen.getByTestId(InputTestIds.Input);
+    const input = screen.getByTestId(AutocompleteInputTestIds.Input);
     expect(input).toBeInTheDocument();
   });
 

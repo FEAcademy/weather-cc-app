@@ -3,7 +3,7 @@ import { render, screen, waitForElementToBeRemoved } from 'test-utils';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget';
-import { InputTestIds } from './components/AutocompleteInput';
+import { AutocompleteInputTestIds } from './components/AutocompleteInput';
 import { GeolocationButtonTestIds } from './components/GeolocationButton';
 import { HomePage } from './HomePage';
 import { HomePageTestIds } from './HomePageTestIds';
@@ -24,7 +24,7 @@ describe('Home page', () => {
   it('should display autocomplete  input', () => {
     render(<HomePage />);
 
-    const input = screen.getByTestId(InputTestIds.Input);
+    const input = screen.getByTestId(AutocompleteInputTestIds.Input);
     expect(input).toBeInTheDocument();
   });
 

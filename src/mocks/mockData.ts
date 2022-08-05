@@ -1,3 +1,4 @@
+import { AutocompleteOption } from 'models/AutocompleteLocation';
 import { Geolocation } from 'models/Geolocation';
 import { Weather } from 'models/Weather';
 
@@ -49,7 +50,7 @@ const weatherSuccessResponse: Weather = {
   },
 };
 
-const cities: { [name: string]: string }[] = [
+const cities: AutocompleteOption[] = [
   { name: 'Warszawa' },
   { name: 'Walbrzych' },
   { name: 'Brzeg' },
