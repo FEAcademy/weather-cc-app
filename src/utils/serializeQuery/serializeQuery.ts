@@ -1,22 +1,17 @@
 const serializeQuery = (zoom: number, bounds: string): string => {
-  let places = ['city'];
+  let places = 'city';
 
-  if (zoom >= 13) places = ['village', 'town', 'city'];
-  if (zoom >= 10 && zoom <= 12) places = ['town', 'city'];
+  if (zoom >= 13) places = places.concat('|town|village');
+  if (zoom >= 10 && zoom <= 12) places = places.concat('|town');
 
-  const newLayerQuery = places.reduce((reducer, place) => {
-    return reducer + `\n node["place"="${place}"]${bounds};`;
-  }, '');
-
-  const query = `
-    [out:json][timeout:25];
-    (${newLayerQuery});
-    out;
-    >;
-    out skel qt;
-  `;
-
-  const newQuery = 'data=' + encodeURIComponent(query);
+  const newQuery = `
+  [out:json][timeout:25];
+  (
+    node["place"~"${places}"]${bounds};
+  );
+  out;
+  >;
+  out skel qt;`;
 
   return newQuery;
 };
