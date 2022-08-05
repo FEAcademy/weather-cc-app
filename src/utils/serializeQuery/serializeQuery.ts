@@ -15,6 +15,7 @@ const serializeQuery = (zoom: number, bounds: string): string => {
     >;
     out skel qt;
   `;
+
   const newQuery = 'data=' + encodeURIComponent(query);
 
   return newQuery;
