@@ -1,4 +1,4 @@
-enum InputTestIds {
+enum AutocompleteInputTestIds {
   Input = 'city-input',
 }
-export { InputTestIds };
+export { AutocompleteInputTestIds };

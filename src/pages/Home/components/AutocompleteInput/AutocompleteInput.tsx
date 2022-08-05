@@ -4,7 +4,7 @@ import Select from 'react-select';
 import { useDebouncedCallback } from 'use-debounce';
 import { AutocompleteOption } from 'models/AutocompleteLocation';
 import { inputStyles } from './AutocompleteInput.styled';
-import { InputTestIds } from './AutocompleteInputTestIds';
+import { AutocompleteInputTestIds } from './AutocompleteInputTestIds';
 
 interface Props {
   onChange: (newValue: string) => void;
@@ -26,7 +26,7 @@ const AutocompleteInput = ({ onChange, value }: Props) => {
   };
 
   return (
-    <div data-testid={InputTestIds.Input}>
+    <div data-testid={AutocompleteInputTestIds.Input}>
       <Select
         options={data}
         isLoading={isLoading}
