@@ -1,3 +1,6 @@
+import { AutocompleteOption } from 'models/AutocompleteLocation';
+import { Geolocation } from 'models/Geolocation';
+import { IpLookup } from 'models/IpLookup';
 import { Place } from 'models/Place';
 import { Weather } from 'models/Weather';
 
@@ -49,7 +52,12 @@ const weatherSuccessResponse: Weather = {
   },
 };
 
-const cities: string[] = ['Wroclaw', 'Warszawa', 'Walbrzych'];
+const cities: AutocompleteOption[] = [
+  { name: 'Warszawa' },
+  { name: 'Walbrzych' },
+  { name: 'Brzeg' },
+  { name: 'Nowa Brzezina' },
+];
 
 const places: { elements: Place[] } = {
   elements: [
@@ -83,4 +91,35 @@ const places: { elements: Place[] } = {
   ],
 };
 
-export { weatherSuccessResponse, cities, places };
+const positionData: Geolocation = {
+  coords: {
+    accuracy: 12,
+    altitude: 12,
+    altitudeAccuracy: 12,
+    heading: 12,
+    latitude: 34.5,
+    longitude: 55.2,
+    speed: 3,
+  },
+  timestamp: 23,
+};
+
+const ipLookupData: IpLookup = {
+  city: 'Warsaw',
+  continent_code: 'EU',
+  continent_name: 'Europe',
+  country_code: 'PL',
+  country_name: 'Poland',
+  geoname_id: 756135,
+  ip: '89.64.95.220',
+  is_eu: 'true',
+  lat: 52.2296,
+  localtime: '2022-08-05 13:06',
+  localtime_epoch: 1659697595,
+  lon: 21.0067,
+  region: '',
+  type: 'ipv4',
+  tz_id: 'Europe/Warsaw',
+};
+
+export { weatherSuccessResponse, cities, positionData, ipLookupData, places };

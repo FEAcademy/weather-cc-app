@@ -1,4 +1,4 @@
-import { render, screen } from 'utils';
+import { render, screen } from 'test-utils';
 import { PlaceMarkersTestIds } from './components/PlaceMarkers';
 import { MapPage } from './MapPage';
 import { MapPageTestIds } from './MapPageTestIds';

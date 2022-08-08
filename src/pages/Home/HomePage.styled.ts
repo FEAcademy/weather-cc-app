@@ -8,10 +8,14 @@ const Container = styled.div`
   justify-content: center;
 `;
 
+const SelectContainer = styled.div`
+  position: relative;
+`;
+
 const WidgetWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
 `;
 
-export { WidgetWrapper, Container};
+export { WidgetWrapper, SelectContainer, Container };

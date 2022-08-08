@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { weatherSuccessResponse, cities, places } from './mockData';
+import { weatherSuccessResponse, cities, places, ipLookupData } from './mockData';
 
 const weatherApiUrl = process.env.REACT_APP_WEATHER_API_URL;
 const overpassApiUrl = process.env.REACT_APP_OVERPASS_API_URL;
@@ -7,6 +7,7 @@ const overpassApiUrl = process.env.REACT_APP_OVERPASS_API_URL;
 const currentWeatherApiUrl = `${weatherApiUrl}/current.json`;
 const searchCitiesApiUrl = `${weatherApiUrl}/search.json`;
 const nearbyCitiesOnMapApiUrl = `${overpassApiUrl}/interpreter`;
+const ipLookupApiUrl = `${weatherApiUrl}/ip.json`;
 
 const handlers = [
   rest.get(currentWeatherApiUrl, (req, res, ctx) => {
@@ -54,8 +55,12 @@ const handlers = [
     }
     return res(ctx.status(200), ctx.json(cities), ctx.delay(500));
   }),
+
   rest.post(nearbyCitiesOnMapApiUrl, (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(places), ctx.delay(500));
+  }),
+  rest.get(ipLookupApiUrl, (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(ipLookupData), ctx.delay(500));
   }),
 ];
 

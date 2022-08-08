@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import App from 'App';
 import { Paths } from 'enums/Paths';
-import { render, screen } from 'utils';
+import { render, screen } from 'test-utils';
 import { FooterTestIds } from 'components/Footer/FooterTestIds';
 import { NavbarTestIds } from 'components/Navbar/NavbarTestIds';
 import { NavbarTitles } from 'components/Navbar/NavbarTitles';
@@ -66,7 +66,8 @@ describe('App', () => {
 
     const mapLink = screen.getByTitle(NavbarTitles.Map);
 
-    await userEvent.click(mapLink);
+    const user = userEvent.setup();
+    await user.click(mapLink);
 
     const map = screen.getByTestId(MapPageTestIds.MapPage);
 
@@ -79,7 +80,8 @@ describe('App', () => {
 
     const homeLink = screen.getByTitle(NavbarTitles.Home);
 
-    await userEvent.click(homeLink);
+    const user = userEvent.setup();
+    await user.click(homeLink);
 
     const home = screen.getByTestId(HomePageTestIds.HomePage);
 
@@ -91,7 +93,8 @@ describe('App', () => {
 
     const aboutLink = screen.getByTitle(NavbarTitles.About);
 
-    await userEvent.click(aboutLink);
+    const user = userEvent.setup();
+    await user.click(aboutLink);
 
     const about = screen.getByTestId(AboutPageTestIds.Container);
 
