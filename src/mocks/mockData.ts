@@ -1,6 +1,7 @@
 import { AutocompleteOption } from 'models/AutocompleteLocation';
 import { Geolocation } from 'models/Geolocation';
 import { IpLookup } from 'models/IpLookup';
+import { Place } from 'models/Place';
 import { Weather } from 'models/Weather';
 
 const weatherSuccessResponse: Weather = {
@@ -58,6 +59,38 @@ const cities: AutocompleteOption[] = [
   { name: 'Nowa Brzezina' },
 ];
 
+const places: { elements: Place[] } = {
+  elements: [
+    {
+      id: 1,
+      lat: 51.1089776,
+      lon: 17.0326689,
+      tags: {
+        name: 'Wrocław',
+        population: '634487',
+      },
+    },
+    {
+      id: 2,
+      lat: 50.8424835,
+      lon: 16.4870549,
+      tags: {
+        name: 'Świdnica',
+        population: '634487',
+      },
+    },
+    {
+      id: 3,
+      lat: 51.2095314,
+      lon: 17.3804559,
+      tags: {
+        name: 'Oleśnica',
+        population: '113606',
+      },
+    },
+  ],
+};
+
 const positionData: Geolocation = {
   coords: {
     accuracy: 12,
@@ -89,4 +122,4 @@ const ipLookupData: IpLookup = {
   tz_id: 'Europe/Warsaw',
 };
 
-export { weatherSuccessResponse, cities, positionData, ipLookupData };
+export { weatherSuccessResponse, cities, positionData, ipLookupData, places };
