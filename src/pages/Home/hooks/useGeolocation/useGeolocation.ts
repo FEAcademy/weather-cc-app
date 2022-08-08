@@ -8,7 +8,6 @@ const useGeolocation = (): [Coordinates | null, () => void] => {
   const [geoLocation, setGeoLocation] = useState<Coordinates | null>(null);
 
   const onSuccess = useCallback((geolocation: Geolocation) => {
-    console.log('onSuccess');
     setGeoLocation({
       latitude: geolocation.coords.latitude,
       longitude: geolocation.coords.longitude,
@@ -16,7 +15,6 @@ const useGeolocation = (): [Coordinates | null, () => void] => {
   }, []);
 
   const onError = useCallback(async () => {
-    console.log('onError');
     const res = await weatherClient.get<IpLookup>('/ip.json', {
       params: {
         q: 'auto:ip',
@@ -30,7 +28,6 @@ const useGeolocation = (): [Coordinates | null, () => void] => {
   }, []);
 
   const getLocation = useCallback(() => {
-    console.log('getlocation');
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
   }, [onError, onSuccess]);
 

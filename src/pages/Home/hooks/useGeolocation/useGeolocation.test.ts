@@ -1,4 +1,4 @@
-import { positionData } from 'mocks/mockData';
+import { positionData, ipLookupData } from 'mocks/mockData';
 import { mockNavigatorGeolocation, renderHook, act, waitFor } from 'test-utils';
 import { useGeolocation } from './useGeolocation';
 
@@ -26,6 +26,6 @@ describe('useGeolocation', () => {
       result.current[1]();
     });
 
-    await waitFor(() => expect(result.current[0]).toEqual(null));
+    await waitFor(() => expect(result.current[0]).toEqual({ latitude: ipLookupData.lat, longitude: ipLookupData.lon }));
   });
 });
