@@ -32,13 +32,18 @@ export default {
       },
       { enabled: !!cityName },
     ),
-  sendIpLookup: async () => {
-    const res = await weatherClient.get<IpLookup>('/ip.json', {
-      params: {
-        q: 'auto:ip',
-      },
-    });
+  useIpLookup: () =>
+    useQuery<IpLookup, Error>(
+      'ipLookup',
+      async () => {
+        const res = await weatherClient.get<IpLookup>('/ip.json', {
+          params: {
+            q: 'auto:ip',
+          },
+        });
 
-    return res.data;
-  },
+        return res.data;
+      },
+      { enabled: false, staleTime: Infinity },
+    ),
 };
