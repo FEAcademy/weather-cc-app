@@ -33,6 +33,9 @@ const handlers = [
         ctx.delay(500),
       );
     }
+
+    weatherSuccessResponse.current.condition.icon = '//cdn.weatherapi.com/weather/128x128/day/113.png';
+
     return res(ctx.status(200), ctx.json(weatherSuccessResponse), ctx.delay(500));
   }),
   rest.get(searchCitiesApiUrl, (req, res, ctx) => {
