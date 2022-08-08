@@ -9,7 +9,7 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: ${(props) => props.theme.colors.backgrounds.main};
   border-radius: 27px;
   box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.1);
   color: ${(props) => props.theme.colors.text};
