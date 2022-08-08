@@ -1,11 +1,10 @@
 import { rest } from 'msw';
-import { weatherSuccessResponse, cities, ipLookupData } from './mockData';
+import { weatherSuccessResponse, cities } from './mockData';
 
 const apiUrl = process.env.REACT_APP_WEATHER_API_URL;
 
 const currentWeatherApiUrl = `${apiUrl}/current.json`;
 const searchCitiesApiUrl = `${apiUrl}/search.json`;
-const ipLookupApiUrl = `${apiUrl}/ip.json`;
 
 const handlers = [
   rest.get(currentWeatherApiUrl, (req, res, ctx) => {
@@ -52,9 +51,6 @@ const handlers = [
       );
     }
     return res(ctx.status(200), ctx.json(cities), ctx.delay(500));
-  }),
-  rest.get(ipLookupApiUrl, (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(ipLookupData), ctx.delay(500));
   }),
 ];
 
