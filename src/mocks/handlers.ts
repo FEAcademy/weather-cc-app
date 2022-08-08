@@ -36,6 +36,7 @@ const handlers = [
         ctx.delay(500),
       );
     }
+
     return res(ctx.status(200), ctx.json(weatherSuccessResponse), ctx.delay(500));
   }),
   rest.get(searchCitiesApiUrl, (req, res, ctx) => {
