@@ -3,9 +3,9 @@ import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import { Marker } from 'react-leaflet';
-import { Content, WeatherIcon, Temperature, City } from './MarkerWeather.styled';
-import { MarkerWeatherLoader } from './MarkerWeatherLoader';
-import { MarkerWeatherTestIds } from './MarkerWeatherTestIds';
+import { Content, WeatherIcon, Temperature, City } from './WeatherMarker.styled';
+import { WeatherMarkerLoader } from './WeatherMarkerLoader';
+import { WeatherMarkerTestIds } from './WeatherMarkerTestIds';
 
 let DefaultIcon = L.icon({
   iconUrl: icon,
@@ -17,12 +17,12 @@ interface Props {
   cityName: string;
 }
 
-const MarkerWeather = ({ pos, cityName }: Props) => {
+const WeatherMarker = ({ pos, cityName }: Props) => {
   const { data, isLoading } = Weather.useCity(`${pos[0]},${pos[1]}`);
 
   const renderContent = () => {
     if (isLoading) {
-      return <MarkerWeatherLoader />;
+      return <WeatherMarkerLoader />;
     }
     if (data) {
       const { condition } = data.current;
@@ -41,9 +41,18 @@ const MarkerWeather = ({ pos, cityName }: Props) => {
   };
 
   return (
-    <div data-testid={MarkerWeatherTestIds.Container}>
+    <div data-testid={WeatherMarkerTestIds.Container}>
       <Marker icon={DefaultIcon} position={pos} opacity={0}>
-        <Content interactive={true} permanent={true} direction="top">
+        <Content
+          interactive={true}
+          permanent={true}
+          direction="top"
+          eventHandlers={{
+            click: () => {
+              console.log('marker clicked');
+            },
+          }}
+        >
           {renderContent()}
         </Content>
       </Marker>
@@ -51,4 +60,4 @@ const MarkerWeather = ({ pos, cityName }: Props) => {
   );
 };
 
-export { MarkerWeather };
+export { WeatherMarker };

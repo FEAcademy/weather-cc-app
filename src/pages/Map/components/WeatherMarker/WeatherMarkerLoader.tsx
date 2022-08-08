@@ -1,9 +1,9 @@
-import { WeatherIconLoader, WeatherTextLoader } from './MarkerWeather.styled';
-import { MarkerWeatherTestIds } from './MarkerWeatherTestIds';
+import { WeatherIconLoader, WeatherTextLoader } from './WeatherMarker.styled';
+import { WeatherMarkerTestIds } from './WeatherMarkerTestIds';
 
-const MarkerWeatherLoader = () => {
+const WeatherMarkerLoader = () => {
   return (
-    <div data-testid={MarkerWeatherTestIds.Loader}>
+    <div data-testid={WeatherMarkerTestIds.Loader}>
       <WeatherIconLoader
         speed={2}
         width={50}
@@ -29,4 +29,4 @@ const MarkerWeatherLoader = () => {
   );
 };
 
-export { MarkerWeatherLoader };
+export { WeatherMarkerLoader };

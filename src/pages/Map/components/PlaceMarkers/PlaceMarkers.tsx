@@ -3,7 +3,7 @@ import { Map } from 'leaflet';
 import { useState } from 'react';
 import { useMapEvents } from 'react-leaflet';
 import { useDebouncedCallback } from 'use-debounce';
-import { MarkerWeather } from '../MarkerWeather';
+import { WeatherMarker } from '../WeatherMarker';
 import { PlaceMarkersTestIds } from './PlaceMarkersTestIds';
 
 interface Props {
@@ -39,7 +39,7 @@ const PlaceMarkers = ({ boundsCoordinates, zoom }: Props) => {
     <div data-testid={PlaceMarkersTestIds.Container}>
       {places &&
         places.map((place) => {
-          return <MarkerWeather pos={[place.lat, place.lon]} cityName={place.tags.name} key={place.id} />;
+          return <WeatherMarker pos={[place.lat, place.lon]} cityName={place.tags.name} key={place.id} />;
         })}
     </div>
   );

@@ -1,22 +1,22 @@
 import { weatherSuccessResponse } from 'mocks/mockData';
 import { MapContainer } from 'react-leaflet';
 import { screen, render, waitForElementToBeRemoved } from 'test-utils';
-import { MarkerWeather } from './MarkerWeather';
-import { MarkerWeatherTestIds } from './MarkerWeatherTestIds';
+import { WeatherMarker } from './WeatherMarker';
+import { WeatherMarkerTestIds } from './WeatherMarkerTestIds';
 
 const renderWithMap = () => {
   render(
     <MapContainer center={[0, 0]} zoom={10} zoomControl={false} scrollWheelZoom={true}>
-      <MarkerWeather pos={[0, 0]} cityName={'Wroclaw'} />
+      <WeatherMarker pos={[0, 0]} cityName={'Wroclaw'} />
     </MapContainer>,
   );
 };
 
-describe('MarkerWeather', () => {
+describe('WeatherMarker', () => {
   it('should render', () => {
     renderWithMap();
 
-    const container = screen.getByTestId(MarkerWeatherTestIds.Container);
+    const container = screen.getByTestId(WeatherMarkerTestIds.Container);
 
     expect(container).toBeInTheDocument();
   });
@@ -36,7 +36,7 @@ describe('MarkerWeather', () => {
   it('should render and remove loader', async () => {
     renderWithMap();
 
-    const markerLoader = screen.getByTestId(MarkerWeatherTestIds.Loader);
+    const markerLoader = screen.getByTestId(WeatherMarkerTestIds.Loader);
 
     expect(markerLoader).toBeInTheDocument();
 
