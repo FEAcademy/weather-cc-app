@@ -1,8 +1,7 @@
-import { weatherClient } from 'api/clients';
+import Weather from 'api/services/Weather';
 import { useCallback, useState } from 'react';
 import { Coordinates } from 'models/Coordinates';
 import { Geolocation } from 'models/Geolocation';
-import { IpLookup } from 'models/IpLookup';
 
 const useGeolocation = (): [Coordinates | null, () => void] => {
   const [geoLocation, setGeoLocation] = useState<Coordinates | null>(null);
@@ -15,12 +14,7 @@ const useGeolocation = (): [Coordinates | null, () => void] => {
   }, []);
 
   const onError = useCallback(async () => {
-    const res = await weatherClient.get<IpLookup>('/ip.json', {
-      params: {
-        q: 'auto:ip',
-      },
-    });
-    const { lat, lon } = res.data;
+    const { lat, lon } = await Weather.sendIpLookup();
     setGeoLocation({
       latitude: lat,
       longitude: lon,

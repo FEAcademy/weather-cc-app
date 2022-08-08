@@ -1,5 +1,6 @@
 import { useQuery } from 'react-query';
 import { AutocompleteLocation } from 'models/AutocompleteLocation';
+import { IpLookup } from 'models/IpLookup';
 import { Weather } from 'models/Weather';
 import { weatherClient } from '../clients';
 
@@ -31,4 +32,13 @@ export default {
       },
       { enabled: !!cityName },
     ),
+  sendIpLookup: async () => {
+    const res = await weatherClient.get<IpLookup>('/ip.json', {
+      params: {
+        q: 'auto:ip',
+      },
+    });
+
+    return res.data;
+  },
 };
