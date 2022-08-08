@@ -14,7 +14,8 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-select": "^5.4.0",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "use-debounce": "^8.0.3"
   },
   "scripts": {
     "prepare": "husky install",

@@ -8,7 +8,6 @@ const Content = styled(Tooltip)`
   opacity: 0.9;
   box-shadow: 0px 10px 20px rgba(227, 227, 227, 0.4);
   border-radius: 20px;
-  position: relative;
   color: ${({ theme }) => theme.colors.text};
   background: ${({ theme }) => theme.colors.backgrounds.gradient};
   display: flex;
@@ -18,6 +17,11 @@ const Content = styled(Tooltip)`
 
   &::before {
     display: none;
+  }
+
+  &:hover,
+  &:focus {
+    z-index: 1000;
   }
 `;
 
