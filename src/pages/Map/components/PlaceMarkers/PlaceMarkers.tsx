@@ -18,25 +18,21 @@ const PlaceMarkers = ({ boundsCoordinates, zoom }: Props) => {
   });
   const { data: places } = Overpass.usePlaces(mapData.boundsCoordinates, mapData.zoom);
 
-  const onMapDebounce = useDebouncedCallback((boundsCoordinates: string, zoom: number) => {
+  const setMapPositionDebounce = useDebouncedCallback((map: Map) => {
+    const mapBound = map.getBounds();
+    const southWest = mapBound.getSouthWest();
+    const northEast = mapBound.getNorthEast();
+    const zoom = map.getZoom();
+    const boundsCoordinates = `(${southWest.lat},${southWest.lng},${northEast.lat},${northEast.lng})`;
     setMapData({
       boundsCoordinates,
       zoom,
     });
   }, 2000);
 
-  const setMapPosition = (map: Map) => {
-    const mapBound = map.getBounds();
-    const southWest = mapBound.getSouthWest();
-    const northEast = mapBound.getNorthEast();
-    const zoom = map.getZoom();
-    const boundsCoordinates = `(${southWest.lat},${southWest.lng},${northEast.lat},${northEast.lng})`;
-    onMapDebounce(boundsCoordinates, zoom);
-  };
-
   const map = useMapEvents({
-    zoomend: () => setMapPosition(map),
-    dragend: () => setMapPosition(map),
+    zoomend: () => setMapPositionDebounce(map),
+    dragend: () => setMapPositionDebounce(map),
   });
 
   return (
