@@ -26,8 +26,9 @@ const PlaceMarkers = ({ boundsCoordinates, zoom }: Props) => {
   }, 2000);
 
   const setMapPosition = (map: Map) => {
-    const southWest = map.getBounds().getSouthWest();
-    const northEast = map.getBounds().getNorthEast();
+    const mapBound = map.getBounds();
+    const southWest = mapBound.getSouthWest();
+    const northEast = mapBound.getNorthEast();
     const zoom = map.getZoom();
     const boundsCoordinates = `(${southWest.lat},${southWest.lng},${northEast.lat},${northEast.lng})`;
     onMapDebounce(boundsCoordinates, zoom);
