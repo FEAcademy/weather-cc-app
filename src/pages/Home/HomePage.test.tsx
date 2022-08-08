@@ -1,4 +1,3 @@
-// import { weatherSuccessResponse } from 'mocks/mockData';
 import { render, screen, waitForElementToBeRemoved } from 'test-utils';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget';
