@@ -3,7 +3,7 @@ import { renderHook, waitFor } from 'test-utils';
 import Weather from './Weather';
 
 describe('Weather service', () => {
-  it('should return ip lookup coordinates on error', async () => {
+  it('should return weather data with icon size of 128x128', async () => {
     const { result } = renderHook(() => Weather.useLocation('Wroclaw'), { wrapper: ProvidersCombined });
 
     await waitFor(() =>
