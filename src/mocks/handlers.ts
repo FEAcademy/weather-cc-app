@@ -2,11 +2,11 @@ import { rest } from 'msw';
 import { weatherSuccessResponse, cities, places } from './mockData';
 
 const weatherApiUrl = process.env.REACT_APP_WEATHER_API_URL;
-const mapApiUrl = process.env.REACT_APP_OVERPASS_API_URL;
+const overpassApiUrl = process.env.REACT_APP_OVERPASS_API_URL;
 
 const currentWeatherApiUrl = `${weatherApiUrl}/current.json`;
 const searchCitiesApiUrl = `${weatherApiUrl}/search.json`;
-const nearbyCitiesOnMapApiUrl = `${mapApiUrl}/interpreter`;
+const nearbyCitiesOnMapApiUrl = `${overpassApiUrl}/interpreter`;
 
 const handlers = [
   rest.get(currentWeatherApiUrl, (req, res, ctx) => {
