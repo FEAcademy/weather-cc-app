@@ -126,8 +126,6 @@ describe('App', () => {
   });
 
   it('should redirect to /cities/:city after clicking on marker', async () => {
-    global.scrollTo = jest.fn();
-
     render(
       <Routes>
         <Route
