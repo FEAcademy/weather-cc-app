@@ -1,5 +1,5 @@
 import Weather from 'api/services/Weather';
-import { useParams } from 'react-router-dom';
+import { NavigateOptions, useLocation, useParams } from 'react-router-dom';
 import { PageContentContainer } from 'components/PageContentContainer';
 import { WidgetWrapper } from 'components/WidgetWrapper';
 import { CityName } from './CityPage.styled';
@@ -13,13 +13,14 @@ type Params = {
 const CityPage = () => {
   const { city } = useParams() as Params;
   const { data, isLoading } = Weather.useLocation(city);
+  const { state }: NavigateOptions = useLocation();
 
   const renderCityName = () => {
     if (isLoading) {
       return <CityNameLoader />;
     }
     if (data) {
-      return <CityName>{data.location.name}</CityName>;
+      return <CityName>{state?.cityName || data.location.name}</CityName>;
     }
   };
 

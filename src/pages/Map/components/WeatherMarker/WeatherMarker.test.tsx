@@ -61,5 +61,7 @@ describe('WeatherMarker', () => {
       await user.click(marker);
       expect(navigate).toHaveBeenCalledTimes(1);
     });
+
+    jest.clearAllMocks();
   });
 });
