@@ -28,8 +28,8 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
       return <WeatherMarkerLoader />;
     }
     if (data) {
-      const { condition } = data.current;
-      const roundedTemperature = Math.round(data.current.temp_c);
+      const { condition, temp_c } = data.current;
+      const roundedTemperature = Math.round(temp_c);
       return (
         <>
           <WeatherIcon src={condition.icon} alt="Weather Icon" />

@@ -1,5 +1,7 @@
+import userEvent from '@testing-library/user-event';
 import { weatherSuccessResponse } from 'mocks/mockData';
 import { MapContainer } from 'react-leaflet';
+import * as router from 'react-router';
 import { screen, render, waitForElementToBeRemoved } from 'test-utils';
 import { WeatherMarker } from './WeatherMarker';
 import { WeatherMarkerTestIds } from './WeatherMarkerTestIds';
@@ -42,6 +44,22 @@ describe('WeatherMarker', () => {
 
     await waitForElementToBeRemoved(markerLoader).then(() => {
       expect(markerLoader).not.toBeInTheDocument();
+    });
+  });
+
+  it('checks if navigate was called', async () => {
+    const navigate = jest.fn();
+    jest.spyOn(router, 'useNavigate').mockImplementation(() => navigate);
+
+    renderWithMap();
+
+    const loader = screen.getByTestId(WeatherMarkerTestIds.Loader);
+
+    await waitForElementToBeRemoved(loader).then(async () => {
+      const marker = screen.getByTestId(WeatherMarkerTestIds.Container);
+      const user = userEvent.setup();
+      await user.click(marker);
+      expect(navigate).toHaveBeenCalledTimes(1);
     });
   });
 });
