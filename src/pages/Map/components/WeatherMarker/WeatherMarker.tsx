@@ -44,21 +44,12 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
   };
 
   const onCityMarkerClickHandler = () => {
-    navigate(`/cities/${data?.location.name}`);
+    if (!isLoading) navigate(`/cities/${data?.location.name}`);
   };
 
   return (
-    <div data-testid={WeatherMarkerTestIds.Container}>
-      <Marker
-        icon={DefaultIcon}
-        position={pos}
-        opacity={0}
-        eventHandlers={{
-          click: () => {
-            if (!isLoading) onCityMarkerClickHandler();
-          },
-        }}
-      >
+    <div data-testid={WeatherMarkerTestIds.Container} onClick={onCityMarkerClickHandler}>
+      <Marker icon={DefaultIcon} position={pos} opacity={0}>
         <Content interactive={true} permanent={true} direction="top">
           {renderContent()}
         </Content>
