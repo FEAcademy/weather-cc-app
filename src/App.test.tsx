@@ -3,7 +3,7 @@ import App from 'App';
 import { Paths } from 'enums/Paths';
 import { MapContainer } from 'react-leaflet';
 import { Route, Routes } from 'react-router-dom';
-import { render, screen } from 'test-utils';
+import { render, screen, waitForElementToBeRemoved } from 'test-utils';
 import { FooterTestIds } from 'components/Footer/FooterTestIds';
 import { NavbarTestIds } from 'components/Navbar/NavbarTestIds';
 import { NavbarTitles } from 'components/Navbar/NavbarTitles';
@@ -126,25 +126,31 @@ describe('App', () => {
   });
 
   it('should redirect to /cities/:city after clicking on marker', async () => {
+    window.scrollTo = jest.fn();
+
     render(
-      <>
-        <MapContainer center={[0, 0]} zoom={10} zoomControl={false} scrollWheelZoom={true}>
-          <WeatherMarker pos={[0, 0]} cityName={'Wroclaw'} />
-        </MapContainer>
-        <Routes>
-          <Route path="*" element={<CityPage />} />,
-        </Routes>
-      </>,
+      <Routes>
+        <Route
+          path={Paths.Map}
+          element={
+            <MapContainer center={[0, 0]} zoom={10} zoomControl={false} scrollWheelZoom={true}>
+              <WeatherMarker pos={[0, 0]} cityName={'Wroclaw'} />
+            </MapContainer>
+          }
+        ></Route>
+        <Route path={Paths.City} element={<CityPage />} />,
+      </Routes>,
+      { route: Paths.Map },
     );
 
-    const marker = screen.getByTestId(WeatherMarkerTestIds.Container);
+    const loader = screen.getByTestId(WeatherMarkerTestIds.Loader);
 
-    const user = userEvent.setup();
-
-    await user.click(marker);
-
-    const cityPageComponent = await screen.findByTestId(CityPageTestIds.Container);
-
-    expect(cityPageComponent).toBeInTheDocument();
+    await waitForElementToBeRemoved(loader).then(async () => {
+      const marker = screen.getByTestId(WeatherMarkerTestIds.Container);
+      const user = userEvent.setup();
+      await user.click(marker);
+      const cityPageComponent = await screen.findByTestId(CityPageTestIds.Container);
+      expect(cityPageComponent).toBeInTheDocument();
+    });
   });
 });
