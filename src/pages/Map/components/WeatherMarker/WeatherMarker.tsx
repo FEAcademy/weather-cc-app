@@ -3,6 +3,7 @@ import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import { Marker } from 'react-leaflet';
+import { useNavigate } from 'react-router-dom';
 import { serializeCoordinates } from 'utils/serializeCoordinates';
 import { Content, WeatherIcon, Temperature, City } from './WeatherMarker.styled';
 import { WeatherMarkerLoader } from './WeatherMarkerLoader';
@@ -20,6 +21,7 @@ interface Props {
 
 const WeatherMarker = ({ pos, cityName }: Props) => {
   const { data, isLoading } = Weather.useLocation(serializeCoordinates({ latitude: pos[0], longitude: pos[1] }));
+  const navigate = useNavigate();
 
   const renderContent = () => {
     if (isLoading) {
@@ -41,9 +43,22 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
     }
   };
 
+  const onCityMarkerClickHandler = () => {
+    navigate(`/cities/${data?.location.name}`);
+  };
+
   return (
     <div data-testid={WeatherMarkerTestIds.Container}>
-      <Marker icon={DefaultIcon} position={pos} opacity={0}>
+      <Marker
+        icon={DefaultIcon}
+        position={pos}
+        opacity={0}
+        eventHandlers={{
+          click: () => {
+            if (!isLoading) onCityMarkerClickHandler();
+          },
+        }}
+      >
         <Content interactive={true} permanent={true} direction="top">
           {renderContent()}
         </Content>
