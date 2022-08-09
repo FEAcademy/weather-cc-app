@@ -1,9 +1,42 @@
 import { render, RenderOptions } from '@testing-library/react';
 import { ProvidersCombined } from 'ProvidersCombined';
-import { ReactElement } from 'react';
+import { PropsWithChildren, ReactElement } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { Paths } from './enums/Paths';
 
-const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
-  render(ui, { wrapper: ProvidersCombined, ...options });
+const AllProvidersWrapper = ({ children }: PropsWithChildren) => {
+  return (
+    <BrowserRouter>
+      <ProvidersCombined>{children}</ProvidersCombined>
+    </BrowserRouter>
+  );
+};
+
+const renderWithRouter = (
+  ui: ReactElement,
+  { route = Paths.Home as string } = {},
+  options?: Omit<RenderOptions, 'wrapper'>,
+) => {
+  window.history.pushState({}, 'Test page', route);
+
+  return {
+    ...render(ui, { wrapper: AllProvidersWrapper, ...options }),
+  };
+};
+
+const mockNavigatorGeolocation = () => {
+  const getCurrentPositionMock = jest.fn();
+
+  const geolocation = {
+    getCurrentPosition: getCurrentPositionMock,
+  };
+
+  Object.defineProperty(global.navigator, 'geolocation', {
+    value: geolocation,
+  });
+
+  return { getCurrentPositionMock };
+};
 
 export * from '@testing-library/react';
-export { customRender as render };
+export { renderWithRouter as render, mockNavigatorGeolocation };

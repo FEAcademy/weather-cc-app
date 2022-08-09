@@ -1,6 +1,6 @@
 import { weatherSuccessResponse } from 'mocks/mockData';
 import { Route, Routes } from 'react-router-dom';
-import { render, screen, waitForElementToBeRemoved } from 'utils';
+import { render, screen, waitForElementToBeRemoved } from 'test-utils';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
@@ -10,6 +10,7 @@ import { CityNameLoaderTestIds } from './components/CityNameLoader';
 
 const renderCityPageInRoute = () => {
   const route = '/cities/wroclaw';
+
   render(
     <Routes>
       <Route path="/cities/:city" element={<CityPage />} />

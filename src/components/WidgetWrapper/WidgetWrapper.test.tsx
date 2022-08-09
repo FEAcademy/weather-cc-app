@@ -1,5 +1,5 @@
 import { weatherSuccessResponse } from 'mocks/mockData';
-import { render, screen } from 'utils';
+import { render, screen } from 'test-utils';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';

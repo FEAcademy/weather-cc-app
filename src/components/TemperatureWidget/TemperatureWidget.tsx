@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, Icon, WeatherDescription, Temperature, TemperatureDetails } from './TemperatureWidget.styled';
 import { TemperatureWidgetTestIds } from './TemperatureWidgetTestIds';
 

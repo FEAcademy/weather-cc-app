@@ -12,7 +12,7 @@ type Params = {
 
 const CityPage = () => {
   const { city } = useParams() as Params;
-  const { data, isLoading } = Weather.useCity(city);
+  const { data, isLoading } = Weather.useLocation(city);
 
   const renderCityName = () => {
     if (isLoading) {

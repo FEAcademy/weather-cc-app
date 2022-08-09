@@ -1,4 +1,4 @@
-import { render, screen } from 'utils';
+import { render, screen } from 'test-utils';
 import { CityNameLoader } from './CityNameLoader';
 import { CityNameLoaderTestIds } from './CityNameLoaderTestIds';
 
