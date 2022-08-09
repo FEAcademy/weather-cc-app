@@ -137,7 +137,7 @@ describe('App', () => {
               <WeatherMarker pos={[0, 0]} cityName={'Wroclaw'} />
             </MapContainer>
           }
-        ></Route>
+        />
         <Route path={Paths.City} element={<CityPage />} />,
       </Routes>,
       { route: Paths.Map },
