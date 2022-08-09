@@ -23,26 +23,26 @@ describe('Autocomplete input', () => {
     expect(inputValue).toBeInTheDocument();
   });
 
-  // it('should display loading state and then remove it', async () => {
-  //   const fn = jest.fn();
+  it('should display loading state and then remove it', async () => {
+    const fn = jest.fn();
 
-  //   render(<AutocompleteInput onChange={fn} value={weatherSuccessResponse.location.name} />);
+    render(<AutocompleteInput onChange={fn} value={weatherSuccessResponse.location.name} />);
 
-  //   const input = screen.getByRole('combobox');
-  //   expect(input).toBeInTheDocument();
+    const input = screen.getByRole('combobox');
+    expect(input).toBeInTheDocument();
 
-  //   const user = userEvent.setup();
-  //   await user.type(input, 'Walb');
+    const user = userEvent.setup();
+    await user.type(input, 'Walb');
 
-  //   expect(input).toHaveValue('Walb');
+    expect(input).toHaveValue('Walb');
 
-  //   const loadingState = screen.getByText('Loading...');
-  //   expect(loadingState).toBeInTheDocument();
+    const loadingState = await screen.findByText('Loading...');
+    expect(loadingState).toBeInTheDocument();
 
-  //   await waitFor(() => {
-  //     expect(loadingState).not.toBeInTheDocument();
-  //   });
-  // });
+    await waitFor(() => {
+      expect(loadingState).not.toBeInTheDocument();
+    });
+  });
 
   it('should display autocomplete input options', async () => {
     const fn = jest.fn();
