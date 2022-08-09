@@ -1,13 +1,17 @@
 import userEvent from '@testing-library/user-event';
 import App from 'App';
 import { Paths } from 'enums/Paths';
+import { MapContainer } from 'react-leaflet';
+import { Route, Routes } from 'react-router-dom';
 import { render, screen } from 'test-utils';
 import { FooterTestIds } from 'components/Footer/FooterTestIds';
 import { NavbarTestIds } from 'components/Navbar/NavbarTestIds';
 import { NavbarTitles } from 'components/Navbar/NavbarTitles';
 import { AboutPageTestIds } from 'pages/About/AboutPageTestIds';
+import { CityPage } from 'pages/City';
 import { CityPageTestIds } from 'pages/City/CityPageTestIds';
 import { HomePageTestIds } from 'pages/Home/HomePageTestIds';
+import { WeatherMarker, WeatherMarkerTestIds } from 'pages/Map/components/WeatherMarker';
 import { MapPageTestIds } from 'pages/Map/MapPageTestIds';
 
 describe('App', () => {
@@ -119,5 +123,28 @@ describe('App', () => {
     const about = screen.getByTestId(AboutPageTestIds.Container);
 
     expect(about).toBeInTheDocument();
+  });
+
+  it('should redirect to /cities/:city after clicking on marker', async () => {
+    render(
+      <>
+        <MapContainer center={[0, 0]} zoom={10} zoomControl={false} scrollWheelZoom={true}>
+          <WeatherMarker pos={[0, 0]} cityName={'Wroclaw'} />
+        </MapContainer>
+        <Routes>
+          <Route path="*" element={<CityPage />} />,
+        </Routes>
+      </>,
+    );
+
+    const marker = screen.getByTestId(WeatherMarkerTestIds.Container);
+
+    const user = userEvent.setup();
+
+    await user.click(marker);
+
+    const cityPageComponent = await screen.findByTestId(CityPageTestIds.Container);
+
+    expect(cityPageComponent).toBeInTheDocument();
   });
 });
