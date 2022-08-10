@@ -1,44 +1,42 @@
 import { weatherSuccessResponse } from 'mocks/mockData';
 import { render, screen } from 'test-utils';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
-import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
-import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
+import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget';
+import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget';
 import { WidgetWrapper } from './WidgetWrapper';
 
 describe('Widget wrapper', () => {
-  {
-    it('should render loader', async () => {
-      render(<WidgetWrapper data={undefined} isLoading={true} data-testid={'test'} />);
+  it('should render loader', async () => {
+    render(<WidgetWrapper data={weatherSuccessResponse} isLoading={true} data-testid={'test'} />);
 
-      const weatherInfoLoader = screen.getByTestId(WeatherInfoWidgetTestIds.Loader);
-      const temperatureWidgetLoader = screen.getByTestId(TemperatureWidgetTestIds.Loader);
-      const aqiloader = screen.getByTestId(WeatherAqiWidgetTestIds.Loader);
+    const weatherInfoLoader = screen.getByTestId(WeatherInfoWidgetTestIds.Loader);
+    const temperatureWidgetLoader = screen.getByTestId(TemperatureWidgetTestIds.Loader);
+    const aqiloader = screen.getByTestId(WeatherAqiWidgetTestIds.Loader);
 
-      expect(weatherInfoLoader).toBeInTheDocument();
-      expect(temperatureWidgetLoader).toBeInTheDocument();
-      expect(aqiloader).toBeInTheDocument();
-    });
+    expect(weatherInfoLoader).toBeInTheDocument();
+    expect(temperatureWidgetLoader).toBeInTheDocument();
+    expect(aqiloader).toBeInTheDocument();
+  });
 
-    it('should render weather info widget', async () => {
-      render(<WidgetWrapper data={weatherSuccessResponse} isLoading={false} data-testid={'test'} />);
+  it('should render weather info widget', async () => {
+    render(<WidgetWrapper data={weatherSuccessResponse} isLoading={false} data-testid={'test'} />);
 
-      expect(await screen.findByTestId(WeatherInfoWidgetTestIds.Container)).toBeInTheDocument();
-    });
+    expect(await screen.findByTestId(WeatherInfoWidgetTestIds.Container)).toBeInTheDocument();
+  });
 
-    it('should render temperature widget', async () => {
-      render(<WidgetWrapper data={weatherSuccessResponse} isLoading={false} data-testid={'test'} />);
+  it('should render temperature widget', async () => {
+    render(<WidgetWrapper data={weatherSuccessResponse} isLoading={false} data-testid={'test'} />);
 
-      const temperatureWidget = await screen.findByTestId(TemperatureWidgetTestIds.Container);
+    const temperatureWidget = await screen.findByTestId(TemperatureWidgetTestIds.Container);
 
-      expect(temperatureWidget).toBeInTheDocument();
-    });
+    expect(temperatureWidget).toBeInTheDocument();
+  });
 
-    it('should render weather aqi widget', async () => {
-      render(<WidgetWrapper data={weatherSuccessResponse} isLoading={false} data-testid={'test'} />);
+  it('should render weather aqi widget', async () => {
+    render(<WidgetWrapper data={weatherSuccessResponse} isLoading={false} data-testid={'test'} />);
 
-      const weatherAqiWidget = await screen.findByTestId(WeatherAqiWidgetTestIds.Container);
+    const weatherAqiWidget = await screen.findByTestId(WeatherAqiWidgetTestIds.Container);
 
-      expect(weatherAqiWidget).toBeInTheDocument();
-    });
-  }
+    expect(weatherAqiWidget).toBeInTheDocument();
+  });
 });
