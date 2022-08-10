@@ -25,4 +25,23 @@ export default {
       { enabled: !!box, refetchOnWindowFocus: false },
     );
   },
+  useNearestPlaces: (coordinates: string, cityName: string) => {
+    const query = `[out:json][timeout:25];
+    (
+      node["place"~"town|city"]["name"!="${cityName}"](around:50000,${coordinates});
+    );
+    out body 6;
+    >;
+    out skel qt;`;
+
+    return useQuery<Place[], Error>(
+      ['cities', cityName],
+      async () => {
+        const res = await overpassClient.post('/interpreter', query);
+
+        return res.data.elements;
+      },
+      { enabled: !!cityName, refetchOnWindowFocus: false },
+    );
+  },
 };

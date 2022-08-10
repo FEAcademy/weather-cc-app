@@ -1,3 +1,4 @@
+import Overpass from 'api/services/Overpass';
 import Weather from 'api/services/Weather';
 import { NavigateOptions, useLocation, useParams } from 'react-router-dom';
 import { PageContentContainer } from 'components/PageContentContainer';
@@ -14,7 +15,9 @@ const CityPage = () => {
   const { city } = useParams() as Params;
   const { data, isLoading } = Weather.useLocation(city);
   const { state }: NavigateOptions = useLocation();
+  const { data: nearestCities } = Overpass.useNearestPlaces(city, state?.cityName);
 
+  console.log(nearestCities);
   const renderCityName = () => {
     if (isLoading) {
       return <CityNameLoader />;
