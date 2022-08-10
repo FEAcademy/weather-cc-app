@@ -1,4 +1,4 @@
-import { TemperatureWidget, TemperatureWidgetTestIds } from 'components/TemperatureWidget';
+import { TemperatureWidget } from 'components/TemperatureWidget';
 import { TemperatureWidgetLoader } from 'components/TemperatureWidget/TemperatureWidgetLoader';
 import { WeatherAqiWidget, WeatherAqiWidgetLoader } from 'components/WeatherAqiWidget';
 import { WeatherInfoWidget, WeatherInfoWidgetLoader } from 'components/WeatherInfoWidget';
@@ -17,7 +17,7 @@ const WidgetWrapper = ({ data, isLoading, ...rest }: Props) => {
       return (
         <>
           <WeatherInfoWidgetLoader />
-          <TemperatureWidgetLoader data-testid={TemperatureWidgetTestIds.Loader} />
+          <TemperatureWidgetLoader />
           <WeatherAqiWidgetLoader />
         </>
       );
