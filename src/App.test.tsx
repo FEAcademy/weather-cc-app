@@ -4,15 +4,13 @@ import { Paths } from 'enums/Paths';
 import { MapContainer } from 'react-leaflet';
 import { Route, Routes } from 'react-router-dom';
 import { render, screen, waitForElementToBeRemoved } from 'test-utils';
-import { FooterTestIds } from 'components/Footer/FooterTestIds';
-import { NavbarTestIds } from 'components/Navbar/NavbarTestIds';
-import { NavbarTitles } from 'components/Navbar/NavbarTitles';
-import { AboutPageTestIds } from 'pages/About/AboutPageTestIds';
-import { CityPage } from 'pages/City';
-import { CityPageTestIds } from 'pages/City/CityPageTestIds';
-import { HomePageTestIds } from 'pages/Home/HomePageTestIds';
+import { FooterTestIds } from 'components/Footer';
+import { NavbarTestIds, NavbarTitles } from 'components/Navbar';
+import { AboutPageTestIds } from 'pages/About';
+import { CityPage, CityPageTestIds } from 'pages/City';
+import { HomePageTestIds } from 'pages/Home';
+import { MapPageTestIds } from 'pages/Map';
 import { WeatherMarker, WeatherMarkerTestIds } from 'pages/Map/components/WeatherMarker';
-import { MapPageTestIds } from 'pages/Map/MapPageTestIds';
 
 describe('App', () => {
   it('should make possible reaching /about path', () => {

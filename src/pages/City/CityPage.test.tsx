@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { render, screen, waitForElementToBeRemoved } from 'test-utils';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
-import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget/WeatherAqiWidgetTestIds';
-import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget/WeatherInfoWidgetTestIds';
+import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget';
+import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget';
 import { CityPage } from './CityPage';
 import { CityPageTestIds } from './CityPageTestIds';
 import { CityNameLoaderTestIds } from './components/CityNameLoader';
