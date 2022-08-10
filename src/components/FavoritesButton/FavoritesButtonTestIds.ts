@@ -1,5 +1,6 @@
 enum FavoritesButtonTestIds {
-  icon = 'favorite-button-icon',
+  Button = 'favorite-button',
+  Icon = 'favorite-button-icon',
 }
 
 export { FavoritesButtonTestIds };

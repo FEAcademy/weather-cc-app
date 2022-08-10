@@ -10,7 +10,7 @@ describe('FavoritesButton', () => {
 
     render(<FavoritesButton onClick={handleClick} isFavorite={true} />);
 
-    const button = screen.getByRole('button');
+    const button = screen.getByTestId(FavoritesButtonTestIds.Button);
 
     expect(button).toBeInTheDocument();
   });
@@ -20,7 +20,7 @@ describe('FavoritesButton', () => {
 
     render(<FavoritesButton onClick={handleClick} isFavorite={false} />);
 
-    const icon = screen.getByTestId(FavoritesButtonTestIds.icon);
+    const icon = screen.getByTestId(FavoritesButtonTestIds.Icon);
 
     expect(icon).toHaveStyle(`color: ${theme.colors.text}`);
   });
@@ -30,7 +30,7 @@ describe('FavoritesButton', () => {
 
     render(<FavoritesButton onClick={handleClick} isFavorite={true} />);
 
-    const icon = screen.getByTestId(FavoritesButtonTestIds.icon);
+    const icon = screen.getByTestId(FavoritesButtonTestIds.Icon);
 
     expect(icon).toHaveStyle('color: #DC5F44');
   });
@@ -41,7 +41,7 @@ describe('FavoritesButton', () => {
 
     render(<FavoritesButton onClick={handleClick} isFavorite={true} />);
 
-    const button = screen.getByRole('button');
+    const button = screen.getByTestId(FavoritesButtonTestIds.Button);
 
     await user.click(button);
 
