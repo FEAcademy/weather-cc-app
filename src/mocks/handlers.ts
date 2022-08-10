@@ -64,6 +64,13 @@ const handlers = [
   rest.get(ipLookupApiUrl, (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(ipLookupData), ctx.delay(500));
   }),
+
+  rest.post(nearbyCitiesOnMapApiUrl, (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(places), ctx.delay(500));
+  }),
+  rest.get(ipLookupApiUrl, (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(ipLookupData), ctx.delay(500));
+  }),
 ];
 
 export { handlers };

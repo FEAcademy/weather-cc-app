@@ -1,4 +1,3 @@
-import { weatherSuccessResponse } from 'mocks/mockData';
 import { Route, Routes } from 'react-router-dom';
 import { render, screen, waitForElementToBeRemoved } from 'test-utils';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
@@ -119,7 +118,7 @@ describe('City page', () => {
     const currentTemperature = await screen.findByText(/25/i);
     const feelslikeTemperature = await screen.findByText(/26/i);
 
-    expect(weatherIcon).toHaveAttribute('src', weatherSuccessResponse.current.condition.icon);
+    expect(weatherIcon).toHaveAttribute('src', '//cdn.weatherapi.com/weather/128x128/day/113.png');
     expect(description).toBeInTheDocument();
     expect(currentTemperature).toBeInTheDocument();
     expect(feelslikeTemperature).toBeInTheDocument();

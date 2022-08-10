@@ -15,6 +15,7 @@ export default {
             aqi: 'yes',
           },
         });
+        res.data.current.condition.icon = res.data.current.condition.icon.replace('64x64', '128x128');
         return res.data;
       },
       { enabled: !!location },
@@ -30,7 +31,7 @@ export default {
         });
         return res.data;
       },
-      { enabled: !!cityName },
+      { enabled: !!location },
     ),
   useIpLookup: () =>
     useQuery<IpLookup, Error>(

@@ -1,5 +1,4 @@
 import userEvent from '@testing-library/user-event';
-import { weatherSuccessResponse } from 'mocks/mockData';
 import { MapContainer } from 'react-leaflet';
 import * as router from 'react-router';
 import { screen, render, waitForElementToBeRemoved } from 'test-utils';
@@ -30,7 +29,7 @@ describe('WeatherMarker', () => {
     const temperature = await screen.findByText(/25/i);
     const cityName = await screen.findByText(/Wroclaw/i);
 
-    expect(icon).toHaveAttribute('src', weatherSuccessResponse.current.condition.icon);
+    expect(icon).toHaveAttribute('src', '//cdn.weatherapi.com/weather/128x128/day/113.png');
     expect(temperature).toBeInTheDocument();
     expect(cityName).toBeInTheDocument();
   });

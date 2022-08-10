@@ -37,6 +37,7 @@ describe('Autocomplete input', () => {
     expect(input).toHaveValue('Walb');
 
     const loadingState = await screen.findByText('Loading...');
+
     expect(loadingState).toBeInTheDocument();
 
     await waitFor(() => {
