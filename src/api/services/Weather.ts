@@ -31,7 +31,7 @@ export default {
         });
         return res.data;
       },
-      { enabled: !!location },
+      { enabled: !!cityName },
     ),
   useIpLookup: () =>
     useQuery<IpLookup, Error>(
