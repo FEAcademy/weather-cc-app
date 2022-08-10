@@ -36,13 +36,15 @@ describe('Autocomplete input', () => {
 
     expect(input).toHaveValue('Walb');
 
-    const loadingState = screen.getByText('Loading...');
+    const loadingState = await screen.findByText('Loading...');
+
     expect(loadingState).toBeInTheDocument();
 
     await waitFor(() => {
       expect(loadingState).not.toBeInTheDocument();
     });
   });
+
   it('should display autocomplete input options', async () => {
     const fn = jest.fn();
 

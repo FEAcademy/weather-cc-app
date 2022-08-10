@@ -1,7 +1,6 @@
 import userEvent from '@testing-library/user-event';
 import { positionData } from 'mocks/mockData';
-import { mockNavigatorGeolocation } from 'test-utils';
-import { render, screen } from 'test-utils';
+import { render, screen, mockNavigatorGeolocation } from 'test-utils';
 import * as geolocationHooks from '../../hooks/useGeolocation/useGeolocation';
 import { GeolocationButton } from './GeolocationButton';
 import { GeolocationButtonTestIds } from './GeolocationButtonTestIds';
@@ -36,8 +35,6 @@ describe('GeolocationButton', () => {
 
     await user.click(screen.getByTestId(GeolocationButtonTestIds.Button));
 
-    expect(onGeolocation).toHaveBeenCalledWith(
-      `${positionData.coords.latitude},${positionData.coords.longitude}`,
-    );
+    expect(onGeolocation).toHaveBeenCalledWith(`${positionData.coords.latitude},${positionData.coords.longitude}`);
   });
 });

@@ -9,6 +9,8 @@ const searchCitiesApiUrl = `${weatherApiUrl}/search.json`;
 const nearbyCitiesOnMapApiUrl = `${overpassApiUrl}/interpreter`;
 const ipLookupApiUrl = `${weatherApiUrl}/ip.json`;
 
+const delay = 100;
+
 const handlers = [
   rest.get(currentWeatherApiUrl, (req, res, ctx) => {
     const q = req.url.searchParams.get('q');
@@ -23,7 +25,7 @@ const handlers = [
           code: 1003,
           message: 'Parameter "q" not provided.',
         }),
-        ctx.delay(500),
+        ctx.delay(delay),
       );
     }
     if (isNotMatchingQuery) {
@@ -33,11 +35,10 @@ const handlers = [
           code: 1006,
           message: 'No location found matching parameter "q".',
         }),
-        ctx.delay(500),
+        ctx.delay(delay),
       );
     }
-
-    return res(ctx.status(200), ctx.json(weatherSuccessResponse), ctx.delay(500));
+    return res(ctx.status(200), ctx.json(weatherSuccessResponse), ctx.delay(delay));
   }),
   rest.get(searchCitiesApiUrl, (req, res, ctx) => {
     const q = req.url.searchParams.get('q');
@@ -51,10 +52,17 @@ const handlers = [
           code: 1003,
           message: 'Parameter q is missing.',
         }),
-        ctx.delay(500),
+        ctx.delay(delay),
       );
     }
-    return res(ctx.status(200), ctx.json(cities), ctx.delay(500));
+    return res(ctx.status(200), ctx.json(cities), ctx.delay(delay));
+  }),
+
+  rest.post(nearbyCitiesOnMapApiUrl, (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(places), ctx.delay(500));
+  }),
+  rest.get(ipLookupApiUrl, (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(ipLookupData), ctx.delay(500));
   }),
 
   rest.post(nearbyCitiesOnMapApiUrl, (req, res, ctx) => {
