@@ -111,7 +111,7 @@ describe('City page', () => {
     expect(gust).toBeInTheDocument();
   });
 
-  it('should render temperature widget content properly after entering /cities/:city route', async () => {
+  it('should render temperature widget content properly after entering /city/:city route', async () => {
     renderCityPageInRoute();
 
     const weatherIcon = await screen.findByAltText('Weather widget icon');
@@ -125,7 +125,7 @@ describe('City page', () => {
     expect(feelslikeTemperature).toBeInTheDocument();
   });
 
-  it('should render weather aqi content properly after entering /cities/:city route', async () => {
+  it('should render weather aqi content properly after entering /city/:city route', async () => {
     renderCityPageInRoute();
 
     const co = await screen.findByText(/155 µg\/m3/i);
