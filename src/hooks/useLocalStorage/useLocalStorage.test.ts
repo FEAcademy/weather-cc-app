@@ -1,5 +1,5 @@
-import { renderHook, act } from '@testing-library/react';
 import { useLocalStorage } from 'hooks/useLocalStorage';
+import { renderHook, act } from 'test-utils';
 
 describe('useLocalStorage', () => {
   it('should save item to local storage', () => {
