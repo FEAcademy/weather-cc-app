@@ -15,9 +15,9 @@ const CityPage = () => {
   const { city } = useParams() as Params;
   const { data, isLoading } = Weather.useLocation(city);
   const { state }: NavigateOptions = useLocation();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { data: nearestCities } = Overpass.useNearestPlaces(city, state?.cityName);
 
-  console.log(nearestCities);
   const renderCityName = () => {
     if (isLoading) {
       return <CityNameLoader />;
