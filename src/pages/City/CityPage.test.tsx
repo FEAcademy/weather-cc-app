@@ -9,11 +9,11 @@ import { CityPageTestIds } from './CityPageTestIds';
 import { CityNameLoaderTestIds } from './components/CityNameLoader';
 
 const renderCityPageInRoute = () => {
-  const route = '/cities/wroclaw';
+  const route = '/city/wroclaw';
 
   render(
     <Routes>
-      <Route path="/cities/:city" element={<CityPage />} />
+      <Route path="/city/:city" element={<CityPage />} />
     </Routes>,
     { route },
   );
@@ -26,7 +26,7 @@ describe('City page', () => {
     expect(screen.getByTestId(CityPageTestIds.Container)).toBeInTheDocument();
   });
 
-  it('should display city name after entering /cities/:city route', async () => {
+  it('should display city name after entering /city/:city route', async () => {
     renderCityPageInRoute();
 
     const cityNameElement = await screen.findByText(/Wroclaw/i);
@@ -111,7 +111,7 @@ describe('City page', () => {
     expect(gust).toBeInTheDocument();
   });
 
-  it('should render temperature widget content properly after entering /cities/:city route', async () => {
+  it('should render temperature widget content properly after entering /city/:city route', async () => {
     renderCityPageInRoute();
 
     const weatherIcon = await screen.findByAltText('Weather widget icon');
@@ -125,7 +125,7 @@ describe('City page', () => {
     expect(feelslikeTemperature).toBeInTheDocument();
   });
 
-  it('should render weather aqi content properly after entering /cities/:city route', async () => {
+  it('should render weather aqi content properly after entering /city/:city route', async () => {
     renderCityPageInRoute();
 
     const co = await screen.findByText(/155 µg\/m3/i);

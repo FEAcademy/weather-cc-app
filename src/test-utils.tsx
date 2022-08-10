@@ -4,6 +4,10 @@ import { PropsWithChildren, ReactElement } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Paths } from './enums/Paths';
 
+interface Route {
+  route?: Exclude<Paths, Paths.City> | '/city' | `/city/${string}`;
+}
+
 const AllProvidersWrapper = ({ children }: PropsWithChildren) => {
   return (
     <BrowserRouter>
@@ -14,7 +18,7 @@ const AllProvidersWrapper = ({ children }: PropsWithChildren) => {
 
 const renderWithRouter = (
   ui: ReactElement,
-  { route = Paths.Home as string } = {},
+  { route = Paths.Home }: Route = {},
   options?: Omit<RenderOptions, 'wrapper'>,
 ) => {
   window.history.pushState({}, 'Test page', route);

@@ -1,13 +1,17 @@
 import userEvent from '@testing-library/user-event';
 import App from 'App';
 import { Paths } from 'enums/Paths';
-import { render, screen } from 'test-utils';
+import { MapContainer } from 'react-leaflet';
+import { Route, Routes } from 'react-router-dom';
+import { render, screen, waitForElementToBeRemoved } from 'test-utils';
 import { FooterTestIds } from 'components/Footer/FooterTestIds';
 import { NavbarTestIds } from 'components/Navbar/NavbarTestIds';
 import { NavbarTitles } from 'components/Navbar/NavbarTitles';
 import { AboutPageTestIds } from 'pages/About/AboutPageTestIds';
+import { CityPage } from 'pages/City';
 import { CityPageTestIds } from 'pages/City/CityPageTestIds';
 import { HomePageTestIds } from 'pages/Home/HomePageTestIds';
+import { WeatherMarker, WeatherMarkerTestIds } from 'pages/Map/components/WeatherMarker';
 import { MapPageTestIds } from 'pages/Map/MapPageTestIds';
 
 describe('App', () => {
@@ -29,7 +33,7 @@ describe('App', () => {
     expect(mapPage).toBeInTheDocument();
   });
 
-  it('should make possible reaching dynamic route /cities/:cityName path', () => {
+  it('should make possible reaching dynamic route /city/:cityName path', () => {
     const route = Paths.City;
 
     render(<App />, { route });
@@ -38,8 +42,8 @@ describe('App', () => {
     expect(cityPage).toBeInTheDocument();
   });
 
-  it('should redirect to /map if no city name provided to /cities/:city', () => {
-    const route = '/cities';
+  it('should redirect to /map if no city name provided to /city/:city', () => {
+    const route = '/city';
 
     render(<App />, { route });
 
@@ -119,5 +123,32 @@ describe('App', () => {
     const about = screen.getByTestId(AboutPageTestIds.Container);
 
     expect(about).toBeInTheDocument();
+  });
+
+  it('should redirect to /city/:city after clicking on marker', async () => {
+    render(
+      <Routes>
+        <Route
+          path={Paths.Map}
+          element={
+            <MapContainer center={[0, 0]} zoom={10} zoomControl={false} scrollWheelZoom={true}>
+              <WeatherMarker pos={[0, 0]} cityName={'Wroclaw'} />
+            </MapContainer>
+          }
+        />
+        <Route path={Paths.City} element={<CityPage />} />,
+      </Routes>,
+      { route: Paths.Map },
+    );
+
+    const loader = screen.getByTestId(WeatherMarkerTestIds.Loader);
+
+    await waitForElementToBeRemoved(loader).then(async () => {
+      const marker = screen.getByTestId(WeatherMarkerTestIds.Container);
+      const user = userEvent.setup();
+      await user.click(marker);
+      const cityPageComponent = await screen.findByTestId(CityPageTestIds.Container);
+      expect(cityPageComponent).toBeInTheDocument();
+    });
   });
 });
