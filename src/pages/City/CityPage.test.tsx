@@ -1,3 +1,4 @@
+import { Paths } from 'enums/Paths';
 import { Route, Routes } from 'react-router-dom';
 import { render, screen, waitForElementToBeRemoved } from 'test-utils';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
@@ -12,7 +13,7 @@ const renderCityPageInRoute = () => {
 
   render(
     <Routes>
-      <Route path="/city/:city" element={<CityPage />} />
+      <Route path={Paths.City} element={<CityPage />} />
     </Routes>,
     { route },
   );
