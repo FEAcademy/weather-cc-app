@@ -42,8 +42,8 @@ describe('App', () => {
     expect(cityPage).toBeInTheDocument();
   });
 
-  it('should redirect to /map if no city name provided to /cities/:city', () => {
-    const route = '/cities';
+  it('should redirect to /map if no city name provided to /city/:city', () => {
+    const route = '/city';
 
     render(<App />, { route });
 
@@ -125,7 +125,7 @@ describe('App', () => {
     expect(about).toBeInTheDocument();
   });
 
-  it('should redirect to /cities/:city after clicking on marker', async () => {
+  it('should redirect to /city/:city after clicking on marker', async () => {
     render(
       <Routes>
         <Route

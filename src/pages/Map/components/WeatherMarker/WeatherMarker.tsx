@@ -45,7 +45,7 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
   return (
     <Link
       data-testid={WeatherMarkerTestIds.Container}
-      to={`/cities/${serializeCoordinates({ latitude: pos[0], longitude: pos[1] })}`}
+      to={`/city/${serializeCoordinates({ latitude: pos[0], longitude: pos[1] })}`}
       state={{ cityName }}
     >
       <Marker icon={DefaultIcon} position={pos} opacity={0}>

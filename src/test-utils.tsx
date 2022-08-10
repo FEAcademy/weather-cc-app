@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Paths } from './enums/Paths';
 
 interface Route {
-  route?: Exclude<Paths, Paths.City> | '/cities' | `/cities/${string}`;
+  route?: Exclude<Paths, Paths.City> | '/city' | `/city/${string}`;
 }
 
 const AllProvidersWrapper = ({ children }: PropsWithChildren) => {
