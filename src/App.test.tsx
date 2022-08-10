@@ -31,7 +31,7 @@ describe('App', () => {
     expect(mapPage).toBeInTheDocument();
   });
 
-  it('should make possible reaching dynamic route /city/:cityName path', () => {
+  it('should make possible reaching dynamic route /city/:city path', () => {
     const route = Paths.City;
 
     render(<App />, { route });
