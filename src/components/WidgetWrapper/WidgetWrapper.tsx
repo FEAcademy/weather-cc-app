@@ -1,5 +1,4 @@
-import { TemperatureWidget } from 'components/TemperatureWidget';
-import { TemperatureWidgetLoader } from 'components/TemperatureWidget/TemperatureWidgetLoader';
+import { TemperatureWidget, TemperatureWidgetLoader } from 'components/TemperatureWidget';
 import { WeatherAqiWidget, WeatherAqiWidgetLoader } from 'components/WeatherAqiWidget';
 import { WeatherInfoWidget, WeatherInfoWidgetLoader } from 'components/WeatherInfoWidget';
 import { Weather } from 'models/Weather';
