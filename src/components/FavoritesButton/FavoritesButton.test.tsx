@@ -20,9 +20,9 @@ describe('FavoritesButton', () => {
 
     render(<FavoritesButton onClick={handleClick} isFavorite={false} />);
 
-    const icon = screen.getByTestId(FavoritesButtonTestIds.Icon);
+    const button = screen.getByTestId(FavoritesButtonTestIds.Button);
 
-    expect(icon).toHaveStyle(`color: ${theme.colors.text}`);
+    expect(button).toHaveStyle(`color: ${theme.colors.text}`);
   });
 
   it('should change color when city isFavorite', () => {
@@ -30,9 +30,9 @@ describe('FavoritesButton', () => {
 
     render(<FavoritesButton onClick={handleClick} isFavorite={true} />);
 
-    const icon = screen.getByTestId(FavoritesButtonTestIds.Icon);
+    const button = screen.getByTestId(FavoritesButtonTestIds.Button);
 
-    expect(icon).toHaveStyle('color: #DC5F44');
+    expect(button).toHaveStyle('color: #DC5F44');
   });
 
   it('should call function after button click', async () => {

@@ -8,8 +8,8 @@ interface Props {
 
 const FavoritesButton = ({ isFavorite, onClick }: Props) => {
   return (
-    <Button data-testid={FavoritesButtonTestIds.Button} onClick={onClick}>
-      <HeartIcon data-testid={FavoritesButtonTestIds.Icon} isActive={isFavorite} />
+    <Button data-testid={FavoritesButtonTestIds.Button} isActive={isFavorite} onClick={onClick}>
+      <HeartIcon />
     </Button>
   );
 };
