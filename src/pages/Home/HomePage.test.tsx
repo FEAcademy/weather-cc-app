@@ -9,7 +9,7 @@ import { HomePageTestIds } from './HomePageTestIds';
 
 describe('Home page', () => {
   beforeEach(() => {
-    localStorage.setItem('current_location', 'Warszawa');
+    localStorage.setItem('current_location', JSON.stringify('Warszawa'));
   });
 
   it('should display geolocation button', () => {

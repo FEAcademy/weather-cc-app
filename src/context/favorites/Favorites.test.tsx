@@ -13,9 +13,10 @@ describe('Favorites context', () => {
   it('should return null value if no dispatch function invoked', () => {
     const { result } = renderHook(() => useFavorites(), { wrapper: ProvidersCombined });
 
-    expect(result.current?.state.favorites).toBe(null);
-    expect(localStorage.getItem('favorites')).toBe(null);
+    expect(result.current?.state.favorites).toMatchObject([]);
+    expect(localStorage.getItem('favorites')).toBe(JSON.stringify([]));
   });
+
   it('should add single city', () => {
     const { result } = renderHook(() => useFavorites(), { wrapper: ProvidersCombined });
 
@@ -42,25 +43,11 @@ describe('Favorites context', () => {
     expect(localStorage.getItem('favorites')).toBe(JSON.stringify([pcimDolny, pcimGorny]));
   });
 
-  it('should not add the same city twice', () => {
-    const { result } = renderHook(() => useFavorites(), { wrapper: ProvidersCombined });
-
-    act(() => {
-      result.current && result.current.dispatch({ type: 'add', payload: pcimDolny });
-    });
-
-    act(() => {
-      result.current && result.current.dispatch({ type: 'add', payload: pcimDolny });
-    });
-
-    expect(result.current?.state.favorites).toMatchObject([pcimDolny]);
-    expect(localStorage.getItem('favorites')).toBe(JSON.stringify([pcimDolny]));
-  });
-
   it('should return city from localStorage', () => {
-    localStorage.setItem('favorites', JSON.stringify(`["${pcimDolny}"]`));
+    const arr = [pcimDolny, pcimGorny];
+    localStorage.setItem('favorites', JSON.stringify(arr));
 
     const { result } = renderHook(() => useFavorites(), { wrapper: ProvidersCombined });
-    expect(result.current?.state.favorites).toBe(JSON.stringify([pcimDolny]));
+    expect(result.current?.state.favorites).toMatchObject(arr);
   });
 });
