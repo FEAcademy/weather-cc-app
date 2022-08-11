@@ -12,9 +12,10 @@ type Params = {
 
 const CityPage = () => {
   const { city } = useParams() as Params;
-  const { data, isLoading } = Weather.useLocation(city);
+  const normalizedCity=  city.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\u0142/g, 'l');
+  const { data, isLoading } = Weather.useLocation(normalizedCity);
   const { state }: NavigateOptions = useLocation();
-
+  
   const renderCityName = () => {
     if (isLoading) {
       return <CityNameLoader />;
