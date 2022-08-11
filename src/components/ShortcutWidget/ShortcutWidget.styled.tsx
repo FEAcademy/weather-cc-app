@@ -25,7 +25,7 @@ const Icon = styled.img`
 const Temperature = styled.div`
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: baseline;
   margin-top: 49px;
   height: 45px;
 `;
@@ -43,6 +43,7 @@ const TemperatureSign = styled.span`
 `;
 
 const City = styled.p`
+  margin-top: 12px;
   font-weight: 300;
   font-size: 20px;
   line-height: 24px;
