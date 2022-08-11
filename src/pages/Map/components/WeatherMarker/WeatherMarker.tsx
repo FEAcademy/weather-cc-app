@@ -41,12 +41,12 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
       );
     }
   };
-  const region = data?.location.region == '' ? '' : `${data?.location.region},`;
+  const cityDescription = [cityName , data?.location.region, data?.location.country].filter(Boolean).join(',');
 
   return (
     <Link
       data-testid={WeatherMarkerTestIds.Container}
-      to={`/city/${data?.location.name},${region}${data?.location.country}`}
+      to={`/city/${cityDescription}`}
     >
       <Marker icon={DefaultIcon} position={pos} opacity={0}>
         <Content interactive={true} permanent={true} direction="top">
