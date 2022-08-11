@@ -1,4 +1,5 @@
 import Weather from 'api/services/Weather';
+import { useMemo } from 'react';
 import { NavigateOptions, useLocation, useParams } from 'react-router-dom';
 import { PageContentContainer } from 'components/PageContentContainer';
 import { WidgetWrapper } from 'components/WidgetWrapper';
@@ -12,10 +13,17 @@ type Params = {
 
 const CityPage = () => {
   const { city } = useParams() as Params;
-  const normalizedCity=  city.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\u0142/g, 'l');
+  const normalizedCity = useMemo(
+    () =>
+      city
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/\u0142/g, 'l'),
+    [city],
+  );
   const { data, isLoading } = Weather.useLocation(normalizedCity);
   const { state }: NavigateOptions = useLocation();
-  
+
   const renderCityName = () => {
     if (isLoading) {
       return <CityNameLoader />;
