@@ -7,6 +7,8 @@ import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget';
 import { CityPage } from './CityPage';
 import { CityPageTestIds } from './CityPageTestIds';
 import { CityNameLoaderTestIds } from './components/CityNameLoader';
+import { ShortcutsLoadersWidgetTestIds } from './components/ShortcutsLoadersWidget';
+import { ShortcutLoaderWidgetTestIds } from './components/ShortcutsLoadersWidget/components/ShortcutLoaderWidget';
 
 const renderCityPageInRoute = () => {
   const route = '/city/wroclaw';
@@ -141,5 +143,29 @@ describe('City page', () => {
     expect(o3).toBeInTheDocument();
     expect(pm25).toBeInTheDocument();
     expect(so2).toBeInTheDocument();
+  });
+
+  it('should render shortcuts title', () => {
+    render(<CityPage />);
+
+    const shortcutsTitle = screen.getByText(/nearest/i);
+
+    expect(shortcutsTitle).toBeInTheDocument();
+  });
+
+  it('should render loader container for shortcuts widgets', async () => {
+    render(<CityPage />);
+
+    const loaderContainer = screen.getByTestId(ShortcutsLoadersWidgetTestIds.Container);
+
+    expect(loaderContainer).toBeInTheDocument();
+  });
+
+  it('should render 6 loaders for shortcuts widgets', async () => {
+    render(<CityPage />);
+
+    const loaders = screen.getAllByTestId(ShortcutLoaderWidgetTestIds.Loader);
+
+    expect(loaders.length).toEqual(6);
   });
 });
