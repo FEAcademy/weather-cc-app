@@ -32,7 +32,7 @@ module.exports = {
     'eol-last': [2, 'always'],
     quotes: [2, 'single'],
     'no-unused-vars': 'off',
-    indent: ['error', 2],
+    indent: ['error', 2, { SwitchCase: 1 }],
     '@typescript-eslint/no-unused-vars': ['error'],
     semi: ['error', 'always'],
     'import/order': [

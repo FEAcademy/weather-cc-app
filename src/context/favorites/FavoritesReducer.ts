@@ -1,4 +1,3 @@
-/* eslint-disable indent */
 import { Action, State } from './models';
 
 const setItem = (value: string[]) => localStorage.setItem('favorites', JSON.stringify(value));
