@@ -16,7 +16,7 @@ type Params = {
 // this is temporaty solution (flag and DUMMY_DATA). will be changed when task 77 and 78 are done
 // TODO: add tests in CityPage after adding data fetching from API's
 
-const flag = false;
+const flag = true;
 
 const DUMMY_DATA: IWeather[] = [
   weatherDataInCity,
