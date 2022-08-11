@@ -1,13 +1,5 @@
 import { Weather } from 'models/Weather';
-import {
-  Container,
-  Icon,
-  Temperature,
-  Value,
-  TemperatureSign,
-  City,
-  FavouriteButtonWrapper,
-} from './ShortcutWidget.styled';
+import { Container, Icon, Temperature, Value, TemperatureSign, City } from './ShortcutWidget.styled';
 import { ShortcutWidgetTestIds } from './ShortcutWidgetTestIds';
 
 interface Props {
@@ -26,7 +18,6 @@ const ShortcutWidget = ({ data }: Props) => {
         <TemperatureSign>&deg;C</TemperatureSign>
       </Temperature>
       <City>{data.location.name}</City>
-      <FavouriteButtonWrapper>{'<3' /*here will be button compoennt in the future*/}</FavouriteButtonWrapper>
     </Container>
   );
 };

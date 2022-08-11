@@ -1,5 +1,5 @@
 import { ShortcutWidget } from 'components/ShortcutWidget';
-import { ShortcutWidgetLoader } from 'components/ShortcutWidgetLoader';
+import { ShortcutWidgetLoader } from 'components/ShortcutWidget/components/ShortcutWidgetLoader';
 import { Weather } from 'models/Weather';
 import { ShortcutsContainer, Wrapper, Title } from './ShortcutsWrapper.styled';
 

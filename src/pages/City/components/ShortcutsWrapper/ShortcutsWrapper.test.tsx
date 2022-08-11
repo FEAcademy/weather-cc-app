@@ -1,7 +1,7 @@
 import { weatherDataInCity } from 'mocks/mockData';
 import { render, screen } from 'test-utils';
 import { ShortcutWidgetTestIds } from 'components/ShortcutWidget';
-import { ShortcutWidgetLoaderTestIds } from 'components/ShortcutWidgetLoader';
+import { ShortcutWidgetLoaderTestIds } from 'components/ShortcutWidget/components/ShortcutWidgetLoader';
 import { Weather } from 'models/Weather';
 import { ShortcutsWrapper } from './ShortcutsWrapper';
 

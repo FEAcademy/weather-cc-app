@@ -18,12 +18,11 @@ const Icon = styled.img`
   width: 76px;
   height: 74px;
   position: absolute;
-  top: -37px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
 `;
 
-const Temperature = styled.p`
+const Temperature = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -50,17 +49,4 @@ const City = styled.p`
   text-align: center;
 `;
 
-const FavouriteButtonWrapper = styled.div`
-  width: 36px;
-  height: 36px;
-  background: ${({ theme }) => theme.colors.backgrounds.main};
-  opacity: 0.5;
-  border-radius: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  top: 25px;
-`;
-
-export { Container, Icon, Temperature, Value, TemperatureSign, City, FavouriteButtonWrapper };
+export { Container, Icon, Temperature, Value, TemperatureSign, City };
