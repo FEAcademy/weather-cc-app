@@ -57,9 +57,12 @@ const HomePage = () => {
     }
   };
 
-  const handleChangeSavedLocation = useCallback((value:string) => {
-    setSavedLocation(value);
-  },[setSavedLocation]);
+  const handleChangeSavedLocation = useCallback(
+    (value: string) => {
+      setSavedLocation(value);
+    },
+    [setSavedLocation],
+  );
 
   return (
     <Container data-testid={HomePageTestIds.HomePage}>
