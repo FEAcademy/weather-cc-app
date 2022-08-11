@@ -1,9 +1,9 @@
-import Weather from 'api/services/Weather';
+import { default as WearherAPI } from 'api/services/Weather';
 import { weatherDataInCity } from 'mocks/mockData';
 import { NavigateOptions, useLocation, useParams } from 'react-router-dom';
 import { PageContentContainer } from 'components/PageContentContainer';
 import { WidgetWrapper } from 'components/WidgetWrapper';
-import { Weather as IWeather } from 'models/Weather';
+import { Weather } from 'models/Weather';
 import { CityName } from './CityPage.styled';
 import { CityPageTestIds } from './CityPageTestIds';
 import { CityNameLoader } from './components/CityNameLoader';
@@ -18,7 +18,7 @@ type Params = {
 
 const flag = true;
 
-const DUMMY_DATA: IWeather[] = [
+const DUMMY_DATA: Weather[] = [
   weatherDataInCity,
   weatherDataInCity,
   weatherDataInCity,
@@ -29,7 +29,7 @@ const DUMMY_DATA: IWeather[] = [
 
 const CityPage = () => {
   const { city } = useParams() as Params;
-  const { data, isLoading } = Weather.useLocation(city);
+  const { data, isLoading } = WearherAPI.useLocation(city);
   const { state }: NavigateOptions = useLocation();
 
   const renderCityName = () => {
