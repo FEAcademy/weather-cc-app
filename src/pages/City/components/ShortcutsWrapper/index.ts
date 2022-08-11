@@ -1,0 +1,1 @@
+export { ShortcutsWrapper } from './ShortcutsWrapper';
