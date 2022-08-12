@@ -4,6 +4,6 @@ describe('convertSpecialCharacters', () => {
 
   it('should replace spacial characters', () => {
     
-    expect(convertSpecialCharacters('Wołów')).toBe('Wolow');
+    expect(convertSpecialCharacters('ąęćńóśźżł')).toBe('aecnoszzl');
   });
 });
