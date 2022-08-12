@@ -9,7 +9,7 @@ import { CityPageTestIds } from './CityPageTestIds';
 import { CityNameLoaderTestIds } from './components/CityNameLoader';
 
 const renderCityPageInRoute = () => {
-  const route = '/city/wroclaw,Poland';
+  const route = '/city/Wrocław,Poland';
 
   render(
     <Routes>
