@@ -10,7 +10,7 @@ describe('Favorites context', () => {
   const pcimGorny = 'Pcim Górny';
   const pcimDolny = 'Pcim Dolny';
 
-  it('should return null value if no dispatch function invoked', () => {
+  it('should return empty array value if no dispatch function invoked', () => {
     const { result } = renderHook(() => useFavorites(), { wrapper: ProvidersCombined });
 
     expect(result.current?.state.favorites).toMatchObject([]);
@@ -43,7 +43,7 @@ describe('Favorites context', () => {
     expect(localStorage.getItem('favorites')).toBe(JSON.stringify([pcimDolny, pcimGorny]));
   });
 
-  it('should return city from localStorage', () => {
+  it('should return cities from localStorage', () => {
     const arr = [pcimDolny, pcimGorny];
     localStorage.setItem('favorites', JSON.stringify(arr));
 
