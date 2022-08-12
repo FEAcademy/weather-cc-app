@@ -3,7 +3,12 @@ import { createContext, useContext, PropsWithChildren, useReducer, useEffect } f
 import { favoritesReducer } from './FavoritesReducer';
 import { State, Dispatch } from './models';
 
-const FavoriteContext = createContext<{ state: State; dispatch: Dispatch } | undefined>(undefined);
+interface ContextProps {
+  state: State;
+  dispatch: Dispatch;
+}
+
+const FavoriteContext = createContext<ContextProps | undefined>(undefined);
 
 const FavoritesProvider = ({ children }: PropsWithChildren) => {
   const [favorites, setFavorites] = useLocalStorage<string[]>('favorites');
