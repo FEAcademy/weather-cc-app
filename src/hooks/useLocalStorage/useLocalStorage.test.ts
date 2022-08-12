@@ -12,7 +12,7 @@ describe('useLocalStorage', () => {
     });
 
     expect(result.current[0]).toEqual(newValue);
-    expect(JSON.parse(localStorage.getItem(key) || 'null')).toEqual(newValue);
+    expect(JSON.parse(localStorage.getItem(key) as string)).toEqual(newValue);
   });
 
   it('should save array item to local storage', () => {
@@ -25,7 +25,7 @@ describe('useLocalStorage', () => {
     });
 
     expect(result.current[0]).toEqual(newValue);
-    expect(JSON.parse(localStorage.getItem(key) || 'null')).toEqual(newValue);
+    expect(JSON.parse(localStorage.getItem(key) as string)).toEqual(newValue);
   });
 
   it('should save objet to local storage', () => {
@@ -38,6 +38,6 @@ describe('useLocalStorage', () => {
     });
 
     expect(result.current[0]).toEqual(newValue);
-    expect(JSON.parse(localStorage.getItem(key) || 'null')).toEqual(newValue);
+    expect(JSON.parse(localStorage.getItem(key) as string)).toEqual(newValue);
   });
 });
