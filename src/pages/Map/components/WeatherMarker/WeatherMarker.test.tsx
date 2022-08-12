@@ -2,6 +2,7 @@ import userEvent from '@testing-library/user-event';
 import { MapContainer } from 'react-leaflet';
 import * as router from 'react-router';
 import { screen, render, waitForElementToBeRemoved } from 'test-utils';
+import { FavoritesButtonTestIds } from 'components/FavoritesButton';
 import { WeatherMarker } from './WeatherMarker';
 import { WeatherMarkerTestIds } from './WeatherMarkerTestIds';
 
@@ -28,8 +29,10 @@ describe('WeatherMarker', () => {
     const icon = await screen.findByAltText('Weather Icon');
     const temperature = await screen.findByText(/25/i);
     const cityName = await screen.findByText(/Wroclaw/i);
+    const button = await screen.findByTestId(FavoritesButtonTestIds.Button);
 
     expect(icon).toHaveAttribute('src', '//cdn.weatherapi.com/weather/128x128/day/113.png');
+    expect(button).toBeInTheDocument();
     expect(temperature).toBeInTheDocument();
     expect(cityName).toBeInTheDocument();
   });
