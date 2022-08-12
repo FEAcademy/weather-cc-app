@@ -9,7 +9,7 @@ type Props = {
 
 const WEATHER_DATA_TEMP = weatherDataInCitySuccessResponse;
 
-function CityWeatherShortcut({ cityData }: Props) {
+const CityWeatherShortcut = ({ cityData }: Props) => {
   cityData; // had to use it in code otherwise linter shows error - in the future api request here
 
   const { condition, temp_c } = WEATHER_DATA_TEMP.current;
@@ -25,6 +25,6 @@ function CityWeatherShortcut({ cityData }: Props) {
       <City>{WEATHER_DATA_TEMP.location.name}</City>
     </Container>
   );
-}
+};
 
 export { CityWeatherShortcut };

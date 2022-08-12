@@ -1,18 +1,11 @@
 import Weather from 'api/services/Weather';
-import { places } from 'mocks/mockData';
 import { NavigateOptions, useLocation, useParams } from 'react-router-dom';
 import { PageContentContainer } from 'components/PageContentContainer';
 import { WidgetWrapper } from 'components/WidgetWrapper';
 import { CityName, NearestCitiesTitle } from './CityPage.styled';
 import { CityPageTestIds } from './CityPageTestIds';
-import { CitiesShortcutsLoader } from './components/CitiesShortcutsLoader';
 import { CityNameLoader } from './components/CityNameLoader';
 import { NearestCitiesWeatherWidget } from './components/NearestCitiesWeatherWidget';
-
-const TEMP_NEAREST_CITIES = [...places.elements, ...places.elements].map((city, index) => {
-  return { ...city, id: city.id + index };
-});
-const IS_LOADING_NEAREST_CITIES_STATE_TEMP = false;
 
 type Params = {
   city: string;
@@ -33,13 +26,8 @@ const CityPage = () => {
   };
 
   const renderContent = () => {
-    if (IS_LOADING_NEAREST_CITIES_STATE_TEMP) {
-      return <CitiesShortcutsLoader />;
-    }
-
-    if (!IS_LOADING_NEAREST_CITIES_STATE_TEMP && TEMP_NEAREST_CITIES) {
-      return <NearestCitiesWeatherWidget citiesData={TEMP_NEAREST_CITIES} />;
-    }
+    // in next tasks add conditional rendering of loaders here too
+    return <NearestCitiesWeatherWidget citiesData={[]} />;
   };
 
   return (
