@@ -9,8 +9,7 @@ import { CitiesShortcutsLoader } from './components/CitiesShortcutsLoader';
 import { CityNameLoader } from './components/CityNameLoader';
 import { NearestCitiesWeatherWidget } from './components/NearestCitiesWeatherWidget';
 
-let TEMP_NEAREST_CITIES = [...places.elements, ...places.elements];
-TEMP_NEAREST_CITIES = TEMP_NEAREST_CITIES.map((city, index) => {
+const TEMP_NEAREST_CITIES = [...places.elements, ...places.elements].map((city, index) => {
   return { ...city, id: city.id + index };
 });
 const IS_LOADING_NEAREST_CITIES_STATE_TEMP = false;
