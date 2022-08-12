@@ -1,4 +1,4 @@
-import { weatherDataInCity } from 'mocks/mockData';
+import { weatherDataInCitySuccessResponse } from 'mocks/mockData';
 import { Place } from 'models/Place';
 import { Container, Icon, Temperature, Value, TemperatureSign, City } from './CityWeatherShortcut.styled';
 import { CityWeatherShortcutTestIds } from './CityWeatherShortcutTestIds';
@@ -7,7 +7,7 @@ type Props = {
   cityData: Place;
 };
 
-const WEATHER_DATA_TEMP = weatherDataInCity;
+const WEATHER_DATA_TEMP = weatherDataInCitySuccessResponse;
 
 function CityWeatherShortcut({ cityData }: Props) {
   cityData; // had to use it in code otherwise linter shows error - in the future api request here

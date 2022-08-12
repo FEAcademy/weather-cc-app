@@ -52,7 +52,7 @@ const weatherSuccessResponse: Weather = {
   },
 };
 
-const weatherDataInCity: Weather = {
+const weatherDataInCitySuccessResponse: Weather = {
   current: {
     condition: { text: 'Sunny', icon: '//cdn.weatherapi.com/weather/64x64/day/113.png', code: 1000 },
     cloud: 0,
@@ -170,4 +170,4 @@ const ipLookupData: IpLookup = {
   tz_id: 'Europe/Warsaw',
 };
 
-export { weatherSuccessResponse, cities, positionData, ipLookupData, places, weatherDataInCity };
+export { weatherSuccessResponse, cities, positionData, ipLookupData, places, weatherDataInCitySuccessResponse };

@@ -3,10 +3,10 @@ import { places } from 'mocks/mockData';
 import { NavigateOptions, useLocation, useParams } from 'react-router-dom';
 import { PageContentContainer } from 'components/PageContentContainer';
 import { WidgetWrapper } from 'components/WidgetWrapper';
-import { CityName, ShortcutsTitle } from './CityPage.styled';
+import { CityName, NearestCitiesTitle } from './CityPage.styled';
 import { CityPageTestIds } from './CityPageTestIds';
+import { CitiesShortcutsLoader } from './components/CitiesShortcutsLoader';
 import { CityNameLoader } from './components/CityNameLoader';
-import { LoadersWidget } from './components/LoadersWidget';
 import { NearestCitiesWeatherWidget } from './components/NearestCitiesWeatherWidget';
 
 let TEMP_NEAREST_CITIES = [...places.elements, ...places.elements];
@@ -35,7 +35,7 @@ const CityPage = () => {
 
   const renderContent = () => {
     if (IS_LOADING_NEAREST_CITIES_STATE_TEMP) {
-      return <LoadersWidget />;
+      return <CitiesShortcutsLoader />;
     }
 
     if (!IS_LOADING_NEAREST_CITIES_STATE_TEMP && TEMP_NEAREST_CITIES) {
@@ -47,7 +47,7 @@ const CityPage = () => {
     <PageContentContainer data-testid={CityPageTestIds.Container}>
       {renderCityName()}
       <WidgetWrapper data={data} isLoading={isLoading} data-testid={CityPageTestIds.Widgets} />
-      <ShortcutsTitle>nearest</ShortcutsTitle>
+      <NearestCitiesTitle>nearest</NearestCitiesTitle>
       {renderContent()}
     </PageContentContainer>
   );

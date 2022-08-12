@@ -7,7 +7,7 @@ const CityName = styled.h3`
   margin-bottom: 42px;
 `;
 
-const ShortcutsTitle = styled.h3`
+const NearestCitiesTitle = styled.h3`
   text-transform: uppercase;
   font-weight: 900;
   font-size: 16px;
@@ -17,4 +17,4 @@ const ShortcutsTitle = styled.h3`
   margin-bottom: 68px;
 `;
 
-export { CityName, ShortcutsTitle };
+export { CityName, NearestCitiesTitle };

@@ -1,19 +1,19 @@
 import { render, screen } from 'test-utils';
+import { CitiesShortcutsLoader } from './CitiesShortcutsLoader';
+import { CitiesShortcutsLoaderTestIds } from './CitiesShortcutsLoaderTestIds';
 import { ShortcutLoaderWidgetTestIds } from './components/ShortcutLoaderWidget';
-import { LoadersWidget } from './LoadersWidget';
-import { LoadersWidgetTestIds } from './LoadersWidgetTestIds';
 
 describe('ShortcutsLoadersWidget', () => {
   it('should render', async () => {
-    render(<LoadersWidget />);
+    render(<CitiesShortcutsLoader />);
 
-    const loaders = screen.getByTestId(LoadersWidgetTestIds.Container);
+    const loaders = screen.getByTestId(CitiesShortcutsLoaderTestIds.Container);
 
     expect(loaders).toBeInTheDocument();
   });
 
   it('should render 6 loaders', async () => {
-    render(<LoadersWidget />);
+    render(<CitiesShortcutsLoader />);
 
     const loaders = screen.getAllByTestId(ShortcutLoaderWidgetTestIds.Loader);
 
