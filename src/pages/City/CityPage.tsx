@@ -6,8 +6,8 @@ import { WidgetWrapper } from 'components/WidgetWrapper';
 import { CityName, ShortcutsTitle } from './CityPage.styled';
 import { CityPageTestIds } from './CityPageTestIds';
 import { CityNameLoader } from './components/CityNameLoader';
+import { LoadersWidget } from './components/LoadersWidget';
 import { NearestCitiesWeatherWidget } from './components/NearestCitiesWeatherWidget';
-import { ShortcutsLoadersWidget } from './components/ShortcutsLoadersWidget';
 
 const TEMP_NEAREST_CITIES = [...places.elements, ...places.elements];
 const IS_LOADING_NEAREST_CITIES_STATE_TEMP = false;
@@ -32,7 +32,7 @@ const CityPage = () => {
 
   const renderContent = () => {
     if (IS_LOADING_NEAREST_CITIES_STATE_TEMP) {
-      return <ShortcutsLoadersWidget />;
+      return <LoadersWidget />;
     }
 
     if (!IS_LOADING_NEAREST_CITIES_STATE_TEMP && TEMP_NEAREST_CITIES) {

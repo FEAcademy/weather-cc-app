@@ -1,19 +1,19 @@
 import { render, screen } from 'test-utils';
 import { ShortcutLoaderWidgetTestIds } from './components/ShortcutLoaderWidget';
-import { ShortcutsLoadersWidget } from './ShortcutsLoadersWidget';
-import { ShortcutsLoadersWidgetTestIds } from './ShortcutsLoadersWidgetTestIds';
+import { LoadersWidget } from './LoadersWidget';
+import { LoadersWidgetTestIds } from './LoadersWidgetTestIds';
 
 describe('ShortcutsLoadersWidget', () => {
   it('should render', async () => {
-    render(<ShortcutsLoadersWidget />);
+    render(<LoadersWidget />);
 
-    const loaders = screen.getByTestId(ShortcutsLoadersWidgetTestIds.Container);
+    const loaders = screen.getByTestId(LoadersWidgetTestIds.Container);
 
     expect(loaders).toBeInTheDocument();
   });
 
   it('should render 6 loaders', async () => {
-    render(<ShortcutsLoadersWidget />);
+    render(<LoadersWidget />);
 
     const loaders = screen.getAllByTestId(ShortcutLoaderWidgetTestIds.Loader);
 
