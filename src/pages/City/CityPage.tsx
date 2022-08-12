@@ -9,7 +9,10 @@ import { CityNameLoader } from './components/CityNameLoader';
 import { LoadersWidget } from './components/LoadersWidget';
 import { NearestCitiesWeatherWidget } from './components/NearestCitiesWeatherWidget';
 
-const TEMP_NEAREST_CITIES = [...places.elements, ...places.elements];
+let TEMP_NEAREST_CITIES = [...places.elements, ...places.elements];
+TEMP_NEAREST_CITIES = TEMP_NEAREST_CITIES.map((city, index) => {
+  return { ...city, id: city.id + index };
+});
 const IS_LOADING_NEAREST_CITIES_STATE_TEMP = false;
 
 type Params = {

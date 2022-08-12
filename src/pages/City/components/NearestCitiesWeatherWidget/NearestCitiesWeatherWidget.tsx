@@ -10,8 +10,8 @@ type Props = {
 const NearestCitiesWeatherWidget = ({ citiesData }: Props) => {
   return (
     <Container data-testid={NearestCitiesWeatherWidgetTestIds.Widget}>
-      {citiesData.map((data, index) => {
-        return <CityWeatherShortcut cityData={data} key={index} />;
+      {citiesData.map((data) => {
+        return <CityWeatherShortcut cityData={data} key={data.id} />;
       })}
     </Container>
   );
