@@ -4,6 +4,7 @@ import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import { Marker } from 'react-leaflet';
 import { Link } from 'react-router-dom';
+import { convertSpecialCharacters } from 'utils/convertSpecialCharacters';
 import { serializeCoordinates } from 'utils/serializeCoordinates';
 import { Content, WeatherIcon, Temperature, City } from './WeatherMarker.styled';
 import { WeatherMarkerLoader } from './WeatherMarkerLoader';
@@ -41,12 +42,13 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
       );
     }
   };
-  const cityDescription = [cityName , data?.location.region, data?.location.country].filter(Boolean).join(',');
+  const cityDescription = [cityName , data?.location.region, data?.location.country].filter(Boolean).join(',').toLowerCase();
+  const normalizedCityDescription = convertSpecialCharacters(cityDescription);
 
   return (
     <Link
       data-testid={WeatherMarkerTestIds.Container}
-      to={`/city/${cityDescription}`}
+      to={`/city/${normalizedCityDescription}`}
     >
       <Marker icon={DefaultIcon} position={pos} opacity={0}>
         <Content interactive={true} permanent={true} direction="top">

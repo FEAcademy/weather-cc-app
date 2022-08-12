@@ -58,7 +58,7 @@ describe('WeatherMarker', () => {
       const marker = screen.getByTestId(WeatherMarkerTestIds.Container);
       const user = userEvent.setup();
       await user.click(marker);
-      expect(navigate).toHaveBeenCalledWith('/city/Wroclaw,Poland', { replace: false});
+      expect(navigate).toHaveBeenCalledWith('/city/wroclaw,poland', { replace: false});
     });
 
     jest.clearAllMocks();
