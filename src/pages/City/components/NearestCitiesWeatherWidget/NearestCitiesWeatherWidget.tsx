@@ -1,20 +1,32 @@
 import { CityWeatherShortcut } from 'components/CityWeatherShortcut';
+import { CityWeatherShortcutLoader } from 'components/CityWeatherShortcut/components/CityWeatherShortcutLoader';
 import { Place } from 'models/Place';
 import { Container } from './NearestCitiesWeatherWidget.styled';
 import { NearestCitiesWeatherWidgetTestIds } from './NearestCitiesWeatherWidgetTestIds';
 
-type Props = {
-  citiesData: Place[];
-};
+interface Props {
+  loading: boolean;
+  cityName: string | undefined;
+}
 
-const NearestCitiesWeatherWidget = ({ citiesData }: Props) => {
-  return (
-    <Container data-testid={NearestCitiesWeatherWidgetTestIds.Widget}>
-      {citiesData.map((data) => {
-        return <CityWeatherShortcut cityData={data} key={data.id} />;
-      })}
-    </Container>
-  );
+const NearestCitiesWeatherWidget = ({ loading, cityName }: Props) => {
+  const renderContent = () => {
+    if (loading) {
+      return [...Array(6)].map((_, id) => {
+        return <CityWeatherShortcutLoader key={id} />;
+      });
+    }
+
+    if (cityName) {
+      return ([] as Place[]).map((city) => {
+        return <CityWeatherShortcut key={city.id} cityName={city.tags.name} />;
+      });
+    }
+
+    return <></>;
+  };
+
+  return <Container data-testid={NearestCitiesWeatherWidgetTestIds.Widget}>{renderContent()}</Container>;
 };
 
 export { NearestCitiesWeatherWidget };

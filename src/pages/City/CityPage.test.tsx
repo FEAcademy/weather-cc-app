@@ -6,7 +6,7 @@ import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget';
 import { CityPage } from './CityPage';
 import { CityPageTestIds } from './CityPageTestIds';
-import { CityNameLoaderTestIds } from './components/CityNameLoader';
+import { CityNameLoaderTestIds } from './components/CityNameWidget/components/CityNameLoader';
 import { NearestCitiesWeatherWidgetTestIds } from './components/NearestCitiesWeatherWidget';
 
 const renderCityPageInRoute = () => {

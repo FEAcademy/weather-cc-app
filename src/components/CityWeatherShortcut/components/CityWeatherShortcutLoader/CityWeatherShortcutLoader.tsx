@@ -1,10 +1,10 @@
 import ContentLoader from 'react-content-loader';
-import { Container } from './ShortcutLoaderWidget.styled';
-import { ShortcutLoaderWidgetTestIds } from './ShortcutLoaderWidgetTestIds';
+import { Container } from './CityWeatherShortcutLoader.styled';
+import { CityWeatherShortcutLoaderTestIds } from './CityWeatherShortcutLoaderTestIds';
 
-const ShortcutLoaderWidget = () => {
+const CityWeatherShortcutLoader = () => {
   return (
-    <Container data-testid={ShortcutLoaderWidgetTestIds.Loader}>
+    <Container data-testid={CityWeatherShortcutLoaderTestIds.Loader}>
       <ContentLoader
         style={{ position: 'relative', top: '-37px' }}
         speed={2}
@@ -22,4 +22,4 @@ const ShortcutLoaderWidget = () => {
   );
 };
 
-export { ShortcutLoaderWidget };
+export { CityWeatherShortcutLoader };
