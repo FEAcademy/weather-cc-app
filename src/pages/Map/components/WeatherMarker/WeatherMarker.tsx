@@ -1,4 +1,6 @@
 import Weather from 'api/services/Weather';
+import { ADD } from 'context/favorites';
+import { useFavorites } from 'context/favorites/FavoritesProvider';
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
@@ -22,6 +24,11 @@ interface Props {
 
 const WeatherMarker = ({ pos, cityName }: Props) => {
   const { data, isLoading } = Weather.useLocation(serializeCoordinates({ latitude: pos[0], longitude: pos[1] }));
+  const { dispatch, checkIfIsFavorite } = useFavorites();
+
+  const handleClick = (cityName: string) => {
+    if (!checkIfIsFavorite(cityName)) dispatch(ADD(cityName));
+  };
 
   const renderContent = () => {
     if (isLoading) {
@@ -38,7 +45,10 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
             <span>&deg;C</span>
           </Temperature>
           <City>{cityName}</City>
-          <FavoritesButton isFavorite={true} />
+          <FavoritesButton
+            isFavorite={checkIfIsFavorite(data.location.name)}
+            onClick={() => handleClick(data.location.name)}
+          />
         </>
       );
     }

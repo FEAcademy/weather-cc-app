@@ -6,19 +6,32 @@ import { State, Dispatch } from './models';
 interface ContextProps {
   state: State;
   dispatch: Dispatch;
+  checkIfIsFavorite: (city: string) => boolean;
 }
 
-const FavoriteContext = createContext<ContextProps | undefined>(undefined);
+const initialState: State = {
+  favorites: [],
+};
+
+const FavoriteContext = createContext<ContextProps>({
+  dispatch: () => {},
+  state: initialState,
+  checkIfIsFavorite: () => false,
+});
 
 const FavoritesProvider = ({ children }: PropsWithChildren) => {
   const [favorites, setFavorites] = useLocalStorage<string[]>('favorites');
   const [state, dispatch] = useReducer(favoritesReducer, { favorites: favorites || [] });
 
+  const checkIfIsFavorite = (city: string): boolean => {
+    return state.favorites.includes(city);
+  };
+
   useEffect(() => {
     setFavorites(state.favorites);
   }, [state, setFavorites]);
 
-  return <FavoriteContext.Provider value={{ state, dispatch }}>{children}</FavoriteContext.Provider>;
+  return <FavoriteContext.Provider value={{ state, dispatch, checkIfIsFavorite }}>{children}</FavoriteContext.Provider>;
 };
 
 const useFavorites = () => {

@@ -1,5 +1,5 @@
 enum ActionTypes {
-  Add = 'add',
+  ADD = 'ADD',
 }
 
 export { ActionTypes };

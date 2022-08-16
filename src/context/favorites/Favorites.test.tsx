@@ -1,6 +1,6 @@
-import { ActionTypes } from 'enums/ActionTypes';
 import { ProvidersCombined } from 'ProvidersCombined';
 import { act, renderHook } from 'test-utils';
+import { ADD } from './Actions';
 import { useFavorites } from './FavoritesProvider';
 
 describe('Favorites context', () => {
@@ -22,7 +22,7 @@ describe('Favorites context', () => {
     const { result } = renderHook(() => useFavorites(), { wrapper: ProvidersCombined });
 
     act(() => {
-      result.current && result.current.dispatch({ type: ActionTypes.Add, payload: pcimDolny });
+      result.current && result.current.dispatch(ADD(pcimDolny));
     });
 
     expect(result.current?.state.favorites).toMatchObject([pcimDolny]);
@@ -33,11 +33,11 @@ describe('Favorites context', () => {
     const { result } = renderHook(() => useFavorites(), { wrapper: ProvidersCombined });
 
     act(() => {
-      result.current && result.current.dispatch({ type: ActionTypes.Add, payload: pcimDolny });
+      result.current && result.current.dispatch(ADD(pcimDolny));
     });
 
     act(() => {
-      result.current && result.current.dispatch({ type: ActionTypes.Add, payload: pcimGorny });
+      result.current && result.current.dispatch(ADD(pcimGorny));
     });
 
     expect(result.current?.state.favorites).toMatchObject([pcimDolny, pcimGorny]);
