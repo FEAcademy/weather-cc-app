@@ -12,15 +12,11 @@ interface Props {
 const NearestCitiesWeatherWidget = ({ loading, cityName }: Props) => {
   const renderContent = () => {
     if (loading) {
-      return [...Array(6)].map((_, id) => {
-        return <CityWeatherShortcutLoader key={id} />;
-      });
+      return [...Array(6)].map((_, id) => <CityWeatherShortcutLoader key={id} />);
     }
 
     if (cityName) {
-      return ([] as Place[]).map((city) => {
-        return <CityWeatherShortcut key={city.id} cityName={city.tags.name} />;
-      });
+      return ([] as Place[]).map((city) => <CityWeatherShortcut key={city.id} cityName={city.tags.name} />);
     }
 
     return <></>;
