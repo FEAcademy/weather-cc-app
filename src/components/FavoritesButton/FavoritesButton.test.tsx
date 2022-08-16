@@ -6,7 +6,7 @@ import { FavoritesButtonTestIds } from './FavoritesButtonTestIds';
 describe('FavoritesButton', () => {
   it('should render', () => {
     const onClick = jest.fn();
-    render(<FavoritesButton isFavorite={false} onClick={onClick} />);
+    render(<FavoritesButton favorite={false} onClick={onClick} />);
 
     const button = screen.getByTestId(FavoritesButtonTestIds.Button);
 
@@ -15,7 +15,7 @@ describe('FavoritesButton', () => {
 
   it('should have initial color when city is not favorite', () => {
     const onClick = jest.fn();
-    render(<FavoritesButton isFavorite={false} onClick={onClick} />);
+    render(<FavoritesButton favorite={false} onClick={onClick} />);
 
     const button = screen.getByTestId(FavoritesButtonTestIds.Button);
 
@@ -24,7 +24,7 @@ describe('FavoritesButton', () => {
 
   it('should change color when city is favorite', () => {
     const onClick = jest.fn();
-    render(<FavoritesButton isFavorite={true} onClick={onClick} />);
+    render(<FavoritesButton favorite={true} onClick={onClick} />);
 
     const button = screen.getByTestId(FavoritesButtonTestIds.Button);
 

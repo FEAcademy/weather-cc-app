@@ -46,7 +46,7 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
           </Temperature>
           <City>{cityName}</City>
           <FavoritesButton
-            isFavorite={checkIfIsFavorite(data.location.name)}
+            favorite={checkIfIsFavorite(data.location.name)}
             onClick={() => handleClick(data.location.name)}
           />
         </>

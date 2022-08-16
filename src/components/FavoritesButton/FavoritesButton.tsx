@@ -4,18 +4,18 @@ import { Button } from './FavoritesButton.styled';
 import { FavoritesButtonTestIds } from './FavoritesButtonTestIds';
 
 interface Props {
-  isFavorite: boolean;
+  favorite: boolean;
   onClick: () => void;
 }
 
-const FavoritesButton = ({ isFavorite, onClick }: Props) => {
+const FavoritesButton = ({ favorite, onClick }: Props) => {
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     onClick();
   };
 
   return (
-    <Button data-testid={FavoritesButtonTestIds.Button} active={isFavorite} onClick={handleClick}>
+    <Button data-testid={FavoritesButtonTestIds.Button} active={favorite} onClick={handleClick}>
       <Heart size={13} />
     </Button>
   );
