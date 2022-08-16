@@ -1,9 +1,7 @@
-import {convertSpecialCharacters} from './convertSpecialCharacters';
+import { convertSpecialCharacters } from './convertSpecialCharacters';
 
 describe('convertSpecialCharacters', () => {
-
   it('should replace spacial characters', () => {
-    
-    expect(convertSpecialCharacters('ąęćńóśźżł')).toBe('aecnoszzl');
+    expect(convertSpecialCharacters('ąęćńóśźżłĄĘĆŚŹŻŁ')).toBe('aecnoszzlAECSZZL');
   });
 });
