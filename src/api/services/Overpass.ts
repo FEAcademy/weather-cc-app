@@ -25,7 +25,7 @@ export default {
       { enabled: !!box, refetchOnWindowFocus: false },
     );
   },
-  useNearestPlaces: (coordinates: string, cityName: string) => {
+  useNearestPlaces: (cityName: string, coordinates?: string) => {
     const query = `[out:json][timeout:25];
     (
       node["place"~"town|city"]["name"!="${cityName}"](around:50000,${coordinates});
@@ -41,7 +41,7 @@ export default {
 
         return res.data.elements;
       },
-      { enabled: !!cityName, refetchOnWindowFocus: false },
+      { enabled: !!cityName && !!coordinates, refetchOnWindowFocus: false },
     );
   },
 };
