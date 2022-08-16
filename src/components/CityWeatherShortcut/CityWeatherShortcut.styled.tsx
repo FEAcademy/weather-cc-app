@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
+  text-overflow: ellipsis;
   width: 160px;
   height: 160px;
   box-shadow: 0px 10px 20px rgba(227, 227, 227, 0.4);
