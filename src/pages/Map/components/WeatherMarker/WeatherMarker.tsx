@@ -49,7 +49,7 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
       state={{ cityName }}
     >
       <Marker icon={DefaultIcon} position={pos} opacity={0}>
-        <Content interactive={true} permanent={true} direction="top">
+        <Content opacity={1} interactive={true} permanent={true} direction="top">
           {renderContent()}
         </Content>
       </Marker>

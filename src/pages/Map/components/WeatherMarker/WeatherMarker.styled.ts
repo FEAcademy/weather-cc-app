@@ -5,11 +5,10 @@ import styled from 'styled-components';
 const Content = styled(Tooltip)`
   width: 120px;
   min-height: 108px;
-  opacity: 0.9;
   box-shadow: 0px 10px 20px rgba(227, 227, 227, 0.4);
   border-radius: 20px;
   color: ${({ theme }) => theme.colors.text};
-  background: ${({ theme }) => theme.colors.backgrounds.gradient};
+  background: ${({ theme }) => theme.colors.backgrounds.gradient.replace(/ffffff/i, 'ffffffe6')};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,10 +17,10 @@ const Content = styled(Tooltip)`
   &::before {
     display: none;
   }
-
   &:hover,
   &:focus {
     z-index: 1000;
+    background: ${({ theme }) => theme.colors.backgrounds.gradient};
   }
 `;
 
