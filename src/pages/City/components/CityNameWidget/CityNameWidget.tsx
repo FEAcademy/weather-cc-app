@@ -1,6 +1,6 @@
-import { CityNameLoader } from './CityNameLoader';
 import { CityName } from './CityNameWidget.styled';
 import { CityNameWidgetTestIds } from './CityNameWidgetTestIds';
+import { CityNameLoader } from './components/CityNameLoader';
 
 interface Props {
   loading: boolean;
