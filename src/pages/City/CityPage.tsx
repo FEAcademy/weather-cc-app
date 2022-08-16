@@ -20,7 +20,8 @@ const CityPage = () => {
 
   const { data, isLoading } = Weather.useLocation(normalizedCity);
 
-  const [cityName] = city.split(',');
+  const cityName = city.split(',')[0].charAt(0).toUpperCase() + city.split(',')[0].slice(1);
+  console.log(cityName);
   const coordinates = data && serializeCoordinates({ latitude: data?.location.lat, longitude: data?.location.lon });
 
   const { data: nearestCities } = Overpass.useNearestPlaces(cityName, coordinates);
