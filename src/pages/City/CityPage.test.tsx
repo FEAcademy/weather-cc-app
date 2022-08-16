@@ -9,7 +9,7 @@ import { CityPageTestIds } from './CityPageTestIds';
 import { CityNameLoaderTestIds } from './components/CityNameLoader';
 
 const renderCityPageInRoute = () => {
-  const route = '/city/wroclaw';
+  const route = '/city/Wrocław,Poland';
 
   render(
     <Routes>
@@ -21,7 +21,7 @@ const renderCityPageInRoute = () => {
 
 describe('City page', () => {
   it('should render', () => {
-    render(<CityPage />);
+    renderCityPageInRoute();
 
     expect(screen.getByTestId(CityPageTestIds.Container)).toBeInTheDocument();
   });
@@ -64,8 +64,7 @@ describe('City page', () => {
   });
 
   it('should display widgets container', () => {
-    render(<CityPage />);
-
+    renderCityPageInRoute();
     const widgetsContainer = screen.getByTestId(CityPageTestIds.Widgets);
 
     expect(widgetsContainer).toBeInTheDocument();
