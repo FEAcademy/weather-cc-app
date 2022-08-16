@@ -8,7 +8,7 @@ const Content = styled(Tooltip)`
   box-shadow: 0px 10px 20px rgba(227, 227, 227, 0.4);
   border-radius: 20px;
   color: ${({ theme }) => theme.colors.text};
-  background: ${({ theme }) => theme.colors.backgrounds.gradient.replace(/ffffff/i, 'ffffffe6')};
+  background: linear-gradient(106.29deg, #ffffffe6 0%, #fafafae6 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
