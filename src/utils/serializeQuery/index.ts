@@ -1,1 +1,0 @@
-export { serializeQuery } from './serializeQuery';

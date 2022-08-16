@@ -1,1 +1,0 @@
-export {convertSpecialCharacters} from './convertSpecialCharacters';
