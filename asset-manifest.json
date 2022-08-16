@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e786c172.css",
+    "main.js": "/static/js/main.1ccb3bf4.js",
+    "static/media/map.png": "/static/media/map.0461012681a1e35b65a2.png",
+    "static/media/clouds.png": "/static/media/clouds.633d9743862982a69a67.png",
+    "static/media/parametersWidget.png": "/static/media/parametersWidget.c042137f03e2258930aa.png",
+    "static/media/temperatureWidget.png": "/static/media/temperatureWidget.e4424828f70c214c4e8c.png",
+    "index.html": "/index.html",
+    "main.e786c172.css.map": "/static/css/main.e786c172.css.map",
+    "main.1ccb3bf4.js.map": "/static/js/main.1ccb3bf4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e786c172.css",
+    "static/js/main.1ccb3bf4.js"
+  ]
+}
