@@ -1,4 +1,5 @@
 import { useLocalStorage } from 'hooks/useLocalStorage';
+import { useCallback } from 'react';
 import { createContext, useContext, PropsWithChildren, useReducer, useEffect } from 'react';
 import { favoritesReducer } from './FavoritesReducer';
 import { State, Dispatch } from './models';
@@ -23,9 +24,12 @@ const FavoritesProvider = ({ children }: PropsWithChildren) => {
   const [favorites, setFavorites] = useLocalStorage<string[]>('favorites');
   const [state, dispatch] = useReducer(favoritesReducer, { favorites: favorites || [] });
 
-  const checkIfIsFavorite = (city: string): boolean => {
-    return state.favorites.includes(city);
-  };
+  const checkIfIsFavorite = useCallback(
+    (city: string): boolean => {
+      return state.favorites.includes(city);
+    },
+    [state.favorites],
+  );
 
   useEffect(() => {
     setFavorites(state.favorites);

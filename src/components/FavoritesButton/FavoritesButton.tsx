@@ -1,21 +1,26 @@
+import { ADD } from 'context/favorites';
+import { useFavorites } from 'context/favorites/FavoritesProvider';
 import { MouseEvent } from 'react';
 import { Heart } from 'react-feather';
 import { Button } from './FavoritesButton.styled';
 import { FavoritesButtonTestIds } from './FavoritesButtonTestIds';
 
 interface Props {
-  favorite: boolean;
-  onClick: () => void;
+  cityName: string;
 }
 
-const FavoritesButton = ({ favorite, onClick }: Props) => {
+const FavoritesButton = ({ cityName }: Props) => {
+  const { dispatch, checkIfIsFavorite } = useFavorites();
+
+  const isFavorite = checkIfIsFavorite(cityName);
+
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    onClick();
+    if (!isFavorite) dispatch(ADD(cityName));
   };
 
   return (
-    <Button data-testid={FavoritesButtonTestIds.Button} active={favorite} onClick={handleClick}>
+    <Button data-testid={FavoritesButtonTestIds.Button} active={isFavorite} onClick={handleClick}>
       <Heart size={13} />
     </Button>
   );
