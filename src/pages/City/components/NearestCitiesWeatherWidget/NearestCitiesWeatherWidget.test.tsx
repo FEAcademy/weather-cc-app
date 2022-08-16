@@ -12,7 +12,7 @@ describe('NearestCitiesWeatherWidget', () => {
     expect(widget).toBeInTheDocument();
   });
 
-  it('should loadrs', async () => {
+  it('should render loadrs', async () => {
     render(<NearestCitiesWeatherWidget loading={true} cityName={undefined} />);
 
     const loaders = await screen.findAllByTestId(CityWeatherShortcutLoaderTestIds.Loader);
