@@ -1,6 +1,8 @@
 import Overpass from 'api/services/Overpass';
 import Weather from 'api/services/Weather';
+import { useMemo } from 'react';
 import { NavigateOptions, useLocation, useParams } from 'react-router-dom';
+import { convertSpecialCharacters } from 'utils/convertSpecialCharacters';
 import { PageContentContainer } from 'components/PageContentContainer';
 import { WidgetWrapper } from 'components/WidgetWrapper';
 import { CityName } from './CityPage.styled';
@@ -13,7 +15,10 @@ type Params = {
 
 const CityPage = () => {
   const { city } = useParams() as Params;
-  const { data, isLoading } = Weather.useLocation(city);
+  const normalizedCity = useMemo(()=> 
+    convertSpecialCharacters(city), [city]
+  );
+  const { data, isLoading } = Weather.useLocation(normalizedCity);
   const { state }: NavigateOptions = useLocation();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { data: nearestCities } = Overpass.useNearestPlaces(city, state?.cityName);
