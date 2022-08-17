@@ -6,7 +6,8 @@ import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget';
 import { CityPage } from './CityPage';
 import { CityPageTestIds } from './CityPageTestIds';
-import { CityNameLoaderTestIds } from './components/CityNameLoader';
+import { CityNameLoaderTestIds } from './components/CityNameWidget/components/CityNameLoader';
+import { NearestCitiesWeatherWidgetTestIds } from './components/NearestCitiesWeatherWidget';
 
 const renderCityPageInRoute = () => {
   const route = '/city/Wrocław,Poland';
@@ -140,5 +141,23 @@ describe('City page', () => {
     expect(o3).toBeInTheDocument();
     expect(pm25).toBeInTheDocument();
     expect(so2).toBeInTheDocument();
+  });
+
+  it('should render shortcuts title', () => {
+    renderCityPageInRoute();
+
+    const shortcutsTitle = screen.getByText(/nearest/i);
+
+    expect(shortcutsTitle).toBeInTheDocument();
+
+    jest.clearAllMocks();
+  });
+
+  it('should render loader container for shortcuts widgets', async () => {
+    renderCityPageInRoute();
+
+    const loaderContainer = screen.getByTestId(NearestCitiesWeatherWidgetTestIds.Widget);
+
+    expect(loaderContainer).toBeInTheDocument();
   });
 });
