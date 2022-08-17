@@ -1,6 +1,6 @@
 import { CityWeatherShortcut, CityWeatherShortcutLoader } from 'components/CityWeatherShortcut';
 import { Place } from 'models/Place';
-import { Container, NearestCitiesTitle } from './NearestCitiesWeatherWidget.styled';
+import { Container, NearestCitiesTitle, WidgetContainer } from './NearestCitiesWeatherWidget.styled';
 import { NearestCitiesWeatherWidgetTestIds } from './NearestCitiesWeatherWidgetTestIds';
 
 interface Props {
@@ -11,7 +11,13 @@ interface Props {
 const NearestCitiesWeatherWidget = ({ loading, cityName }: Props) => {
   const renderContent = () => {
     if (loading) {
-      return [...Array(6)].map((_, id) => <CityWeatherShortcutLoader key={id} />);
+      return (
+        <WidgetContainer>
+          {[...Array(6)].map((_, id) => (
+            <CityWeatherShortcutLoader key={id} />
+          ))}
+        </WidgetContainer>
+      );
     }
 
     if (cityName) {

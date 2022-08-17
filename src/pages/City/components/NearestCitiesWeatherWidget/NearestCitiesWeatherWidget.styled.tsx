@@ -4,6 +4,14 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const WidgetContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 `;
 
@@ -19,4 +27,4 @@ const NearestCitiesTitle = styled.h3`
   width: 100%;
 `;
 
-export { Container, NearestCitiesTitle };
+export { Container, NearestCitiesTitle, WidgetContainer };
