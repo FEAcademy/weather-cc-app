@@ -1,3 +1,4 @@
+import userEvent from '@testing-library/user-event';
 import { ADD } from 'context/favorites';
 import { useFavorites } from 'context/favorites/FavoritesProvider';
 import { ProvidersCombined } from 'ProvidersCombined';
@@ -37,5 +38,21 @@ describe('FavoritesButton', () => {
     const button = screen.getByTestId(FavoritesButtonTestIds.Button);
 
     expect(button).toHaveStyle('color: #DC5F44');
+  });
+
+  it('should add to favorites', async () => {
+    const city1 = 'Pcim Górny';
+
+    render(<FavoritesButton cityName={city1} />);
+    const user = userEvent.setup();
+
+    const button = screen.getByTestId(FavoritesButtonTestIds.Button);
+
+    expect(button).toHaveStyle(`color: ${theme.colors.text}`);
+
+    await user.click(button);
+
+    expect(button).toHaveStyle('color: #DC5F44');
+    expect(localStorage.getItem('favorites')).toBe(JSON.stringify([city1]));
   });
 });
