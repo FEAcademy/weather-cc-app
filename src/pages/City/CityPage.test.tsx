@@ -116,7 +116,7 @@ describe('City page', () => {
 
     const weatherIcon = await screen.findByAltText('Weather widget icon');
     const description = await screen.findByText(/Sunny/i);
-    const currentTemperature = await screen.findByText(/25/i);
+    const currentTemperature = await screen.findByTestId(TemperatureWidgetTestIds.Temperature);
     const feelslikeTemperature = await screen.findByText(/26/i);
 
     expect(weatherIcon).toHaveAttribute('src', '//cdn.weatherapi.com/weather/128x128/day/113.png');

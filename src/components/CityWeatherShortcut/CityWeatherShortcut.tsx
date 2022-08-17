@@ -1,4 +1,6 @@
-import { weatherDataInCitySuccessResponse } from 'mocks/mockData';
+import Weather from 'api/services/Weather';
+import { useMemo } from 'react';
+import { convertSpecialCharacters } from 'utils/convertSpecialCharacters';
 import { Container, Icon, Temperature, Value, TemperatureSign, City } from './CityWeatherShortcut.styled';
 import { CityWeatherShortcutTestIds } from './CityWeatherShortcutTestIds';
 import { CityWeatherShortcutLoader } from './components/CityWeatherShortcutLoader';
@@ -8,9 +10,8 @@ type Props = {
 };
 
 const CityWeatherShortcut = ({ cityName }: Props) => {
-  const data = weatherDataInCitySuccessResponse;
-  const isLoading = false;
-  cityName; // had to use it in code otherwise linter shows error - in the future api request here to get weahter data and isLoading state
+  const normalizedCity = useMemo(() => convertSpecialCharacters(cityName), [cityName]);
+  const { data, isLoading } = Weather.useLocation(normalizedCity);
 
   if (isLoading) {
     return <CityWeatherShortcutLoader />;
