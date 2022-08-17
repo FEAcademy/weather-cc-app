@@ -21,7 +21,7 @@ const CityPage = () => {
     <PageContentContainer data-testid={CityPageTestIds.Container}>
       <CityNameWidget loading={isLoading} cityName={data !== undefined ? data.location.name : undefined} />
       <WidgetWrapper data={data} isLoading={isLoading} data-testid={CityPageTestIds.Widgets} />
-      <NearestCitiesWeatherWidget loading={true} cityName={data !== undefined ? data.location.name : undefined} />
+      <NearestCitiesWeatherWidget loading={isLoading} cityName={data?.location.name} />
     </PageContentContainer>
   );
 };
