@@ -6,9 +6,9 @@ import { convertSpecialCharacters } from 'utils/convertSpecialCharacters';
 import { serializeCoordinates } from 'utils/serializeCoordinates';
 import { PageContentContainer } from 'components/PageContentContainer';
 import { WidgetWrapper } from 'components/WidgetWrapper';
-import { CityName } from './CityPage.styled';
 import { CityPageTestIds } from './CityPageTestIds';
-import { CityNameLoader } from './components/CityNameLoader';
+import { CityNameWidget } from './components/CityNameWidget';
+import { NearestCitiesWeatherWidget } from './components/NearestCitiesWeatherWidget';
 
 type Params = {
   city: string;
@@ -27,19 +27,11 @@ const CityPage = () => {
   const { data: nearestCities } = Overpass.useNearestPlaces(cityName, coordinates);
   console.log(nearestCities);
 
-  const renderCityName = () => {
-    if (isLoading) {
-      return <CityNameLoader />;
-    }
-    if (data) {
-      return <CityName>{data.location.name}</CityName>;
-    }
-  };
-
   return (
     <PageContentContainer data-testid={CityPageTestIds.Container}>
-      {renderCityName()}
+      <CityNameWidget loading={isLoading} cityName={data !== undefined ? data.location.name : undefined} />
       <WidgetWrapper data={data} isLoading={isLoading} data-testid={CityPageTestIds.Widgets} />
+      <NearestCitiesWeatherWidget loading={isLoading} cityName={data?.location.name} />
     </PageContentContainer>
   );
 };
