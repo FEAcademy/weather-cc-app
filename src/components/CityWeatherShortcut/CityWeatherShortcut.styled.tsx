@@ -33,7 +33,7 @@ const Temperature = styled.div`
 const Value = styled.span`
   font-size: 48px;
   line-height: 58px;
-  font-weight: 300;
+  font-weight: 100;
 `;
 
 const TemperatureSign = styled.span`
