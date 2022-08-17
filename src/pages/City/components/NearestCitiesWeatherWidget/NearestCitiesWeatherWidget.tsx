@@ -1,16 +1,17 @@
+import Overpass from 'api/services/Overpass';
 import { CityWeatherShortcut, CityWeatherShortcutLoader } from 'components/CityWeatherShortcut';
-import { Place } from 'models/Place';
 import { Container, NearestCitiesTitle, WidgetContainer } from './NearestCitiesWeatherWidget.styled';
 import { NearestCitiesWeatherWidgetTestIds } from './NearestCitiesWeatherWidgetTestIds';
 
 interface Props {
-  loading: boolean;
-  cityName: string | undefined;
+  cityName: string;
+  coordinates: string | undefined;
 }
 
-const NearestCitiesWeatherWidget = ({ loading, cityName }: Props) => {
+const NearestCitiesWeatherWidget = ({ cityName, coordinates }: Props) => {
+  const { data, isLoading } = Overpass.useNearestPlaces(cityName, coordinates);
   const renderContent = () => {
-    if (loading) {
+    if (isLoading) {
       return (
         <WidgetContainer>
           {[...Array(6)].map((_, id) => (
@@ -21,7 +22,10 @@ const NearestCitiesWeatherWidget = ({ loading, cityName }: Props) => {
     }
 
     if (cityName) {
-      return ([] as Place[]).map((city) => <CityWeatherShortcut key={city.id} cityName={city.tags.name} />);
+      return data?.map((city) => {
+        console.log(city.tags.name);
+        return <CityWeatherShortcut key={city.id} cityName={city.tags.name} />;
+      });
     }
 
     return <></>;

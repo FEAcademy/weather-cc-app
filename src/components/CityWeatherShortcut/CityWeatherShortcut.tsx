@@ -10,7 +10,6 @@ type Props = {
 const CityWeatherShortcut = ({ cityName }: Props) => {
   const data = weatherDataInCitySuccessResponse;
   const isLoading = false;
-  cityName; // had to use it in code otherwise linter shows error - in the future api request here to get weahter data and isLoading state
 
   if (isLoading) {
     return <CityWeatherShortcutLoader />;
@@ -27,7 +26,7 @@ const CityWeatherShortcut = ({ cityName }: Props) => {
           <Value>{roundedTemperature}</Value>
           <TemperatureSign>&deg;C</TemperatureSign>
         </Temperature>
-        <City>{data.location.name}</City>
+        <City>{cityName}</City>
       </Container>
     );
   }

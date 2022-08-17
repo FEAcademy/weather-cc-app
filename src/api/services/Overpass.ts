@@ -1,5 +1,6 @@
 import { overpassClient } from 'api/clients';
 import { useQuery } from 'react-query';
+import { convertSpecialCharacters } from 'utils/convertSpecialCharacters';
 import { generateCacheKey } from 'utils/generateCacheKey';
 import { serializeQuery } from 'utils/serializeQuery';
 import { Place } from 'models/Place';
@@ -28,9 +29,9 @@ export default {
   useNearestPlaces: (cityName: string, coordinates?: string) => {
     const query = `[out:json][timeout:25];
     (
-      node["place"~"town|city"]["name"!="${cityName}"](around:50000,${coordinates});
+      node["place"~"town|city"](around:50000,${coordinates});
     );
-    out body 6;
+    out body 7;
     >;
     out skel qt;`;
 
@@ -39,7 +40,14 @@ export default {
       async () => {
         const res = await overpassClient.post('/interpreter', query);
 
-        return res.data.elements;
+        const normalizedNearestPlaces = res.data.elements
+          .map((city: Place) => {
+            return { ...city, tags: { name: convertSpecialCharacters(city.tags.name) } };
+          })
+          .filter((city: Place) => city.tags.name !== cityName)
+          .slice(0, 6);
+
+        return normalizedNearestPlaces;
       },
       { enabled: !!cityName && !!coordinates, refetchOnWindowFocus: false },
     );
