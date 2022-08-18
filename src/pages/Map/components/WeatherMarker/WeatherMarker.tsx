@@ -38,7 +38,7 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
             <span>&deg;C</span>
           </Temperature>
           <City>{cityName}</City>
-          <FavoritesButton isFavorite={true} />
+          <FavoritesButton cityName={cityName} />
         </>
       );
     }

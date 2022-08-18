@@ -9,5 +9,6 @@ beforeAll(() => {
 afterEach(() => {
   server.resetHandlers();
   queryClient.clear();
+  localStorage.clear();
 });
 afterAll(() => server.close());

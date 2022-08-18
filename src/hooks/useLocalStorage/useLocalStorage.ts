@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 
-const getItem = (key: string): string | null => localStorage.getItem(key);
+const getItem = <T>(key: string): T | null => JSON.parse(localStorage.getItem(key) || 'null');
 
-const setItem = (key: string, value: string) => localStorage.setItem(key, value);
+const setItem = <T>(key: string, value: T) => localStorage.setItem(key, JSON.stringify(value));
 
-const useLocalStorage = (key: string): [string | null, (value: string) => void] => {
-  const [localValue, setLocalValue] = useState<string | null>(() => getItem(key));
+const useLocalStorage = <T extends {}>(key: string): [T | null, (value: T) => void] => {
+  const [localValue, setLocalValue] = useState<T | null>(() => getItem<T>(key));
 
   useEffect(() => {
     localValue && setItem(key, localValue);
