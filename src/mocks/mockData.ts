@@ -114,7 +114,7 @@ const places: { elements: Place[] } = {
       lat: 51.1089776,
       lon: 17.0326689,
       tags: {
-        name: 'Wrocław',
+        name: 'Grzymały Szczepankowskie',
         population: '634487',
       },
     },

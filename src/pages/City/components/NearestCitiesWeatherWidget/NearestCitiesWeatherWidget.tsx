@@ -1,6 +1,6 @@
+import { places } from 'mocks/mockData';
 import { CityWeatherShortcut, CityWeatherShortcutLoader } from 'components/CityWeatherShortcut';
-import { Place } from 'models/Place';
-import { Container, NearestCitiesTitle, WidgetContainer } from './NearestCitiesWeatherWidget.styled';
+import { Container, NearestCitiesTitle } from './NearestCitiesWeatherWidget.styled';
 import { NearestCitiesWeatherWidgetTestIds } from './NearestCitiesWeatherWidgetTestIds';
 
 interface Props {
@@ -9,19 +9,18 @@ interface Props {
 }
 
 const NearestCitiesWeatherWidget = ({ loading, cityName }: Props) => {
+  //for now we haven't implemented getting nearest cities from api, so this is why I use mocked ones
+  const nearestCities = [...places.elements, ...places.elements].map((city, id) => {
+    return { ...city, id };
+  });
+
   const renderContent = () => {
     if (loading) {
-      return (
-        <WidgetContainer>
-          {[...Array(6)].map((_, id) => (
-            <CityWeatherShortcutLoader key={id} />
-          ))}
-        </WidgetContainer>
-      );
+      return [...Array(6)].map((_, id) => <CityWeatherShortcutLoader key={id} />);
     }
 
     if (cityName) {
-      return ([] as Place[]).map((city) => <CityWeatherShortcut key={city.id} cityName={city.tags.name} />);
+      return nearestCities.map((city) => <CityWeatherShortcut key={city.id} cityName={city.tags.name} />);
     }
 
     return <></>;

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-  text-overflow: ellipsis;
   width: 160px;
   height: 160px;
   box-shadow: 0px 10px 20px rgba(227, 227, 227, 0.4);
@@ -48,6 +47,14 @@ const City = styled.p`
   font-size: 20px;
   line-height: 24px;
   text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 80%;
+  white-space: nowrap;
 `;
 
-export { Container, Icon, Temperature, Value, TemperatureSign, City };
+const Tooltip = styled.abbr`
+  text-decoration: none;
+`;
+
+export { Container, Icon, Temperature, Value, TemperatureSign, City, Tooltip };
