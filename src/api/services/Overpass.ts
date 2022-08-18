@@ -21,6 +21,8 @@ export default {
           .sort((a: Place, b: Place) => Number(b.tags.population) - Number(a.tags.population))
           .slice(0, 15);
 
+        console.log(data);
+
         return data;
       },
       { enabled: !!box, refetchOnWindowFocus: false },
@@ -42,10 +44,13 @@ export default {
 
         const normalizedNearestPlaces = res.data.elements
           .map((city: Place) => {
-            return { ...city, tags: { name: convertSpecialCharacters(city.tags.name) } };
+            return { ...city, tags: { ...city.tags, name: convertSpecialCharacters(city.tags.name) } };
           })
           .filter((city: Place) => city.tags.name !== cityName)
+          .sort((a: Place, b: Place) => Number(b.tags.population) - Number(a.tags.population))
           .slice(0, 6);
+
+        console.log(normalizedNearestPlaces);
 
         return normalizedNearestPlaces;
       },
