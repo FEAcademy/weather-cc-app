@@ -1,6 +1,6 @@
 import { MapContainer, TileLayer } from 'react-leaflet';
 import { render, screen, waitForElementToBeRemoved } from 'test-utils';
-import { MapLoadingBarTestIds } from '../MapLoadingBar/MapLoadingBarTestIds';
+import { MapLoadingBarTestIds } from '../MapLoadingBar';
 import { WeatherMarkerTestIds } from '../WeatherMarker';
 import { PlaceMarkers } from './PlaceMarkers';
 
