@@ -114,7 +114,7 @@ const places: { elements: Place[] } = {
       lat: 50.270908,
       lon: 19.039993,
       tags: {
-        name: 'Katowice',
+        name: 'Grzymały Szczepankowskie',
         population: '634487',
       },
     },
