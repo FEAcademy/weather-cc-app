@@ -54,6 +54,9 @@ const City = styled.p`
   white-space: normal;
   text-align: center;
   margin-bottom: 18px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
 const WeatherIconLoader = styled(ContentLoader)`
@@ -69,4 +72,9 @@ const WeatherTextLoader = styled(ContentLoader)`
   margin-top: 33px;
 `;
 
-export { Content, WeatherIcon, Temperature, City, WeatherIconLoader, WeatherTextLoader };
+const CityNameTooltip = styled.abbr`
+  text-decoration: none;
+  max-width: 80%;
+`;
+
+export { Content, WeatherIcon, Temperature, City, WeatherIconLoader, WeatherTextLoader, CityNameTooltip };

@@ -6,7 +6,7 @@ import { Marker } from 'react-leaflet';
 import { Link } from 'react-router-dom';
 import { convertSpecialCharacters } from 'utils/convertSpecialCharacters';
 import { serializeCoordinates } from 'utils/serializeCoordinates';
-import { Content, WeatherIcon, Temperature, City } from './WeatherMarker.styled';
+import { Content, WeatherIcon, Temperature, City, CityNameTooltip } from './WeatherMarker.styled';
 import { WeatherMarkerLoader } from './WeatherMarkerLoader';
 import { WeatherMarkerTestIds } from './WeatherMarkerTestIds';
 
@@ -37,19 +37,21 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
             {roundedTemperature}
             <span>&deg;C</span>
           </Temperature>
-          <City>{cityName}</City>
+          <CityNameTooltip title={cityName}>
+            <City>{cityName}</City>
+          </CityNameTooltip>
         </>
       );
     }
   };
-  const cityDescription = [cityName , data?.location.region, data?.location.country].filter(Boolean).join(',').toLowerCase();
+  const cityDescription = [cityName, data?.location.region, data?.location.country]
+    .filter(Boolean)
+    .join(',')
+    .toLowerCase();
   const normalizedCityDescription = convertSpecialCharacters(cityDescription);
 
   return (
-    <Link
-      data-testid={WeatherMarkerTestIds.Container}
-      to={`/city/${normalizedCityDescription}`}
-    >
+    <Link data-testid={WeatherMarkerTestIds.Container} to={`/city/${normalizedCityDescription}`}>
       <Marker icon={DefaultIcon} position={pos} opacity={0}>
         <Content opacity={1} interactive={true} permanent={true} direction="top">
           {renderContent()}
