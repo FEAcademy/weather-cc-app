@@ -20,16 +20,17 @@ const CityWeatherShortcut = ({ cityName }: Props) => {
   if (data) {
     const { condition, temp_c } = data.current;
     const roundedTemperature = Math.round(temp_c);
+    const { name } = data.location;
 
     return (
-      <Tooltip title={data.location.name}>
+      <Tooltip title={name}>
         <Container data-testid={CityWeatherShortcutTestIds.Widget}>
           <Icon src={condition.icon} alt="weather image" />
           <Temperature>
             <Value>{roundedTemperature}</Value>
             <TemperatureSign>&deg;C</TemperatureSign>
           </Temperature>
-          <City>{data.location.name}</City>
+          <City>{name}</City>
         </Container>
       </Tooltip>
     );
