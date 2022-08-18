@@ -1,10 +1,11 @@
 import { MapContainer, TileLayer } from 'react-leaflet';
-import { render, screen } from 'test-utils';
+import { render, screen, waitForElementToBeRemoved } from 'test-utils';
+import { MapLoadingBarTestIds } from '../MapLoadingBar/MapLoadingBarTestIds';
 import { WeatherMarkerTestIds } from '../WeatherMarker';
 import { PlaceMarkers } from './PlaceMarkers';
 
 describe('PlaceMarkers', () => {
-  it('should render markers', async () => {
+  const renderWithMap = () =>
     render(
       <MapContainer>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
@@ -14,6 +15,21 @@ describe('PlaceMarkers', () => {
         />
       </MapContainer>,
     );
+
+  it('should display and remove loader', async () => {
+    renderWithMap();
+
+    const loader = screen.getByTestId(MapLoadingBarTestIds.Loader);
+
+    expect(loader).toBeInTheDocument();
+
+    await waitForElementToBeRemoved(loader).then(() => {
+      expect(loader).not.toBeInTheDocument();
+    });
+  });
+
+  it('should render markers', async () => {
+    renderWithMap();
 
     const markers = await screen.findAllByTestId(WeatherMarkerTestIds.Container);
 
