@@ -37,19 +37,19 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
             {roundedTemperature}
             <span>&deg;C</span>
           </Temperature>
-          <City>{cityName}</City>
+          <City title={cityName}>{cityName}</City>
         </>
       );
     }
   };
-  const cityDescription = [cityName , data?.location.region, data?.location.country].filter(Boolean).join(',').toLowerCase();
+  const cityDescription = [cityName, data?.location.region, data?.location.country]
+    .filter(Boolean)
+    .join(',')
+    .toLowerCase();
   const normalizedCityDescription = convertSpecialCharacters(cityDescription);
 
   return (
-    <Link
-      data-testid={WeatherMarkerTestIds.Container}
-      to={`/city/${normalizedCityDescription}`}
-    >
+    <Link data-testid={WeatherMarkerTestIds.Container} to={`/city/${normalizedCityDescription}`}>
       <Marker icon={DefaultIcon} position={pos} opacity={0}>
         <Content opacity={1} interactive={true} permanent={true} direction="top">
           {renderContent()}
