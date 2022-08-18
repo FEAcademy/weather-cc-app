@@ -6,7 +6,7 @@ import { Marker } from 'react-leaflet';
 import { Link } from 'react-router-dom';
 import { convertSpecialCharacters } from 'utils/convertSpecialCharacters';
 import { serializeCoordinates } from 'utils/serializeCoordinates';
-import { Content, WeatherIcon, Temperature, City, CityNameTooltip } from './WeatherMarker.styled';
+import { Content, WeatherIcon, Temperature, City } from './WeatherMarker.styled';
 import { WeatherMarkerLoader } from './WeatherMarkerLoader';
 import { WeatherMarkerTestIds } from './WeatherMarkerTestIds';
 
@@ -37,9 +37,7 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
             {roundedTemperature}
             <span>&deg;C</span>
           </Temperature>
-          <CityNameTooltip title={cityName}>
-            <City>{cityName}</City>
-          </CityNameTooltip>
+          <City title={cityName}>{cityName}</City>
         </>
       );
     }
