@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { ADD } from 'context/favorites';
+import { add } from 'context/favorites';
 import { useFavorites } from 'context/favorites/FavoritesProvider';
 import { ProvidersCombined } from 'ProvidersCombined';
 import { act, render, renderHook, screen } from 'test-utils';
@@ -30,7 +30,7 @@ describe('FavoritesButton', () => {
     const { result } = renderHook(() => useFavorites(), { wrapper: ProvidersCombined });
 
     act(() => {
-      result.current && result.current.dispatch(ADD(city1));
+      result.current && result.current.dispatch(add(city1));
     });
 
     render(<FavoritesButton cityName={city1} />);

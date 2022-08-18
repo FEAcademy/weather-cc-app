@@ -1,6 +1,6 @@
 import { ProvidersCombined } from 'ProvidersCombined';
 import { act, renderHook } from 'test-utils';
-import { ADD } from './Actions';
+import { add } from './Actions';
 import { useFavorites } from './FavoritesProvider';
 
 describe('Favorites context', () => {
@@ -18,7 +18,7 @@ describe('Favorites context', () => {
     const { result } = renderHook(() => useFavorites(), { wrapper: ProvidersCombined });
 
     act(() => {
-      result.current && result.current.dispatch(ADD(city2));
+      result.current && result.current.dispatch(add(city2));
     });
 
     expect(result.current?.state.favorites).toMatchObject([city2]);
@@ -29,11 +29,11 @@ describe('Favorites context', () => {
     const { result } = renderHook(() => useFavorites(), { wrapper: ProvidersCombined });
 
     act(() => {
-      result.current && result.current.dispatch(ADD(city2));
+      result.current && result.current.dispatch(add(city2));
     });
 
     act(() => {
-      result.current && result.current.dispatch(ADD(city1));
+      result.current && result.current.dispatch(add(city1));
     });
 
     expect(result.current?.state.favorites).toMatchObject([city2, city1]);
