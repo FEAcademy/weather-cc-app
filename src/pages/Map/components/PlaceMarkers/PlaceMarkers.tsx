@@ -39,9 +39,9 @@ const PlaceMarkers = ({ boundsCoordinates, zoom }: Props) => {
   const renderContent = () => {
     if (isLoading) return <MapLoadingBar />;
     if (places)
-      return places.map((place) => {
-        return <WeatherMarker pos={[place.lat, place.lon]} cityName={place.tags.name} key={place.id} />;
-      });
+      return places.map((place) => (
+        <WeatherMarker pos={[place.lat, place.lon]} cityName={place.tags.name} key={place.id} />
+      ));
   };
 
   return <div data-testid={PlaceMarkersTestIds.Container}>{renderContent()}</div>;
