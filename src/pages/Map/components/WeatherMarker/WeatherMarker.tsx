@@ -6,7 +6,7 @@ import { Marker } from 'react-leaflet';
 import { Link } from 'react-router-dom';
 import { serializeCoordinates } from 'utils/serializeCoordinates';
 import { FavoritesButton } from 'components/FavoritesButton';
-import { Content, WeatherIcon, Temperature, City } from './WeatherMarker.styled';
+import { Content, WeatherIcon, Temperature, City, ButtonWrapper } from './WeatherMarker.styled';
 import { WeatherMarkerLoader } from './WeatherMarkerLoader';
 import { WeatherMarkerTestIds } from './WeatherMarkerTestIds';
 
@@ -38,7 +38,9 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
             <span>&deg;C</span>
           </Temperature>
           <City>{cityName}</City>
-          <FavoritesButton cityName={cityName} />
+          <ButtonWrapper>
+            <FavoritesButton cityName={cityName} size={13} />
+          </ButtonWrapper>
         </>
       );
     }

@@ -1,8 +1,9 @@
 import Weather from 'api/services/Weather';
 import { NavigateOptions, useLocation, useParams } from 'react-router-dom';
+import { FavoritesButton } from 'components/FavoritesButton';
 import { PageContentContainer } from 'components/PageContentContainer';
 import { WidgetWrapper } from 'components/WidgetWrapper';
-import { CityName } from './CityPage.styled';
+import { CityName, CityNameWrapper } from './CityPage.styled';
 import { CityPageTestIds } from './CityPageTestIds';
 import { CityNameLoader } from './components/CityNameLoader';
 
@@ -20,7 +21,12 @@ const CityPage = () => {
       return <CityNameLoader />;
     }
     if (data) {
-      return <CityName>{state?.cityName || data.location.name}</CityName>;
+      return (
+        <CityNameWrapper>
+          <CityName>{state?.cityName || data.location.name}</CityName>
+          <FavoritesButton cityName={data?.location.name} size={20} />
+        </CityNameWrapper>
+      );
     }
   };
 

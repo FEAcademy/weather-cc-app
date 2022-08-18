@@ -70,4 +70,11 @@ const WeatherTextLoader = styled(ContentLoader)`
   margin-top: 33px;
 `;
 
-export { Content, WeatherIcon, Temperature, City, WeatherIconLoader, WeatherTextLoader };
+const ButtonWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+`;
+
+export { Content, WeatherIcon, Temperature, City, WeatherIconLoader, WeatherTextLoader, ButtonWrapper };
