@@ -9,7 +9,7 @@ import { FavoritesButtonTestIds } from './FavoritesButtonTestIds';
 
 describe('FavoritesButton', () => {
   it('should render', () => {
-    render(<FavoritesButton cityName="Wroclaw" />);
+    render(<FavoritesButton cityName="Wroclaw" size={13} />);
 
     const button = screen.getByTestId(FavoritesButtonTestIds.Button);
 
@@ -17,7 +17,7 @@ describe('FavoritesButton', () => {
   });
 
   it('should have gray color when city is not favorite', () => {
-    render(<FavoritesButton cityName="Wroclaw" />);
+    render(<FavoritesButton cityName="Wroclaw" size={13} />);
 
     const button = screen.getByTestId(FavoritesButtonTestIds.Button);
 
@@ -33,7 +33,7 @@ describe('FavoritesButton', () => {
       result.current && result.current.dispatch(add(city1));
     });
 
-    render(<FavoritesButton cityName={city1} />);
+    render(<FavoritesButton cityName={city1} size={13} />);
 
     const button = screen.getByTestId(FavoritesButtonTestIds.Button);
 
@@ -43,7 +43,7 @@ describe('FavoritesButton', () => {
   it('should add to favorites', async () => {
     const city1 = 'Pcim Górny';
 
-    render(<FavoritesButton cityName={city1} />);
+    render(<FavoritesButton cityName={city1} size={13} />);
     const user = userEvent.setup();
 
     const button = screen.getByTestId(FavoritesButtonTestIds.Button);
