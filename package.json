@@ -2,6 +2,7 @@
   "name": "weather-cc-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://feacademy.github.io/weather-cc-app",
   "dependencies": {
     "axios": "^0.27.2",
     "leaflet": "^1.8.0",
