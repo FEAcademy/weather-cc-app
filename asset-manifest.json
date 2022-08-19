@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "https://feacademy.github.io/weather-cc-app/static/css/main.e786c172.css",
-    "main.js": "https://feacademy.github.io/weather-cc-app/static/js/main.67aa694b.js",
+    "main.js": "https://feacademy.github.io/weather-cc-app/static/js/main.a846cf76.js",
     "static/media/map.png": "https://feacademy.github.io/weather-cc-app/static/media/map.0461012681a1e35b65a2.png",
     "static/media/clouds.png": "https://feacademy.github.io/weather-cc-app/static/media/clouds.633d9743862982a69a67.png",
     "static/media/parametersWidget.png": "https://feacademy.github.io/weather-cc-app/static/media/parametersWidget.c042137f03e2258930aa.png",
     "static/media/temperatureWidget.png": "https://feacademy.github.io/weather-cc-app/static/media/temperatureWidget.e4424828f70c214c4e8c.png",
     "index.html": "https://feacademy.github.io/weather-cc-app/index.html",
     "main.e786c172.css.map": "https://feacademy.github.io/weather-cc-app/static/css/main.e786c172.css.map",
-    "main.67aa694b.js.map": "https://feacademy.github.io/weather-cc-app/static/js/main.67aa694b.js.map"
+    "main.a846cf76.js.map": "https://feacademy.github.io/weather-cc-app/static/js/main.a846cf76.js.map"
   },
   "entrypoints": [
     "static/css/main.e786c172.css",
-    "static/js/main.67aa694b.js"
+    "static/js/main.a846cf76.js"
   ]
 }
