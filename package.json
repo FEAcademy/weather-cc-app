@@ -2,7 +2,6 @@
   "name": "weather-cc-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://feacademy.github.io/weather-cc-app",
   "dependencies": {
     "axios": "^0.27.2",
     "leaflet": "^1.8.0",
@@ -22,7 +21,6 @@
     "prepare": "husky install",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:local": "PUBLIC_URL=/ yarn run build",
     "test": "react-scripts test --watchAll=false",
     "test:coverage": "react-scripts test --coverage",
     "eject": "react-scripts eject",
