@@ -4,6 +4,7 @@ import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import { Marker } from 'react-leaflet';
 import { Link } from 'react-router-dom';
+import { convertSpecialCharacters } from 'utils/convertSpecialCharacters';
 import { serializeCoordinates } from 'utils/serializeCoordinates';
 import { FavoritesButton } from 'components/FavoritesButton';
 import { Content, WeatherIcon, Temperature, City, ButtonWrapper } from './WeatherMarker.styled';
@@ -37,7 +38,7 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
             {roundedTemperature}
             <span>&deg;C</span>
           </Temperature>
-          <City>{cityName}</City>
+          <City title={cityName}>{cityName}</City>
           <ButtonWrapper>
             <FavoritesButton cityName={cityName} size={13} />
           </ButtonWrapper>
@@ -45,15 +46,16 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
       );
     }
   };
+  const cityDescription = [cityName, data?.location.region, data?.location.country]
+    .filter(Boolean)
+    .join(',')
+    .toLowerCase();
+  const normalizedCityDescription = convertSpecialCharacters(cityDescription);
 
   return (
-    <Link
-      data-testid={WeatherMarkerTestIds.Container}
-      to={`/city/${serializeCoordinates({ latitude: pos[0], longitude: pos[1] })}`}
-      state={{ cityName }}
-    >
+    <Link data-testid={WeatherMarkerTestIds.Container} to={`/city/${normalizedCityDescription}`}>
       <Marker icon={DefaultIcon} position={pos} opacity={0}>
-        <Content interactive={true} permanent={true} direction="top">
+        <Content opacity={1} interactive={true} permanent={true} direction="top">
           {renderContent()}
         </Content>
       </Marker>

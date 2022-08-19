@@ -3,6 +3,7 @@ import { Map } from 'leaflet';
 import { useState } from 'react';
 import { useMapEvents } from 'react-leaflet';
 import { useDebouncedCallback } from 'use-debounce';
+import { MapLoadingBar } from '../MapLoadingBar';
 import { WeatherMarker } from '../WeatherMarker';
 import { PlaceMarkersTestIds } from './PlaceMarkersTestIds';
 
@@ -16,7 +17,7 @@ const PlaceMarkers = ({ boundsCoordinates, zoom }: Props) => {
     boundsCoordinates: boundsCoordinates,
     zoom: zoom,
   });
-  const { data: places } = Overpass.usePlaces(mapData.boundsCoordinates, mapData.zoom);
+  const { isLoading, data: places } = Overpass.usePlaces(mapData.boundsCoordinates, mapData.zoom);
 
   const setMapPositionDebounce = useDebouncedCallback((map: Map) => {
     const mapBound = map.getBounds();
@@ -28,21 +29,22 @@ const PlaceMarkers = ({ boundsCoordinates, zoom }: Props) => {
       boundsCoordinates,
       zoom,
     });
-  }, 2000);
+  }, 1000);
 
   const map = useMapEvents({
     zoomend: () => setMapPositionDebounce(map),
     dragend: () => setMapPositionDebounce(map),
   });
 
-  return (
-    <div data-testid={PlaceMarkersTestIds.Container}>
-      {places &&
-        places.map((place) => {
-          return <WeatherMarker pos={[place.lat, place.lon]} cityName={place.tags.name} key={place.id} />;
-        })}
-    </div>
-  );
+  const renderContent = () => {
+    if (isLoading) return <MapLoadingBar />;
+    if (places)
+      return places.map((place) => (
+        <WeatherMarker pos={[place.lat, place.lon]} cityName={place.tags.name} key={place.id} />
+      ));
+  };
+
+  return <div data-testid={PlaceMarkersTestIds.Container}>{renderContent()}</div>;
 };
 
 export { PlaceMarkers };

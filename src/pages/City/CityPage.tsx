@@ -1,5 +1,7 @@
 import Weather from 'api/services/Weather';
+import { useMemo } from 'react';
 import { NavigateOptions, useLocation, useParams } from 'react-router-dom';
+import { convertSpecialCharacters } from 'utils/convertSpecialCharacters';
 import { FavoritesButton } from 'components/FavoritesButton';
 import { PageContentContainer } from 'components/PageContentContainer';
 import { WidgetWrapper } from 'components/WidgetWrapper';
@@ -13,7 +15,8 @@ type Params = {
 
 const CityPage = () => {
   const { city } = useParams() as Params;
-  const { data, isLoading } = Weather.useLocation(city);
+  const normalizedCity = useMemo(() => convertSpecialCharacters(city), [city]);
+  const { data, isLoading } = Weather.useLocation(normalizedCity);
   const { state }: NavigateOptions = useLocation();
 
   const renderCityName = () => {

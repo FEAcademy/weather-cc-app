@@ -5,11 +5,10 @@ import styled from 'styled-components';
 const Content = styled(Tooltip)`
   width: 120px;
   min-height: 108px;
-  opacity: 0.9;
   box-shadow: 0px 10px 20px rgba(227, 227, 227, 0.4);
   border-radius: 20px;
   color: ${({ theme }) => theme.colors.text};
-  background: ${({ theme }) => theme.colors.backgrounds.gradient};
+  background: linear-gradient(106.29deg, #ffffffe6 0%, #fafafae6 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,10 +17,10 @@ const Content = styled(Tooltip)`
   &::before {
     display: none;
   }
-
   &:hover,
   &:focus {
     z-index: 1000;
+    background: ${({ theme }) => theme.colors.backgrounds.gradient};
   }
 `;
 
@@ -55,6 +54,10 @@ const City = styled.p`
   white-space: normal;
   text-align: center;
   margin-bottom: 18px;
+  max-width: 80%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
 const WeatherIconLoader = styled(ContentLoader)`

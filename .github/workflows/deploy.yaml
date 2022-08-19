@@ -1,29 +1,27 @@
-name: 'CI'
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - master
-  pull_request:
+      - develop
 
 env:
   REACT_APP_WEATHER_API_URL: ${{ secrets.REACT_APP_WEATHER_API_URL }}
   REACT_APP_OVERPASS_API_URL: ${{ secrets.REACT_APP_OVERPASS_API_URL }}
   REACT_APP_WEATHER_API_KEY: ${{ secrets.REACT_APP_WEATHER_API_KEY }}
 
+permissions:
+  contents: write
+
 jobs:
-  ci:
-    name: node-ci
-    runs-on: 'ubuntu-latest'
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    concurrency: ci-${{ github.ref }}
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Use Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '16'
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Install dependencies
         run: yarn install
@@ -36,3 +34,8 @@ jobs:
 
       - name: Build
         run: yarn build
+  
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
