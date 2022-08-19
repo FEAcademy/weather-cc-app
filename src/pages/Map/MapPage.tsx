@@ -1,3 +1,5 @@
+import Weather from 'api/services/Weather';
+import { useLocalStorage } from 'hooks/useLocalStorage';
 import { TileLayer } from 'react-leaflet';
 import { PlaceMarkers } from './components/PlaceMarkers';
 import { StyledMapContainer, MapWrapper } from './MapPage.styled';
@@ -7,12 +9,15 @@ const initialBounds = '(50.72167742756552,16.311950683593754,51.48993452350156,1
 const initialZoom = 10;
 
 const MapPage = () => {
-  const localization: [number, number] = [51.107, 17.038];
+  const [localValue] = useLocalStorage('current_location');
+  const { data } = Weather.useLocation(localValue || '');
+
+  const defaultCity: [number, number] = [51.107, 17.038];
 
   return (
     <MapWrapper data-testid={MapPageTestIds.MapPage}>
       <StyledMapContainer
-        center={localization}
+        center={data ? [data?.location.lat, data?.location.lon] : defaultCity}
         zoom={10}
         zoomControl={false}
         scrollWheelZoom={true}
@@ -20,7 +25,11 @@ const MapPage = () => {
         maxZoom={14}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <PlaceMarkers boundsCoordinates={initialBounds} zoom={initialZoom} />
+        <PlaceMarkers
+          boundsCoordinates={initialBounds}
+          zoom={initialZoom}
+          center={data ? [data?.location.lat, data?.location.lon] : undefined}
+        />
       </StyledMapContainer>
     </MapWrapper>
   );
