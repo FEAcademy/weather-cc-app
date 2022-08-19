@@ -1,5 +1,4 @@
 import userEvent from '@testing-library/user-event';
-import * as router from 'react-router';
 import { render, screen } from 'test-utils';
 import { CityWeatherShortcut } from './CityWeatherShortcut';
 import { CityWeatherShortcutTestIds } from './CityWeatherShortcutTestIds';
@@ -33,18 +32,16 @@ describe('CityWeatherShortcut', () => {
     expect(currentTemperature).toBeInTheDocument();
     expect(cityName).toBeInTheDocument();
   });
-
-  it('should checks if navigate was called with route "/city/Katowice"', async () => {
-    const navigate = jest.fn();
-    jest.spyOn(router, 'useNavigate').mockImplementation(() => navigate);
-
+  it('should checks if url pathname changed from "/" to "/city/Katowice"', async () => {
     render(<CityWeatherShortcut cityName="Katowice" />);
 
+    expect(window.location.pathname).toBe('/');
+
     const LinkContainer = await screen.findByTestId(CityWeatherShortcutTestIds.Widget);
+
     const user = userEvent.setup();
     await user.click(LinkContainer);
-    expect(navigate).toHaveBeenCalledWith('/city/Katowice', { replace: false });
 
-    jest.clearAllMocks();
+    expect(window.location.pathname).toBe('/city/Katowice');
   });
 });
