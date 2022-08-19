@@ -22,7 +22,6 @@
     "prepare": "husky install",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:local": "PUBLIC_URL=/ yarn run build",
     "test": "react-scripts test --watchAll=false",
     "test:coverage": "react-scripts test --coverage",
     "eject": "react-scripts eject",

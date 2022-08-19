@@ -54,6 +54,10 @@ const City = styled.p`
   white-space: normal;
   text-align: center;
   margin-bottom: 18px;
+  max-width: 80%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
 const WeatherIconLoader = styled(ContentLoader)`
