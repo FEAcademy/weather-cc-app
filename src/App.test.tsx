@@ -1,14 +1,11 @@
 import userEvent from '@testing-library/user-event';
-import hooks from 'api/services/Weather';
 import App from 'App';
 import { Paths } from 'enums/Paths';
 import { MapContainer } from 'react-leaflet';
-import { UseQueryResult } from 'react-query';
 import { Route, Routes } from 'react-router-dom';
 import { render, screen, waitForElementToBeRemoved } from 'test-utils';
 import { FooterTestIds } from 'components/Footer';
 import { NavbarTestIds, NavbarTitles } from 'components/Navbar';
-import { Weather } from 'models/Weather';
 import { AboutPageTestIds } from 'pages/About';
 import { CityPage, CityPageTestIds } from 'pages/City';
 import { HomePageTestIds } from 'pages/Home';
@@ -51,20 +48,6 @@ describe('App', () => {
     const map = screen.getByTestId(MapPageTestIds.MapPage);
 
     expect(map).toBeInTheDocument();
-  });
-
-  it('should redirect to /map if no data returned for city name', async () => {
-    const route = '/city/aaaa';
-    const spy = jest
-      .spyOn(hooks, 'useLocation')
-      .mockReturnValue({ data: undefined, isError: true, isLoading: false } as UseQueryResult<Weather, Error>);
-
-    render(<App />, { route });
-
-    const map = await screen.findByTestId(MapPageTestIds.MapPage);
-
-    expect(map).toBeInTheDocument();
-    spy.mockRestore();
   });
 
   it('should render navbar', () => {
