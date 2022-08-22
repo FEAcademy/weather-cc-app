@@ -19,7 +19,7 @@ const AutocompleteInput = ({ onChange, value }: Props) => {
     name: value,
   };
 
-  const handleInputChange = useDebouncedCallback(value => setInputValue(value), 500);
+  const handleInputChange = useDebouncedCallback((value) => setInputValue(value), 500);
 
   const handleSelect = (city: AutocompleteOption) => {
     onChange(city.name);
@@ -30,16 +30,16 @@ const AutocompleteInput = ({ onChange, value }: Props) => {
       <Select
         options={data}
         isLoading={isLoading}
-        onInputChange={value => handleInputChange(value)}
+        onInputChange={(value) => handleInputChange(value)}
         styles={inputStyles}
         placeholder="Search"
         onChange={(newValue) => newValue && handleSelect(newValue)}
-        getOptionLabel={({name})=>name}
-        getOptionValue={({name})=>name}
+        getOptionLabel={({ name }) => name}
+        getOptionValue={({ name }) => name}
         isMulti={false}
         name="cities"
         inputId="cities"
-        value={serializedValue}
+        value={value ? serializedValue : null}
       />
     </div>
   );
