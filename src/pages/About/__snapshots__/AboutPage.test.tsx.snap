@@ -6,10 +6,10 @@ exports[`AboutPage should render correctly 1`] = `
     data-testid="about-page-container"
   >
     <div
-      class="sc-bczRLJ mwCly"
+      class="sc-bczRLJ ksdvOp"
     >
       <h1
-        class="sc-gsnTZi kNIgYo"
+        class="sc-gsnTZi gsLDra"
       >
         WEATHER
         <span>
@@ -17,69 +17,72 @@ exports[`AboutPage should render correctly 1`] = `
         </span>
       </h1>
       <h5
-        class="sc-dkzDqf bffDPx"
+        class="sc-dkzDqf dHRYMI"
       >
         weather app from CC frontend academy attendees
       </h5>
     </div>
     <div
-      class="sc-hKMtZM cuwdzt"
+      class="sc-hKMtZM gTHwKr"
     >
       <div
-        class="sc-gKXOVf dgQpLl"
+        class="sc-gKXOVf hzvIQA"
       >
         <img
           alt="WEATHER IN YOUR LOCATION"
+          class="sc-iBkjds caTpCW"
           src="temperatureWidget.png"
         />
         <div>
           <h3
-            class="sc-eCYdqJ evptuE"
+            class="sc-eCYdqJ fFMuQv"
           >
             WEATHER IN YOUR LOCATION
           </h3>
           <p
-            class="sc-jSMfEi emDtDJ"
+            class="sc-jSMfEi oAiNr"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.
           </p>
         </div>
       </div>
       <div
-        class="sc-gKXOVf dgQpLl"
+        class="sc-gKXOVf hzvIQA"
       >
         <img
           alt="AIR QUALITY"
+          class="sc-iBkjds caTpCW"
           src="parametersWidget.png"
         />
         <div>
           <h3
-            class="sc-eCYdqJ evptuE"
+            class="sc-eCYdqJ fFMuQv"
           >
             AIR QUALITY
           </h3>
           <p
-            class="sc-jSMfEi emDtDJ"
+            class="sc-jSMfEi oAiNr"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.
           </p>
         </div>
       </div>
       <div
-        class="sc-gKXOVf dgQpLl"
+        class="sc-gKXOVf hzvIQA"
       >
         <img
           alt="WEATHER ON MAP"
+          class="sc-iBkjds caTpCW"
           src="map.png"
         />
         <div>
           <h3
-            class="sc-eCYdqJ evptuE"
+            class="sc-eCYdqJ fFMuQv"
           >
             WEATHER ON MAP
           </h3>
           <p
-            class="sc-jSMfEi emDtDJ"
+            class="sc-jSMfEi oAiNr"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.
           </p>

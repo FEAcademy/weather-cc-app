@@ -1,7 +1,16 @@
 import mapImg from 'assets/images/map.png';
 import parametersWidgetImg from 'assets/images/parametersWidget.png';
 import temperatureWidgetImg from 'assets/images/temperatureWidget.png';
-import { MainHeading, LogoContainer, SubHeading, RowContainer, Title, Description, Content } from './AboutPage.styled';
+import {
+  MainHeading,
+  LogoContainer,
+  SubHeading,
+  RowContainer,
+  Title,
+  Description,
+  Content,
+  Img,
+} from './AboutPage.styled';
 import { AboutPageTestIds } from './AboutPageTestIds';
 
 const aboutPageData = [
@@ -36,7 +45,7 @@ const AboutPage = () => (
     <Content>
       {aboutPageData.map(({ title, description, img }) => (
         <RowContainer key={title}>
-          <img src={img} alt={title} />
+          <Img src={img} alt={title} />
           <div>
             <Title>{title}</Title>
             <Description>{description}</Description>
