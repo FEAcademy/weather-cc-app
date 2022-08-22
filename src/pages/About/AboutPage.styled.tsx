@@ -15,7 +15,7 @@ const LogoContainer = styled.div`
 
   @media screen and (max-width: ${({ theme }) => theme.widths.mobile}) {
     & {
-      margin-top: 100px;
+      margin-top: 80px;
     }
   }
 `;
@@ -106,9 +106,9 @@ const Title = styled.h3`
 
   @media screen and (max-width: ${({ theme }) => theme.widths.mobile}) {
     & {
-      font-size: 16px;
+      font-size: 20px;
       line-height: 20px;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
   }
 `;
@@ -131,7 +131,7 @@ const Description = styled.p`
     & {
       font-size: 12px;
       line-height: 14px;
-      width: 180px;
+      width: 300px;
     }
   }
 `;
@@ -153,7 +153,7 @@ const RowContainer = styled.div`
     }
   }
 
-  @media screen and (max-width: ${({ theme }) => theme.widths.tablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.widths.mobile}) {
     & {
       flex-direction: column;
     }
@@ -165,7 +165,7 @@ const RowContainer = styled.div`
 `;
 
 const Img = styled.img`
-  width: 368px;
+  width: 370px;
   height: 200px;
 
   @media screen and (max-width: ${({ theme }) => theme.widths.tablet}) {

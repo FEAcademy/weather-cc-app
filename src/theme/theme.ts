@@ -2,7 +2,7 @@ const theme = {
   widths: {
     app: '1200px',
     mobile: '420px',
-    tablet: '820px',
+    tablet: '900px',
   },
   paddings: {
     app: '0px 18px',
