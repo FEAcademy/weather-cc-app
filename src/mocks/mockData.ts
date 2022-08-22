@@ -111,8 +111,8 @@ const places: { elements: Place[] } = {
   elements: [
     {
       id: 1,
-      lat: 51.1089776,
-      lon: 17.0326689,
+      lat: 50.270908,
+      lon: 19.039993,
       tags: {
         name: 'Grzymały Szczepankowskie',
         population: '634487',
