@@ -1,7 +1,7 @@
 import Weather from 'api/services/Weather';
 import { useMemo } from 'react';
 import { convertSpecialCharacters } from 'utils/convertSpecialCharacters';
-import { Container, Icon, Temperature, Value, TemperatureSign, City, Tooltip } from './CityWeatherShortcut.styled';
+import { LinkContainer, Icon, Temperature, Value, TemperatureSign, City, Tooltip } from './CityWeatherShortcut.styled';
 import { CityWeatherShortcutTestIds } from './CityWeatherShortcutTestIds';
 import { CityWeatherShortcutLoader } from './components/CityWeatherShortcutLoader';
 
@@ -24,14 +24,14 @@ const CityWeatherShortcut = ({ cityName }: Props) => {
 
     return (
       <Tooltip title={name}>
-        <Container data-testid={CityWeatherShortcutTestIds.Widget}>
+        <LinkContainer to={`/city/${cityName}`} data-testid={CityWeatherShortcutTestIds.Widget}>
           <Icon src={condition.icon} alt="weather image" />
           <Temperature>
             <Value>{roundedTemperature}</Value>
             <TemperatureSign>&deg;C</TemperatureSign>
           </Temperature>
           <City>{name}</City>
-        </Container>
+        </LinkContainer>
       </Tooltip>
     );
   }

@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Container = styled.div`
+const LinkContainer = styled(Link)`
   width: 160px;
   height: 160px;
   box-shadow: 0px 10px 20px rgba(227, 227, 227, 0.4);
@@ -11,6 +12,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-decoration: none;
 `;
 
 const Icon = styled.img`
@@ -57,4 +59,4 @@ const Tooltip = styled.abbr`
   text-decoration: none;
 `;
 
-export { Container, Icon, Temperature, Value, TemperatureSign, City, Tooltip };
+export { LinkContainer, Icon, Temperature, Value, TemperatureSign, City, Tooltip };
