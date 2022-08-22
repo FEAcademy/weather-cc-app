@@ -18,7 +18,7 @@ const MapPage = () => {
     <MapWrapper data-testid={MapPageTestIds.MapPage}>
       <StyledMapContainer
         center={location ? [location.lat, location.lon] : defaultPosition}
-        zoom={10}
+        zoom={initialZoom}
         zoomControl={false}
         scrollWheelZoom={true}
         minZoom={8}
