@@ -20,7 +20,7 @@ describe('Map page', () => {
 
     expect(markers).toBeInTheDocument();
   });
-  it('should center map dependent on current_location from localStorage', async () => {
+  it('should center map dependent on current_coordinates from localStorage', async () => {
     render(<MapPage />);
 
     let parsedLocalValue: [number, number] = [0, 0];
@@ -39,9 +39,9 @@ describe('Map page', () => {
     expect(center).toMatchObject({ lat: 0, lng: 0 });
 
     const city = `[${places.elements[1].lat},${places.elements[1].lon}]`;
-    localStorage.setItem('current_location', city);
+    localStorage.setItem('current_coordinates', city);
 
-    const localValue = localStorage.getItem('current_location');
+    const localValue = localStorage.getItem('current_coordinates');
     parsedLocalValue = localValue && JSON.parse(localValue);
 
     const { result: newResult } = renderHook(() => useMap(), { wrapper: MapWrapper });

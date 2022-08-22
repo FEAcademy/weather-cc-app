@@ -1,6 +1,6 @@
 import Weather from 'api/services/Weather';
 import { useLocalStorage } from 'hooks/useLocalStorage';
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { TemperatureWidget, TemperatureWidgetLoader } from 'components/TemperatureWidget';
 import { WeatherAqiWidget, WeatherAqiWidgetLoader } from 'components/WeatherAqiWidget';
 import { WeatherInfoWidget, WeatherInfoWidgetLoader } from 'components/WeatherInfoWidget';
@@ -10,8 +10,13 @@ import { Container, SelectContainer, WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
+  const [chosenCity, setChosenCity] = useState('');
+
   const [savedLocation, setSavedLocation] = useLocalStorage('current_location');
+  const [, setCurrentCoordinates] = useLocalStorage('current_coordinates');
+
   const { data, isLoading } = Weather.useLocation(savedLocation || '');
+  const { refetch } = Weather.useLocation(chosenCity);
 
   const renderContent = () => {
     if (isLoading) {
@@ -57,9 +62,22 @@ const HomePage = () => {
     }
   };
 
-  const handleChangeSavedLocation = useCallback((value:string) => {
-    setSavedLocation(value);
-  },[setSavedLocation]);
+  const handleChangeSavedLocation = useCallback(
+    async (value: string) => {
+      setChosenCity(value);
+      setSavedLocation(value);
+    },
+    [setSavedLocation],
+  );
+
+  const updateCoordinates = useCallback(async () => {
+    const { data: cityData } = await refetch();
+    cityData && setCurrentCoordinates(`[${cityData.location.lat}, ${cityData.location.lon}]`);
+  }, [refetch, setCurrentCoordinates]);
+
+  useEffect(() => {
+    chosenCity && updateCoordinates();
+  }, [updateCoordinates, chosenCity]);
 
   return (
     <Container data-testid={HomePageTestIds.HomePage}>
