@@ -5,14 +5,11 @@ import { CityWeatherShortcutLoaderTestIds } from 'components/CityWeatherShortcut
 import { NearestCitiesWeatherWidget } from './NearestCitiesWeatherWidget';
 import { NearestCitiesWeatherWidgetTestIds } from './NearestCitiesWeatherWidgetTestIds';
 
+const { name, lat, lon } = weatherSuccessResponse.location;
+
 describe('NearestCitiesWeatherWidget', () => {
   it('should render', () => {
-    render(
-      <NearestCitiesWeatherWidget
-        cityName={weatherSuccessResponse.location.name}
-        coordinates={`${weatherSuccessResponse.location.lat},${weatherSuccessResponse.location.lon}`}
-      />,
-    );
+    render(<NearestCitiesWeatherWidget cityName={name} coordinates={`${lat},${lon}`} />);
 
     const widget = screen.getByTestId(NearestCitiesWeatherWidgetTestIds.Widget);
 
@@ -20,24 +17,14 @@ describe('NearestCitiesWeatherWidget', () => {
   });
 
   it('should render loaders', async () => {
-    render(
-      <NearestCitiesWeatherWidget
-        cityName={weatherSuccessResponse.location.name}
-        coordinates={`${weatherSuccessResponse.location.lat},${weatherSuccessResponse.location.lon}`}
-      />,
-    );
+    render(<NearestCitiesWeatherWidget cityName={name} coordinates={`${lat},${lon}`} />);
 
     const loaders = await screen.findAllByTestId(CityWeatherShortcutLoaderTestIds.Loader);
 
     expect(loaders.length).toBe(6);
   });
   it('should render shortcuts', async () => {
-    render(
-      <NearestCitiesWeatherWidget
-        cityName={weatherSuccessResponse.location.name}
-        coordinates={`${weatherSuccessResponse.location.lat},${weatherSuccessResponse.location.lon}`}
-      />,
-    );
+    render(<NearestCitiesWeatherWidget cityName={name} coordinates={`${lat},${lon}`} />);
     const nearestCityShortcuts = await screen.findAllByTestId(CityWeatherShortcutTestIds.Widget);
 
     expect(nearestCityShortcuts.length).toBe(3);
