@@ -1,6 +1,7 @@
 import Weather from 'api/services/Weather';
-import { useMemo } from 'react';
-import { useParams } from 'react-router-dom';
+import { Paths } from 'enums/Paths';
+import { useEffect, useMemo } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { convertSpecialCharacters } from 'utils/convertSpecialCharacters';
 import { serializeCoordinates } from 'utils/serializeCoordinates';
 import { PageContentContainer } from 'components/PageContentContainer';
@@ -14,9 +15,17 @@ type Params = {
 };
 
 const CityPage = () => {
+  const navigate = useNavigate();
   const { city } = useParams() as Params;
   const normalizedCity = useMemo(() => convertSpecialCharacters(city), [city]);
-  const { data, isLoading } = Weather.useLocation(normalizedCity);
+
+  const { data, isLoading, isError } = Weather.useLocation(normalizedCity);
+
+  useEffect(() => {
+    if (isError) {
+      navigate(Paths.Map);
+    }
+  }, [isError, navigate]);
 
   const cityName = normalizedCity.split(',')[0].charAt(0).toUpperCase() + normalizedCity.split(',')[0].slice(1);
   const coordinates = data && serializeCoordinates({ latitude: data?.location.lat, longitude: data?.location.lon });
