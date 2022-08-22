@@ -1,3 +1,4 @@
+import userEvent from '@testing-library/user-event';
 import { render, screen } from 'test-utils';
 import { CityWeatherShortcut } from './CityWeatherShortcut';
 import { CityWeatherShortcutTestIds } from './CityWeatherShortcutTestIds';
@@ -30,5 +31,17 @@ describe('CityWeatherShortcut', () => {
     expect(weatherIcon).toHaveAttribute('src', '//cdn.weatherapi.com/weather/128x128/day/113.png');
     expect(currentTemperature).toBeInTheDocument();
     expect(cityName).toBeInTheDocument();
+  });
+  it('should checks if url pathname changed from "/" to "/city/Katowice"', async () => {
+    render(<CityWeatherShortcut cityName="Katowice" />);
+
+    expect(window.location.pathname).toBe('/');
+
+    const LinkContainer = await screen.findByTestId(CityWeatherShortcutTestIds.Widget);
+
+    const user = userEvent.setup();
+    await user.click(LinkContainer);
+
+    expect(window.location.pathname).toBe('/city/Katowice');
   });
 });
