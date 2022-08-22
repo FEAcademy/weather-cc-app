@@ -5,19 +5,19 @@ import { PlaceMarkers } from './components/PlaceMarkers';
 import { StyledMapContainer, MapWrapper } from './MapPage.styled';
 import { MapPageTestIds } from './MapPageTestIds';
 
-const initialBounds = '(50.72167742756552,16.311950683593754,51.48993452350156,17.76351928710938)';
 const initialZoom = 10;
 
 const MapPage = () => {
   const [localValue] = useLocalStorage('current_location');
-  const { data } = Weather.useLocation(localValue || '');
+  const { data } = Weather.useLocation(localValue || 'Wroclaw');
+  const location = data?.location;
 
-  const defaultCity: [number, number] = [51.107, 17.038];
+  const defaultPosition: [number, number] = [51.107, 17.038];
 
   return (
     <MapWrapper data-testid={MapPageTestIds.MapPage}>
       <StyledMapContainer
-        center={data ? [data?.location.lat, data?.location.lon] : defaultCity}
+        center={location ? [location.lat, location.lon] : defaultPosition}
         zoom={10}
         zoomControl={false}
         scrollWheelZoom={true}
@@ -25,11 +25,7 @@ const MapPage = () => {
         maxZoom={14}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <PlaceMarkers
-          boundsCoordinates={initialBounds}
-          zoom={initialZoom}
-          center={data ? [data?.location.lat, data?.location.lon] : undefined}
-        />
+        {location && <PlaceMarkers zoom={initialZoom} center={[location.lat, location.lon]} />}
       </StyledMapContainer>
     </MapWrapper>
   );

@@ -23,12 +23,12 @@ describe('Map page', () => {
   it('should center map dependent on current_location from localStorage', async () => {
     render(<MapPage />);
 
-    let parsedLocalValue: [number, number] | undefined = undefined;
+    let parsedLocalValue: [number, number] = [0, 0];
 
     const MapWrapper = ({ children }: PropsWithChildren) => (
       <ProvidersCombined>
         <MapContainer zoom={10} center={[0, 0]}>
-          <PlaceMarkers boundsCoordinates="(0,0,0,0)" zoom={10} center={parsedLocalValue || undefined} />
+          <PlaceMarkers zoom={10} center={parsedLocalValue} />
           {children}
         </MapContainer>
       </ProvidersCombined>

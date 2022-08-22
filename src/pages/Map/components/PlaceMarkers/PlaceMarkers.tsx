@@ -10,14 +10,16 @@ import { PlaceMarkersTestIds } from './PlaceMarkersTestIds';
 interface Props {
   boundsCoordinates: string;
   zoom: number;
-  center?: [number, number];
+  center: [number, number];
 }
 
-const PlaceMarkers = ({ boundsCoordinates, zoom, center }: Props) => {
-  const [mapData, setMapData] = useState<Props>({
-    boundsCoordinates: boundsCoordinates,
+const PlaceMarkers = ({ zoom, center }: Omit<Props, 'boundsCoordinates'>) => {
+  const [currentCenter] = useState<[number, number]>(center);
+  const [mapData, setMapData] = useState<Omit<Props, 'center'>>({
+    boundsCoordinates: '',
     zoom: zoom,
   });
+
   const { isLoading, data: places } = Overpass.usePlaces(mapData.boundsCoordinates, mapData.zoom);
 
   const setMapPositionDebounce = useDebouncedCallback((map: Map) => {
@@ -37,12 +39,15 @@ const PlaceMarkers = ({ boundsCoordinates, zoom, center }: Props) => {
 
   const map = useMapEvents({
     zoomend: () => setMapPositionDebounce(map),
-    dragend: () => setMapPositionDebounce(map),
+    dragend: () => {
+      setMapPositionDebounce(map);
+    },
   });
 
   useEffect(() => {
-    center && map.setView(center);
-  }, [center, map]);
+    map.setView(currentCenter);
+    setMapPositionDebounce(map);
+  }, [currentCenter, map, setMapPositionDebounce]);
 
   const renderContent = () => {
     if (isLoading) return <MapLoadingBar />;
