@@ -8,8 +8,8 @@ import { MapPageTestIds } from './MapPageTestIds';
 const initialZoom = 10;
 
 const MapPage = () => {
-  const [localValue] = useLocalStorage('current_location');
-  const { data } = Weather.useLocation(localValue || 'Wroclaw');
+  const [currentLocation] = useLocalStorage('current_location');
+  const { data } = Weather.useLocation(currentLocation || 'Wroclaw');
   const location = data?.location;
 
   const defaultPosition: [number, number] = [51.107, 17.038];

@@ -39,9 +39,7 @@ const PlaceMarkers = ({ zoom, center }: Omit<Props, 'boundsCoordinates'>) => {
 
   const map = useMapEvents({
     zoomend: () => setMapPositionDebounce(map),
-    dragend: () => {
-      setMapPositionDebounce(map);
-    },
+    dragend: () => setMapPositionDebounce(map),
   });
 
   useEffect(() => {
