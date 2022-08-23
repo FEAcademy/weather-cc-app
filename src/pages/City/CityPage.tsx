@@ -1,42 +1,40 @@
 import Weather from 'api/services/Weather';
-import { useMemo } from 'react';
-import { NavigateOptions, useLocation, useParams } from 'react-router-dom';
+import { Paths } from 'enums/Paths';
+import { useEffect, useMemo } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { convertSpecialCharacters } from 'utils/convertSpecialCharacters';
-import { FavoritesButton } from 'components/FavoritesButton';
+import { serializeCoordinates } from 'utils/serializeCoordinates';
 import { PageContentContainer } from 'components/PageContentContainer';
 import { WidgetWrapper } from 'components/WidgetWrapper';
-import { CityName, CityNameWrapper } from './CityPage.styled';
 import { CityPageTestIds } from './CityPageTestIds';
-import { CityNameLoader } from './components/CityNameLoader';
+import { CityNameWidget } from './components/CityNameWidget';
+import { NearestCitiesWeatherWidget } from './components/NearestCitiesWeatherWidget';
 
 type Params = {
   city: string;
 };
 
 const CityPage = () => {
+  const navigate = useNavigate();
   const { city } = useParams() as Params;
   const normalizedCity = useMemo(() => convertSpecialCharacters(city), [city]);
-  const { data, isLoading } = Weather.useLocation(normalizedCity);
-  const { state }: NavigateOptions = useLocation();
 
-  const renderCityName = () => {
-    if (isLoading) {
-      return <CityNameLoader />;
+  const { data, isLoading, isError } = Weather.useLocation(normalizedCity);
+
+  useEffect(() => {
+    if (isError) {
+      navigate(Paths.Map);
     }
-    if (data) {
-      return (
-        <CityNameWrapper>
-          <CityName>{state?.cityName || data.location.name}</CityName>
-          <FavoritesButton cityName={data?.location.name} size={20} />
-        </CityNameWrapper>
-      );
-    }
-  };
+  }, [isError, navigate]);
+
+  const cityName = normalizedCity.split(',')[0].charAt(0).toUpperCase() + normalizedCity.split(',')[0].slice(1);
+  const coordinates = data && serializeCoordinates({ latitude: data?.location.lat, longitude: data?.location.lon });
 
   return (
     <PageContentContainer data-testid={CityPageTestIds.Container}>
-      {renderCityName()}
+      <CityNameWidget loading={isLoading} cityName={data?.location.name} />
       <WidgetWrapper data={data} isLoading={isLoading} data-testid={CityPageTestIds.Widgets} />
+      <NearestCitiesWeatherWidget cityName={cityName} coordinates={coordinates} />
     </PageContentContainer>
   );
 };

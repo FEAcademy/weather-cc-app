@@ -1,13 +1,18 @@
+import hooks from 'api/services/Weather';
 import { Paths } from 'enums/Paths';
+import { UseQueryResult } from 'react-query';
 import { Route, Routes } from 'react-router-dom';
 import { render, screen, waitForElementToBeRemoved } from 'test-utils';
 import { FavoritesButtonTestIds } from 'components/FavoritesButton';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget';
+import { Weather } from 'models/Weather';
+import { MapPage, MapPageTestIds } from 'pages/Map';
 import { CityPage } from './CityPage';
 import { CityPageTestIds } from './CityPageTestIds';
-import { CityNameLoaderTestIds } from './components/CityNameLoader';
+import { CityNameLoaderTestIds } from './components/CityNameWidget/components/CityNameLoader';
+import { NearestCitiesWeatherWidgetTestIds } from './components/NearestCitiesWeatherWidget';
 
 const renderCityPageInRoute = () => {
   const route = '/city/Wrocław,Poland';
@@ -123,7 +128,7 @@ describe('City page', () => {
 
     const weatherIcon = await screen.findByAltText('Weather widget icon');
     const description = await screen.findByText(/Sunny/i);
-    const currentTemperature = await screen.findByText(/25/i);
+    const currentTemperature = await screen.findByTestId(TemperatureWidgetTestIds.Temperature);
     const feelslikeTemperature = await screen.findByText(/26/i);
 
     expect(weatherIcon).toHaveAttribute('src', '//cdn.weatherapi.com/weather/128x128/day/113.png');
@@ -148,5 +153,42 @@ describe('City page', () => {
     expect(o3).toBeInTheDocument();
     expect(pm25).toBeInTheDocument();
     expect(so2).toBeInTheDocument();
+  });
+
+  it('should render shortcuts title', () => {
+    renderCityPageInRoute();
+
+    const shortcutsTitle = screen.getByText(/nearest/i);
+
+    expect(shortcutsTitle).toBeInTheDocument();
+
+    jest.clearAllMocks();
+  });
+
+  it('should render loader container for shortcuts widgets', async () => {
+    renderCityPageInRoute();
+
+    const loaderContainer = screen.getByTestId(NearestCitiesWeatherWidgetTestIds.Widget);
+
+    expect(loaderContainer).toBeInTheDocument();
+  });
+  it('should redirect to /map if no data returned for city name', async () => {
+    const route = '/city/aaaa';
+    const spy = jest
+      .spyOn(hooks, 'useLocation')
+      .mockReturnValue({ data: undefined, isError: true, isLoading: false } as UseQueryResult<Weather, Error>);
+
+    render(
+      <Routes>
+        <Route path={Paths.City} element={<CityPage />} />
+        <Route path={Paths.Map} element={<MapPage />} />
+      </Routes>,
+      { route },
+    );
+
+    const map = await screen.findByTestId(MapPageTestIds.MapPage);
+
+    expect(map).toBeInTheDocument();
+    spy.mockRestore();
   });
 });
