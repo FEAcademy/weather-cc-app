@@ -30,7 +30,7 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 0,
     'eol-last': [2, 'always'],
-    quotes: [2, 'single'],
+    quotes: ['error', 'single', { avoidEscape: true }],
     'no-unused-vars': 'off',
     indent: ['error', 2],
     '@typescript-eslint/no-unused-vars': ['error'],

@@ -17,7 +17,7 @@ const MapPage = () => {
         zoom={initialZoom}
         zoomControl={false}
         scrollWheelZoom={true}
-        minZoom={8}
+        minZoom={9}
         maxZoom={14}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
