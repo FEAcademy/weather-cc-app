@@ -41,7 +41,7 @@ const PlaceMarkers = ({ boundsCoordinates, zoom }: Props) => {
     if (isFetching && places)
       return (
         <>
-          <MapLoadingBar />{' '}
+          <MapLoadingBar />
           {places.map((place) => (
             <WeatherMarker pos={[place.lat, place.lon]} cityName={place.tags.name} key={place.id} />
           ))}
