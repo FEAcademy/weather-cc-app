@@ -12,10 +12,10 @@ import { HomePageTestIds } from './HomePageTestIds';
 const HomePage = () => {
   const [chosenCity, setChosenCity] = useState('');
 
-  const [savedLocation, setSavedLocation] = useLocalStorage('current_location');
+  const [currentLocation, setCurrentLocation] = useLocalStorage('current_location');
   const [, setCurrentCoordinates] = useLocalStorage('current_coordinates');
 
-  const { data, isLoading } = Weather.useLocation(savedLocation || '');
+  const { data, isLoading } = Weather.useLocation(currentLocation || '');
   const { refetch } = Weather.useLocation(chosenCity);
 
   const renderContent = () => {
@@ -65,9 +65,9 @@ const HomePage = () => {
   const handleChangeSavedLocation = useCallback(
     (value: string) => {
       setChosenCity(value);
-      setSavedLocation(value);
+      setCurrentLocation(value);
     },
-    [setSavedLocation],
+    [setCurrentLocation],
   );
 
   const updateCoordinates = useCallback(async () => {

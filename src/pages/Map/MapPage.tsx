@@ -7,13 +7,13 @@ import { MapPageTestIds } from './MapPageTestIds';
 const initialZoom = 10;
 
 const MapPage = () => {
-  const [currentLocation] = useLocalStorage('current_coordinates');
-  const currentCoordinates: [number, number] = currentLocation ? JSON.parse(currentLocation) : [51.107, 17.038];
+  const [currentCoordinates] = useLocalStorage('current_coordinates');
+  const coordinates: [number, number] = currentCoordinates ? JSON.parse(currentCoordinates) : [51.107, 17.038];
 
   return (
     <MapWrapper data-testid={MapPageTestIds.MapPage}>
       <StyledMapContainer
-        center={currentCoordinates}
+        center={coordinates}
         zoom={initialZoom}
         zoomControl={false}
         scrollWheelZoom={true}
@@ -21,7 +21,7 @@ const MapPage = () => {
         maxZoom={14}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <PlaceMarkers zoom={initialZoom} center={currentCoordinates} />
+        <PlaceMarkers zoom={initialZoom} center={coordinates} />
       </StyledMapContainer>
     </MapWrapper>
   );
