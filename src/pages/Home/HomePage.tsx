@@ -63,7 +63,7 @@ const HomePage = () => {
   };
 
   const handleChangeSavedLocation = useCallback(
-    async (value: string) => {
+    (value: string) => {
       setChosenCity(value);
       setSavedLocation(value);
     },
@@ -71,8 +71,8 @@ const HomePage = () => {
   );
 
   const updateCoordinates = useCallback(async () => {
-    const { data: cityData } = await refetch();
-    cityData && setCurrentCoordinates(`[${cityData.location.lat}, ${cityData.location.lon}]`);
+    const { data } = await refetch();
+    data && setCurrentCoordinates(`[${data.location.lat}, ${data.location.lon}]`);
   }, [refetch, setCurrentCoordinates]);
 
   useEffect(() => {
