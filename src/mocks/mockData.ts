@@ -103,8 +103,8 @@ const weatherDataInCitySuccessResponse: Weather = {
 const cities: AutocompleteOption[] = [
   { name: 'Warszawa' },
   { name: 'Walbrzych' },
-  { name: 'Brzeg' },
-  { name: 'Nowa Brzezina' },
+  { name: 'Olawa' },
+  { name: 'Gaj Olawski' },
 ];
 
 const places: { elements: Place[] } = {
