@@ -59,4 +59,11 @@ const Tooltip = styled.abbr`
   text-decoration: none;
 `;
 
-export { LinkContainer, Icon, Temperature, Value, TemperatureSign, City, Tooltip };
+const ButtonWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+`;
+
+export { LinkContainer, Icon, Temperature, Value, TemperatureSign, City, Tooltip, ButtonWrapper };
