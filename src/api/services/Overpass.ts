@@ -23,7 +23,7 @@ export default {
 
         return data;
       },
-      { enabled: !!box, refetchOnWindowFocus: false },
+      { enabled: !!box, refetchOnWindowFocus: false, keepPreviousData: true },
     );
   },
   useNearestPlaces: (cityName: string, coordinates?: string) => {
