@@ -40,7 +40,7 @@ const AutocompleteInput = ({ onChange, value }: Props) => {
         isMulti={false}
         name="cities"
         inputId="cities"
-        value={serializedValue}
+        value={value ? serializedValue : null}
       />
     </div>
   );
