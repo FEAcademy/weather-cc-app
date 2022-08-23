@@ -1,4 +1,5 @@
 import { render, screen } from 'test-utils';
+import { FavoritesButtonTestIds } from 'components/FavoritesButton';
 import { CityNameWidget } from './CityNameWidget';
 import { CityNameWidgetTestIds } from './CityNameWidgetTestIds';
 import { CityNameLoaderTestIds } from './components/CityNameLoader';
@@ -18,5 +19,13 @@ describe('CityNameWidget', () => {
     const cityName = screen.getByTestId(CityNameWidgetTestIds.CityName);
 
     expect(cityName).toBeInTheDocument();
+  });
+
+  it('should render favorites button', async () => {
+    render(<CityNameWidget loading={false} cityName="Wroclaw" />);
+
+    const favoritesButton = screen.getByTestId(FavoritesButtonTestIds.Button);
+
+    expect(favoritesButton).toBeInTheDocument();
   });
 });

@@ -16,7 +16,7 @@ const FavoritesButton = ({ cityName, size }: Props) => {
   const isFavorite = checkIfIsFavorite(cityName);
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
+    e.preventDefault();
     if (!isFavorite) dispatch(add(cityName));
   };
 
