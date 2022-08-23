@@ -2,6 +2,7 @@ import Weather from 'api/services/Weather';
 import { useState } from 'react';
 import Select from 'react-select';
 import { useDebouncedCallback } from 'use-debounce';
+import { convertSpecialCharacters } from 'utils/convertSpecialCharacters';
 import { AutocompleteOption } from 'models/AutocompleteLocation';
 import { inputStyles } from './AutocompleteInput.styled';
 import { AutocompleteInputTestIds } from './AutocompleteInputTestIds';
@@ -19,7 +20,7 @@ const AutocompleteInput = ({ onChange, value }: Props) => {
     name: value,
   };
 
-  const handleInputChange = useDebouncedCallback(value => setInputValue(value), 500);
+  const handleInputChange = useDebouncedCallback((value) => setInputValue(convertSpecialCharacters(value)), 500);
 
   const handleSelect = (city: AutocompleteOption) => {
     onChange(city.name);
@@ -30,12 +31,12 @@ const AutocompleteInput = ({ onChange, value }: Props) => {
       <Select
         options={data}
         isLoading={isLoading}
-        onInputChange={value => handleInputChange(value)}
+        onInputChange={handleInputChange}
         styles={inputStyles}
         placeholder="Search"
         onChange={(newValue) => newValue && handleSelect(newValue)}
-        getOptionLabel={({name})=>name}
-        getOptionValue={({name})=>name}
+        getOptionLabel={({ name }) => name}
+        getOptionValue={({ name }) => name}
         isMulti={false}
         name="cities"
         inputId="cities"
