@@ -53,10 +53,10 @@ describe('Autocomplete input', () => {
     const input = screen.getByRole('combobox');
 
     const user = userEvent.setup();
-    await user.type(input, 'Brze');
+    await user.type(input, 'Oław');
 
-    const firstOption = await screen.findByText('Brzeg');
-    const secondOption = await screen.findByText('Nowa Brzezina');
+    const firstOption = await screen.findByText('Olawa');
+    const secondOption = await screen.findByText('Gaj Olawski');
 
     expect(firstOption).toBeInTheDocument();
     expect(secondOption).toBeInTheDocument();
@@ -70,10 +70,10 @@ describe('Autocomplete input', () => {
     const input = screen.getByRole('combobox');
 
     const user = userEvent.setup();
-    await user.type(input, 'Brze');
+    await user.type(input, 'Oław');
 
-    const firstOption = await screen.findByText('Brzeg');
-    const secondOption = await screen.findByText('Nowa Brzezina');
+    const firstOption = await screen.findByText('Olawa');
+    const secondOption = await screen.findByText('Gaj Olawski');
 
     expect(firstOption).toBeInTheDocument();
     expect(secondOption).toBeInTheDocument();
