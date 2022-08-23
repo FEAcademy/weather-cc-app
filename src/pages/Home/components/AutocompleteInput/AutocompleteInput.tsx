@@ -30,7 +30,7 @@ const AutocompleteInput = ({ onChange, value }: Props) => {
       <Select
         options={data}
         isLoading={isLoading}
-        onInputChange={(value) => handleInputChange(value)}
+        onInputChange={handleInputChange}
         styles={inputStyles}
         placeholder="Search"
         onChange={(newValue) => newValue && handleSelect(newValue)}
