@@ -37,23 +37,22 @@ const PlaceMarkers = ({ boundsCoordinates, zoom }: Props) => {
   });
 
   const renderContent = () => {
-    if (isLoading) return <MapLoadingBar />;
-    if (isFetching && places)
-      return (
-        <>
-          <MapLoadingBar />
-          {places.map((place) => (
-            <WeatherMarker pos={[place.lat, place.lon]} cityName={place.tags.name} key={place.id} />
-          ))}
-        </>
-      );
     if (places)
       return places.map((place) => (
         <WeatherMarker pos={[place.lat, place.lon]} cityName={place.tags.name} key={place.id} />
       ));
   };
 
-  return <div data-testid={PlaceMarkersTestIds.Container}>{renderContent()}</div>;
+  const renderLoader = () => {
+    if (isLoading || isFetching) return <MapLoadingBar />;
+  };
+
+  return (
+    <div data-testid={PlaceMarkersTestIds.Container}>
+      {renderContent()}
+      {renderLoader()}
+    </div>
+  );
 };
 
 export { PlaceMarkers };
