@@ -8,19 +8,18 @@ const aboutPageData = [
   {
     title: 'WEATHER IN YOUR LOCATION',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.',
+      "With the Weatherly app, you'll get access to weather data at your current location or anywhere else in the world.",
     img: temperatureWidgetImg,
   },
   {
     title: 'AIR QUALITY',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.',
+      'You will find out what is the quality of air you breathe or will breathe when choosing the place of your future stay.',
     img: parametersWidgetImg,
   },
   {
     title: 'WEATHER ON MAP',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.',
+    description: 'You can compare the weather in different places on our weather map at any time.',
     img: mapImg,
   },
 ];
