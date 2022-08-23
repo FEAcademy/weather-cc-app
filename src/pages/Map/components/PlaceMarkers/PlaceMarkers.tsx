@@ -17,7 +17,7 @@ const PlaceMarkers = ({ boundsCoordinates, zoom }: Props) => {
     boundsCoordinates: boundsCoordinates,
     zoom: zoom,
   });
-  const { isLoading, data: places } = Overpass.usePlaces(mapData.boundsCoordinates, mapData.zoom);
+  const { isLoading, isFetching, data: places } = Overpass.usePlaces(mapData.boundsCoordinates, mapData.zoom);
 
   const setMapPositionDebounce = useDebouncedCallback((map: Map) => {
     const mapBound = map.getBounds();
@@ -37,14 +37,22 @@ const PlaceMarkers = ({ boundsCoordinates, zoom }: Props) => {
   });
 
   const renderContent = () => {
-    if (isLoading) return <MapLoadingBar />;
     if (places)
       return places.map((place) => (
         <WeatherMarker pos={[place.lat, place.lon]} cityName={place.tags.name} key={place.id} />
       ));
   };
 
-  return <div data-testid={PlaceMarkersTestIds.Container}>{renderContent()}</div>;
+  const renderLoader = () => {
+    if (isLoading || isFetching) return <MapLoadingBar />;
+  };
+
+  return (
+    <div data-testid={PlaceMarkersTestIds.Container}>
+      {renderContent()}
+      {renderLoader()}
+    </div>
+  );
 };
 
 export { PlaceMarkers };
