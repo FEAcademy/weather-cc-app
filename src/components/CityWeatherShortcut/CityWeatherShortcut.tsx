@@ -1,7 +1,17 @@
 import Weather from 'api/services/Weather';
 import { useMemo } from 'react';
 import { convertSpecialCharacters } from 'utils/convertSpecialCharacters';
-import { LinkContainer, Icon, Temperature, Value, TemperatureSign, City, Tooltip } from './CityWeatherShortcut.styled';
+import { FavoritesButton } from 'components/FavoritesButton';
+import {
+  LinkContainer,
+  Icon,
+  Temperature,
+  Value,
+  TemperatureSign,
+  City,
+  Tooltip,
+  ButtonWrapper,
+} from './CityWeatherShortcut.styled';
 import { CityWeatherShortcutTestIds } from './CityWeatherShortcutTestIds';
 import { CityWeatherShortcutLoader } from './components/CityWeatherShortcutLoader';
 
@@ -31,6 +41,9 @@ const CityWeatherShortcut = ({ cityName }: Props) => {
             <TemperatureSign>&deg;C</TemperatureSign>
           </Temperature>
           <City>{name}</City>
+          <ButtonWrapper>
+            <FavoritesButton cityName={cityName} size={20} />
+          </ButtonWrapper>
         </LinkContainer>
       </Tooltip>
     );

@@ -7,8 +7,8 @@ import { MapPageTestIds } from './MapPageTestIds';
 const initialZoom = 10;
 
 const MapPage = () => {
-  const [currentCoordinates] = useLocalStorage('current_coordinates');
-  const coordinates: [number, number] = currentCoordinates ? JSON.parse(currentCoordinates) : [51.107, 17.038];
+  const [currentCoordinates] = useLocalStorage<[number, number]>('current_coordinates');
+  const coordinates: [number, number] = currentCoordinates || [51.107, 17.038];
 
   return (
     <MapWrapper data-testid={MapPageTestIds.MapPage}>

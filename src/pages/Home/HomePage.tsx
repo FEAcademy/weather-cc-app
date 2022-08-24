@@ -10,8 +10,8 @@ import { Container, SelectContainer, WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
-  const [currentLocation, setCurrentLocation] = useLocalStorage('current_location');
-  const [, setCurrentCoordinates] = useLocalStorage('current_coordinates');
+  const [currentLocation, setCurrentLocation] = useLocalStorage<string>('current_location');
+  const [, setCurrentCoordinates] = useLocalStorage<[number, number]>('current_coordinates');
 
   const { data, isLoading } = Weather.useLocation(currentLocation || '');
 
@@ -67,7 +67,7 @@ const HomePage = () => {
   );
 
   useEffect(() => {
-    data && setCurrentCoordinates(`[${data.location.lat}, ${data.location.lon}]`);
+    data && setCurrentCoordinates([data.location.lat, data.location.lon]);
   }, [data, setCurrentCoordinates]);
 
   return (
