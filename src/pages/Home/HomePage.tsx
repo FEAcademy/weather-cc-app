@@ -10,7 +10,7 @@ import { Container, SelectContainer, WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
-  const [savedLocation, setSavedLocation] = useLocalStorage('current_location');
+  const [savedLocation, setSavedLocation] = useLocalStorage<string>('current_location');
   const { data, isLoading } = Weather.useLocation(savedLocation || '');
 
   const renderContent = () => {
@@ -57,9 +57,12 @@ const HomePage = () => {
     }
   };
 
-  const handleChangeSavedLocation = useCallback((value:string) => {
-    setSavedLocation(value);
-  },[setSavedLocation]);
+  const handleChangeSavedLocation = useCallback(
+    (value: string) => {
+      setSavedLocation(value);
+    },
+    [setSavedLocation],
+  );
 
   return (
     <Container data-testid={HomePageTestIds.HomePage}>

@@ -3,6 +3,7 @@ import { Paths } from 'enums/Paths';
 import { UseQueryResult } from 'react-query';
 import { Route, Routes } from 'react-router-dom';
 import { render, screen, waitForElementToBeRemoved } from 'test-utils';
+import { FavoritesButtonTestIds } from 'components/FavoritesButton';
 import { TemperatureWidgetTestIds } from 'components/TemperatureWidget';
 import { WeatherAqiWidgetTestIds } from 'components/WeatherAqiWidget';
 import { WeatherInfoWidgetTestIds } from 'components/WeatherInfoWidget';
@@ -36,6 +37,13 @@ describe('City page', () => {
 
     const cityNameElement = await screen.findByText(/Wroclaw/i);
     expect(cityNameElement).toBeInTheDocument();
+  });
+
+  it('should display favorites button after entering /city/:city route', async () => {
+    renderCityPageInRoute();
+
+    const favoritesButton = await screen.findByTestId(FavoritesButtonTestIds.Button);
+    expect(favoritesButton).toBeInTheDocument();
   });
 
   it('should render and remove city name loader', async () => {
