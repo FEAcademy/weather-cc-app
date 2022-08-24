@@ -5,6 +5,7 @@ import { TemperatureWidget, TemperatureWidgetLoader } from 'components/Temperatu
 import { WeatherAqiWidget, WeatherAqiWidgetLoader } from 'components/WeatherAqiWidget';
 import { WeatherInfoWidget, WeatherInfoWidgetLoader } from 'components/WeatherInfoWidget';
 import { AutocompleteInput } from './components/AutocompleteInput';
+import { FavoritesCitiesWeatherWidget } from './components/FavoritesCitiesWeatherWidget';
 import { GeolocationButton } from './components/GeolocationButton';
 import { Container, SelectContainer, WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
@@ -71,6 +72,7 @@ const HomePage = () => {
         <GeolocationButton onGeolocation={handleChangeSavedLocation} />
       </SelectContainer>
       <WidgetWrapper data-testid={HomePageTestIds.Widgets}>{renderContent()}</WidgetWrapper>
+      <FavoritesCitiesWeatherWidget />
     </Container>
   );
 };
