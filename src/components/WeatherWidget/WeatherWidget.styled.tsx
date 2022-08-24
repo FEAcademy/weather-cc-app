@@ -19,6 +19,12 @@ const Container = styled.div<{ defraIndex?: number }>`
   > div {
     border-color: inherit;
   }
+
+  @media screen and (max-width: ${({ theme }) => theme.widths.tablet}) {
+    & {
+      order: 2;
+    }
+  }
 `;
 
 export { Container };

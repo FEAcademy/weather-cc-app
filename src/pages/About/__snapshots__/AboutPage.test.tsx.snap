@@ -6,10 +6,10 @@ exports[`AboutPage should render correctly 1`] = `
     data-testid="about-page-container"
   >
     <div
-      class="sc-bczRLJ mwCly"
+      class="sc-bczRLJ fLiUrP"
     >
       <h1
-        class="sc-gsnTZi kNIgYo"
+        class="sc-gsnTZi kyAThJ"
       >
         WEATHER
         <span>
@@ -17,69 +17,72 @@ exports[`AboutPage should render correctly 1`] = `
         </span>
       </h1>
       <h5
-        class="sc-dkzDqf bffDPx"
+        class="sc-dkzDqf ibHMCr"
       >
         weather app from CC frontend academy attendees
       </h5>
     </div>
     <div
-      class="sc-hKMtZM cuwdzt"
+      class="sc-hKMtZM jWPFBo"
     >
       <div
-        class="sc-gKXOVf dgQpLl"
+        class="sc-gKXOVf jroUOv"
       >
         <img
           alt="WEATHER IN YOUR LOCATION"
+          class="sc-iBkjds eSdtIQ"
           src="temperatureWidget.png"
         />
         <div>
           <h3
-            class="sc-eCYdqJ evptuE"
+            class="sc-eCYdqJ eGgmQA"
           >
             WEATHER IN YOUR LOCATION
           </h3>
           <p
-            class="sc-jSMfEi emDtDJ"
+            class="sc-jSMfEi gSgfoe"
           >
             With the Weatherly app, you'll get access to weather data at your current location or anywhere else in the world.
           </p>
         </div>
       </div>
       <div
-        class="sc-gKXOVf dgQpLl"
+        class="sc-gKXOVf jroUOv"
       >
         <img
           alt="AIR QUALITY"
+          class="sc-iBkjds eSdtIQ"
           src="parametersWidget.png"
         />
         <div>
           <h3
-            class="sc-eCYdqJ evptuE"
+            class="sc-eCYdqJ eGgmQA"
           >
             AIR QUALITY
           </h3>
           <p
-            class="sc-jSMfEi emDtDJ"
+            class="sc-jSMfEi gSgfoe"
           >
             You will find out what is the quality of air you breathe or will breathe when choosing the place of your future stay.
           </p>
         </div>
       </div>
       <div
-        class="sc-gKXOVf dgQpLl"
+        class="sc-gKXOVf jroUOv"
       >
         <img
           alt="WEATHER ON MAP"
+          class="sc-iBkjds eSdtIQ"
           src="map.png"
         />
         <div>
           <h3
-            class="sc-eCYdqJ evptuE"
+            class="sc-eCYdqJ eGgmQA"
           >
             WEATHER ON MAP
           </h3>
           <p
-            class="sc-jSMfEi emDtDJ"
+            class="sc-jSMfEi gSgfoe"
           >
             You can compare the weather in different places on our weather map at any time.
           </p>
