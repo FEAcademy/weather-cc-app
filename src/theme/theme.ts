@@ -1,6 +1,8 @@
 const theme = {
   widths: {
     app: '1200px',
+    mobile: '420px',
+    tablet: '1000px',
   },
   paddings: {
     app: '0px 18px',

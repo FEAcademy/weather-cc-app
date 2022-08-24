@@ -1,26 +1,34 @@
 import mapImg from 'assets/images/map.png';
 import parametersWidgetImg from 'assets/images/parametersWidget.png';
 import temperatureWidgetImg from 'assets/images/temperatureWidget.png';
-import { MainHeading, LogoContainer, SubHeading, RowContainer, Title, Description, Content } from './AboutPage.styled';
+import {
+  MainHeading,
+  LogoContainer,
+  SubHeading,
+  RowContainer,
+  Title,
+  Description,
+  Content,
+  Img,
+} from './AboutPage.styled';
 import { AboutPageTestIds } from './AboutPageTestIds';
 
 const aboutPageData = [
   {
     title: 'WEATHER IN YOUR LOCATION',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.',
+      "With the Weatherly app, you'll get access to weather data at your current location or anywhere else in the world.",
     img: temperatureWidgetImg,
   },
   {
     title: 'AIR QUALITY',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.',
+      'You will find out what is the quality of air you breathe or will breathe when choosing the place of your future stay.',
     img: parametersWidgetImg,
   },
   {
     title: 'WEATHER ON MAP',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.',
+    description: 'You can compare the weather in different places on our weather map at any time.',
     img: mapImg,
   },
 ];
@@ -36,7 +44,7 @@ const AboutPage = () => (
     <Content>
       {aboutPageData.map(({ title, description, img }) => (
         <RowContainer key={title}>
-          <img src={img} alt={title} />
+          <Img src={img} alt={title} />
           <div>
             <Title>{title}</Title>
             <Description>{description}</Description>

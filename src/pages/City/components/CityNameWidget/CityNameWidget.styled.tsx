@@ -5,6 +5,13 @@ const CityNameWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 7px;
+  margin-bottom: 42px;
+
+  @media screen and (max-width: ${({ theme }) => theme.widths.tablet}) {
+    & {
+      margin-top: 42px;
+    }
+  }
 `;
 
 const CityName = styled.h3`
