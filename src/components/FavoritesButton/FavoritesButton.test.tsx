@@ -55,4 +55,18 @@ describe('FavoritesButton', () => {
     expect(button).toHaveStyle('color: #DC5F44');
     expect(localStorage.getItem('favorites')).toBe(JSON.stringify([city1]));
   });
+
+  it('should remove from favorites', async () => {
+    const city1 = 'Pcim Górny';
+    const city2 = 'Pcim Dolny';
+
+    localStorage.setItem('favorites', JSON.stringify([city1, city2]));
+
+    render(<FavoritesButton cityName={city1} size={13} />);
+    const user = userEvent.setup();
+    const button = screen.getByTestId(FavoritesButtonTestIds.Button);
+
+    await user.click(button);
+    expect(localStorage.getItem('favorites')).toBe(JSON.stringify([city2]));
+  });
 });
