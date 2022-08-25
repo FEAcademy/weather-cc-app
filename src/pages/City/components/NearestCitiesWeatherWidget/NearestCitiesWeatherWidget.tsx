@@ -24,7 +24,7 @@ const NearestCitiesWeatherWidget = ({ cityName, coordinates }: Props) => {
 
   return (
     <CitiesWeatherWidget data-testid={NearestCitiesWeatherWidgetTestIds.Widget}>
-      <CitiesWeatherWidget.Title name="nearest" />
+      <CitiesWeatherWidget.Title>nearest</CitiesWeatherWidget.Title>
       <CitiesWeatherWidget.ShortcutsWrapper>{renderContent()}</CitiesWeatherWidget.ShortcutsWrapper>
     </CitiesWeatherWidget>
   );

@@ -4,7 +4,7 @@ import { FavoritesCitiesWeatherWidgetTestIds } from './FavoritesCitiesWeatherWid
 const FavoritesCitiesWeatherWidget = () => {
   return (
     <CitiesWeatherWidget data-testid={FavoritesCitiesWeatherWidgetTestIds.Container}>
-      <CitiesWeatherWidget.Title name="favorites" />
+      <CitiesWeatherWidget.Title>favorites</CitiesWeatherWidget.Title>
       <CitiesWeatherWidget.ShortcutsWrapper />
     </CitiesWeatherWidget>
   );

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Name = styled.h3`
+const Title = styled.h3`
   text-transform: uppercase;
   font-weight: 900;
   font-size: 16px;
@@ -12,7 +12,7 @@ const Name = styled.h3`
   width: 100%;
 `;
 
-const Container = styled.div`
+const ShortcutsWrapper = styled.div`
   flex-wrap: wrap;
   display: flex;
   width: 100%;
@@ -43,4 +43,4 @@ const Container = styled.div`
   }
 `;
 
-export { Name, Container };
+export { Title, ShortcutsWrapper };
