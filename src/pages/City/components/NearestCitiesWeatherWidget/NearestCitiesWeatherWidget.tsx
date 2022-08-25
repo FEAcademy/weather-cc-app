@@ -1,5 +1,5 @@
 import Overpass from 'api/services/Overpass';
-import { ButtonTypes } from 'enums/ButtonTypes';
+import { IconTypes } from 'enums/IconTypes';
 import { CitiesWeatherWidget } from 'components/CitiesWeatherWidget';
 import { CityWeatherShortcut, CityWeatherShortcutLoader } from 'components/CityWeatherShortcut';
 import { NearestCitiesWeatherWidgetTestIds } from './NearestCitiesWeatherWidgetTestIds';
@@ -18,7 +18,7 @@ const NearestCitiesWeatherWidget = ({ cityName, coordinates }: Props) => {
 
     if (data) {
       return data.map((city) => (
-        <CityWeatherShortcut key={city.id} cityName={city.tags.name} type={ButtonTypes.Heart} />
+        <CityWeatherShortcut key={city.id} cityName={city.tags.name} iconType={IconTypes.Heart} />
       ));
     }
 

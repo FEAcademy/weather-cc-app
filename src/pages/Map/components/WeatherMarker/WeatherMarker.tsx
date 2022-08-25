@@ -1,5 +1,5 @@
 import Weather from 'api/services/Weather';
-import { ButtonTypes } from 'enums/ButtonTypes';
+import { IconTypes } from 'enums/IconTypes';
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
@@ -42,7 +42,7 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
           </Temperature>
           <City title={cityName}>{cityName}</City>
           <ButtonWrapper>
-            <FavoritesButton cityName={normalizedCityName} size={13} buttonType={ButtonTypes.Heart} />
+            <FavoritesButton cityName={normalizedCityName} size={13} iconType={IconTypes.Heart} />
           </ButtonWrapper>
         </>
       );

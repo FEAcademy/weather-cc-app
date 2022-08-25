@@ -1,4 +1,4 @@
-import { ButtonTypes } from 'enums/ButtonTypes';
+import { IconTypes } from 'enums/IconTypes';
 import { CitiesWeatherWidget } from 'components/CitiesWeatherWidget';
 import { CityWeatherShortcut } from 'components/CityWeatherShortcut';
 import { FavoritesCitiesWeatherWidgetTestIds } from './FavoritesCitiesWeatherWidgetTestIds';
@@ -11,7 +11,7 @@ const FavoritesCitiesWeatherWidget = () => {
       <CitiesWeatherWidget.Title>favorites</CitiesWeatherWidget.Title>
       <CitiesWeatherWidget.ShortcutsWrapper>
         {favouriteCities.map((city) => (
-          <CityWeatherShortcut key={city} cityName={city} type={ButtonTypes.Heart} />
+          <CityWeatherShortcut key={city} cityName={city} iconType={IconTypes.Heart} />
         ))}
       </CitiesWeatherWidget.ShortcutsWrapper>
     </CitiesWeatherWidget>

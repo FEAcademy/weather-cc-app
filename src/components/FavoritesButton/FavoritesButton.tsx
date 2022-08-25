@@ -1,6 +1,6 @@
 import { add } from 'context/favorites';
 import { useFavorites } from 'context/favorites/FavoritesProvider';
-import { ButtonTypes } from 'enums/ButtonTypes';
+import { IconTypes } from 'enums/IconTypes';
 import { MouseEvent } from 'react';
 import { Heart } from 'react-feather';
 import { Button } from './FavoritesButton.styled';
@@ -9,10 +9,10 @@ import { FavoritesButtonTestIds } from './FavoritesButtonTestIds';
 interface Props {
   cityName: string;
   size: number;
-  buttonType: ButtonTypes;
+  iconType: IconTypes;
 }
 
-const FavoritesButton = ({ cityName, size, buttonType }: Props) => {
+const FavoritesButton = ({ cityName, size, iconType }: Props) => {
   const { dispatch, checkIfIsFavorite } = useFavorites();
 
   const isFavorite = checkIfIsFavorite(cityName);
@@ -23,7 +23,7 @@ const FavoritesButton = ({ cityName, size, buttonType }: Props) => {
   };
 
   const renderIcon = () => {
-    if (buttonType === ButtonTypes.Heart) {
+    if (iconType === IconTypes.Heart) {
       return <Heart size={size} />;
     }
   };

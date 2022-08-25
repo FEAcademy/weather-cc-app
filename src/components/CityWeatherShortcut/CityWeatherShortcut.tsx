@@ -1,5 +1,5 @@
 import Weather from 'api/services/Weather';
-import { ButtonTypes } from 'enums/ButtonTypes';
+import { IconTypes } from 'enums/IconTypes';
 import { useMemo } from 'react';
 import { convertSpecialCharacters } from 'utils/convertSpecialCharacters';
 import { FavoritesButton } from 'components/FavoritesButton';
@@ -18,10 +18,10 @@ import { CityWeatherShortcutLoader } from './components/CityWeatherShortcutLoade
 
 type Props = {
   cityName: string;
-  type: ButtonTypes;
+  iconType: IconTypes;
 };
 
-const CityWeatherShortcut = ({ cityName, type }: Props) => {
+const CityWeatherShortcut = ({ cityName, iconType }: Props) => {
   const normalizedCity = useMemo(() => convertSpecialCharacters(cityName), [cityName]);
   const { data, isLoading } = Weather.useLocation(normalizedCity);
 
@@ -44,7 +44,7 @@ const CityWeatherShortcut = ({ cityName, type }: Props) => {
           </Temperature>
           <City>{name}</City>
           <ButtonWrapper>
-            <FavoritesButton cityName={cityName} size={20} buttonType={type} />
+            <FavoritesButton cityName={cityName} size={20} iconType={iconType} />
           </ButtonWrapper>
         </LinkContainer>
       </Tooltip>
