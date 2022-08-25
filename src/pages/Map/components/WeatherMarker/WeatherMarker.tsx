@@ -42,7 +42,7 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
           </Temperature>
           <City title={cityName}>{cityName}</City>
           <ButtonWrapper>
-            <FavoritesButton cityName={normalizedCityName} size={13} type={ButtonTypes.Heart} />
+            <FavoritesButton cityName={normalizedCityName} size={13} buttonType={ButtonTypes.Heart} />
           </ButtonWrapper>
         </>
       );

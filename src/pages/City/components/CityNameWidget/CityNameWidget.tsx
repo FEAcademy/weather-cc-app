@@ -18,7 +18,7 @@ const CityNameWidget = ({ loading, cityName }: Props) => {
     return (
       <CityNameWrapper>
         <CityName data-testid={CityNameWidgetTestIds.CityName}>{cityName}</CityName>
-        <FavoritesButton cityName={cityName} size={20} type={ButtonTypes.Heart} />
+        <FavoritesButton cityName={cityName} size={20} buttonType={ButtonTypes.Heart} />
       </CityNameWrapper>
     );
   }
