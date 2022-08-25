@@ -1,2 +1,2 @@
 export { FavoritesProvider } from './FavoritesProvider';
-export { add } from './Actions';
+export { add, remove } from './Actions';
