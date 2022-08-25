@@ -1,4 +1,4 @@
-import { Name } from './Title.styled';
+import { Name } from './components.styled';
 
 interface Props {
   name: string;
