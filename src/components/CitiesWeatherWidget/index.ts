@@ -1,0 +1,1 @@
+export { CitiesWeatherWidget } from './CitiesWeatherWidget';
