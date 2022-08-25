@@ -1,6 +1,6 @@
 import Weather from 'api/services/Weather';
 import { ButtonTypes } from 'enums/ButtonTypes';
-import { ReactNode, useMemo } from 'react';
+import { useMemo } from 'react';
 import { convertSpecialCharacters } from 'utils/convertSpecialCharacters';
 import { FavoritesButton } from 'components/FavoritesButton';
 import {
@@ -18,7 +18,7 @@ import { CityWeatherShortcutLoader } from './components/CityWeatherShortcutLoade
 
 type Props = {
   cityName: string;
-  type?: ButtonTypes;
+  type: ButtonTypes;
 };
 
 const CityWeatherShortcut = ({ cityName, type }: Props) => {
@@ -33,15 +33,6 @@ const CityWeatherShortcut = ({ cityName, type }: Props) => {
     const { condition, temp_c } = data.current;
     const roundedTemperature = Math.round(temp_c);
     const { name } = data.location;
-    let button: ReactNode = <></>;
-
-    if (type === ButtonTypes.Heart) {
-      button = <FavoritesButton cityName={cityName} size={20} />;
-    }
-
-    if (type === ButtonTypes.Cross) {
-      //
-    }
 
     return (
       <Tooltip title={name}>
@@ -52,7 +43,9 @@ const CityWeatherShortcut = ({ cityName, type }: Props) => {
             <TemperatureSign>&deg;C</TemperatureSign>
           </Temperature>
           <City>{name}</City>
-          <ButtonWrapper>{button}</ButtonWrapper>
+          <ButtonWrapper>
+            <FavoritesButton cityName={cityName} size={20} type={type} />
+          </ButtonWrapper>
         </LinkContainer>
       </Tooltip>
     );
