@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 import { Container } from './CitiesWeatherWidget.styled';
-import { ShortcutsWrapper, Title } from './components/components.styled';
+import { ShortcutsWrapper, Title } from './components/Widget.styled';
 
 interface Props {
   'data-testid': string;
