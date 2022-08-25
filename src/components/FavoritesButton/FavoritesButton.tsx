@@ -1,4 +1,4 @@
-import { add } from 'context/favorites';
+import { add, remove } from 'context/favorites';
 import { useFavorites } from 'context/favorites/FavoritesProvider';
 import { MouseEvent } from 'react';
 import { Heart } from 'react-feather';
@@ -18,6 +18,7 @@ const FavoritesButton = ({ cityName, size }: Props) => {
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!isFavorite) dispatch(add(cityName));
+    else dispatch(remove(cityName));
   };
 
   return (
