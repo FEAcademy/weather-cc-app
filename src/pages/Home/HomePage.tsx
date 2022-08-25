@@ -1,6 +1,6 @@
 import Weather from 'api/services/Weather';
 import { useLocalStorage } from 'hooks/useLocalStorage';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { TemperatureWidget, TemperatureWidgetLoader } from 'components/TemperatureWidget';
 import { WeatherAqiWidget, WeatherAqiWidgetLoader } from 'components/WeatherAqiWidget';
 import { WeatherInfoWidget, WeatherInfoWidgetLoader } from 'components/WeatherInfoWidget';
@@ -10,8 +10,10 @@ import { Container, SelectContainer, WidgetWrapper } from './HomePage.styled';
 import { HomePageTestIds } from './HomePageTestIds';
 
 const HomePage = () => {
-  const [savedLocation, setSavedLocation] = useLocalStorage<string>('current_location');
-  const { data, isLoading } = Weather.useLocation(savedLocation || '');
+  const [currentLocation, setCurrentLocation] = useLocalStorage<string>('current_location');
+  const [, setCurrentCoordinates] = useLocalStorage<[number, number]>('current_coordinates');
+
+  const { data, isLoading } = Weather.useLocation(currentLocation || '');
 
   const renderContent = () => {
     if (isLoading) {
@@ -59,10 +61,14 @@ const HomePage = () => {
 
   const handleChangeSavedLocation = useCallback(
     (value: string) => {
-      setSavedLocation(value);
+      setCurrentLocation(value);
     },
-    [setSavedLocation],
+    [setCurrentLocation],
   );
+
+  useEffect(() => {
+    data && setCurrentCoordinates([data.location.lat, data.location.lon]);
+  }, [data, setCurrentCoordinates]);
 
   return (
     <Container data-testid={HomePageTestIds.HomePage}>

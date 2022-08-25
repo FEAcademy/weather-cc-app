@@ -7,19 +7,16 @@ import { PlaceMarkers } from './PlaceMarkers';
 describe('PlaceMarkers', () => {
   const renderWithMap = () =>
     render(
-      <MapContainer>
+      <MapContainer zoom={10} center={[51.107, 17.038]}>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <PlaceMarkers
-          boundsCoordinates="(50.72167742756552,16.311950683593754,51.48993452350156,17.76351928710938)"
-          zoom={9}
-        />
+        <PlaceMarkers zoom={10} center={[51.107, 17.038]} />
       </MapContainer>,
     );
 
   it('should display and remove loader', async () => {
     renderWithMap();
 
-    const loader = screen.getByTestId(MapLoadingBarTestIds.Loader);
+    const loader = await screen.findByTestId(MapLoadingBarTestIds.Loader, {}, { timeout: 1500 });
 
     expect(loader).toBeInTheDocument();
 
@@ -31,7 +28,7 @@ describe('PlaceMarkers', () => {
   it('should render markers', async () => {
     renderWithMap();
 
-    const markers = await screen.findAllByTestId(WeatherMarkerTestIds.Container);
+    const markers = await screen.findAllByTestId(WeatherMarkerTestIds.Container, {}, { timeout: 1500 });
 
     expect(markers.length).toEqual(3);
   });
