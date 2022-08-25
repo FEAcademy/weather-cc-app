@@ -21,7 +21,7 @@ const NearestCitiesWeatherWidget = ({ cityName, coordinates }: Props) => {
         <CityWeatherShortcut
           key={city.id}
           cityName={city.tags.name}
-          button={<FavoritesButton cityName={cityName} size={20} />}
+          button={<FavoritesButton cityName={city.tags.name} size={20} />}
         />
       ));
     }
