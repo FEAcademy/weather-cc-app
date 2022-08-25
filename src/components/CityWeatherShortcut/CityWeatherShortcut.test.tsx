@@ -33,8 +33,9 @@ describe('CityWeatherShortcut', () => {
     expect(currentTemperature).toBeInTheDocument();
     expect(cityName).toBeInTheDocument();
   });
+
   it('should checks if url pathname changed from "/" to "/city/Katowice"', async () => {
-    render(<CityWeatherShortcut cityName="Katowice" button={<FavoritesButton cityName="Wroclaw" size={20} />} />);
+    render(<CityWeatherShortcut cityName="Katowice" button={<FavoritesButton cityName="Katowice" size={20} />} />);
 
     expect(window.location.pathname).toBe('/');
 
