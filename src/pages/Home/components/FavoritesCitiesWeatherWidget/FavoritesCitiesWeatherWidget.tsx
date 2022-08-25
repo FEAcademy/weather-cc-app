@@ -3,7 +3,7 @@ import { CityWeatherShortcut } from 'components/CityWeatherShortcut';
 import { FavoritesCitiesWeatherWidgetTestIds } from './FavoritesCitiesWeatherWidgetTestIds';
 
 const FavoritesCitiesWeatherWidget = () => {
-  const favouriteCities = ['Warszawa', 'Lublin', 'New York', 'San Francisco', 'Tokyo'];
+  const favouriteCities: string[] = [];
 
   return (
     <CitiesWeatherWidget data-testid={FavoritesCitiesWeatherWidgetTestIds.Container}>

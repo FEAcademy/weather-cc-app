@@ -1,13 +1,13 @@
 import userEvent from '@testing-library/user-event';
+import { ButtonTypes } from 'enums/ButtonTypes';
 import { render, screen } from 'test-utils';
-import { FavoritesButton } from 'components/FavoritesButton';
 import { CityWeatherShortcut } from './CityWeatherShortcut';
 import { CityWeatherShortcutTestIds } from './CityWeatherShortcutTestIds';
 import { CityWeatherShortcutLoaderTestIds } from './components/CityWeatherShortcutLoader';
 
 describe('CityWeatherShortcut', () => {
   it('should render loader when data about weather is not yet retrieved', () => {
-    render(<CityWeatherShortcut cityName="Wroclaw" button={<FavoritesButton cityName="Wroclaw" size={20} />} />);
+    render(<CityWeatherShortcut cityName="Wroclaw" type={ButtonTypes.Heart} />);
 
     const shortcutWidget = screen.getByTestId(CityWeatherShortcutLoaderTestIds.Loader);
 
@@ -15,7 +15,7 @@ describe('CityWeatherShortcut', () => {
   });
 
   it('should render weather widget shortcut', async () => {
-    render(<CityWeatherShortcut cityName="Wroclaw" button={<FavoritesButton cityName="Wroclaw" size={20} />} />);
+    render(<CityWeatherShortcut cityName="Wroclaw" type={ButtonTypes.Heart} />);
 
     const shortcutWidget = await screen.findByTestId(CityWeatherShortcutTestIds.Widget);
 
@@ -23,7 +23,7 @@ describe('CityWeatherShortcut', () => {
   });
 
   it('should render data correctly', async () => {
-    render(<CityWeatherShortcut cityName="Wroclaw" button={<FavoritesButton cityName="Wroclaw" size={20} />} />);
+    render(<CityWeatherShortcut cityName="Wroclaw" type={ButtonTypes.Heart} />);
 
     const weatherIcon = await screen.findByAltText('weather image');
     const cityName = await screen.findByText(/Wroclaw/i);
@@ -35,7 +35,7 @@ describe('CityWeatherShortcut', () => {
   });
 
   it('should checks if url pathname changed from "/" to "/city/Katowice"', async () => {
-    render(<CityWeatherShortcut cityName="Katowice" button={<FavoritesButton cityName="Katowice" size={20} />} />);
+    render(<CityWeatherShortcut cityName="Katowice" type={ButtonTypes.Heart} />);
 
     expect(window.location.pathname).toBe('/');
 
