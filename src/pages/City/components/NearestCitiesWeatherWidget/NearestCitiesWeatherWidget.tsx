@@ -1,6 +1,6 @@
 import Overpass from 'api/services/Overpass';
+import { CitiesWeatherWidget } from 'components/CitiesWeatherWidget';
 import { CityWeatherShortcut, CityWeatherShortcutLoader } from 'components/CityWeatherShortcut';
-import { Container, NearestCitiesTitle, ShortcutsWrapper } from './NearestCitiesWeatherWidget.styled';
 import { NearestCitiesWeatherWidgetTestIds } from './NearestCitiesWeatherWidgetTestIds';
 
 interface Props {
@@ -23,10 +23,10 @@ const NearestCitiesWeatherWidget = ({ cityName, coordinates }: Props) => {
   };
 
   return (
-    <Container data-testid={NearestCitiesWeatherWidgetTestIds.Widget}>
-      <NearestCitiesTitle>nearest</NearestCitiesTitle>
-      <ShortcutsWrapper>{renderContent()}</ShortcutsWrapper>
-    </Container>
+    <CitiesWeatherWidget data-testid={NearestCitiesWeatherWidgetTestIds.Widget}>
+      <CitiesWeatherWidget.Title>nearest</CitiesWeatherWidget.Title>
+      <CitiesWeatherWidget.ShortcutsWrapper>{renderContent()}</CitiesWeatherWidget.ShortcutsWrapper>
+    </CitiesWeatherWidget>
   );
 };
 

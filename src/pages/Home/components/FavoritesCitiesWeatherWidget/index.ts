@@ -1,0 +1,1 @@
+export { FavoritesCitiesWeatherWidget } from './FavoritesCitiesWeatherWidget';
