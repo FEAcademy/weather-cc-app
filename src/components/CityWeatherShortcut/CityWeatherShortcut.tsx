@@ -16,7 +16,7 @@ import { CityWeatherShortcutLoader } from './components/CityWeatherShortcutLoade
 
 type Props = {
   cityName: string;
-  button: ReactNode;
+  button?: ReactNode;
 };
 
 const CityWeatherShortcut = ({ cityName, button }: Props) => {
