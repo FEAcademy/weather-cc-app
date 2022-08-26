@@ -9,12 +9,16 @@ const FavoritesCitiesWeatherWidget = () => {
 
   return (
     <CitiesWeatherWidget data-testid={FavoritesCitiesWeatherWidgetTestIds.Container}>
-      <CitiesWeatherWidget.Title>favorites</CitiesWeatherWidget.Title>
-      <CitiesWeatherWidget.ShortcutsWrapper>
-        {state.favorites.map((city) => (
-          <CityWeatherShortcut key={city} cityName={city} iconType={IconTypes.Heart} />
-        ))}
-      </CitiesWeatherWidget.ShortcutsWrapper>
+      {state.favorites.length > 0 && (
+        <>
+          <CitiesWeatherWidget.Title>favorites</CitiesWeatherWidget.Title>
+          <CitiesWeatherWidget.ShortcutsWrapper>
+            {state.favorites.map((city) => (
+              <CityWeatherShortcut key={city} cityName={city} iconType={IconTypes.Heart} />
+            ))}
+          </CitiesWeatherWidget.ShortcutsWrapper>
+        </>
+      )}
     </CitiesWeatherWidget>
   );
 };
