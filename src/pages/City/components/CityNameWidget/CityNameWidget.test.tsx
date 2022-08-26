@@ -6,7 +6,7 @@ import { CityNameLoaderTestIds } from './components/CityNameLoader';
 
 describe('CityNameWidget', () => {
   it('should render loader when data is still loading', () => {
-    render(<CityNameWidget loading={true} cityName={undefined} />);
+    render(<CityNameWidget loading={true} cityName={undefined} country="Poland" />);
 
     const loader = screen.getByTestId(CityNameLoaderTestIds.Loader);
 
@@ -14,7 +14,7 @@ describe('CityNameWidget', () => {
   });
 
   it('should render cityName', () => {
-    render(<CityNameWidget loading={false} cityName="Wroclaw" />);
+    render(<CityNameWidget loading={false} cityName="Wroclaw" country="Poland" />);
 
     const cityName = screen.getByTestId(CityNameWidgetTestIds.CityName);
 
@@ -22,7 +22,7 @@ describe('CityNameWidget', () => {
   });
 
   it('should render favorites button', () => {
-    render(<CityNameWidget loading={false} cityName="Wroclaw" />);
+    render(<CityNameWidget loading={false} cityName="Wroclaw" country="Poland" />);
 
     const favoritesButton = screen.getByTestId(FavoritesButtonTestIds.Button);
 

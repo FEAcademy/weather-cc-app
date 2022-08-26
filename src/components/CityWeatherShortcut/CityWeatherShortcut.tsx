@@ -32,7 +32,7 @@ const CityWeatherShortcut = ({ cityName, iconType }: Props) => {
   if (data) {
     const { condition, temp_c } = data.current;
     const roundedTemperature = Math.round(temp_c);
-    const { name } = data.location;
+    const { name, country } = data.location;
 
     return (
       <Tooltip title={name}>
@@ -44,7 +44,7 @@ const CityWeatherShortcut = ({ cityName, iconType }: Props) => {
           </Temperature>
           <City>{name}</City>
           <ButtonWrapper>
-            <FavoritesButton cityName={cityName} size={20} iconType={iconType} />
+            <FavoritesButton cityName={name + ',' + country} size={20} iconType={iconType} />
           </ButtonWrapper>
         </LinkContainer>
       </Tooltip>
