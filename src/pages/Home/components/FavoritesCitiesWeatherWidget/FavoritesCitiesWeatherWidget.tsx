@@ -4,13 +4,13 @@ import { CityWeatherShortcut } from 'components/CityWeatherShortcut';
 import { FavoritesCitiesWeatherWidgetTestIds } from './FavoritesCitiesWeatherWidgetTestIds';
 
 const FavoritesCitiesWeatherWidget = () => {
-  const favouriteCities: string[] = [];
+  const favoriteCities: string[] = [];
 
   return (
     <CitiesWeatherWidget data-testid={FavoritesCitiesWeatherWidgetTestIds.Container}>
       <CitiesWeatherWidget.Title>favorites</CitiesWeatherWidget.Title>
       <CitiesWeatherWidget.ShortcutsWrapper>
-        {favouriteCities.map((city) => (
+        {favoriteCities.map((city) => (
           <CityWeatherShortcut key={city} cityName={city} iconType={IconTypes.Heart} />
         ))}
       </CitiesWeatherWidget.ShortcutsWrapper>
