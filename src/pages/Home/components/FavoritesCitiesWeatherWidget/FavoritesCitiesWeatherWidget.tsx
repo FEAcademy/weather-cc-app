@@ -7,9 +7,9 @@ import { FavoritesCitiesWeatherWidgetTestIds } from './FavoritesCitiesWeatherWid
 const FavoritesCitiesWeatherWidget = () => {
   const { state } = useFavorites();
 
-  return (
-    <CitiesWeatherWidget data-testid={FavoritesCitiesWeatherWidgetTestIds.Container}>
-      {state.favorites.length > 0 && (
+  const renderContent = () => {
+    if (state.favorites.length > 0)
+      return (
         <>
           <CitiesWeatherWidget.Title>favorites</CitiesWeatherWidget.Title>
           <CitiesWeatherWidget.ShortcutsWrapper>
@@ -18,7 +18,12 @@ const FavoritesCitiesWeatherWidget = () => {
             ))}
           </CitiesWeatherWidget.ShortcutsWrapper>
         </>
-      )}
+      );
+  };
+
+  return (
+    <CitiesWeatherWidget data-testid={FavoritesCitiesWeatherWidgetTestIds.Container}>
+      {renderContent()}
     </CitiesWeatherWidget>
   );
 };
