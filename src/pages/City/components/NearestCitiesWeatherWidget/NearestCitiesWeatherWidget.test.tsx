@@ -23,6 +23,7 @@ describe('NearestCitiesWeatherWidget', () => {
 
     expect(loaders.length).toBe(6);
   });
+
   it('should render shortcuts', async () => {
     render(<NearestCitiesWeatherWidget cityName={name} coordinates={`${lat},${lon}`} />);
     const nearestCityShortcuts = await screen.findAllByTestId(CityWeatherShortcutTestIds.Widget);

@@ -1,3 +1,4 @@
+import { IconTypes } from 'enums/IconTypes';
 import { FavoritesButton } from 'components/FavoritesButton';
 import { CityName, CityNameWrapper } from './CityNameWidget.styled';
 import { CityNameWidgetTestIds } from './CityNameWidgetTestIds';
@@ -17,7 +18,7 @@ const CityNameWidget = ({ loading, cityName }: Props) => {
     return (
       <CityNameWrapper>
         <CityName data-testid={CityNameWidgetTestIds.CityName}>{cityName}</CityName>
-        <FavoritesButton cityName={cityName} size={20} />
+        <FavoritesButton cityName={cityName} size={20} iconType={IconTypes.Heart} />
       </CityNameWrapper>
     );
   }
