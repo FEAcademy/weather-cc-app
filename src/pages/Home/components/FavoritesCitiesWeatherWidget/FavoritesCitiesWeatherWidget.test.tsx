@@ -25,5 +25,20 @@ describe('FavoritesCitiesWeatherWidget', () => {
 
     expect(title).toBeInTheDocument();
     expect(favoriteCitiesWidgets.length).toBe(2);
+    jest.restoreAllMocks();
+  });
+  it('should not display content when favorite cities array is empty', () => {
+    jest.spyOn(favoriteHook, 'useFavorites').mockReturnValue({
+      dispatch: jest.fn(),
+      state: { favorites: [] },
+      checkIfIsFavorite: jest.fn(),
+    });
+    render(<FavoritesCitiesWeatherWidget />);
+
+    const title = screen.queryByText(/favorites/i);
+    const favoriteCitiesWidgets = screen.queryAllByTestId(CityWeatherShortcutTestIds.Widget);
+
+    expect(title).not.toBeInTheDocument();
+    expect(favoriteCitiesWidgets.length).toBe(0);
   });
 });
