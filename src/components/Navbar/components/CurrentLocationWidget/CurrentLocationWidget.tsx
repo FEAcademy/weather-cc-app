@@ -1,10 +1,11 @@
+import { weatherSuccessResponse } from 'mocks/mockData';
 import ContentLoader from 'react-content-loader';
 import { Weather } from 'models/Weather';
-import { Container, WeatherIcon, Wrapper, Description, DegreeSign } from './CurrentLocationWidget.styled';
+import { Container, WeatherIcon, Description, DegreeSign } from './CurrentLocationWidget.styled';
 
 const CurrentLocationWidget = () => {
   let isLoading = false;
-  const data: Weather | any = {}; // temporary solution in order not to use
+  const data: Weather | any = weatherSuccessResponse; // temporary solution in order not to use
 
   const renderContent = () => {
     if (isLoading) {
@@ -61,11 +62,7 @@ const CurrentLocationWidget = () => {
     return <></>;
   };
 
-  return (
-    <Container>
-      <Wrapper>{renderContent()}</Wrapper>
-    </Container>
-  );
+  return <Container>{renderContent()}</Container>;
 };
 
 export { CurrentLocationWidget };

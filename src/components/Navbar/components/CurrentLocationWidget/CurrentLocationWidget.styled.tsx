@@ -9,11 +9,6 @@ const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.backgrounds.main};
 `;
 
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
 const WeatherIcon = styled.img`
   width: 40px;
   height: 39.26px;
@@ -51,4 +46,4 @@ const DegreeSign = styled.span`
   font-size: 14px;
 `;
 
-export { Container, WeatherIcon, Wrapper, Description, DegreeSign };
+export { Container, WeatherIcon, Description, DegreeSign };
