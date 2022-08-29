@@ -9,6 +9,7 @@ import { NavbarTitles } from './NavbarTitles';
 const Navbar = () => {
   const location: Location = useLocation();
   const isWithShadow: boolean = location.pathname === Paths.Map;
+  const isCurrentLocationWidgetShown: boolean = location.pathname !== Paths.Home;
 
   return (
     <Container data-testid={NavbarTestIds.Container} withShadow={isWithShadow}>
@@ -16,7 +17,7 @@ const Navbar = () => {
         <Logo>
           weather<span>ly</span>
         </Logo>
-        <CurrentLocationWidget />
+        {isCurrentLocationWidgetShown && <CurrentLocationWidget />}
         <NavButtonsWrapper>
           <StyledNavLink to={Paths.Home} title={NavbarTitles.Home}>
             <Home />

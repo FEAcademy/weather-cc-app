@@ -1,19 +1,12 @@
-import { Paths } from 'enums/Paths';
-import { useLocation } from 'react-router-dom';
 import { CurrentLocationWidgetDesktop } from './components/CurrentLocationWidgetDesktop';
 import { CurrentLocationWidgetMobile } from './components/CurrentLocationWidgetMobile';
 import { Container, WeatherIcon, Description, DegreeSign } from './CurrentLocationWidget.styled';
 
 const CurrentLocationWidget = () => {
-  const location = useLocation();
   let isLoading = true;
   const data: any = {}; // temporary solution in order not to use
 
   const renderContent = () => {
-    if (location.pathname === Paths.Home) {
-      return <></>;
-    }
-
     if (isLoading) {
       return (
         <>
