@@ -17,12 +17,8 @@ const CurrentLocationWidget = () => {
     if (isLoading) {
       return (
         <>
-          <div>
-            <CurrentLocationWidgetDesktop />
-          </div>
-          <div>
-            <CurrentLocationWidgetMobile />
-          </div>
+          <CurrentLocationWidgetDesktop />
+          <CurrentLocationWidgetMobile />
         </>
       );
     }

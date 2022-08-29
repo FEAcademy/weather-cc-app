@@ -8,20 +8,20 @@ const Container = styled.div`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.backgrounds.main};
 
-  div:first-child {
+  svg:first-child {
     display: block;
   }
 
-  div:nth-child(2) {
+  svg:nth-child(2) {
     display: none;
   }
 
   @media screen and (max-width: 600px) {
-    div:first-child {
+    svg:first-child {
       display: none;
     }
 
-    div:nth-child(2) {
+    svg:nth-child(2) {
       display: block;
     }
   }
