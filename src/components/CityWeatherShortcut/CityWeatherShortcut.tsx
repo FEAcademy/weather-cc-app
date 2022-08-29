@@ -18,10 +18,10 @@ import { CityWeatherShortcutLoader } from './components/CityWeatherShortcutLoade
 
 type Props = {
   cityName: string;
-  icons: Icons;
+  icon: Icons;
 };
 
-const CityWeatherShortcut = ({ cityName, icons }: Props) => {
+const CityWeatherShortcut = ({ cityName, icon }: Props) => {
   const normalizedCity = useMemo(() => convertSpecialCharacters(cityName), [cityName]);
   const { data, isLoading } = Weather.useLocation(normalizedCity);
 
@@ -44,7 +44,7 @@ const CityWeatherShortcut = ({ cityName, icons }: Props) => {
           </Temperature>
           <City>{name}</City>
           <ButtonWrapper>
-            <FavoritesButton cityName={`${name},${country}`} size={20} icons={icons} />
+            <FavoritesButton cityName={`${name},${country}`} size={20} icon={icon} />
           </ButtonWrapper>
         </LinkContainer>
       </Tooltip>

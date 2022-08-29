@@ -14,7 +14,7 @@ const FavoritesCitiesWeatherWidget = () => {
           <CitiesWeatherWidget.Title>favorites</CitiesWeatherWidget.Title>
           <CitiesWeatherWidget.ShortcutsWrapper>
             {state.favorites.map((city) => (
-              <CityWeatherShortcut key={city} cityName={city} icons={Icons.Heart} />
+              <CityWeatherShortcut key={city} cityName={city} icon={Icons.Heart} />
             ))}
           </CitiesWeatherWidget.ShortcutsWrapper>
         </>

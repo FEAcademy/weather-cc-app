@@ -9,10 +9,10 @@ import { FavoritesButtonTestIds } from './FavoritesButtonTestIds';
 interface Props {
   cityName: string;
   size: number;
-  icons: Icons;
+  icon: Icons;
 }
 
-const FavoritesButton = ({ cityName, size, icons }: Props) => {
+const FavoritesButton = ({ cityName, size, icon }: Props) => {
   const { dispatch, checkIfIsFavorite } = useFavorites();
 
   const isFavorite = checkIfIsFavorite(cityName);
@@ -23,7 +23,7 @@ const FavoritesButton = ({ cityName, size, icons }: Props) => {
   };
 
   const renderIcon = () => {
-    if (icons === Icons.Heart) {
+    if (icon === Icons.Heart) {
       return <Heart size={size} />;
     }
   };

@@ -17,7 +17,7 @@ const NearestCitiesWeatherWidget = ({ cityName, coordinates }: Props) => {
     }
 
     if (data) {
-      return data.map((city) => <CityWeatherShortcut key={city.id} cityName={city.tags.name} icons={Icons.Heart} />);
+      return data.map((city) => <CityWeatherShortcut key={city.id} cityName={city.tags.name} icon={Icons.Heart} />);
     }
 
     return <></>;
