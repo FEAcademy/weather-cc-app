@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { IconTypes } from 'enums/IconTypes';
+import { Icons } from 'enums/Icons';
 import { render, screen } from 'test-utils';
 import { CityWeatherShortcut } from './CityWeatherShortcut';
 import { CityWeatherShortcutTestIds } from './CityWeatherShortcutTestIds';
@@ -7,7 +7,7 @@ import { CityWeatherShortcutLoaderTestIds } from './components/CityWeatherShortc
 
 describe('CityWeatherShortcut', () => {
   it('should render loader when data about weather is not yet retrieved', () => {
-    render(<CityWeatherShortcut cityName="Wroclaw" iconType={IconTypes.Heart} />);
+    render(<CityWeatherShortcut cityName="Wroclaw" icons={Icons.Heart} />);
 
     const shortcutWidget = screen.getByTestId(CityWeatherShortcutLoaderTestIds.Loader);
 
@@ -15,7 +15,7 @@ describe('CityWeatherShortcut', () => {
   });
 
   it('should render weather widget shortcut', async () => {
-    render(<CityWeatherShortcut cityName="Wroclaw" iconType={IconTypes.Heart} />);
+    render(<CityWeatherShortcut cityName="Wroclaw" icons={Icons.Heart} />);
 
     const shortcutWidget = await screen.findByTestId(CityWeatherShortcutTestIds.Widget);
 
@@ -23,7 +23,7 @@ describe('CityWeatherShortcut', () => {
   });
 
   it('should render data correctly', async () => {
-    render(<CityWeatherShortcut cityName="Wroclaw" iconType={IconTypes.Heart} />);
+    render(<CityWeatherShortcut cityName="Wroclaw" icons={Icons.Heart} />);
 
     const weatherIcon = await screen.findByAltText('weather image');
     const cityName = await screen.findByText(/Wroclaw/i);
@@ -35,7 +35,7 @@ describe('CityWeatherShortcut', () => {
   });
 
   it('should checks if url pathname changed from "/" to "/city/Katowice"', async () => {
-    render(<CityWeatherShortcut cityName="Katowice" iconType={IconTypes.Heart} />);
+    render(<CityWeatherShortcut cityName="Katowice" icons={Icons.Heart} />);
 
     expect(window.location.pathname).toBe('/');
 

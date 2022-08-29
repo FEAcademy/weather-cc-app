@@ -1,5 +1,5 @@
 import { useFavorites } from 'context/favorites/FavoritesProvider';
-import { IconTypes } from 'enums/IconTypes';
+import { Icons } from 'enums/Icons';
 import { CitiesWeatherWidget } from 'components/CitiesWeatherWidget';
 import { CityWeatherShortcut } from 'components/CityWeatherShortcut';
 import { FavoritesCitiesWeatherWidgetTestIds } from './FavoritesCitiesWeatherWidgetTestIds';
@@ -14,7 +14,7 @@ const FavoritesCitiesWeatherWidget = () => {
           <CitiesWeatherWidget.Title>favorites</CitiesWeatherWidget.Title>
           <CitiesWeatherWidget.ShortcutsWrapper>
             {state.favorites.map((city) => (
-              <CityWeatherShortcut key={city} cityName={city} iconType={IconTypes.Heart} />
+              <CityWeatherShortcut key={city} cityName={city} icons={Icons.Heart} />
             ))}
           </CitiesWeatherWidget.ShortcutsWrapper>
         </>
