@@ -44,7 +44,7 @@ const CityWeatherShortcut = ({ cityName, iconType }: Props) => {
           </Temperature>
           <City>{name}</City>
           <ButtonWrapper>
-            <FavoritesButton cityName={name + ',' + country} size={20} iconType={iconType} />
+            <FavoritesButton cityName={`${name},${country}`} size={20} iconType={iconType} />
           </ButtonWrapper>
         </LinkContainer>
       </Tooltip>
