@@ -11,8 +11,7 @@ const Container = styled.nav<Props>`
   position: sticky;
   display: flex;
   justify-content: center;
-  background: ${({ theme }) => theme.colors.backgrounds.main};
-  opacity: 0.9;
+  background: rgba(255, 255, 255, 0.9);
   padding: ${({ theme }) => theme.paddings.app};
   z-index: 500;
   ${(props) =>
