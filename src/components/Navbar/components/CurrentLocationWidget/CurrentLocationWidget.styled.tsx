@@ -7,6 +7,24 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.backgrounds.main};
+
+  div:first-child {
+    display: block;
+  }
+
+  div:nth-child(2) {
+    display: none;
+  }
+
+  @media screen and (max-width: 600px) {
+    div:first-child {
+      display: none;
+    }
+
+    div:nth-child(2) {
+      display: block;
+    }
+  }
 `;
 
 const WeatherIcon = styled.img`

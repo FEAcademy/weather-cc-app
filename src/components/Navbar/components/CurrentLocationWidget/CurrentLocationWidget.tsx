@@ -1,20 +1,30 @@
-import { weatherSuccessResponse } from 'mocks/mockData';
-import { Weather } from 'models/Weather';
+import { Paths } from 'enums/Paths';
+import { useLocation } from 'react-router-dom';
 import { CurrentLocationWidgetDesktop } from './components/CurrentLocationWidgetDesktop';
 import { CurrentLocationWidgetMobile } from './components/CurrentLocationWidgetMobile';
 import { Container, WeatherIcon, Description, DegreeSign } from './CurrentLocationWidget.styled';
 
 const CurrentLocationWidget = () => {
-  let isLoading = false;
-  const data: Weather | any = weatherSuccessResponse; // temporary solution in order not to use
+  const location = useLocation();
+  let isLoading = true;
+  const data: any = {}; // temporary solution in order not to use
 
   const renderContent = () => {
+    if (location.pathname === Paths.Home) {
+      return <></>;
+    }
+
     if (isLoading) {
-      if (screen.width > 600) {
-        return <CurrentLocationWidgetDesktop />;
-      } else {
-        return <CurrentLocationWidgetMobile />;
-      }
+      return (
+        <>
+          <div>
+            <CurrentLocationWidgetDesktop />
+          </div>
+          <div>
+            <CurrentLocationWidgetMobile />
+          </div>
+        </>
+      );
     }
 
     if (data) {
