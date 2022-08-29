@@ -1,0 +1,1 @@
+export { CurrentLocationWidgetDesktop } from './CurrentLocationWidgetDesktop';

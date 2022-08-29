@@ -1,6 +1,7 @@
 import { weatherSuccessResponse } from 'mocks/mockData';
-import ContentLoader from 'react-content-loader';
 import { Weather } from 'models/Weather';
+import { CurrentLocationWidgetDesktop } from './components/CurrentLocationWidgetDesktop';
+import { CurrentLocationWidgetMobile } from './components/CurrentLocationWidgetMobile';
 import { Container, WeatherIcon, Description, DegreeSign } from './CurrentLocationWidget.styled';
 
 const CurrentLocationWidget = () => {
@@ -10,33 +11,9 @@ const CurrentLocationWidget = () => {
   const renderContent = () => {
     if (isLoading) {
       if (screen.width > 600) {
-        return (
-          <ContentLoader
-            speed={2}
-            width={219}
-            height={40}
-            viewBox="0 0 219 40"
-            backgroundColor="#e1e1e1"
-            foregroundColor="#ececec"
-          >
-            <circle cx="20" cy="20" r="20" />
-            <rect x="50" y="3" rx="8" ry="8" width="169" height="34" />
-          </ContentLoader>
-        );
+        return <CurrentLocationWidgetDesktop />;
       } else {
-        return (
-          <ContentLoader
-            speed={2}
-            width={120}
-            height={40}
-            viewBox="0 0 120 30"
-            backgroundColor="#e1e1e1"
-            foregroundColor="#ececec"
-          >
-            <circle cx="30" cy="15" r="15" />
-            <rect x="50" y="0" rx="8" ry="8" width="70" height="30" />
-          </ContentLoader>
-        );
+        return <CurrentLocationWidgetMobile />;
       }
     }
 
