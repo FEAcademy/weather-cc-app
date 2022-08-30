@@ -1,4 +1,4 @@
-import { IconTypes } from 'enums/IconTypes';
+import { Icons } from 'enums/Icons';
 import { FavoritesButton } from 'components/FavoritesButton';
 import { CityName, CityNameWrapper } from './CityNameWidget.styled';
 import { CityNameWidgetTestIds } from './CityNameWidgetTestIds';
@@ -7,9 +7,10 @@ import { CityNameLoader } from './components/CityNameLoader';
 interface Props {
   loading: boolean;
   cityName: string | undefined;
+  country: string | undefined;
 }
 
-const CityNameWidget = ({ loading, cityName }: Props) => {
+const CityNameWidget = ({ loading, cityName, country }: Props) => {
   if (loading) {
     return <CityNameLoader />;
   }
@@ -18,7 +19,7 @@ const CityNameWidget = ({ loading, cityName }: Props) => {
     return (
       <CityNameWrapper>
         <CityName data-testid={CityNameWidgetTestIds.CityName}>{cityName}</CityName>
-        <FavoritesButton cityName={cityName} size={20} iconType={IconTypes.Heart} />
+        <FavoritesButton cityName={`${cityName},${country}`} size={20} icon={Icons.Heart} />
       </CityNameWrapper>
     );
   }

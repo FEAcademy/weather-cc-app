@@ -1,6 +1,6 @@
-enum IconTypes {
+enum Icons {
   Heart = 'heart',
   Cross = 'cross',
 }
 
-export { IconTypes };
+export { Icons };

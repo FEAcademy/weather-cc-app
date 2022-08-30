@@ -1,5 +1,5 @@
 import Weather from 'api/services/Weather';
-import { IconTypes } from 'enums/IconTypes';
+import { Icons } from 'enums/Icons';
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
@@ -32,6 +32,7 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
     }
     if (data) {
       const { condition, temp_c } = data.current;
+      const { country } = data.location;
       const roundedTemperature = Math.round(temp_c);
       return (
         <>
@@ -42,7 +43,7 @@ const WeatherMarker = ({ pos, cityName }: Props) => {
           </Temperature>
           <City title={cityName}>{cityName}</City>
           <ButtonWrapper>
-            <FavoritesButton cityName={normalizedCityName} size={13} iconType={IconTypes.Heart} />
+            <FavoritesButton cityName={`${normalizedCityName},${country}`} size={13} icon={Icons.Heart} />
           </ButtonWrapper>
         </>
       );

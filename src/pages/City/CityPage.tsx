@@ -32,7 +32,7 @@ const CityPage = () => {
 
   return (
     <PageContentContainer data-testid={CityPageTestIds.Container}>
-      <CityNameWidget loading={isLoading} cityName={data?.location.name} />
+      <CityNameWidget loading={isLoading} cityName={data?.location.name} country={data?.location.country} />
       <WidgetWrapper data={data} isLoading={isLoading} data-testid={CityPageTestIds.Widgets} />
       <NearestCitiesWeatherWidget cityName={cityName} coordinates={coordinates} />
     </PageContentContainer>
