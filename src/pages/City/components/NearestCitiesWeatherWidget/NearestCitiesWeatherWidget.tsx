@@ -1,6 +1,7 @@
 import Overpass from 'api/services/Overpass';
+import { Icons } from 'enums/Icons';
+import { CitiesWeatherWidget } from 'components/CitiesWeatherWidget';
 import { CityWeatherShortcut, CityWeatherShortcutLoader } from 'components/CityWeatherShortcut';
-import { Container, NearestCitiesTitle, ShortcutsWrapper } from './NearestCitiesWeatherWidget.styled';
 import { NearestCitiesWeatherWidgetTestIds } from './NearestCitiesWeatherWidgetTestIds';
 
 interface Props {
@@ -16,17 +17,17 @@ const NearestCitiesWeatherWidget = ({ cityName, coordinates }: Props) => {
     }
 
     if (data) {
-      return data.map((city) => <CityWeatherShortcut key={city.id} cityName={city.tags.name} />);
+      return data.map((city) => <CityWeatherShortcut key={city.id} cityName={city.tags.name} icon={Icons.Heart} />);
     }
 
     return <></>;
   };
 
   return (
-    <Container data-testid={NearestCitiesWeatherWidgetTestIds.Widget}>
-      <NearestCitiesTitle>nearest</NearestCitiesTitle>
-      <ShortcutsWrapper>{renderContent()}</ShortcutsWrapper>
-    </Container>
+    <CitiesWeatherWidget data-testid={NearestCitiesWeatherWidgetTestIds.Widget}>
+      <CitiesWeatherWidget.Title>nearest</CitiesWeatherWidget.Title>
+      <CitiesWeatherWidget.ShortcutsWrapper>{renderContent()}</CitiesWeatherWidget.ShortcutsWrapper>
+    </CitiesWeatherWidget>
   );
 };
 
